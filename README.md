@@ -1,0 +1,328 @@
+# Towards Validity-Weighted Attenuation of Affective Noise in Student Evaluations of Teaching: An Interpretable ABSA Framework
+# Bassil Obeidi, 2026
+# CP-493 Directed Research Project I
+
+A transparent, interpretable NLP pipeline for improving the signal-to-noise ratio in Student Evaluations of Teaching (SET). The framework decomposes reviews into pedagogical topics, extracts clause-level emotions using RoBERTa-GoEmotions, and applies validity-weighted attenuation to reduce the influence of construct-irrelevant affective content on numerical ratings.
+
+*Towards Validity-Weighted Attenuation of Affective Noise in Student Evaluations of Teaching: An Interpretable ABSA Framework*
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## Table of Contents
+
+1. [Overview](#1-overview)
+2. [Project Structure](#2-project-structure)
+3. [Setup](#3-setup)
+4. [Pipeline Usage](#4-pipeline-usage)
+5. [Data Requirements](#5-data-requirements)
+6. [Module Reference](#6-module-reference)
+7. [Output Files](#7-output-files)
+8. [Hardware Requirements & Estimated Runtimes](#8-hardware-requirements--estimated-runtimes)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## 1. Overview
+
+Student Evaluations of Teaching (SET) are widely used in academic institutions to guide consequential decisions about faculty. However, SET validity is compromised by well-documented sources of noise. Students' emotional states, off-topic commentary, and situational factors that are unrelated to instructional quality. This framework mitigates the impact of affective noise (off-topic comments) on numerical ratings through a five-stage computational pipeline:
+
+1. **Text preprocessing** — cleans raw SET reviews (encoding errors, informal language, abbreviations)
+2. **Clause extraction and topic categorization (ATC)** — splits reviews into clauses and assigns each to one of three pedagogical topics (Instructional Effectiveness, Fairness & Grading, Workload & Difficulty) or to a Miscellaneous category using sentence-BERT embeddings and cosine similarity
+3. **Emotion extraction** — runs each clause through a quantized RoBERTa-GoEmotions model to produce a 28-dimensional emotion probability vector
+4. **Regression modelling** — trains a CatBoost model to predict numerical ratings from topic-level emotion features, revealing which topics and emotions drive ratings
+5. **Validity-weighted attenuation** — down-weights Miscellaneous emotional content proportional to its density in each review, uses catboost to predict a baseline rating and an attenuated rating using the down-weighted feature set, then generates adjusted ratings that better reflect pedagogical signal
+
+
+**Key outputs:**
+- Adjusted numerical ratings with reduced affective noise
+- Per-review attenuation deltas (Δ) quantifying the magnitude and direction of each adjustment
+- Topic-level emotional and structural analysis
+- Correlation analysis before and after Adjustment
+- SHAP-based feature importance visualizations
+- Expert Validation of ATC and Attenuation
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## 2. Project Structure
+
+```
+absa_validity_weighted_set/
+│
+├── pipeline.py              # Main entry point
+├── constants.py             # All configuration, paths, and hyperparameters
+├── setup.py                 # One-command environment setup (auto-detects GPU)
+├── requirements.txt         # Python dependencies (excluding torch)
+│
+├── src/
+│   ├── preprocessing.py     # Stage 1: Raw data cleaning and text normalization
+│   ├── atc.py               # Stage 2: Clause extraction and topic categorization
+│   ├── sentiment.py         # Stage 3: RoBERTa-GoEmotions emotion extraction
+│   ├── regression.py        # Stage 4: Feature engineering and CatBoost training
+│   ├── attenuation.py       # Stage 5: Validity-weighted rating adjustment
+│   ├── validation.py        # Stage 6: Expert attenuation validation
+│   ├── atc_validation.py    # ATC inter-rater agreement and expert accuracy
+│   └── visualizations/
+│       ├── descriptive_plots.py    # Topic frequencies, combinations, emotion heatmaps
+│       ├── attenuation_plots.py    # SHAP, Δ distributions, professor-level shifts
+│       └── correlation_plots.py   # Correlation changes before/after attenuation
+│
+├── data/
+│   ├── raw/                 # Input files 
+│   └── processed/           # Intermediate and final outputs (generated by pipeline)
+│
+└── models/                  # Trained CatBoost model (generated by pipeline) and feature importance csv
+```
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## 3. Setup
+
+### Python version
+
+This project requires **Python 3.10**. Using a different version may cause dependency conflicts.
+
+### Option A: conda (recommended)
+
+```bash
+conda create -n absa_env python=3.10
+conda activate absa_env
+python setup.py
+```
+
+`setup.py` automatically detects whether an NVIDIA GPU is present, installs the appropriate PyTorch build (CUDA or CPU-only), installs all remaining dependencies from `requirements.txt`, and downloads the spaCy model. No manual steps are required.
+
+### Option B: venv
+
+Requires Python 3.10 installed on your system.
+
+```bash
+python3.10 -m venv absa_env
+
+# Activate (macOS/Linux)
+source absa_env/bin/activate
+
+# Activate (Windows)
+absa_env\Scripts\activate
+
+python setup.py
+```
+
+### Model downloads
+
+Two models are downloaded automatically on first run and cached locally. No manual steps required:
+
+**RoBERTa-GoEmotions (ONNX)** — `SamLowe/roberta-base-go_emotions-onnx`
+Downloaded via `huggingface_hub` to `~/.cache/huggingface/`. The INT8-quantized ONNX variant is used for efficient CPU inference. Approximately 80 MB.
+
+**Sentence-BERT** — `sentence-transformers/all-mpnet-base-v2`
+Downloaded via `sentence-transformers` to `~/.cache/torch/sentence_transformers/`. Used for clause-topic embedding comparisons in the ATC stage. Approximately 420 MB.
+
+Both downloads happen once. Subsequent runs load from the local cache.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## 4. Pipeline Usage
+
+Run from the project root directory with the conda/venv environment activated.
+
+### Full pipeline
+
+```bash
+python pipeline.py
+```
+
+Runs all six stages in sequence: preprocessing → ATC → sentiment → regression → attenuation → validation.
+
+### All available flags
+
+| Flag | Description |
+|------|-------------|
+| `--optimize-s` | Re-run grid search to find the optimal damping exponent `s`. By default uses the value in `constants.py`. |
+| `--skip-validation` | Skip the attenuation expert validation stage. |
+| `--skip-atc-validation` | Skip the ATC validation stage.  |
+| `--visualize` | Generate all plots after the pipeline completes. |
+| `--visualize-only` | Skip all pipeline stages and only generate plots. Requires existing outputs in `data/processed/`. |
+
+### Example combinations
+
+```bash
+# Full pipeline with plots
+python pipeline.py --visualize
+
+# Full pipeline, skip both validation stages, show plots
+python pipeline.py --skip-validation --skip-atc-validation --visualize
+
+# Re-optimize s value and show plots
+python pipeline.py --optimize-s --visualize
+
+# Generate plots from existing outputs without re-running the pipeline
+python pipeline.py --visualize-only
+```
+
+### Running individual stages
+
+Each module can be run independently from the project root given the necessary files already exist:
+
+```bash
+python -m src.preprocessing
+python -m src.atc
+python -m src.sentiment
+python -m src.regression
+python -m src.attenuation
+python -m src.attenuation --optimize-s   # with grid search
+python -m src.validation
+python -m src.atc_validation
+```
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## 5. Data Requirements
+
+### Required files — in `data/raw/`
+
+| File | Description |
+|------|-------------|
+| `RateMyProfessor_Sample data.csv` | RateMyProfessors SET reviews dataset. 
+
+Source of dataset:
+https://doi.org/10.17632/fvtfjyvw7d.2
+
+If using custom data the dataset must contain at minimum: a professor name column, school/institution column, state/province column, a numerical rating column (1–5 scale per-review), and a textual review column. 
+Modify the *normalize_columns* function in **`src/preprocessing.py`** to map your custom column names to the framework's expected format.
+
+### Optional validation files — in `data/raw/`
+
+These files are only required if running the validation stages. Use `--skip-validation` and `--skip-atc-validation` to skip them.
+
+| File | Required by | Description |
+|------|-------------|-------------|
+| `expert_labels.csv` | `validation.py` | Paired review comparisons with expert validity judgments |
+| `atc_expert_labels.xlsx` | `atc_validation.py` | Expert-labelled clause categories |
+| `atc_predictions.csv` | `atc_validation.py` | ATC model predictions for the labelled clause set |
+| `grok.csv` | `atc_validation.py` | Grok LLM clause categorizations for inter-rater agreement |
+| `gpt.csv` | `atc_validation.py` | GPT LLM clause categorizations for inter-rater agreement |
+
+### data/processed/ and models/
+
+Both processed data and model data directories can be empty to start. The pipeline creates all files automatically.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## 6. Module Reference
+
+**`constants.py`** — single source of truth for all configuration. Contains file paths, topic descriptions used for ATC embeddings, emotion label sets, CatBoost hyperparameters, attenuation parameters (including `S_VALUE`), and validation thresholds. Modify this file to change any pipeline behaviour without touching the stage modules.
+
+**`src/preprocessing.py`** — handles all raw data cleaning in two sub-stages. The structural filtering stage removes Quebec reviews, empty/no-comment reviews, auto-tagged profanity reviews, and reviews from professors with fewer than 8 total reviews. The text normalization stage fixes encoding errors (mojibake, escaped apostrophes), converts to lowercase, expands abbreviations and short-forms, tags emojis and self-censored profanity, and cleans punctuation.
+
+**`src/atc.py`** — implements the Aspect-Term Categorization (ATC) stage. First, reviews are split into clauses using spaCy with a three-strategy adaptive approach (punctuation-based, comma-based, or stopword-based splitting). Each clause is then embedded using `all-mpnet-base-v2` and compared against pre-computed topic description embeddings via cosine similarity. Clauses above the similarity threshold (τ = 0.25) are assigned to the closest topic; all others are labelled Miscellaneous. Pedagogical density metrics (D_eff, D_fair, D_work, D_misc) are calculated per review.
+
+**`src/sentiment.py`** — runs per-clause emotion extraction using the INT8-quantized ONNX variant of `SamLowe/roberta-base-go_emotions`. Each clause produces a 28-dimensional sigmoid probability vector across the GoEmotions label set. The Neutral dimension is retained in the parquet output and dropped in the regression stage. All inference runs on CPU using parallel ONNX session options.
+
+**`src/regression.py`** — builds the per-review feature matrix by pivoting per-clause emotion vectors to produce topic-level mean emotion profiles (108 features) and attaching the four density metrics (112 total). A CatBoost regression model is trained with professor-level stratified 5-fold cross-validation followed by final evaluation on held-out professors. The trained model is saved to `models/`.
+
+**`src/attenuation.py`** — applies validity-weighted attenuation. Miscellaneous emotion features are down-weighted by the factor ζ = 1 − (D_misc)^s, where s is the damping exponent (default 0.86, or optimized via grid search with `--optimize-s`). The trained CatBoost model is run on both the original and down-weighted feature matrices; the difference in predictions (Δ) is added to the raw student rating to produce the adjusted rating.
+
+**`src/validation.py`** — evaluates the attenuation mechanism against expert human judgment using paired comparison. Pairs of reviews are evaluated by an expert who identifies the more pedagogically valid review without access to model outputs. Accuracy is reported overall and separately for coarse pairs (large Δ difference) and fine-grained pairs (subtle Δ difference).
+
+**`src/atc_validation.py`** — evaluates the ATC model in two ways: inter-rater agreement between two LLMs (Cohen's κ) confirms that the four topic categories are conceptually distinct, and expert validation measures the accuracy of the ATC model against human-labelled clauses using top-1 set-based and strict single-label criteria.
+
+**`src/visualizations/descriptive_plots.py`** — generates topic frequency charts, topic combination bar charts, topic-rating heatmaps, and emotion heatmaps for all clauses, 5-star clauses, and 1-star clauses.
+
+**`src/visualizations/attenuation_plots.py`** — generates SHAP beeswarm and importance plots, the attenuation Δ distribution histogram, professor-level rating shift KDE plots, and the three-panel attunement logic map (density vs. intensity vs. Δ).
+
+**`src/visualizations/correlation_plots.py`** — generates the Pearson and Spearman correlation bar charts before and after attenuation, and the weighted average percentage change in correlation magnitude per topic.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## 7. Output Files
+
+All intermediate and final outputs are written to `data/processed/` and `models/`.
+
+### data/processed/
+
+| File | Stage | Description |
+|------|-------|-------------|
+| `professors_cleaned.csv` | 1 | One row per professor with average rating and review count |
+| `reviews_cleaned.csv` | 1 | Filtered reviews with assigned professor IDs |
+| `reviews_text_cleaned.csv` | 1 | Reviews after full text normalization |
+| `clause_dataset.csv` | 2 | Reviews with extracted clause lists |
+| `exploded_clauses.csv` | 2 | One row per clause with predicted topic and similarity scores |
+| `ATExtracted_reviews.csv` | 2 | Pivoted clauses per review with pedagogical density metrics |
+| `final_clause_vectors.parquet` | 3 | One row per clause with 28 GoEmotions probability scores |
+| `final_emotions.csv` | 4 | Per-review feature matrix (112 features: 4 topics × 27 emotions + 4 density metrics) |
+| `weighted_emotions.csv` | 5 | Feature matrix after Miscellaneous emotion down-weighting |
+| `attuned_ratings.csv` | 5 | Reviews with misc_d > 0: baseline predicted ratings, attenuated ratings, and attenuation Δ values |
+| `attuned_ratings_full.csv` | 5 | All reviews including those with no Miscellaneous content |
+| `prof_with_att_average.csv` | visuals | Professor-level average ratings before and after adjustment |
+
+### models/
+
+| File | Stage | Description |
+|------|-------|-------------|
+| `cat_boost_final.cbm` | 4 | Trained CatBoost regression model |
+| `final_feature_importance.csv` | 4 | Per-feature importance scores from the final model |
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## 8. Hardware Requirements & Estimated Runtimes
+ 
+No GPU is required to run the framework. However, ATC benefits from GPU versus CPU. All other stages run on CPU.
+
+Runtimes below are tested using mid-high range hardware (Intel i5-13600K + RTX 4070 Super).
+ 
+| Stage | Module | Estimated Runtime |
+|-------|--------|-------------------|
+| Preprocessing | `preprocessing.py` | 3.6 seconds |
+| ATC (clause extraction + embedding) | `atc.py` | 1.27 minutes (GPU) / 9 minutes (CPU) |
+| Sentiment extraction | `sentiment.py` | 6.61 minutes |
+| Regression (5-fold CV + final model) | `regression.py` | 40 seconds |
+| Attenuation + grid search (`--optimize-s`) | `attenuation.py` | 3.6 seconds |
+| ATC Validation | `atc_validation.py` | 0.2 seconds |
+| Validation | `validation.py` | 0.1 seconds |
+| Descriptive visualizations | `descriptive_plots.py` | 7.2 seconds |
+| Attenuation visualizations | `attenuation_plots.py` | 5.3 seconds |
+| Correlation visualizations | `correlation_plots.py` | 1.2 seconds |
+ 
+**Total with GPU:** approximately 8.9 minutes.  
+**Total CPU only:** approximately 16 minutes.
+
+### Disk Space Requirements
+
+**Pipeline outputs** (`data/processed/` + `models/`): ~80 MB
+
+**Python environment** — installed package sizes (approximate):
+
+| Package | Size |
+|---------|------|
+| PyTorch cu128 | ~3.5 GB |
+| CatBoost | ~350 MB |
+| SciPy | ~150 MB |
+| PyArrow | ~100 MB |
+| llvmlite (Numba dependency) | ~120 MB |
+| Numba | ~30 MB |
+| spaCy | ~30 MB |
+| ONNX Runtime | ~50 MB |
+| Transformers + Tokenizers | ~45 MB |
+| Matplotlib | ~30 MB |
+| scikit-learn | ~30 MB |
+| All other dependencies | ~150 MB |
+| **Subtotal (packages)** | **~4.6 GB** |
+
+**Downloaded model weights** (cached in `~/.cache/`):
+
+| Model | Size |
+|-------|------|
+| `sentence-transformers/all-mpnet-base-v2` | ~420 MB |
+| `SamLowe/roberta-base-go_emotions-onnx` (INT8) | ~80 MB |
+| `en_core_web_sm` (spaCy) | ~15 MB |
+| **Subtotal (model cache)** | **~515 MB** |
+
+**Total estimated disk usage: ~5.2 GB**
+
+> Note: PyTorch cu128 accounts for the majority of disk usage (~3.5 GB). If running CPU-only, the CPU PyTorch build is approximately 300 MB, reducing total disk usage to approximately 2.0 GB.
+
+**Memory:** peak memory usage occurs during the ATC embedding stage and the sentiment extraction stage. Approximately 2–3 GB RAM is sufficient for datasets up to ~20,000 reviews.
