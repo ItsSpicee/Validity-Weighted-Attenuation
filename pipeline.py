@@ -19,6 +19,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 
+from constants import DATA_DIR
 from src import preprocessing, atc, sentiment, regression, attenuation, validation, atc_validation
 from src.visualizations import attenuation_plots, descriptive_plots, correlation_plots
 
@@ -61,6 +62,9 @@ def _timed(fn, *args, **kwargs):
 
 def main() -> None:
     args = parse_args()
+
+    #Generate folder for processed data if does not exist
+    (DATA_DIR / "processed").mkdir(parents=True, exist_ok=True)
 
     print("\n" + "=" * 60)
     print("ABSA Validity-Weighted SET Pipeline")

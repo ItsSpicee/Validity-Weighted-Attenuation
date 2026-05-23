@@ -11,8 +11,12 @@ from pathlib import Path
 # PATHS
 # ==============================================================================
 
-DATA_DIR   = Path("data")
-MODELS_DIR = Path("models")
+# 1. Establish the absolute project root (where constants.py lives)
+ROOT_DIR = Path(__file__).resolve().parent
+
+# 2. Anchor all top-level directories to the project root
+DATA_DIR   = ROOT_DIR / "data"
+MODELS_DIR = ROOT_DIR / "models"
 
 # Inputs
 RAW_DATASET        = DATA_DIR / "raw" / "RateMyProfessor_Sample data.csv"
