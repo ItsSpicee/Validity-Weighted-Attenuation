@@ -27,7 +27,7 @@ A transparent, interpretable NLP pipeline for improving the signal-to-noise rati
 Student Evaluations of Teaching (SET) are widely used in academic institutions to guide consequential decisions about faculty. However, SET validity is compromised by well-documented sources of noise. Students' emotional states, off-topic commentary, and situational factors that are unrelated to instructional quality. This framework mitigates the impact of affective noise (off-topic comments) on numerical ratings through a five-stage computational pipeline:
 
 1. **Text preprocessing** — cleans raw SET reviews (encoding errors, informal language, abbreviations)
-2. **Clause extraction and topic categorization (ATC)** — splits reviews into clauses and assigns each to one of three pedagogical topics (Instructional Effectiveness, Fairness & Grading, Workload & Difficulty) or to a Miscellaneous category using sentence-BERT embeddings and cosine similarity
+2. **Clause extraction and topic categorization (ATC)** — splits reviews into clauses and assigns each to one of three pedagogical topics (Instructional Effectiveness, Fairness & Grading, Workload & Difficulty) or to a Miscellaneous category using sentence-BERT style embeddings and cosine similarity
 3. **Emotion extraction** — runs each clause through a quantized RoBERTa-GoEmotions model to produce a 28-dimensional emotion probability vector
 4. **Regression modelling** — trains a CatBoost model to predict numerical ratings from topic-level emotion features, revealing which topics and emotions drive ratings
 5. **Validity-weighted attenuation** — down-weights Miscellaneous emotional content proportional to its density in each review, uses catboost to predict a baseline rating and an attenuated rating using the down-weighted feature set, then generates adjusted ratings that better reflect pedagogical signal
@@ -116,7 +116,7 @@ Two models are downloaded automatically on first run and cached locally. No manu
 **RoBERTa-GoEmotions (ONNX)** — `SamLowe/roberta-base-go_emotions-onnx`
 Downloaded via `huggingface_hub` to `~/.cache/huggingface/`. The INT8-quantized ONNX variant is used for efficient CPU inference. Approximately 80 MB.
 
-**Sentence-BERT** — `sentence-transformers/all-mpnet-base-v2`
+**Sentence Embedding Model** — `sentence-transformers/all-mpnet-base-v2`
 Downloaded via `sentence-transformers` to `~/.cache/torch/sentence_transformers/`. Used for clause-topic embedding comparisons in the ATC stage. Approximately 420 MB.
 
 Both downloads happen once. Subsequent runs load from the local cache.
