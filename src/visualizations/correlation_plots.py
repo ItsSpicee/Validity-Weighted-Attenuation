@@ -23,9 +23,9 @@ from constants import (
     MISC_D_COL,
     POS_EMOTIONS,
     NEG_EMOTIONS,
-    TOPICS,             
+    TOPICS,
     TOPIC_DISPLAY_NAMES,
-    
+    REPORT_ON_HELDOUT,
 )
 
 POLARITIES  = ["pos", "neg"]
@@ -217,10 +217,27 @@ def run() -> None:
     df     = pd.read_csv(FINAL_EMOTIONS)
     df_att = pd.read_csv(ATTUNED_RATINGS)
 
-    
+
     df_data   = df.drop(columns=METADATA_COLS)
     df_data   = df_data[df_data[MISC_D_COL] > 0].reset_index(drop=True)
     final_df  = df_att.copy()
+
+    # These correlations are the quantities the s-value loss is built from, so
+    # they are only meaningful on professors excluded from tuning and training.
+    # df_data and final_df are row-aligned (both are the misc subset in order),
+    # so the same positional mask applies to each.
+    if REPORT_ON_HELDOUT:
+        if "is_heldout" not in final_df.columns:
+            raise KeyError(
+                "attuned_ratings.csv has no 'is_heldout' column — re-run stage 5 "
+                "(attenuation) to regenerate it, or set REPORT_ON_HELDOUT = False."
+            )
+        mask     = final_df["is_heldout"].to_numpy(dtype=bool)
+        df_data  = df_data[mask].reset_index(drop=True)
+        final_df = final_df[mask].reset_index(drop=True)
+        print(f"  Held-out professors only: {len(final_df):,} reviews")
+    else:
+        print(f"  Full sample: {len(final_df):,} reviews")
 
     print("  Computing correlations...")
     corr_df = build_corr_records(df_data, final_df)

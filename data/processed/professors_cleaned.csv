@@ -1,0 +1,1030 @@
+prof_ID,professor,school,department,state,average_rating,review_count
+1,A J Senchack,Southwestern University,Business department,TX,3.3333333333333335,9
+2,A Osaitile,Volunteer State Community College,Education department,TN,3.65,20
+4,Aaron Fogel,Boston University,English department,MA,3.763157894736842,19
+5,Aaron Kozbelt,Brooklyn College,Psychology department,NY,4.65,20
+6,Abi Awomolo,Clark Atlanta University,Political Science department,GA,4.05,10
+7,Adele Mueller,St. Thomas University,Sociology department,NB,2.5789473684210527,19
+8,Aimee Miller,Millersville University,Chemistry department,PA,3.375,20
+9,Akif Uzman,University of Houston Downtown,Chemistry department,TX,3.3333333333333335,9
+10,Alan Bell,University of Maryland,Languages department,Baltimore,2.611111111111111,18
+11,Alan Bell,University of Victoria,Fine Arts department,BC,2.96875,16
+12,Alan Cavaiola,Monmouth University,Psychology department,NJ,4.2368421052631575,19
+13,Alan Kaminsky,Rochester Institute of Technology,Computer Science department,NY,2.5,20
+14,Albert Pyzik,Denison University,Chemistry department,OH,1.9411764705882353,17
+16,Alexandre Avdulov,Saint Mary\'s University,Languages department,NS,4.2631578947368425,19
+17,Alfredo Perez-Davila,University of Houston-Clear Lake,Computer Science department,TX,2.95,10
+20,Allan R Baer,Queen\'s University at Kingston,Medicine department,ON,3.210526315789474,19
+22,Allen Crocket,The Ohio State University,Fine Arts department,OH,3.772727272727273,11
+23,Alvin Snadowsky,Brooklyn College,Psychology department,NY,4.526315789473684,19
+25,Amin Ibrahim,University of Texas Rio Grande Valley (all campuses),Chemistry department,TX,3.8421052631578947,19
+26,Anabelle Cohen,College of Staten Island (CUNY - Staten Island),Biology department,NY,1.5,9
+27,Ananya Mukherjee Reed,York University (all campuses),Political Science department,ON,3.642857142857143,14
+29,Andrea Giampetro-Meyer,Loyola University Maryland,Law department,MD,4.675,20
+30,Andrea Neves,Sonoma State University,Education department,CA,2.3333333333333335,12
+31,Andrea O\'Bryan,Eastern Kentucky University,Mathematics department,KY,3.2058823529411766,17
+32,Andrea Tyree,Stony Brook University (SUNY),Sociology department,NY,3.5,12
+33,Andrea Woody,University of Washington,Philosophy department,WA,4.321428571428571,14
+34,Andrew Delamater,Brooklyn College,Psychology department,NY,2.95,20
+35,Andrew Glennon,DePaul University,Mathematics department,IL,2.1052631578947367,19
+37,Andrew Irvine,University of British Columbia,Philosophy department,BC,4.625,20
+38,Andrew Lesk,University of Toronto - St. George Campus,English department,ON,2.05,20
+40,Andrew Preston,University of Victoria,History department,BC,4.861111111111111,18
+41,Andrzej Czajkowski,University of Ottawa,Physics department,ON,3.5,20
+42,Andy Jones,University of California Davis,English department,CA,4.125,20
+43,Andy Katz,Denison University,Political Science department,OH,4.675,20
+44,Andy Terry,University of Arkansas at Little Rock,Finance department,AR,2.5,9
+45,Angela Mills,Brock University,English department,ON,4.75,12
+46,Angela O\'Mahony,University of British Columbia,Political Science department,BC,3.7333333333333334,15
+47,Angelica Vessella,Rhode Island College,Fine Arts department,RI,4.45,20
+48,Anita Girton,Pennsylvania College of Technology,Computer Science department,PA,3.1052631578947367,19
+49,Anita Hampton,Georgia State University Perimeter College - Decatur,Biology department,GA,2.2083333333333335,12
+50,Anita Wagman-Iscove,York University- Glendon campus,Hispanic Studies department,ON,2.3333333333333335,18
+51,Ann Joyce,King\'s College,Communication department,PA,3.4375,8
+52,Ann Lewald,Tennessee Tech University,English department,TN,3.8157894736842106,19
+53,Anne L. Dearing,Hudson Valley Community College,English department,NY,2.4,20
+55,Anne Ramirez,Neumann University,English department,PA,1.46875,16
+56,Anne Wall,Austin Peay State University,Education department,TN,4.5,20
+58,Annie Gilson,Oakland University,English department,MI,4.7,20
+59,Annis Golden,University at Albany (SUNY Albany),Communication department,NY,3.7333333333333334,15
+60,Anthony James,Coastal Carolina Community College,History department,NC,4.0,20
+61,Anthony Roda,SUNY Oneonta,Philosophy department,NY,2.3157894736842106,19
+63,Anthony Stewart,Dalhousie University,English department,NS,3.8157894736842106,19
+64,Anthony Zoccolilo,DeVry University,Psychology department,NJ,4.4,15
+65,Anton Armstrong,St. Olaf College,Music department,MN,3.730769230769231,13
+67,Anwarul Haque,University of Alabama,Engineering department,AL,3.4705882352941178,17
+68,April Haggard,Maryville College,Languages department,TN,4.633333333333334,15
+69,Arlan Schultz,University of Lethbridge,Music department,AB,4.45,10
+70,Arnold Kaminsky,California State University Long Beach,Ethnic Studies department,CA,3.25,20
+71,Arthur Chapman,Georgia State University Perimeter College - Decatur,History department,GA,4.2,20
+72,Arthur Droge,University of California San Diego,Literature department,CA,3.6842105263157894,19
+73,Arthur Kroker,University of Victoria,Political Science department,BC,3.9444444444444446,9
+75,Arthur Tyson,Middle Georgia State University (all campuses),Biology department,GA,3.1,10
+76,Ashraf Shirani,San Jose State University,Business department,CA,3.275,20
+79,Aurora Wallace,New York University,Communication department,NY,3.4210526315789473,19
+83,B Bratcher,Volunteer State Community College,English department,TN,3.4375,8
+86,B Jobe Jr.,Volunteer State Community College,Communication department,TN,3.1578947368421053,19
+87,B Trentham,Volunteer State Community College,Accounting department,TN,4.815789473684211,19
+88,B.R. Smith,Central Michigan University,Fine Arts department,MI,2.25,18
+89,Babatunde Ogunnaike,University of Delaware,Engineering department,DE,4.166666666666667,9
+91,Barbara Gfellner,Brandon University,Psychology department,MB,2.1176470588235294,17
+92,Barbara Kimmelman,Philadelphia University,History department,PA,2.6,20
+94,Barbara Odabashian,John Jay College of Criminal Justice,English department,NY,3.361111111111111,18
+96,Barbara Von Barghahn-Calvetti,George Washington University,Art History department,DC,4.35,20
+98,Barry Cohen,New Jersey Institute of Technology,Computer Science department,NJ,4.105263157894737,19
+99,Bennie Perdue,Miami Dade College (all),Sociology department,FL,4.375,20
+100,Benny Lo,Devry University,Computer Science department,CA,1.4090909090909092,11
+101,Beryl Kalisa,Georgia State University Perimeter College - Decatur,History department,GA,2.4,20
+103,Beth Hilburn,San Jacinto College - Central,History department,TX,4.8,20
+104,Beth Todd,University of Alabama,Engineering department,AL,4.375,16
+105,Betty Given,Eastern Kentucky University,Mathematics department,KY,3.269230769230769,13
+106,Betty Zacate,Joliet Junior College,Fine Arts department,IL,2.55,20
+108,Bill Babula,Sonoma State University,English department,CA,4.266666666666667,15
+109,Bill Hodges,El Centro College,Culinary Arts department,TX,4.136363636363637,11
+110,Bill Marsh,University of Cincinnati Blue Ash College,Mathematics department,OH,3.45,10
+112,Bill Peterson,Smith College,Psychology department,MA,4.823529411764706,17
+113,Bill Sanders,University of Hartford,Computer Science department,CT,2.1,20
+114,Bingwu Wang,Eastern Michigan University,Mathematics department,MI,4.65,20
+115,Blake Sorem,Pierce College (all),Economics department,WA,4.05,20
+116,Bob Baugher,Highline College,Psychology department,WA,4.7,20
+117,Bob Betts,Rock Valley College,Humanities department,IL,3.75,20
+118,Bob Broderick,Cambrian College,Health Science department,ON,3.611111111111111,9
+119,Bob Fey,Irvine Valley College,Economics department,CA,2.7058823529411766,17
+120,Bob Filson,Green River College,Science department,WA,4.725,20
+121,Bob Gillies,Quinsigamond Community College,Mathematics department,MA,3.1470588235294117,17
+122,Bob Nelson,University of Delaware,Business department,DE,3.1875,16
+123,Bob Teti,Community College of Philadelphia,Mathematics department,PA,4.6,20
+125,Bob Young,Eastern Florida State College - Palm Bay Campus,Mathematics department,FL,4.8,20
+128,Bonnie Johnson,Fashion Institute of Technology,Mathematics department,NY,1.85,20
+130,Brad Hann,Cambrian College,Biology department,ON,4.3125,8
+132,Brady Rimes,University of Southern Mississippi,Computer Science department,MS,4.2727272727272725,11
+133,Brandie Siegfried,Brigham Young University,English department,UT,3.95,20
+134,Brandy Zito,University of Alabama,Business department,AL,3.9,10
+135,Brenda Adams,Pasadena City College,Business department,CA,4.775,20
+137,Brennda Young,Georgia State University Perimeter College - Decatur,English department,GA,3.9210526315789473,19
+138,Brett Tjaden,James Madison University,Computer Science department,VA,3.7777777777777777,18
+139,Brewster Fitz,Oklahoma State University,English department,OK,3.5,19
+140,Brian George,Philadelphia University,Not Specified department,PA,3.576923076923077,13
+142,Brian Lakey,Wayne State University,Psychology department,MI,2.6842105263157894,19
+144,Brian Potter,Tulsa Community College,English department,OK,3.5,20
+145,Brian Rose,Fordham University at Lincoln Center,Communication department,NY,4.2,20
+146,Brian Storey,Douglas College,Physical Ed department,BC,3.5789473684210527,19
+147,Britt Leatham,California State University San Bernardino,Geology department,CA,2.275,20
+148,Bro. Joe Burke,La Salle University,Psychology department,PA,4.833333333333333,9
+149,Bruce Arrigo,University of North Carolina at Charlotte,Criminal Justice department,NC,3.9473684210526314,19
+150,Bruce Hammond,Western University,Economics department,ON,1.55,20
+151,Bruce MacMurray,Anderson University,Sociology department,IN,3.9375,8
+152,Bruce Martin,Oakland Community College - Royal Oak,Physical Ed department,MI,3.925,20
+153,Bruce Roter,The College of Saint Rose,Music department,NY,4.0,19
+154,Bruce Sun,California State University Long Beach,Business department,CA,1.4411764705882353,17
+155,Bryan Eldredge,Utah Valley University,ASL & Deaf Studies department,UT,4.323529411764706,17
+156,Bryan Fair,University of Alabama,Law department,AL,4.3125,8
+158,Burkard Eberlein,York University (all campuses),Political Science department,ON,3.6923076923076925,13
+159,Burlon Wilkerson,Angelina College,Fine Arts department,TX,2.625,20
+160,C Beals,Volunteer State Community College,Biology department,TN,4.318181818181818,11
+161,C Conrad,Volunteer State Community College,Mathematics department,TN,2.225,20
+162,C Hampton,Volunteer State Community College,Fine Arts department,TN,2.95,20
+164,C Jochim,San Jose State University,Humanities department,CA,4.2,10
+165,C Malden,Volunteer State Community College,Not Specified department,TN,4.055555555555555,9
+166,C Wolfe,University of North Carolina at Charlotte,Biology department,NC,2.5789473684210527,19
+168,Camilo Rojas,Dutchess Community College,Communication department,NY,3.975,20
+169,Candice White,University of Tennessee - Knoxville,Communication department,TN,3.725,20
+172,Carl Jorgensen,University of California Davis,Sociology department,CA,2.3055555555555554,18
+173,Carl Pratt,Immaculata University,Biology department,PA,4.333333333333333,9
+174,Carl Shangraw,Ferris State University,Engineering department,MI,4.05,20
+175,Carla Steinberg,Sonoma State University,English department,CA,4.333333333333333,18
+176,Carlos Centeno,California State University Fullerton,English department,CA,4.928571428571429,14
+177,Carol Bennet,Western Michigan University,English department,MI,4.4375,8
+178,Carol McClure,California State University Fullerton,Biology department,CA,2.7222222222222223,18
+180,Carol Topping,Volunteer State Community College,Psychology department,TN,5.0,20
+181,Carol Turner,Langara College,Education department,BC,3.111111111111111,9
+182,Carole Myscofski,Illinois Wesleyan University,Theology department,IL,4.0588235294117645,17
+183,Carole Waterhouse,California University of Pennsylvania,English department,PA,4.5,20
+184,Carolyn Perry,Citrus College,Education department,CA,2.7,20
+185,Carroll Hale,Eastern Kentucky University,Fine Arts department,KY,4.75,10
+186,Casim Abbas,Michigan State University,Mathematics department,MI,3.9166666666666665,18
+187,Catherine Chen,Ball State University,Business department,IN,4.1,20
+189,Cathy Holtmann,St. Thomas University,Theology department,NB,4.388888888888889,9
+192,Charisse Coston,University of North Carolina at Charlotte,Criminal Justice department,NC,4.3,20
+193,Charisse Willis,St. John\'s University,Education department,NY,4.35,20
+196,Charles Cherry,Villanova University,English department,PA,4.1875,8
+198,Charles Green,Hunter College,Sociology department,NY,2.4,20
+200,Charles Kelley,Massachusetts College of Pharmacy & Health Science,Chemistry department,MA,3.275,20
+201,Charles Lippy,University of Tennessee - Chattanooga,Theology department,TN,2.823529411764706,17
+202,Charles O\'Brien,Carleton University,Film department,ON,3.725,20
+204,Charlie Sweet,Eastern Kentucky University,English department,KY,3.6666666666666665,9
+205,Ching-Tsuan Pan,Northern Illinois University,Mathematics department,IL,1.9,10
+206,Chris Boucher,College of Charleston,History department,SC,4.225,20
+207,Chris Claflin,Art Institute of California - Orange County,Graphic Arts department,CA,4.7894736842105265,19
+208,Chris Dobson,Grand Valley State University,Science department,MI,4.525,20
+210,Chris Gould,Durham College,Film department,ON,4.916666666666667,12
+212,Chris Hoyt,Western Carolina University,Philosophy department,NC,3.525,20
+213,Chris Husbands,El Centro College,Biology department,TX,4.5,10
+216,Chris Taylor,Ohio State University: Newark Campus,Fine Arts department,OH,4.875,12
+218,Christian Schoof,University of British Columbia,Physics department,BC,4.038461538461538,13
+219,Christina Zahajko,North Seattle College,Languages department,WA,2.875,20
+220,Christine Jackson,Nova Southeastern University,English department,FL,4.605263157894737,19
+221,Christopher Bracken,University of Alberta,English department,AB,3.375,20
+222,Chuck Fields,Eastern Kentucky University,Criminal Justice department,KY,4.1,20
+223,Cindy Herbert,Metropolitan Community College-Longview,Computer Science department,MO,4.8,20
+224,Cindy Williams,Georgia State University Perimeter College - Decatur,Economics department,GA,1.25,12
+225,Clare Johnson,Fashion Institute of Technology,Mathematics department,NY,2.1,20
+226,Clark,Long Island University,Physics department,NY,1.5,11
+227,Clark Midkiff,University of Alabama,Engineering department,AL,4.275,20
+228,Claude Painter,Langara College,Education department,BC,4.75,8
+229,Clyde Matthews,Germanna Community College - Fredericksburg Campus,Political Science department,VA,2.8214285714285716,14
+230,Colin Jerolmack,Hunter College,Sociology department,NY,4.857142857142857,14
+231,Colleen Whitley,Brigham Young University,English department,UT,3.8636363636363638,11
+234,Corinn Columpar,University of Toronto - St. George Campus,Film department,ON,3.8,20
+235,Courtney Fairweather,York University (all campuses),Languages department,ON,4.075,20
+236,Craig Estep,Winthrop University,Music department,SC,4.777777777777778,9
+238,Craig Stettner,Harper College,Biology department,IL,4.775,20
+239,Craig Wedderspoon,University of Alabama,Fine Arts department,AL,4.35,10
+240,Cristina Iftode,Rowan University,Biology department,NJ,1.894736842105263,19
+242,Cynthia Maguire,Texas Woman\'s University,Chemistry & Biochemistry department,TX,2.475,20
+243,Cynthia Schauer,Kalamazoo Valley Community College,Biology department,MI,3.6,20
+244,D Estes,Volunteer State Community College,Accounting department,TN,3.1875,8
+245,D Larsen,Volunteer State Community College,Theater department,TN,2.3333333333333335,12
+246,D Long,Volunteer State Community College,Mathematics department,TN,4.5625,8
+247,D Warner,Volunteer State Community College,Communication department,TN,4.325,20
+249,D.S. Cody,Nassau Community College,Chemistry department,NY,3.3461538461538463,13
+250,Dale Michaels,Philadelphia University,Psychology department,PA,5.0,19
+251,Dale Smith,Roger Williams University,History department,RI,1.5,15
+253,Dan Levine,Bowdoin College,History department,ME,3.5416666666666665,12
+254,Dan McCarthy,Brock University,Geology department,ON,2.473684210526316,19
+255,Dana Baylard,Mt. San Jacinto College (all campuses),English department,CA,4.4411764705882355,17
+256,Daniel Fonseca,University of Alabama,Engineering department,AL,4.038461538461538,13
+257,Daniel Kern,University of Nevada Las Vegas,Mathematics department,NV,4.115384615384615,13
+258,Daniel Knudsen,Indiana University Bloomington,Geography department,IN,3.375,12
+259,Daniel Kurylo,Brooklyn College,Psychology department,NY,3.75,20
+260,Daniel Laskarin,University of Victoria,Visual Arts department,BC,3.6875,16
+261,Daniel Reardon,Missouri University of Science and Technology,English department,MO,4.05,20
+262,Daniel Rodeheaver,University of North Texas,Sociology department,TX,2.225,20
+263,Daniel Talham,University of Florida,Chemistry department,FL,4.075,20
+264,Daniel Vona,John Jay College of Criminal Justice,Criminal Justice department,NY,2.9473684210526314,19
+265,Danilo Fernando,SUNY College of Environmental Science and Forestry,Science department,NY,3.409090909090909,11
+266,Danny Welsch,Frostburg State University,Geography department,MD,4.5,10
+267,Daphne Huntley,Northeast Alabama Community College,English department,AL,4.5,19
+268,Darcy Irvin,University of California Davis,English department,CA,4.5,13
+269,Darel Swenson,North Hennepin Community College,Law department,MN,2.7777777777777777,9
+270,Darlene Schoenly,Alvernia University,Education department,PA,4.633333333333334,15
+271,Darren Hynes,Memorial University of Newfoundland,History department,NL,2.55,20
+274,Dave Heggem,University of Alabama,Business department,AL,4.818181818181818,11
+275,Dave Kowalka,Ashland University,Education department,OH,4.222222222222222,18
+276,David Bowman,Georgetown College,Physics department,KY,3.107142857142857,14
+277,David Brant,John Jay College of Criminal Justice,Psychology department,NY,1.6666666666666667,9
+278,David Breiner,Philadelphia University,Architecture department,PA,4.888888888888889,18
+279,David Briggs,Bucks County Community College,Physical Ed department,PA,4.794117647058823,17
+281,David Cooper,Case Western Reserve University,Economics department,OH,3.823529411764706,17
+283,David Ford,Brandon University,Chemistry department,MB,2.8,15
+284,David Gallaher,Carlow University,Chemistry department,PA,3.8684210526315788,19
+285,David Handschuh,New York University,Journalism department,NY,4.25,8
+286,David Huddle,University of Vermont,English department,VT,4.5,11
+287,David Hyde,South Puget Sound Community College,Sociology department,WA,4.45,20
+289,David Martin,Montgomery County Community College (all),Computer Science department,PA,3.3,20
+290,David McNevin,University of Windsor,Law department,ON,4.8125,8
+291,David Paciocco,University of Ottawa,Law department,ON,4.388888888888889,9
+293,David Perkins,Abilene Christian University,Accounting & Finance department,TX,4.394736842105263,19
+294,David Rayson,Normandale Community College,History department,MN,4.475,20
+295,David Tindall,Dalhousie University,Physics department,NS,2.590909090909091,11
+296,David W. Alsop,CUNY Queens College,Biology department,NY,3.088235294117647,17
+298,Dean Karras,Nassau Community College,Physical Ed department,NY,3.65,20
+299,Deb Coolidge,Rhode Island School of Design,Fine Arts department,RI,2.4,20
+301,Deborah Farrer,California University of Pennsylvania,Elementary Education department,PA,4.95,20
+302,Deborah Miller,Anderson University,English department,IN,3.025,20
+303,Deborah Pluss,William Paterson University,Communication department,NJ,4.105263157894737,19
+304,Debra Clarke,Columbia College,English department,BC,4.428571428571429,14
+306,Deidre Condit,Virginia Commonwealth University,Political Science department,VA,3.8,20
+307,Deirdre O\' Shea,University of Central Florida,History department,FL,3.825,20
+309,Denis Janz,Loyola University New Orleans,Religion department,LA,4.3,20
+310,Denise Kelly,Central Connecticut State University,Mathematics department,CT,2.411764705882353,17
+311,Dennis Crockett,Whitman College,Fine Arts department,WA,4.6875,8
+312,Dennis Dipert,Volunteer State Community College,Health Science department,TN,3.4375,8
+313,Dennis Johnston,The College of Saint Rose,Music department,NY,4.0,15
+314,Dennis McAuliffe,Georgetown University,Italian department,DC,1.7333333333333334,15
+315,Dennis Razze,DeSales University,Theater department,PA,2.7142857142857144,14
+316,Dennis Richardson,Quinnipiac University,Biology department,CT,3.8461538461538463,13
+317,Derek Eberts,Brandon University,Geography department,MB,2.5,20
+318,Derek Paulsen,Eastern Kentucky University,Criminal Justice department,KY,3.2083333333333335,12
+319,Derick Holcomb,Eastern Kentucky University,Health Science department,KY,4.3,20
+320,Desmond Hamlet,Denison University,English department,OH,2.3684210526315788,19
+321,Desmond Harding,Central Michigan University,English department,MI,3.55,20
+322,Detlef Gromoll,Stony Brook University (SUNY),Mathematics department,NY,2.5555555555555554,18
+324,Diane Reid,Indiana University Southeast,Communication department,IN,4.55,20
+326,Dilek Sanver-Wang,College of the Canyons,Biology department,CA,4.95,20
+327,Dinora Cardoso,Pepperdine University,Languages department,CA,3.1785714285714284,14
+328,Dion Wiseman,Brandon University,Geography department,MB,3.65,20
+329,Dmitri Kitsikis,University of Ottawa,History department,ON,2.2333333333333334,15
+331,Don Hood,Saint Louis University,Chemistry department,MO,3.138888888888889,18
+332,Dona Fletcher,Sinclair Community College,Sociology department,OH,1.9,20
+334,Donna Chambers,Millersville University,Languages department,PA,4.833333333333333,15
+335,Donna Long,Fairmont State University,English department,WV,4.2894736842105265,19
+337,Donna Woolard,Campbell University,Health Science department,NC,4.475,20
+338,Dorathea Halpert,Brooklyn College,Psychology department,NY,1.95,20
+340,Doug MacIntyre,Brandon University,Science department,MB,3.409090909090909,11
+341,Doug Zentz,Ferris State University,Engineering department,MI,3.0789473684210527,19
+342,Douglas Johansen,University of North Florida,Marketing department,FL,3.225,20
+343,Doyoung Lee,California State University,Asian American Studies department,Northridge,1.9,20
+344,Dr. Shingle,Immaculata University,Biology department,PA,3.9545454545454546,11
+346,Draga Vidakovic,Georgia State University,Mathematics department,GA,2.3125,8
+347,Duane Castanier,Eastern Michigan University,Education department,MI,4.4,20
+348,Duane Griffin,Bucknell University,Geography department,PA,2.55,20
+350,Duo Zhang,Missouri University of Science and Technology,Economics department,MO,3.75,18
+351,Dwayne Rurka,Northern Alberta Institute of Technology,Computer Science department,AB,3.3461538461538463,13
+353,E Lester,Volunteer State Community College,Mathematics department,TN,2.875,20
+355,Ed Bosworth,Columbus State University,Computer Science department,GA,2.1842105263157894,19
+356,Ed Giardina,Art Institute of California - Orange County,Graphic Arts department,CA,4.5,18
+357,Ed Inch,Pacific Lutheran University,Communication department,WA,3.111111111111111,9
+358,Ed Pavlic,Union College,English department,NY,3.7222222222222223,9
+359,Edith Hays,Texas Woman\'s University,Mathematics department,TX,3.25,20
+360,Effie Cochran,John Jay College of Criminal Justice,English department,NY,3.8333333333333335,18
+361,Eleanor Branch,Guilford College,English department,NC,3.4285714285714284,14
+362,Eli Amdur,Fairleigh Dickinson University - Metropolitan,Business department,NJ,4.7894736842105265,19
+363,Elinor Brown,University of Kentucky,Education department,KY,2.9375,8
+364,Elizabeth Allen,Philadelphia University,Writing department,PA,2.6470588235294117,17
+365,Elizabeth Bloch-Smith,Saint Joseph\'s University,Theology department,PA,3.1470588235294117,17
+367,Elizabeth Salter,University of Texas at Dallas,Anthropology department,TX,3.25,20
+368,Elizabeth Spievak,Bridgewater State University,Psychology department,MA,3.275,20
+369,Elizabeth Van Den Berg,McDaniel College,Theater department,MD,3.8055555555555554,18
+370,Elle Feth,Columbus State Community College,Natural Sciences department,OH,2.1666666666666665,18
+371,Ellen Knapp,Philadelphia University,Mathematics department,PA,2.6944444444444446,18
+372,Ellie Ragland,University of Missouri - Columbia,English department,MO,2.5,9
+373,Ellis Jones,Sacramento City College,Sociology department,CA,4.433333333333334,15
+374,Emily Blanck,Rowan University,History department,NJ,3.675,20
+378,Eric Ericksen,Grand Valley State University,Business department,MI,2.8055555555555554,18
+379,Eric Rawdon,Duquesne University,Mathematics department,PA,4.233333333333333,15
+380,Eric Ruckh,Southern Illinois University - Edwardsville,History department,IL,3.4,20
+381,Eric Winters,Denison University,Health Science department,OH,3.4375,8
+382,Erica Abeel,John Jay College of Criminal Justice,Languages department,NY,3.1666666666666665,15
+384,Erin Finn,La Salle University,Communication department,PA,3.75,12
+385,Ernie Rice,Arkansas State University,Journalism department,AR,3.8333333333333335,9
+386,Eugene A. Berg,California State University,Chemistry department,Northridge,4.075,20
+387,Eugene Cuevas,University of Alabama at Birmingham,English department,AL,3.5,20
+388,Eugenia Malitsky,University of Wisconsin - Madison,Mathematics department,WI,2.75,20
+390,Evalee Lasater,Missouri University of Science and Technology,Education department,MO,2.25,12
+391,Everett Fox,Clark University,History department,MA,4.2,20
+392,Ewa Wasilewska,University of Utah,Anthropology department,UT,2.575,20
+393,Ewing Chinn,Trinity University,Philosophy department,TX,2.25,10
+396,F.S.J. Ledgister,Clark Atlanta University,Political Science department,GA,4.5,14
+398,Faye Smyle,Napa Valley College,Education department,CA,4.409090909090909,11
+401,Filiz Dogru,Grand Valley State University,Mathematics department,MI,2.975,20
+402,Francis Catalano,Pasadena City College,Humanities department,CA,3.975,20
+405,Francisco Balderrama,California State University Los Angeles,Chicano Studies department,CA,4.35,20
+406,Frank Foster,Seneca College of Applied Arts and Technology-ALL,Business department,ON,4.975,20
+407,Frank Giarratani,University of Pittsburgh,Economics department,PA,3.975,20
+408,Frank Harvey,Dalhousie University,Political Science department,NS,3.225,20
+409,Frank Mitchell,Camden County College,Psychology department,NJ,3.95,20
+411,Frank Tsui,University of North Carolina at Chapel Hill,Physics department,NC,3.0,14
+412,Fred Ream,Central New Mexico Community College,Mathematics department,NM,3.625,20
+413,Fred Simmond,Ocean County College,English department,NJ,3.5,12
+414,Fred Smoler,Sarah Lawrence College,Literature department,NY,4.090909090909091,11
+415,Fred Stewart,Texas A&M University at Commerce,Journalism department,TX,4.35,20
+417,Freda Decerbo,Parkland College,Psychology department,IL,3.8846153846153846,13
+418,Frederick Amrine,University of Michigan,German department,MI,3.675,20
+419,Frederick Frank,Volunteer State Community College,Biology department,TN,4.2,20
+420,Frederick Kaufman,Ithaca College,Philosophy department,NY,3.3,20
+421,Frederick Phelps,Central Michigan University,Physics department,MI,1.525,20
+424,G Cutler,Volunteer State Community College,Accounting department,TN,4.5,9
+425,G. Creighton Frampton,Philadelphia University,Business department,PA,3.473684210526316,19
+426,Gabrielle Michaelis,Cumberland County College,Mathematics department,NJ,4.526315789473684,19
+428,Gale Bruce,Georgia State University Perimeter College - Decatur,English department,GA,4.6,20
+430,Gamble,West Chester University of Pennsylvania,Literature department,PA,4.7368421052631575,19
+431,Garrison Sposito,University of California Berkeley,Engineering department,CA,3.8333333333333335,18
+432,Gary Bruce,University of Waterloo,History department,ON,4.775,20
+433,Gary Clark,Indiana University of Pennsylvania,Health Science department,PA,4.294117647058823,17
+434,Gary Toller,McDaniel College,Physics department,MD,3.5526315789473686,19
+435,Gay Sweely,Eastern Kentucky University,Art History department,KY,4.921052631578948,19
+436,Gene Pouncy,El Centro College,English department,TX,2.825,20
+441,Gerald Ludwig,West Los Angeles College,Business department,CA,4.4,20
+442,Gerald McCausland,University of Pittsburgh,Russian department,PA,3.473684210526316,19
+444,Gerald Visgilio,Connecticut College,Economics department,CT,3.272727272727273,11
+445,Geri Olson,Sonoma State University,Psychology department,CA,3.2,20
+446,Gerry McKeon,Western University,Mathematics department,ON,2.1363636363636362,11
+448,Glanville,San Francisco State University,Philosophy department,CA,2.763157894736842,19
+449,Glenda Williams,University of Alabama,Communication department,AL,4.5625,16
+450,Glenn Carter,Sonoma State University,Computer Science department,CA,3.75,20
+451,Glenna Vanderhoof,Missouri State University,Computer Information Systems department,MO,4.95,20
+453,Greg Detweiler,Morehead State University,Music department,KY,4.0588235294117645,17
+454,Greg Heberling,Anderson University,Business department,IN,3.727272727272727,11
+455,Greg Osland,Butler University,Marketing department,IN,3.625,12
+457,Gregory Neil Kawchuk,University of Calgary,Kinesiology department,AB,4.8076923076923075,13
+458,Greta Vollmer,Sonoma State University,English department,CA,3.642857142857143,14
+460,Griswold,Kishwaukee College,History department,IL,1.8181818181818181,11
+461,Guy King,California State University Chico,Geography department,CA,4.275,20
+462,H Espravnik,Volunteer State Community College,Communication department,TN,3.7777777777777777,9
+464,H Lawson,Volunteer State Community College,Mathematics department,TN,2.923076923076923,13
+465,H Mann,Volunteer State Community College,Biology department,TN,4.775,20
+466,HENGAMEH Hosseini,King\'s College,Languages department,PA,3.825,20
+467,Hal Blythe,Eastern Kentucky University,English department,KY,4.868421052631579,19
+470,Harihar Khanal,Embry-Riddle Aeronautical University,Mathematics department,FL,3.4,20
+471,Harry Meshaw,University of North Florida,Business department,FL,3.45,10
+473,Hassan Qudrat-Ullah,York University (all campuses),Management department,ON,2.526315789473684,19
+474,Heather Adams-Blair,Eastern Kentucky University,Physical Ed department,KY,4.730769230769231,13
+475,Heather Albanesi,University of Colorado Colorado Springs,Sociology department,CO,4.53125,16
+476,Heibatollah Sami,Temple University,Accounting department,PA,2.0,16
+477,Henry Schreiber,University of Texas at Tyler,Psychology department,TX,2.6578947368421053,19
+479,Hilary Seagle,Southwestern Community College,Mathematics department,NC,3.3076923076923075,13
+482,Howard Shorr,Portland Community College,History department,OR,2.9375,8
+483,Hugh Afshari,National University,History department,CA,4.05,20
+484,Husam Quereshi,Foothill College,Mathematics department,CA,3.95,20
+486,Ian Gellatly,University of Alberta,Business department,AB,2.973684210526316,19
+487,Ian Kinder,Oakland Community College - Royal Oak,Physical Education department,MI,4.1,20
+488,Ian McMahan,Brooklyn College,Psychology department,NY,3.3,20
+489,Ian Short,Saint Mary\'s University,Science department,NS,3.25,8
+490,Ian Spears,University of Guelph,Political Science department,ON,4.4,20
+491,Ian Wojcik-Andrews,Eastern Michigan University,Childrens Literature department,MI,3.75,20
+493,Ida Slusher,Eastern Kentucky University,Nursing department,KY,2.6,20
+495,Imafidon Olaye,William Paterson University,Communication department,NJ,3.35,20
+498,Irv Englander,Bentley University,Computer Science department,MA,2.975,20
+499,Israel Abramov,Brooklyn College,Psychology department,NY,2.425,20
+500,Itzhak Kerstein,Brooklyn College,Languages department,NY,4.208333333333333,12
+502,Iwan Alexander,Case Western Reserve University,Mechanical Engineering department,OH,3.1875,16
+503,J Allen,Volunteer State Community College,Health Science department,TN,4.535714285714286,14
+512,J Neilan,Volunteer State Community College,Chemistry department,TN,3.225,20
+513,J Rogers,Radford University,Biology department,VA,4.525,20
+516,Jack Caravanos,Hunter College,Public Health department,NY,4.805555555555555,18
+518,James Allard,Brock University,English department,ON,3.775,20
+519,James Arvo,University of California Irvine,Engineering department,CA,4.5,20
+520,James Cawley,Case Western Reserve University,Materials Science department,OH,3.5833333333333335,18
+521,James Cebula,University of Cincinnati Blue Ash College,History department,OH,3.1666666666666665,18
+522,James Chambers,University of Texas at San Antonio,Biology department,TX,3.125,20
+523,James Curran,John Jay College of Criminal Justice,Law department,NY,4.533333333333333,15
+524,James Davig,Wharton County Junior College,Accounting department,TX,2.0555555555555554,9
+525,James Daybell,Central Michigan University,History department,MI,4.052631578947368,19
+527,James Garner,University of North Florida,Physics department,FL,2.25,20
+528,James Hannon,Rice University,Physics department,TX,4.0625,8
+529,James Muckell,Nyack College,Accounting department,NY,4.766666666666667,15
+532,James Robinson,Eastern Michigan University,Communication department,MI,2.264705882352941,17
+533,James Terry,Stephens College,Fine Arts department,MO,3.6875,16
+534,James Tompkins,Kennesaw State University,Finance department,GA,4.2105263157894735,19
+535,James Worley,Angelo State University,Theater department,TX,3.4,10
+536,Jamie Bush,University of Toronto - St. George Campus,English department,ON,4.55,10
+537,Jamie Mills,University of Alabama,Education department,AL,1.5526315789473684,19
+540,Jan Tarski,College of San Mateo,Mathematics department,CA,2.6,20
+541,Jane Dunn,Henderson State University,Biology department,AR,3.7777777777777777,18
+542,Jane Nodine,University of South Carolina Upstate,Fine Arts department,SC,3.5,13
+544,Jans Wager,Utah Valley University,English department,UT,4.425,20
+546,Jason Sloan,Maryland Institute College of Art,Interaction Design & Art department,MD,4.973684210526316,19
+548,Jay Ko,Parkland College,Mathematics department,IL,4.15,20
+549,Jean Craig-Teerlink,California College of the Arts,Graphic Arts department,CA,2.923076923076923,13
+551,Jeff Kurtz,Denison University,Communication department,OH,4.038461538461538,13
+552,Jeff Lynn,Slippery Rock University,Science department,PA,4.266666666666667,15
+553,Jeff Price,Oklahoma State University,Graphic Arts department,OK,3.5,15
+556,Jeffery Zorn,Santa Clara University,English department,CA,4.052631578947368,19
+557,Jeffrey Gutliph,Georgia State University Perimeter College - Decatur,Mathematics department,GA,4.575,20
+558,Jeffrey Kent,Volunteer State Community College,Biology department,TN,4.475,20
+560,Jeffrey Salloway,University of New Hampshire (all campuses),Health Science department,NH,3.5526315789473686,19
+561,Jeffrey Sawyer,University of Baltimore,History department,MD,3.730769230769231,13
+562,Jenni Marshall,University of Cincinnati Blue Ash College,Education department,OH,2.875,12
+563,Jennifer Austin,Winthrop University,Music department,SC,4.578947368421052,19
+564,Jennifer Jossendal,Kishwaukee College,History department,IL,2.75,20
+565,Jennifer Krozier,Indiana State University,Criminal Justice department,IN,4.15,20
+566,Jennifer Shaw,Sonoma State University,Art History department,CA,3.763157894736842,19
+567,Jennifer Spock,Eastern Kentucky University,History department,KY,3.925,20
+569,Jeremy Rosenau,Philadelphia University,Business department,PA,2.9642857142857144,14
+570,Jeremy Van Antwerp,Calvin College,Engineering department,MI,2.8684210526315788,19
+572,Jerome Taylor,University of Pittsburgh,African Studies department,PA,1.7777777777777777,18
+573,Jerry Colasurdo,Pasadena City College,Sociology department,CA,4.1,20
+574,Jerry Giger,Malone University,Music department,OH,4.5625,8
+576,Jerry Johnson,Western Washington University,Mathematics department,WA,4.15,20
+577,Jerry Jones,El Centro College,Music department,TX,3.676470588235294,17
+578,Jerry Scripps,Grand Valley State University,Computer Science department,MI,3.45,20
+580,Jessica Hartos,University of North Carolina at Charlotte,Health Science department,NC,3.9545454545454546,11
+581,Jessica Wyman,The Ontario College of Art and Design University (OCAD U),Art History department,ON,3.6153846153846154,13
+582,Jessie Yearwood,El Centro College,Hospitality department,TX,2.975,20
+584,Jim Burns,Texas Tech University,Business department,TX,3.625,16
+585,Jim Cantrell,Tennessee Tech University,Film department,TN,4.0625,8
+586,Jim Curtis,University of Waterloo,Sociology department,ON,4.447368421052632,19
+587,Jim Lissemore,John Carroll University,Biology department,OH,4.125,20
+588,Jim Mulrooney,Central Connecticut State University,Biology department,CT,4.75,20
+589,Jim Pletcher,Denison University,Political Science department,OH,3.5,17
+590,Jim Slowiak,University of Akron,Theater department,OH,3.5,10
+591,Jim Uyekawa,East Los Angeles College,Fine Arts department,CA,4.05,20
+592,Jim Walker,Indiana University Bloomington,Economics department,IN,3.925,20
+593,Jim Whitehead,University of California Santa Cruz,Computer Science department,CA,4.117647058823529,17
+595,Joan Felt,Sonoma State University,Languages department,CA,4.575,20
+596,Joan Krone,Denison University,Computer Science department,OH,2.4,10
+597,Joan Lobo,Ryerson University,Finance department,ON,2.575,20
+598,Joan McAfee,Southern Connecticut State University,Theater department,CT,4.525,20
+599,Joan Sallenger,University of South Carolina,Mathematics department,SC,3.05,20
+600,Joann Chirico,Pennsylvania State University - Beaver,Sociology department,PA,3.763157894736842,19
+601,Joann Eisberg,Chaffey College (all campuses),Astronomy department,CA,4.275,20
+604,Joe Murdico,Moorpark College,Psychology department,CA,4.75,20
+606,Joel Zeitlin,California State University,Mathematics department,Northridge,4.117647058823529,17
+607,Joey Parker,University of Alabama,Engineering department,AL,4.375,8
+609,John Alcaraz,San Diego State University,Health Science department,CA,2.7777777777777777,9
+611,John Baer,Rider University,Education department,NJ,4.05,20
+612,John Baker,University of Alabama,Engineering department,AL,4.7,20
+613,John Beneski,West Chester University of Pennsylvania,Science department,PA,2.025,20
+615,John Bryden,Southern Illinois University - Edwardsville,Mathematics department,IL,4.1875,8
+616,John Burk,University of Pittsburgh,Mathematics department,PA,4.95,20
+617,John Burton,Connecticut College,Anthropology department,CT,4.526315789473684,19
+618,John Charlesworth,Napa Valley College,Astronomy department,CA,4.2,20
+619,John Constantino,Cumberland County College,History department,NJ,4.9411764705882355,17
+620,John Corvino,Wayne State University,Philosophy department,MI,4.425,20
+621,John Cunningham,Skidmore College,Fine Arts department,NY,2.8333333333333335,18
+622,John Curra,Eastern Kentucky University,Sociology department,KY,3.55,20
+623,John Curran,Harper College,Theater department,IL,4.75,8
+624,John Douglass,University of Cincinnati Blue Ash College,History department,OH,1.725,20
+625,John Enomoto,East Los Angeles College,Computer Science department,CA,3.475,20
+627,John Everett,Loyola University Maryland,Marketing department,MD,4.5,11
+628,John Everitt,Brandon University,Geography department,MB,3.6470588235294117,17
+629,John Ferguson,Eastern Kentucky University,Education department,KY,4.461538461538462,13
+630,John Gallaher,Northwest Missouri State University,English department,MO,4.5,19
+631,John Greenland,Eastern University,Music department,PA,3.9444444444444446,9
+632,John Halfman,Hobart and William Smith Colleges,Science department,NY,3.590909090909091,11
+636,John Keating,Stevens Institute of Technology,Business department,NJ,2.0833333333333335,12
+637,John Kneski,Florida International University,Honors department,FL,4.346153846153846,13
+639,John Moliassa,University of Michigan - Flint,Mathematics department,MI,4.15,20
+640,John Nelson,University of South Carolina,Biology department,SC,4.055555555555555,18
+641,John Patierno,Bergen Community College,Anthropology department,NJ,4.631578947368421,19
+642,John Reed,University of Utah,History department,UT,2.9,20
+646,John Tudor,Saint Joseph\'s University,Biology department,PA,4.5,20
+647,John Verdi,St. John\'s College,Philosophy department,MD,4.9,10
+648,John Weigand,West Virginia University,Music department,WV,4.5,10
+649,John Westwater,University of Washington,Mathematics department,WA,2.05,10
+650,John Zenger,Brigham Young University-Idaho,Biology department,ID,4.075,20
+651,Johnetta Richards,San Francisco State University,Ethnic Studies department,CA,2.6,20
+653,Jon Fisher,Saint Louis University,Biology department,MO,4.1,20
+656,Jon Vredevoogd,Michigan State University,Design department,MI,3.9375,8
+657,Jonathan Anning,Slippery Rock University,Science department,PA,4.075,20
+658,Jonathan Caspi,Montclair State University,Family & Child Studies department,NJ,3.575,20
+659,Jonathan Szura,Rutgers - State University of New Jersey,Psychology department,NJ,2.3157894736842106,19
+662,Joseph Davidson,Arizona State University,Engineering department,AZ,2.611111111111111,9
+663,Joseph Fruscione,George Washington University,Writing department,DC,3.35,20
+664,Joseph Sierra,Pasadena City College,Film department,CA,4.375,20
+665,Josh Nichols,Monroe Community College,Geology department,NY,2.625,8
+666,Joy Allameh,Eastern Kentucky University,English department,KY,2.066666666666667,15
+670,Juanita Campos,University of Texas at San Antonio,Languages department,TX,3.25,20
+671,Judy Adams,North Idaho College,Mathematics department,ID,1.2,20
+672,Judy Berasi,Pennsylvania State University - Beaver,English department,PA,3.78125,16
+673,Judy Gregg,Citrus College,Psychology department,CA,4.9,20
+674,Judy Navas,Sonoma State University,Fine Arts department,CA,2.8947368421052633,19
+676,Julia Allen,Georgia State University Perimeter College - Decatur,Sociology department,GA,3.05,20
+677,Julia Jasken,McDaniel College,English department,MD,4.388888888888889,9
+678,Julie Ablarde,Loyalist College,Nursing department,ON,4.5,15
+679,Julie Benavides,East Los Angeles College,Family & Consumer Science department,CA,5.0,10
+681,Julie Giles,DeVry University - Addison,Business department,IL,3.85,10
+682,Julie Towell,Wayne State University,English department,MI,2.8421052631578947,19
+683,Julie Weishar,Parkland College,Theater department,IL,3.4375,8
+684,K Jones,Volunteer State Community College,Mathematics department,TN,3.5454545454545454,11
+686,K McLean,Volunteer State Community College,Languages department,TN,3.0,10
+687,Kaci Ariza,Valencia College - East and West Campus,Graphic Arts department,FL,4.444444444444445,9
+692,Karen Carr,Rhode Island College,Writing department,RI,3.3,20
+693,Karen Debalbian,Northampton Community College,English department,PA,3.625,8
+694,Karen Douglas,San Antonio College,Psychology department,TX,3.175,20
+695,Karen Everage,Florida State University,Mathematics department,FL,3.725,20
+696,Karen Kaplowitz,John Jay College of Criminal Justice,English department,NY,4.075,20
+697,Karen Stanish,Keene State College,Mathematics department,NH,4.5,14
+698,Karen Stewart,Miami Dade College (all),Humanities department,FL,4.925,20
+699,Karlene Ferrante,University of Wisconsin - Stevens Point,Communication department,WI,3.5,20
+700,Karthik Silaipillayarputhur,Tennessee Tech University,Engineering department,TN,4.725,20
+701,Kate Greene,University of Southern Mississippi,Political Science department,MS,4.083333333333333,18
+702,Katherine Jones,Philadelphia University,Geography department,PA,3.4722222222222223,18
+705,Kathleen McFadden,Northern Illinois University,Business department,IL,3.7,20
+706,Kathleen Ochshorn,University of Tampa,English department,FL,3.9473684210526314,19
+707,Kathleen Sinning,Western Michigan University,Accounting department,MI,4.775,20
+708,Kathryn Denning,York University (all campuses),Anthropology department,ON,4.55,20
+711,Kathy Haddad,Chaffey College (all campuses),Fine Arts department,CA,4.65,20
+712,Kathy Johnson,Volunteer State Community College,Mathematics department,TN,4.25,20
+713,Kathy Moore,Santiago Canyon College,Mathematics department,CA,4.05,20
+714,Kathy Stoessl,Langara College,Education department,BC,3.4,10
+715,Kay Bishop,University at Buffalo (SUNY Buffalo),Library Science department,NY,1.9,10
+718,Kayla Haynie,Harding University,English department,AR,4.725,20
+719,Kazim Ruhi,University of Maryland,Business department,MD,3.5833333333333335,18
+722,Kelli Carmean,Eastern Kentucky University,Anthropology department,KY,3.975,20
+723,Kelly Kadera,University of Iowa,Political Science department,IA,2.275,20
+726,Kelvin Jasek-Rysdahl,California State University Stanislaus,Economics department,CA,4.05,20
+728,Ken Milner,Salisbury University,Education department,MD,3.3,20
+729,Ken Moynihan,Assumption College,History department,MA,3.7083333333333335,12
+730,Ken Sumner,Montclair State University,Psychology department,NJ,2.05,20
+731,Kenneth Hicks,Seneca College of Applied Arts and Technology-ALL,Business department,ON,1.875,20
+732,Kenneth Loparo,Case Western Reserve University,Electrical Engineering department,OH,3.65,20
+733,Kenneth Riegle,University of California Irvine,Biology department,CA,3.1333333333333333,15
+735,Kenny Peters,Carlow University,Mathematics department,PA,3.236842105263158,19
+736,Kent Yager,Gettysburg College,Languages department,PA,4.705882352941177,17
+737,Kerry Marbury,Fairmont State University,Ethnic Studies department,WV,4.9411764705882355,17
+738,Kevin Hanson,University of Utah,Film department,UT,3.4583333333333335,12
+741,Kevin Rahimzadeh,Eastern Kentucky University,English department,KY,4.9,20
+742,Kim Finn,DeVry University,Psychology department,NJ,4.575,20
+743,Kim Fuji,Monterey Peninsula College,Physical Ed department,CA,4.5,20
+744,Kim Specht,Denison University,Chemistry department,OH,2.590909090909091,11
+745,Kimiko Manes,Bucks County Community College,Languages department,PA,4.444444444444445,9
+746,Klaas Kraay,Ryerson University,Philosophy department,ON,4.25,20
+747,Klara Gubacs-Collins,Montclair State University,Physical Ed department,NJ,4.55,20
+749,Kojo Dei,John Jay College of Criminal Justice,Anthropology department,NY,2.736842105263158,19
+750,Konrad Sadkowski,University of Northern Iowa,Humanities department,IA,3.2,20
+751,Kristen Asplin,University of Pittsburgh at Greensburg,Psychology department,PA,4.375,20
+752,Kristine Fitch,University of Iowa,Communication department,IA,2.9,20
+753,Kurt Panter,Bowling Green State University,Science department,OH,2.892857142857143,14
+754,L Assante,Volunteer State Community College,Communication department,TN,4.105263157894737,19
+755,L Schibig,Volunteer State Community College,Science department,TN,2.625,20
+756,L Stephens,Volunteer State Community College,Business department,TN,2.3333333333333335,15
+757,Lana Carnes,Eastern Kentucky University,Business department,KY,3.236842105263158,19
+760,Larry Goff,El Centro College,Psychology department,TX,3.1538461538461537,13
+761,Larry Hardy,Georgia State University Perimeter College - Decatur,Mathematics department,GA,2.45,20
+762,Lashun Griffin,Lone Star College (all),English department,TX,2.95,20
+763,Laura Colbert,Harper College,Theater department,IL,3.388888888888889,18
+765,Laura Newhart,Eastern Kentucky University,Philosophy department,KY,3.25,20
+766,Laura Orella,De Anza College,English department,CA,1.975,20
+767,Laura Prividera,East Carolina University,Communication department,NC,4.2631578947368425,19
+769,Lauren Baumbach,Philadelphia University,Architecture department,PA,3.5,12
+771,Lauren Kingsley,University of Michigan,English department,MI,3.7222222222222223,9
+772,Lauren Perdue,Central Connecticut State University,Psychology department,CT,2.25,20
+774,Laurie Iten,Purdue University - West Lafayette,Biology department,IN,2.175,20
+775,Laurie Ross,Mt. San Jacinto College (all campuses),English department,CA,4.0,17
+776,Lawrence Kahn,Cornell University,Economics department,NY,2.6,10
+777,Lawrence Orihuela,Florida International University,Education department,FL,4.75,20
+778,Leah Hutchison,University of Alabama at Birmingham,English department,AL,4.375,20
+780,Lee Grenci,Pennsylvania State University,Earth Science department,PA,3.4411764705882355,17
+782,Leon Stokesbury,Georgia State University,English department,GA,2.8125,16
+783,Leonard Salvo,Ashland University,Music department,OH,5.0,15
+784,Les Boggess,Fairmont State University,Criminal Justice department,WV,4.638888888888889,18
+785,Leslie Abramson,University of Louisville,Law department,KY,4.55,10
+786,Leslie Chadrakantha,John Jay College of Criminal Justice,Mathematics department,NY,3.125,20
+787,Leslie Looney,University Of Illinois at Urbana-Champaign,Astronomy department,IL,4.675,20
+790,Ligon,University of Alabama,Finance department,AL,3.611111111111111,9
+791,Lilli Downes,Harford Community College,Sociology department,MD,4.166666666666667,18
+793,Linda Burns,Carlow University,Women\'s Studies department,PA,2.75,8
+795,Linda Lubrano,American University,International Studies department,DC,2.4,15
+797,Linda Shelton,Utah Valley University,English department,UT,4.475,20
+798,Linda Toth,California University of Pennsylvania,Psychology department,PA,4.15,20
+800,Lisa Keys,Southern Illinois University - Edwardsville,History department,IL,3.8125,16
+801,Lisa Mach,Alvin Community College,English department,TX,4.7727272727272725,11
+803,Lisa Robson,Brandon University,English department,MB,3.175,20
+806,Liz Dameron,Tallahassee Community College,Mathematics department,FL,4.675,20
+808,Lorelle Semley,Wesleyan University,History department,CT,2.6666666666666665,9
+810,Lourdes Espana,Miami Dade College (all),Mathematics department,FL,4.375,20
+812,Louvincy Brown,Georgia State University Perimeter College - Decatur,Communication department,GA,3.9166666666666665,18
+815,Luoheng Han,University of Alabama,Geography department,AL,1.9615384615384615,13
+816,Lynn Curtright,Tallahassee Community College,History department,FL,3.1,20
+817,Lynn Loutzenhiser,University of Regina,Psychology department,SK,3.1923076923076925,13
+818,Lynn Mattie,El Centro College,Culinary Arts department,TX,3.75,12
+819,Lynn Zeigler,Georgia State University Perimeter College - Decatur,Science department,GA,4.5,20
+820,Lynne Schubert,DeVry University,Communication department,NJ,1.3421052631578947,19
+824,Malcolm Potter,Pasadena City College,Sociology department,CA,4.7,20
+825,Manuel Daniels,Tallahassee Community College,Biology department,FL,3.45,20
+828,Marc Stern,Bentley University,History department,MA,2.8,20
+831,Margaret Sweet,Lansing Community College,Psychology department,MI,2.8421052631578947,19
+836,Marguerite Jackson-Jones,Southwest Tennessee Community College (all campuses),Writing department,TN,3.6,20
+837,Maria Beth Grabe,Indiana University Bloomington,Journalism department,IN,3.236842105263158,19
+838,Maria Fitzpatrick,Chaffey College (all campuses),Psychology department,CA,3.5,20
+839,Maria Fressola,Bergen Community College,Nursing department,NJ,3.325,20
+840,Marilyn Knight,University of South Carolina Upstate,Fine Arts department,SC,4.35,20
+841,Marilyn Rose,Brock University,English department,ON,3.8333333333333335,15
+843,Marjory Saunders,Massachusetts Bay Community College,English department,MA,4.65625,16
+844,Mark Bryan,Denison University,Theater department,OH,4.75,10
+846,Mark Damen,Utah State University,History department,UT,4.725,20
+848,Mark Liff,Philadelphia University,Physics department,PA,3.0,19
+849,Mark McKibben,Goucher College,Mathematics department,MD,4.428571428571429,14
+850,Mark Perlman,Sonoma State University,Fine Arts department,CA,3.607142857142857,14
+851,Mark Sirkin,Wright State University,Political Science department,OH,2.425,20
+852,Mark Unno,University of Oregon,Theology department,OR,4.325,20
+853,Mark Wessel,Glendale Community College,Fine Arts department,CA,4.571428571428571,14
+854,Markus Schneider,University of Florida,Computer Science department,FL,3.111111111111111,18
+855,Marlene Tromp,Denison University,Women\'s Studies department,OH,4.333333333333333,15
+856,Marlos Scrimger,University of Michigan - Flint,Geography department,MI,4.125,20
+857,Martha Browne,Pasadena City College,Mathematics department,CA,2.275,20
+858,Martha Malaty,Orange Coast College,Computer Science department,CA,1.925,20
+859,Martha McCluskey,University at Buffalo (SUNY Buffalo),Law department,NY,1.6071428571428572,14
+860,Martha Zlokovich,Southeast Missouri State University,Psychology department,MO,2.888888888888889,18
+861,Martin Bakker,University of Alabama,Chemistry department,AL,2.65,20
+862,Martin Frey,University of Tulsa,Law department,OK,2.875,12
+863,Martin Halpern,Henderson State University,History department,AR,2.25,12
+866,Mary Ann Nichols,Pasadena City College,English department,CA,3.175,20
+867,Mary Brown,Columbus State Community College,Biology department,OH,3.975,20
+868,Mary Curtner Smith,University of Alabama,Humanities department,AL,3.0,20
+869,Mary Donaghy,Arkansas State University,Sociology department,AR,3.95,20
+870,Mary Galvin,Butte College,History department,CA,1.85,10
+872,Mary McHugh,Merrimack College,Political Science department,MA,4.666666666666667,15
+874,Mary Moss,Maryville College,English department,TN,3.7777777777777777,9
+875,Mary Phillips,Tulsa Community College,Biology department,OK,4.75,20
+876,Mary Richardson,San Diego State University,Languages department,CA,4.0625,16
+877,Mary Shea,Napa Valley College,Languages department,CA,3.025,20
+878,Mary Talbert,Tulsa Community College,Mathematics department,OK,4.944444444444445,9
+879,Mary Winn,La Salle University,Psychology department,PA,2.95,20
+880,Maryam Vulis,Queensborough Community College,Mathematics department,NY,2.6785714285714284,14
+881,Maryann Sydlik,Kalamazoo Valley Community College,Biology department,MI,4.125,8
+884,Mathew Horn,Utah Valley University,Chemistry department,UT,2.25,20
+887,Matthew Erdelyi,Brooklyn College,Psychology department,NY,1.625,20
+888,Matthew Johnson,Baruch College,Statistics department,NY,4.416666666666667,12
+889,Matthew Neal,Denison University,Mathematics department,OH,3.9,20
+890,Matthew Reimer,St. Cloud State University,Health Science department,MN,4.131578947368421,19
+891,Matthew Unger,Tallahassee Community College,Theology department,FL,4.775,20
+893,Max Smith,Normandale Community College,English department,MN,1.95,20
+895,McVey,Volunteer State Community College,Mathematics department,TN,3.4473684210526314,19
+896,Meghan Murphy-Lee,University of Arizona,Humanities department,AZ,4.052631578947368,19
+897,Mei-ling Wang,University of the Sciences in Philadelphia,Communication department,PA,4.458333333333333,12
+899,Melanie Grosser,University of Cincinnati Blue Ash College,Psychology department,OH,4.833333333333333,15
+901,Melissa Knous,Angelina College,English department,TX,4.833333333333333,9
+902,Melissa Lenczewski,Northern Illinois University,Geology department,IL,3.375,20
+905,Michael Arminio,Miami Dade College (all),Science department,FL,4.0,20
+906,Michael Ballard,Eastern Kentucky University,Health Science department,KY,3.5833333333333335,12
+907,Michael Besney,Northern Alberta Institute of Technology,Computer Science department,AB,4.5,20
+908,Michael Blitz,John Jay College of Criminal Justice,English department,NY,4.325,20
+909,Michael Chaney,Savannah College of Art and Design,Film department,GA,4.3,15
+910,Michael Critelli,El Camino College,Philosophy department,CA,4.55,20
+912,Michael Devine,Acadia University,Theater department,NS,4.222222222222222,9
+914,Michael Kumpf,Valparaiso University,Classics department,IN,3.875,16
+915,Michael Kwag,Boston University,Accounting department,MA,3.175,20
+916,Michael MacKinnon,Mount Saint Vincent University,Political Science department,NS,4.3,10
+918,Michael McGee,Radford University,Psychology department,VA,3.9,20
+919,Michael Milburn,University of Massachusetts - Boston,Psychology department,MA,3.4,20
+921,Michael Pratt,Queen\'s University at Kingston,Law department,ON,4.076923076923077,13
+922,Michael Rooney,Pasadena City College,Philosophy department,CA,3.9,20
+923,Michael Scanlin,Elizabethtown College,Science department,PA,4.361111111111111,18
+924,Michael Scarlatos,Pace University (all),Economics department,NY,1.15,20
+925,Michael Suetta,Philadelphia University,Ethnic Studies department,PA,4.7894736842105265,19
+926,Michele Serra,Palomar College,Speech department,CA,4.764705882352941,17
+927,Michelle Burnham,Santa Clara University,English department,CA,3.46875,16
+929,Michelle Townsel,Miami Dade College (all),Mathematics department,FL,4.555555555555555,18
+930,Middleton,Brock University,Science department,ON,3.7,10
+931,Mike Dinneen,Tulsa Community College,Political Science department,OK,4.875,20
+933,Mike Splane,San Jose State University,Business department,CA,4.975,20
+934,Milagros Ranoa,Brandon University,Social Science department,MB,4.125,12
+935,Mima Petrovic,Ryerson University,History department,ON,3.8157894736842106,19
+936,Mimi Fagan,Rock Valley College,Education department,IL,4.375,8
+937,Minnhoi Wroble- Biglan,Pennsylvania State University - Beaver,Psychology department,PA,3.25,10
+938,Mitchell Snay,Denison University,History department,OH,4.666666666666667,15
+939,Moataz Emam,Mount Holyoke College,Physics department,MA,3.1,15
+940,Monica Reimer,University of Victoria,Chemistry department,BC,1.2,20
+941,Monica Rodriguez,University at Albany (SUNY Albany),Psychology department,NY,3.2,20
+942,Morna Livingston,Philadelphia University,Architecture department,PA,2.075,20
+944,Mortez Aabdollah,New Jersey City University,Computer Science department,NJ,3.575,20
+945,Muhammad Sharif,University of Alabama,Engineering department,AL,2.5,20
+947,Mulloy Robertson,Volunteer State Community College,Mathematics department,TN,1.875,20
+948,Murphy,Long Beach City College,Biology department,CA,2.6875,8
+949,Murray Teitell,DeVry University,Computer Science department,CA,3.9375,8
+950,Mustafa Karakul,York University (all campuses),Management department,ON,4.2,20
+954,Nancy Carnal,San Francisco State University,Biology department,CA,4.153846153846154,13
+955,Nancy Edwards,University of Delaware,Education department,DE,3.5,14
+956,Nancy Eng,St. John\'s University,Communication department,NY,2.7941176470588234,17
+957,Nancy Estrada,University of Pittsburgh at Greensburg,Humanities department,PA,4.75,12
+958,Nancy Jones,La Salle University,Chemistry department,PA,4.527777777777778,18
+960,Ned Barden,Massachusetts College of Pharmacy & Health Science,Biology department,MA,4.8,20
+961,Neil Heywood,University of Wisconsin - Stevens Point,Geography department,WI,3.7,20
+963,Nicolas Robidoux,Laurentian University of Sudbury,Mathematics department,ON,3.107142857142857,14
+965,Nina-Nash Robertson,Central Michigan University,Music department,MI,4.15,20
+966,Nirmal Gupta,Ryerson University,Marketing department,ON,4.3,20
+967,Nora Jean Paradis,Northern Alberta Institute of Technology,Computer Science department,AB,2.5,11
+968,Norbert Bartel,York University (all campuses),Physics department,ON,4.15,20
+969,Norm Johnson,Ithaca College,Theater department,NY,3.769230769230769,13
+970,Norma Chase,Massachusetts College of Pharmacy & Health Science,Physics department,MA,2.7222222222222223,18
+971,Norma Manatu,John Jay College of Criminal Justice,Communication department,NY,4.2105263157894735,19
+973,Norman Kinney,Southeast Missouri State University,Psychology department,MO,3.2,20
+975,Nukte Edguer,Brandon University,Psychology department,MB,2.0789473684210527,19
+976,Nyenty Arrey,Capital University,Chemistry department,OH,2.675,20
+977,Odette Bruneau,Luther College,Education department,IA,4.642857142857143,14
+980,Owen Mertens,Missouri State University,Mathematics department,MO,4.25,20
+983,P Lawson,Volunteer State Community College,Psychology department,TN,2.8,20
+984,P Nicoletto,Lamar University,Biology department,TX,4.65,20
+985,Pam Hood,San Francisco State University,Philosophy department,CA,3.75,20
+987,Pamela Cumpton,Illinois Institute of Art - Schaumburg,English department,IL,4.769230769230769,13
+988,Pamela Jackson,Radford University,Psychology department,VA,2.6052631578947367,19
+989,Panos Alexakos,Santa Fe College,Philosophy department,FL,4.05,20
+991,Parris Powers,Volunteer State Community College,Chemistry department,TN,4.3,20
+992,Pat Cyrgalis,Lakeland Community College,Nursing department,OH,1.0416666666666667,12
+993,Pat Ledbetter,North Central Texas College,History department,TX,3.525,20
+994,Pat Sawyer,Middlesex Community College,Psychology department,CT,4.868421052631579,19
+995,Pat Zrolka,Georgia State University Perimeter College - Decatur,Mathematics department,GA,4.75,20
+997,Patricia Cassin,Nassau Community College,Biology department,NY,2.7916666666666665,12
+998,Patricia Mancini,Bridgewater State University,Biology department,MA,3.9166666666666665,18
+999,Patricia Renick,Wright State University,Education department,OH,3.033333333333333,15
+1000,Patricia Yancey,Southeast Missouri State University,Education department,MO,4.5,20
+1001,Patrick Baude,Indiana University Bloomington,Law department,IN,3.3,10
+1003,Patrick Martin Petkovich,Queen\'s University at Kingston,Biochemistry department,ON,4.2105263157894735,19
+1004,Patrick McMullen,Wake Forest University,Business department,NC,3.3181818181818183,11
+1005,Paul Bender,Ohio Northern University,English department,OH,3.2,15
+1006,Paul Bush,Franklin Pierce University,Journalism department,NH,3.638888888888889,18
+1007,Paul Clark,Albright College,Literature department,PA,4.25,12
+1010,Paul Grobstein,Bryn Mawr College,Biology department,PA,3.8181818181818183,11
+1011,Paul Haynie,Harding University,History department,AR,4.2,20
+1012,Paul Kjellberg,Whittier College,Philosophy department,CA,4.230769230769231,13
+1013,Paul Nacozy,Austin Community College,Computer Science department,TX,1.425,20
+1014,Paul Pecorino,University of Alabama,Economics department,AL,2.525,20
+1016,Paul Sparks,Evergreen State College,Fine Arts department,WA,3.2916666666666665,12
+1017,Paul Stevens,York University (all campuses),History department,ON,3.7142857142857144,14
+1018,Paul Velleman,Cornell University,Social Science department,NY,3.35,20
+1019,Paul Weiss,Kettering University,Mathematics department,MI,3.0,19
+1020,Paula Moore,Eastern Kentucky University,Sociology department,KY,1.8571428571428572,14
+1021,Paulette Swartzfager,Loyola University New Orleans,English department,LA,4.7,20
+1022,Paulette Tandy,University of Nevada Las Vegas,Accounting department,NV,3.575,20
+1023,Paulo Horta,Simon Fraser University,Humanities department,BC,3.1578947368421053,19
+1024,Peggy Maher,Maryville College,Languages department,TN,2.5555555555555554,9
+1025,Penny Foster,Anne Arundel Community College (all campuses),Computer Science department,MD,3.026315789473684,19
+1026,Peter B. Harris,Colby College,English department,ME,4.21875,16
+1027,Peter Bloom,Smith College,Music department,MA,3.7083333333333335,12
+1028,Peter Conti,College of Staten Island (CUNY - Staten Island),English department,NY,3.75,20
+1029,Peter Foreman,Illinois State University,Management department,IL,3.2222222222222223,18
+1030,Peter Geib,Minnesota State University Moorhead,Business department,MN,4.433333333333334,15
+1031,Peter Jurs,Pennsylvania State University,Chemistry department,PA,3.3,20
+1032,Peter Kuhlman,Denison University,Chemistry department,OH,4.882352941176471,17
+1033,Peter Pezzolo,Kean University (all campuses),Philosophy department,NJ,3.625,20
+1034,Phil Matheson,Utah Valley University,Physics department,UT,3.4,20
+1035,Phil White,Rochester Institute of Technology,Computer Science department,NY,3.775,20
+1036,Philip Burge,Towson University,Psychology department,MD,3.675,20
+1037,Philip Harsha,Missouri State University,Accounting department,MO,2.4375,8
+1038,Philip Rothschild,Missouri State University,Business department,MO,2.425,20
+1039,Philippe Bossaers,Parkland College,Mathematics department,IL,4.0,19
+1040,Phillip Anz-Meador,Embry-Riddle Aeronautical University Worldwide,Physics department,AZ,3.6470588235294117,17
+1041,Phyllis Goodman,College of DuPage,Business department,IL,2.7333333333333334,15
+1042,Phyllis Hirsch,East Los Angeles College,Science department,CA,1.975,20
+1044,Preston Allen,Miami Dade College (all),English department,FL,4.4,20
+1045,Priscilla Underwood,Quinsigamond Community College,English department,MA,2.5588235294117645,17
+1046,Qiang Cui,University of Wisconsin - Madison,Chemistry department,WI,2.2,20
+1048,R Hackney,Volunteer State Community College,Biology department,TN,3.6578947368421053,19
+1051,R. Donahoe,University of Alabama,Geology department,AL,2.8055555555555554,18
+1052,R. Gholam Ghorashi,Stockton University,Economics department,NJ,3.125,20
+1054,Rachel Edelson,Sacramento City College,English department,CA,4.7,20
+1055,Rachel Hall,Saint Joseph\'s University,Mathematics department,PA,2.75,20
+1057,Radha Narumanchi,Southern Connecticut State University,Accounting department,CT,1.225,20
+1058,Radhika Parameswaran,Indiana University Bloomington,Journalism department,IN,3.375,20
+1059,Raines Carter,Georgia State University Perimeter College - Decatur,Law department,GA,4.8,20
+1060,Raisul Mahmood,St. John\'s University,Economics department,NY,3.4166666666666665,12
+1061,Rajendra Raj,Rochester Institute of Technology,Computer Science department,NY,2.3823529411764706,17
+1063,Ramin Zabih,Cornell University,Computer Science department,NY,3.5294117647058822,17
+1064,Raminder Luther,Salem State University,Finance department,MA,3.55,20
+1065,Ramona Girdauskas,Seneca College of Applied Arts and Technology-ALL,Accounting department,ON,4.125,20
+1066,Randall Warwick,Coastline Community College - Garden Grove,Biology department,CA,4.45,20
+1069,Ray Bowling,San Diego Miramar College,Criminal Justice department,CA,4.863636363636363,11
+1072,Raymond Wolf,Pensacola State College,English department,FL,4.0,20
+1073,Rebecca Comay,University of Toronto - St. George Campus,Philosophy department,ON,3.1666666666666665,18
+1074,Rebecca Laidlaw,Cuesta College,Communication department,CA,3.725,20
+1075,Reg Lilly,Skidmore College,Philosophy department,NY,2.9444444444444446,18
+1076,Rex Abert,Tallahassee Community College,Mathematics department,FL,3.3,20
+1077,Rhoda Jost,Florida State College at Jacksonville,Biology department,FL,2.4,20
+1078,Rich Carter,Oregon State University,Chemistry department,OR,3.0526315789473686,19
+1079,Richard Bodek,College of Charleston,History department,SC,4.25,20
+1080,Richard Burns,Springfield Technical Community College,Mathematics department,MA,5.0,20
+1081,Richard Curtis,John Jay College of Criminal Justice,Anthropology department,NY,4.975,20
+1082,Richard Davis,Sam Houston State University,Communication department,TX,3.7222222222222223,9
+1083,Richard Doctor,Muskegon Community College,English department,MI,4.2368421052631575,19
+1084,Richard Fallon,Harvard Law School,Law department,MA,4.388888888888889,9
+1085,Richard Fern,Eastern Kentucky University,Accounting department,KY,3.2083333333333335,12
+1086,Richard Gendron,Assumption College,Social Science department,MA,4.638888888888889,18
+1088,Richard O\'Brien,Bergen Community College,English department,NJ,4.625,20
+1089,Richard Sambrook,Eastern Kentucky University,Geography department,KY,3.857142857142857,14
+1090,Richard Shanks,School of the Art Institute of Chicago,Graphic Arts department,IL,3.2142857142857144,14
+1093,Richard Travisano,University of Rhode Island,Sociology department,RI,3.125,20
+1096,Richie Scherb,College of Staten Island (CUNY - Staten Island),Biology department,NY,2.525,20
+1098,Rick Dukes,University of Colorado Colorado Springs,Sociology department,CO,4.3,10
+1099,Rick Olguin,North Seattle College,Political Science department,WA,4.0,20
+1101,Ricki Heller,Seneca College of Applied Arts and Technology-ALL,English department,ON,3.1666666666666665,15
+1102,Rina Yarmish,Kingsborough Community College,Mathematics department,NY,3.725,20
+1103,Rita Sowell,Volunteer State Community College,Mathematics department,TN,3.425,20
+1104,Rob Wells,Pacific Lutheran University,Communication department,WA,4.894736842105263,19
+1105,Robert Bender,University of Texas at Dallas,Business department,TX,4.85,20
+1106,Robert Brannon,Brooklyn College,Psychology department,NY,4.05,20
+1107,Robert Burton,California State University Chico,English department,CA,3.025,20
+1108,Robert Christie,DeVry University,Humanities department,NJ,3.075,20
+1109,Robert Coleman-Senghor,Sonoma State University,English department,CA,3.05,20
+1112,Robert Ebert,Palomar College,Biology department,CA,4.125,16
+1114,Robert Eierman,University of Wisconsin - Eau Claire,Chemistry department,WI,3.325,20
+1115,Robert Gay,Connecticut College,Social Science department,CT,4.0,18
+1116,Robert Karpinski,DePaul University,Theology department,IL,4.825,20
+1117,Robert Panzarella,John Jay College of Criminal Justice,Criminal Justice department,NY,2.175,20
+1118,Robert Rafalko,University of New Haven,Philosophy department,CT,3.772727272727273,11
+1120,Robert Stecker,Central Michigan University,Philosophy department,MI,3.25,20
+1121,Robert Vandergrift,Cypress College,Biology department,CA,3.05,20
+1122,Robert Warden,Philadelphia University,Writing department,PA,3.375,8
+1123,Robert Ware,University of Michigan - Flint,Business department,MI,1.4473684210526316,19
+1126,Roberta Reynolds,College of San Mateo,English department,CA,3.075,20
+1127,Roberto Calderon,University of North Texas,History department,TX,2.5625,16
+1129,Roderick McGinn,Brandon University,Geography department,MB,2.84375,16
+1130,Roger Colcord,Bowling Green State University,Communication department,OH,2.09375,16
+1132,Roger Holguin,East Los Angeles College,Finance department,CA,3.78125,16
+1134,Roger Strong,Lone Star College (all),Biology department,TX,3.475,20
+1135,Rogers,Schoolcraft College - (ALL),Biology department,MI,2.85,20
+1136,Ron Cameron,Wesleyan University,Theology department,CT,3.966666666666667,15
+1138,Ron Wernli,San Antonio College,Biology department,TX,3.825,20
+1139,Ronald Coleman,Volunteer State Community College,Health Science department,TN,4.2272727272727275,11
+1140,Ronald Goldsmith,Florida State University,Business department,FL,3.361111111111111,18
+1141,Ronald Martin,Santa Ana College,History department,CA,2.025,20
+1143,Ronald Weber,University of Texas at El Paso,Humanities department,TX,2.7,20
+1144,Rosanne Lorden,Eastern Kentucky University,Psychology department,KY,3.710526315789474,19
+1145,Rose Vydelingum,DeVry University,Humanities department,NJ,3.0625,8
+1146,Roseanne Mirabella,Seton Hall University,Political Science department,NJ,3.5,14
+1147,Roy Nutter,West Virginia University,Electrical Engineering department,WV,3.210526315789474,19
+1149,Rudi Hartmann,University of Colorado Denver,Geography department,CO,2.9615384615384617,13
+1150,Rudy Pyle,Anderson University,Social Science department,IN,2.95,10
+1151,Ruthie Dare-Halma,Truman State University,Computer Science department,MO,2.225,20
+1152,Ryan G Vancleave,Clemson University,English department,SC,5.0,8
+1153,Ryan Meany,University of Tampa,English department,FL,3.25,20
+1154,Ryan Stark,Pennsylvania State University,English department,PA,4.675,20
+1155,Ryan William,University of Oregon,Journalism department,OR,3.475,20
+1156,S Fenton,Volunteer State Community College,Mathematics department,TN,3.6,20
+1162,Sabrina Berent,University of Rhode Island,Languages department,RI,4.321428571428571,14
+1167,Sam Marcosson,University of Louisville,Law department,KY,3.5,10
+1169,Sandra Brown,Ocean County College,English department,NJ,4.1,20
+1170,Sandra Clark,Anderson University,English department,IN,1.9736842105263157,19
+1171,Sandra Hampel,University of Alabama,Mathematics department,AL,4.653846153846154,13
+1173,Sarah Michaels,Clark University,Education department,MA,3.1875,16
+1174,Sariwan Tjandra,Chaffey College (all campuses),Chemistry department,CA,4.75,20
+1175,Satterwhite,Stephen F. Austin State University,History department,TX,4.45,20
+1176,Savage-Dun,CUNY Queens College,Biology department,NY,2.7,20
+1177,Scott Bergeson,Brigham Young University,Physics department,UT,4.45,20
+1178,Scott Borders,Anderson University,Literature department,IN,4.75,18
+1179,Scott Brown,Georgia State University Perimeter College - Decatur,Philosophy department,GA,3.3947368421052633,19
+1180,Scott Churchill,University of Dallas,Psychology department,TX,4.115384615384615,13
+1181,Scott Hancock,Gettysburg College,History department,PA,3.909090909090909,11
+1182,Scott Labarge,Santa Clara University,Philosophy department,CA,4.55,20
+1183,Scott Peters,University of Northern Iowa,Political Science department,IA,3.95,20
+1184,Scott Rose,Napa Valley College,Biology department,CA,3.735294117647059,17
+1185,Sebastian Bartos,Brooklyn College,History department,NY,4.225,20
+1186,Seongeun Kim,Pennsylvania State University Brandywine,Social Science department,PA,4.722222222222222,9
+1187,Seth Ovadia,Towson University,Sociology department,MD,4.075,20
+1188,Shahinda Hafeez,University of Houston,Mathematics department,TX,3.25,20
+1189,Shane Bell,Northern Alberta Institute of Technology,Computer Science department,AB,3.611111111111111,18
+1190,Shannon Gadbois,Brandon University,Psychology department,MB,4.55,20
+1191,Sharon Hardesty,Eastern Kentucky University,Social Science department,KY,4.6,20
+1192,Sharon Teague,Rhode Island College,History department,RI,2.4444444444444446,18
+1193,Shawn Winship,Florida State University,Business department,FL,4.4375,8
+1194,Shel Schwartz,Orange County Community College (SUNY),Psychology department,NY,4.208333333333333,12
+1196,Shelia Most,Eastern Michigan University,Literature department,MI,3.7,20
+1197,Shelly Hancock,Bluegrass Community & Technical College,English department,KY,4.3,20
+1198,Sheng Zhang,Wayne State University,Mathematics department,MI,2.975,20
+1199,Sherry Rising,Macomb Community College (all campuses),Languages department,MI,4.875,12
+1201,Sheryl Gifford,Florida Atlantic University,English department,FL,3.275,20
+1204,Sidney E. Hardyway,Volunteer State Community College,Psychology department,TN,3.075,20
+1205,Simon Koumjian,Philadelphia University,Architecture department,PA,2.75,8
+1206,Skip Pomeroy,Nova Southeastern University,Chemistry department,FL,3.7916666666666665,12
+1207,Skip Sedivec,Appalachian State University,Biology department,NC,2.8684210526315788,19
+1210,Soong Sohng,Clarion University of Pennsylvania,Economics department,PA,2.3421052631578947,19
+1213,Stafford Rorke,Oakland University,Health Science department,MI,4.421052631578948,19
+1214,Stan Sulkes,University of Cincinnati Blue Ash College,English department,OH,4.1875,8
+1216,Stephane McLachlan,University of Manitoba,Environment department,MB,4.25,8
+1219,Stephen Hupp,Southern Illinois University - Edwardsville,Psychology department,IL,4.675,20
+1220,Stephen Timmons,Columbus State Community College,History department,OH,3.125,20
+1221,Steve Grout,Philadelphia University,History department,PA,4.525,20
+1223,Steve Kemenyffy,Edinboro University,Fine Arts department,PA,3.5555555555555554,18
+1225,Steve Wilson,Sonoma State University,Mathematics department,CA,3.3,20
+1226,Steven Jones,Pasadena City College,Music department,CA,4.75,20
+1229,Steven Schneider,University of Texas Rio Grande Valley (all campuses),English department,TX,3.8181818181818183,11
+1230,Stoller,Longwood University,Theater department,VA,2.289473684210526,19
+1231,Stuart Lynn,Assumption College,Economics department,MA,3.8125,8
+1232,Stuart Vyse,Connecticut College,Psychology department,CT,4.425,20
+1233,Sudeb Mitra,CUNY Queens College,Mathematics department,NY,2.675,20
+1234,Sue Collins,New York University,Communication department,NY,3.5357142857142856,14
+1235,Sue Davis,Denison University,Political Science department,OH,3.4615384615384617,13
+1236,Sue Lape,Columbus State Community College,English department,OH,4.025,20
+1238,Sue Sipple,University of Cincinnati Blue Ash College,English department,OH,4.875,20
+1239,Summer Carnett,San Diego State University,Communication department,CA,4.676470588235294,17
+1242,Susan Keehn,University of Texas at San Antonio,Education department,TX,4.454545454545454,11
+1243,Susan Larkin,John Jay College of Criminal Justice,Physical Ed department,NY,3.8157894736842106,19
+1244,Susan Lindahl,Central Michigan University,Music department,MI,4.6,20
+1245,Susan Mulcahy,Volunteer State Community College,Fine Arts department,TN,3.4722222222222223,18
+1246,Susan Murray,New York University,Communication department,NY,4.181818181818182,11
+1247,Susan Nelson,Georgia State University Perimeter College - Decatur,Mathematics department,GA,3.55,20
+1248,Susan Sailors,University of Alabama at Birmingham,English department,AL,4.785714285714286,14
+1249,Susan Young,Langara College,Education department,BC,2.289473684210526,19
+1250,Suzanne Bernhardt,Bryn Athyn College,English department,PA,2.75,14
+1251,Suzanne Gessner,University of Victoria,Linguistics department,BC,4.55,10
+1255,T Farris,Volunteer State Community College,Science department,TN,4.055555555555555,9
+1256,T. Madison Peschock,Fairmont State University,Writing department,WV,3.9705882352941178,17
+1257,T. Moore,Volunteer State Community College,Business department,TN,3.975,20
+1258,Tangan Gao,California State University Long Beach,Mathematics department,CA,3.6,20
+1259,Tanya Cassidy,University of Windsor,Sociology department,ON,4.2368421052631575,19
+1260,Tanya Usyk,Cumberland County College,Mathematics department,NJ,2.892857142857143,14
+1261,Ted Magder,New York University,Communication department,NY,3.775,20
+1262,Ted Tarkow,University of Missouri - Columbia,Humanities department,MO,4.541666666666667,12
+1263,Teddie Bonca,California State University Fullerton,English department,CA,4.264705882352941,17
+1266,Terry Moran,New York University,Communication department,NY,2.45,20
+1269,Theodore Evergates,McDaniel College,History department,MD,4.1,10
+1271,Theodore Zeman,Saint Joseph\'s University,History department,PA,3.4,20
+1272,Therese Lueck,University of Akron,Communication department,OH,2.5555555555555554,18
+1273,Therese Saliba,Evergreen State College,Humanities department,WA,3.9642857142857144,14
+1274,Thomas Boyle,Brooklyn College,English department,NY,3.09375,16
+1275,Thomas Cooke,University of Connecticut,Geography department,CT,3.25,20
+1276,Thomas Hirschl,Cornell University,International Studies department,NY,2.75,20
+1277,Thomas Hu,City College of San Francisco,Mathematics department,CA,4.4,20
+1278,Thomas Madden,Saint Louis University,History department,MO,3.875,20
+1279,Thomas Monarque,Ramapo College of New Jersey,Criminal Justice department,NJ,4.85,10
+1282,Thomas Schnarre,Parkland College,English department,IL,3.525,20
+1283,Thomas Tiefenwerth,Panola College,Sociology department,TX,4.625,8
+1284,Thompson- Brieg,University of New Hampshire (all campuses),Languages department,NH,2.8846153846153846,13
+1285,Tim Dowd,Miami University,Psychology department,OH,4.7894736842105265,19
+1286,Tim Gongaware,University of Wisconsin - La Crosse,Sociology department,WI,4.15,20
+1287,Tim Grover,Castleton University,Science department,VT,3.6153846153846154,13
+1288,Tim Hill,San Jose State University,Business department,CA,3.1,20
+1289,Tim Inman,Saginaw Valley State University,English department,MI,3.923076923076923,13
+1290,Tim Wandling,Sonoma State University,English department,CA,3.275,20
+1291,Timothy Fox,Anderson University,Languages department,IN,4.269230769230769,13
+1292,Timothy L Brown,Valencia College - East and West Campus,Mathematics department,FL,1.7777777777777777,18
+1293,Timothy McCauley,York University (all campuses),Sociology department,ON,3.675,20
+1294,Tina Keeble,Wilfrid Laurier University-Waterloo,Mathematics department,ON,3.0,9
+1295,Tina Laplaca,Mercer County Community College,Graphic Arts department,NJ,4.9,20
+1297,Todd Ballantyne,Harper College,Communication department,IL,4.675,20
+1298,Todd Clear,John Jay College of Criminal Justice,Law department,NY,3.375,12
+1300,Todd Feil,Denison University,Computer Science department,OH,3.9375,8
+1301,Todd McDonald,Volunteer State Community College,Mathematics department,TN,4.95,20
+1302,Todd McGowan,University of Vermont,English department,VT,4.526315789473684,19
+1303,Tom Albright,University of Alabama,Accounting department,AL,3.4,10
+1304,Tom Barker,Eastern Kentucky University,Criminal Justice department,KY,4.78125,16
+1305,Tom Harris,University of Alabama,Communication department,AL,4.375,8
+1306,Tom Johnson,San Francisco State University,Journalism department,CA,2.6666666666666665,18
+1309,Tom Streeter,Illinois Wesleyan University,Music department,IL,3.875,8
+1310,Tomoko Deguchi,Winthrop University,Music department,SC,3.3846153846153846,13
+1311,Tony Caporale,Ohio University,Economics department,OH,2.725,20
+1312,Tony Gremaud,Fanshawe College,Education department,ON,3.5555555555555554,9
+1313,Tony Hage,Columbus State Community College,Chemistry department,OH,4.921052631578948,19
+1315,Tracey Francese,William Paterson University,Women\'s Studies department,NJ,3.4411764705882355,17
+1317,Traci Green,Miami Dade College (all),Mathematics department,FL,1.55,20
+1318,Tracy Bryson,Purdue University - West Lafayette,English department,IN,2.5384615384615383,13
+1319,Tracy Chapple,Southwestern Community College,Psychology department,NC,3.5,13
+1320,Tracy Kahan,Santa Clara University,Psychology department,CA,3.7083333333333335,12
+1321,Tracy Morkin McGill,Emory University,Chemistry department,GA,3.7,20
+1322,Travis Langley,Henderson State University,Psychology department,AR,3.9444444444444446,18
+1323,Trent Snider,King\'s College,Chemistry department,PA,4.55,20
+1324,Tressa Crehan,University at Buffalo (SUNY Buffalo),Theater department,NY,4.375,8
+1325,Trish Root,North Seattle College,Physical Ed department,WA,4.7105263157894735,19
+1326,Tulasi Joshi,Fairmont State University,Geography department,WV,1.6388888888888888,18
+1327,Tyler Spalding,University of Alabama,Engineering department,AL,4.65,10
+1328,Tyra Seldon,Anderson University,English department,IN,2.1363636363636362,11
+1329,Udeme Ndon,San Jose State University,Civil Engineering department,CA,3.1666666666666665,18
+1330,V Hunter,Volunteer State Community College,Science department,TN,2.65625,16
+1331,Val Wilson,Cambrian College,Nursing department,ON,2.0,8
+1332,Valera,Longwood University,Languages department,VA,2.0,9
+1333,Valerie Allen,John Jay College of Criminal Justice,English department,NY,4.066666666666666,15
+1335,Valerie Rohy,University of Vermont,English department,VT,3.9411764705882355,17
+1336,Valerie Simmons,Langara College,Education department,BC,4.388888888888889,9
+1337,Vanessa Mitchell,Volunteer State Community College,Psychology department,TN,4.425,20
+1339,Vicente Lombrana,New Mexico State University at Alamogordo,Biology department,NM,4.921052631578948,19
+1340,Vickie Lair,Sinclair Community College,Mathematics department,OH,2.1,20
+1341,Vickie Sanchez,Eastern Kentucky University,Health Science department,KY,4.1875,8
+1342,Vida Praitis,Grinnell College,Biology department,IA,4.107142857142857,14
+1345,Vincent Delcastillo,John Jay College of Criminal Justice,Law department,NY,4.15,20
+1346,Vincent Ferraro,Mount Holyoke College,Political Science department,MA,4.725,20
+1349,Vladimir Tulovsky,St. John\'s University - Staten Island,Mathematics department,NY,3.4444444444444446,18
+1350,Vo Liem,University of Alabama,Mathematics department,AL,3.575,20
+1352,Wallace Edgerton,Mt. San Jacinto College (all campuses),Political Science department,CA,3.95,20
+1353,Walt Thielen,Paradise Valley Community College,Communication department,AZ,4.8,20
+1355,Wayne Erickson,Georgia State University,English department,GA,4.125,20
+1356,Wayne Grossman,Hofstra University,Management department,NY,3.425,20
+1357,Wayne Hawthorn,University of Waterloo,Biology department,ON,4.535714285714286,14
+1358,Weinberger,Brooklyn College,Psychology department,NY,4.111111111111111,18
+1360,Wendy Ho,University of California Davis,Women\'s Studies department,CA,2.8,20
+1361,Wendy Maleki,Chaffey College (all campuses),Nursing department,CA,3.0,11
+1362,Wendy Untereiner,Brandon University,Science department,MB,3.7916666666666665,12
+1363,Wendy Walters,Rhode Island School of Design,English department,RI,3.909090909090909,11
+1364,Werner Kriegelstein,College of DuPage,Philosophy department,IL,3.925,20
+1365,William Addeo,Anne Arundel Community College (all campuses),Mathematics department,MD,2.0833333333333335,12
+1367,William Brooks,Florida Atlantic University,Biology department,FL,3.9,20
+1368,William Farmen,Anderson University,Psychology department,IN,4.3,15
+1370,William Gordon,University of Rhode Island,Geography department,RI,3.775,20
+1371,William Hollinrake,Des Moines Area Community College,Computer Science department,IA,1.075,20
+1372,William Irvine,York University (all campuses),History department,ON,4.0,20
+1373,William Jenkins,York University (all campuses),Geography department,ON,3.975,20
+1374,William Masten,Texas A&M University at Commerce,Psychology department,TX,3.15,20
+1375,William Ryan,Slippery Rock University,Science department,PA,4.0625,8
+1378,William Stoever,Western Washington University,Religion department,WA,3.5,20
+1379,William Widen,University of Miami School of Law,Law department,FL,3.0,19
+1380,Wilma Saffran,CUNY Queens College,Chemistry department,NY,4.2631578947368425,19
+1385,Xinda Lian,Denison University,Languages department,OH,4.235294117647059,17
+1386,Y. Peter Chung,University of California Riverside,Management department,CA,3.3,20
+1387,Yasger,Santiago Canyon College,English department,CA,4.166666666666667,18
+1388,Yasmin Villvendas,Pennsylvania State University,Languages department,PA,4.65,20
+1389,Yen Lu Wong,San Jose State University,Art department,CA,2.3823529411764706,17
+1390,Ying Wang,Mount Holyoke College,Languages department,MA,4.868421052631579,19
+1391,Younghe Kim Park,California State University Long Beach,Mathematics department,CA,3.45,20
+1393,Zeno Swijtink,Sonoma State University,Philosophy department,CA,1.175,20
+1394,Zeynep Tenger,Berry College,English department,GA,3.5625,16

@@ -169,8 +169,13 @@ RANDOM_STATE = 42
 # ATTENUATION
 # ==============================================================================
 
-S_VALUE = 0.86          # optimal down_weighting exponent 
+S_VALUE = 0.83          # down_weighting exponent, tuned on training professors only
 MISC_D_COL = "misc_d"
+
+# Restrict reported attenuation metrics to held-out professors (professors seen
+# by neither the CatBoost model nor the s-value grid search). Set False to
+# reproduce the full-sample numbers.
+REPORT_ON_HELDOUT = True
 
 # S optimization grid search range
 S_SEARCH_MIN  = 0.2

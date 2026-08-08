@@ -7,6 +7,10 @@ Produces:
   - weighted_emotions.csv      (down-weighted feature matrix)
   - attuned_ratings.csv        (reviews with misc_d > 0, adjusted ratings + deltas)
   - attuned_ratings_full.csv   (all reviews including those with misc_d == 0)
+
+Both attuned_* files carry an `is_heldout` flag marking professors excluded from
+CatBoost training and from s-value tuning. Reporting stages use it to keep the
+validation metrics free of the rows those procedures were fit on.
 """
 
 import numpy as np
@@ -34,6 +38,7 @@ from constants import (
     DELTA,
     LAMBDA,
 )
+from src.splits import heldout_mask, professor_split, train_rows
 
 
 
@@ -73,12 +78,15 @@ def _apply_down_weighting(df: pd.DataFrame, s: float) -> pd.DataFrame:
 
 def optimize_s(
     model: CatBoostRegressor,
-    df: pd.DataFrame,
     df_misc: pd.DataFrame,
     raw_preds: np.ndarray,
 ) -> float:
     """
     Grid search over [S_SEARCH_MIN, S_SEARCH_MAX] to minimize loss.
+
+    `df_misc` must contain training professors only. Tuning s on rows that are
+    later reported on would make the reported correlation improvements circular,
+    since the loss below is built from those same correlations.
 
     #Maximizes decreases in correlation strength between raw misc emotions and adjusted ratings
     #Maximizes increase in correlation strength between raw pedagogical emotions and adjusted ratings
@@ -225,11 +233,19 @@ def run(find_optimal_s: bool = False) -> None:
 
     # Subset: reviews with miscellaneous content
     df_misc = df[df[MISC_D_COL] > 0].reset_index(drop=True)
-    X_misc_raw = df_misc.drop(columns=METADATA_COLS)
-    raw_preds_misc = model.predict(X_misc_raw)
 
-    # Optionally re-run grid search
-    s = optimize_s(model, df_misc, df_misc, raw_preds_misc) if find_optimal_s else S_VALUE
+    # s is tuned on training professors only — the same rows the CatBoost model
+    # was fit on. Reported metrics are computed on held-out professors, which
+    # neither the model nor the grid search has seen.
+    train_profs, test_profs = professor_split(df)
+
+    if find_optimal_s:
+        tune_df = train_rows(df_misc, train_profs).reset_index(drop=True)
+        raw_preds_tune = model.predict(tune_df.drop(columns=METADATA_COLS))
+        print(f"  Tuning s on {len(tune_df):,} reviews from {len(train_profs):,} training professors")
+        s = optimize_s(model, tune_df, raw_preds_tune)
+    else:
+        s = S_VALUE
     print(f"  Using s = {s}")
 
     # Run attenuation on full dataset
@@ -243,6 +259,13 @@ def run(find_optimal_s: bool = False) -> None:
     final_df["total_misc_intensity"] = (
         final_df["misc_pos_intensity"] + final_df["misc_neg_intensity"]
     )
+
+    # Tag split membership so reporting stages can restrict to held-out
+    # professors without re-deriving (and possibly diverging from) the split.
+    full_df["is_heldout"]  = heldout_mask(full_df, test_profs).values
+    final_df["is_heldout"] = heldout_mask(final_df, test_profs).values
+    print(f"  Held-out reviews (misc subset): {int(final_df['is_heldout'].sum()):,} "
+          f"of {len(final_df):,}")
 
     _print_summary(full_df, final_df, total_n=len(df))
 

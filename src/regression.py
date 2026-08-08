@@ -14,7 +14,7 @@ import pandas as pd
 from catboost import CatBoostRegressor
 from scipy.stats import spearmanr
 from sklearn.metrics import mean_absolute_error, r2_score
-from sklearn.model_selection import GroupKFold, train_test_split
+from sklearn.model_selection import GroupKFold
 
 from constants import (
     CLAUSE_VECTORS,
@@ -26,9 +26,8 @@ from constants import (
     EMOTION_LABELS_NO_NEUTRAL,
     CATBOOST_PARAMS,
     CV_N_SPLITS,
-    TEST_SIZE,
-    RANDOM_STATE,
 )
+from src.splits import heldout_rows, professor_split, train_rows
 
 
 # ==============================================================================
@@ -95,9 +94,8 @@ def _evaluate(y_true, preds) -> tuple[float, float, float]:
 
 def cross_validate(df: pd.DataFrame) -> None:
     """5-fold professor-level cross-validation on training split."""
-    prof_ids = df["prof_ID"].unique()
-    train_profs, _ = train_test_split(prof_ids, test_size=TEST_SIZE, random_state=RANDOM_STATE)
-    train_df = df[df["prof_ID"].isin(train_profs)]
+    train_profs, _ = professor_split(df)
+    train_df = train_rows(df, train_profs)
 
     groups        = train_df["prof_ID"]
     X_train_full  = train_df.drop(columns=METADATA_COLS)
@@ -128,13 +126,10 @@ def cross_validate(df: pd.DataFrame) -> None:
 
 def train_final_model(df: pd.DataFrame) -> CatBoostRegressor:
     """Train on all training professors, evaluate on held-out test professors."""
-    prof_ids = df["prof_ID"].unique()
-    train_profs, test_profs = train_test_split(
-        prof_ids, test_size=TEST_SIZE, random_state=RANDOM_STATE
-    )
+    train_profs, test_profs = professor_split(df)
 
-    train_df = df[df["prof_ID"].isin(train_profs)]
-    test_df  = df[df["prof_ID"].isin(test_profs)]
+    train_df = train_rows(df, train_profs)
+    test_df  = heldout_rows(df, test_profs)
 
     X_train = train_df.drop(columns=METADATA_COLS)
     y_train = train_df["rating"]

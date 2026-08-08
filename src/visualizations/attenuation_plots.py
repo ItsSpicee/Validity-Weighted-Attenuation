@@ -32,9 +32,11 @@ from constants import (
     METADATA_COLS,
     POS_EMOTIONS,
     NEG_EMOTIONS,
-    TOPICS,               
-    TOPIC_DISPLAY_NAMES,  
+    TOPICS,
+    TOPIC_DISPLAY_NAMES,
+    REPORT_ON_HELDOUT,
 )
+from src.splits import heldout_rows, professor_split
 
 
 TOPIC_COLORS = ["#1f77b4", "#ff7f0e", "#2fdb3d", "#d42222"]
@@ -329,12 +331,33 @@ def run() -> None:
     model = catboost.CatBoostRegressor()
     model.load_model(str(CATBOOST_FINAL_MODEL), format="cbm")
 
+    # Validation figures report on held-out professors only. The Δ-vs-misc_d
+    # correlations are one of the terms the s-value loss optimizes, so on tuning
+    # rows they would partly restate the objective. SHAP is filtered alongside
+    # them so the whole validation section describes the same population.
+    # df_u and df_w are row-aligned, so the same professor filter applies to both.
+    df_att_report, df_u_report, df_w_report = df_att, df_u, df_w
+    if REPORT_ON_HELDOUT:
+        if "is_heldout" not in df_att.columns:
+            raise KeyError(
+                "attuned_ratings.csv has no 'is_heldout' column — re-run stage 5 "
+                "(attenuation) to regenerate it, or set REPORT_ON_HELDOUT = False."
+            )
+        _, test_profs = professor_split(df_u)
+        df_att_report = df_att[df_att["is_heldout"].astype(bool)].reset_index(drop=True)
+        df_u_report   = heldout_rows(df_u, test_profs).reset_index(drop=True)
+        df_w_report   = heldout_rows(df_w, test_profs).reset_index(drop=True)
+        print(f"  Held-out professors only: {len(df_att_report):,} misc reviews")
+
     print("  Plotting Δ vs misc_d...")
-    plot_delta_vs_misc_d(df_att)
+    plot_delta_vs_misc_d(df_att_report)
 
     print("\n  Plotting SHAP (this may take a moment)...")
-    plot_shap(model, df_u, df_w)
+    plot_shap(model, df_u_report, df_w_report)
 
+    # Δ distribution and professor-level shifts are descriptive summaries of the
+    # framework's output over the whole corpus, not validation metrics, so they
+    # stay on the full sample.
     print("\n  Plotting Δ distribution...")
     plot_delta_distribution(df_att, df_full)
 
