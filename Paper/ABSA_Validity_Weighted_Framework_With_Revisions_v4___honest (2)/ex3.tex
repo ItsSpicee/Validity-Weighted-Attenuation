@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage[margin=1cm, paperwidth=20cm, paperheight=20cm]{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{xcolor}
+
+\begin{document}
+\thispagestyle{empty}
+
+\noindent\textbf{Worked Example 3 — Review \#14848}
+
+\vspace{0.5em}
+\noindent\textit{Section 1: Clause Extraction and Categorization}
+
+\vspace{0.3em}
+\noindent
+\begin{tabular}{p{7cm} p{3.5cm} p{1cm} p{5.5cm}}
+\toprule
+\textbf{Clause} & \textbf{Topic} & \textbf{Sim} & \textbf{Top 2 Emotions} \\
+\midrule
+had him for invertebrate zoology and parasitology, but sadly not entemology. & Instructional Effectiveness & 0.290 & sadness=0.884, disappointment=0.093 \\
+\addlinespace
+very tough, definitely. & Workload & 0.280 & approval=0.367, sadness=0.355 \\
+\addlinespace
+yet, you learned a lot and will definitely never forget his classes. & Instructional Effectiveness & 0.390 & admiration=0.351, approval=0.305 \\
+\addlinespace
+tests were difficult, but fair. & Fairness & 0.490 & approval=0.790, realization=0.032 \\
+\addlinespace
+too bad he retired. & \textit{Miscellaneous} & 0.020 & disappointment=0.521, sadness=0.414 \\
+\addlinespace
+ i'll miss his quirkiness doo da... & \textit{Miscellaneous} & 0.000 & sadness=0.863, disappointment=0.182 \\
+\addlinespace
+da da dee doo dum anyone who had him understands and enthusiasm. & \textit{Miscellaneous} & 0.200 & approval=0.550, admiration=0.123 \\
+\addlinespace
+thanks doctor [instructor]! & \textit{Miscellaneous} & 0.150 & gratitude=0.990, approval=0.010 \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.8em}
+\noindent\textit{Section 2: Baseline vs. Attenuated Feature Vector}
+
+\vspace{0.3em}
+\noindent
+\begin{tabular}{p{3.5cm} p{7cm} p{7cm}}
+\toprule
+\textbf{Topic} & \textbf{Baseline Top 4 Emotions} & \textbf{Down-Weighted Top 4 Emotions} \\
+\midrule
+Instr. Effectiveness & sadness=0.444, admiration=0.180, approval=0.158, disappointment=0.050 & sadness=0.444, admiration=0.180, approval=0.158, disappointment=0.050 \\
+\addlinespace
+Fairness & approval=0.790, realization=0.032, optimism=0.029, admiration=0.017 & approval=0.790, realization=0.032, optimism=0.029, admiration=0.017 \\
+\addlinespace
+Workload & approval=0.367, sadness=0.355, disappointment=0.121, admiration=0.035 & approval=0.367, sadness=0.355, disappointment=0.121, admiration=0.035 \\
+\addlinespace
+\textit{Miscellaneous} & sadness=0.320, gratitude=0.248, disappointment=0.177, approval=0.143 & \textcolor{red}{sadness=0.155, gratitude=0.120, disappointment=0.086, approval=0.070} \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.8em}
+\noindent\textit{Section 3: Validity-Weighted Attenuation}
+
+\vspace{0.3em}
+\noindent
+\begin{tabular}{p{2cm} p{2cm} p{2cm} p{2.5cm} p{2.5cm} p{2cm} p{2.5cm}}
+\toprule
+$D_{\text{misc}}$ & $\zeta$ & \textbf{Raw} & \textbf{Baseline} & \textbf{Attenuated} & $\Delta$ & \textbf{Adjusted} \\
+\midrule
+0.450 & 0.485 & 5.0 & 4.005 & 3.762 & $-$0.243 & \textbf{4.757} \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\small\textit{Four of eight clauses are Miscellaneous ($D_{\text{misc}}$=0.450), including a high-gratitude farewell (gratitude=0.990). Attenuation applies $\zeta$=0.485, roughly halving the Miscellaneous signal. Pedagogical features are unchanged. The positive Miscellaneous signal is reduced, producing a downward adjustment of $-$0.243.}
+\end{document}

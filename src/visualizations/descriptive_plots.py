@@ -101,7 +101,7 @@ def plot_topic_combinations(df: pd.DataFrame) -> None:
     )
 
     def _to_short(comb_str):
-        return ",".join(SHORT.get(t.strip(), t.strip()) for t in comb_str.split(","))
+        return ",".join(TOPIC_DISPLAY_NAMES.get(t.strip(), t.strip()) for t in comb_str.split(","))
 
     combination_counts = combinations.map(_to_short).value_counts().sort_values()
 
@@ -112,7 +112,7 @@ def plot_topic_combinations(df: pd.DataFrame) -> None:
     plt.ylabel("Topic Combination (IE/W/F/M)")
 
     legend_labels = [
-        mpatches.Patch(color="white", label=f"{v} = {k}") for k, v in SHORT.items()
+        mpatches.Patch(color="white", label=f"{v} = {k}") for k, v in TOPIC_DISPLAY_NAMES.items()
     ]
     plt.legend(
         handles=legend_labels,

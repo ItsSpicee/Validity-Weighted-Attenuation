@@ -225,12 +225,6 @@ def run(find_optimal_s: bool = False) -> None:
 
     df = pd.read_csv(FINAL_EMOTIONS)
 
-    # Save down-weighted feature matrix
-    df_weighted = _apply_down_weighting(df, S_VALUE)
-    WEIGHTED_EMOTIONS.parent.mkdir(parents=True, exist_ok=True)
-    df_weighted.to_csv(WEIGHTED_EMOTIONS, index=False)
-    print(f"  Saved: {WEIGHTED_EMOTIONS}")
-
     # Subset: reviews with miscellaneous content
     df_misc = df[df[MISC_D_COL] > 0].reset_index(drop=True)
 
@@ -243,10 +237,22 @@ def run(find_optimal_s: bool = False) -> None:
         tune_df = train_rows(df_misc, train_profs).reset_index(drop=True)
         raw_preds_tune = model.predict(tune_df.drop(columns=METADATA_COLS))
         print(f"  Tuning s on {len(tune_df):,} reviews from {len(train_profs):,} training professors")
-        s = optimize_s(model, tune_df, raw_preds_tune)
+        s = round(optimize_s(model, tune_df, raw_preds_tune), 2)
+        if s != S_VALUE:
+            print(f"  NOTE: tuned s = {s} differs from S_VALUE = {S_VALUE}. This run uses "
+                  f"{s} throughout; update S_VALUE so later stages agree.")
     else:
         s = S_VALUE
     print(f"  Using s = {s}")
+
+    # The down-weighted feature matrix is written with the s this run actually
+    # used, not with S_VALUE. It feeds the SHAP figures while attuned_ratings*
+    # feeds everything else, so writing it at a different s would let the two
+    # halves of the reporting describe different exponents without erroring.
+    df_weighted = _apply_down_weighting(df, s)
+    WEIGHTED_EMOTIONS.parent.mkdir(parents=True, exist_ok=True)
+    df_weighted.to_csv(WEIGHTED_EMOTIONS, index=False)
+    print(f"  Saved: {WEIGHTED_EMOTIONS}")
 
     # Run attenuation on full dataset
     full_df = attenuate(model, df, s)

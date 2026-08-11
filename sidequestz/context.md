@@ -1,8 +1,9 @@
 # sidequestz
 
-Optional analyses. None of these are required for the framework to work or for
-the paper to be correct — they are additions worth including **if there is space**,
-each chosen for high reviewer impact relative to the effort of running it.
+Standalone analyses that sit beside the pipeline. `worked_examples.py` is a
+paper-maintenance utility and has been used; the other three are **optional**
+additions worth including if there is space, each chosen for high reviewer impact
+relative to the effort of running it. None of the optional three has been run.
 
 Nothing here modifies the pipeline. Every script loads the trained model, never
 refits, and writes only into `sidequestz/output/`.
@@ -10,14 +11,44 @@ refits, and writes only into `sidequestz/output/`.
 Run from the project root:
 
 ```
-python sidequestz/sensitivity_across_s.py
+python sidequestz/worked_examples.py          # paper maintenance; already used
+python sidequestz/sensitivity_across_s.py     # optional, not yet run
 python sidequestz/expert_confidence_intervals.py
 python sidequestz/permutation_test.py
 ```
 
+On a cp1252 console, prefix with `PYTHONIOENCODING=utf-8` — output containing
+`Δ` raises `UnicodeEncodeError` when piped or redirected.
+
 ---
 
 ## The scripts
+
+### `worked_examples.py` — paper maintenance, not optional
+
+Recomputes the Section 3.9 worked examples (`ex1.tex`, `ex2.tex`, `ex3.tex`) at
+the current `S_VALUE` and prints each `s`-dependent quantity beside the value
+currently written in the paper, flagged changed or unchanged. Emits paste-ready
+LaTeX table bodies to `output/worked_examples.tex`.
+
+Used to move the examples from `s = 0.86` to `0.83`. Rerun it whenever `s`
+changes — the examples are hand-traced prose and are the easiest thing in the
+paper to leave stale.
+
+Three things to know:
+
+- **`--s` lets you regenerate at any exponent.** Running at 0.86 and diffing
+  against the committed `.tex` is how the harness was verified before its 0.83
+  output was trusted. Every `s`-independent value reproduced exactly.
+- **It doubles as a cross-file consistency check.** It recomputes deltas straight
+  from the model and compares them to `attuned_ratings_full.csv`, warning if the
+  pipeline's outputs were produced at a different `s`. This guarded the
+  `S_VALUE`-vs-tuned-`s` divergence before that bug was fixed; it is still worth
+  keeping as a tripwire.
+- **Its Section 1 output is un-anonymized.** Clause text carries real professor
+  names where the paper writes `[instructor]`. Do not paste that section into the
+  `.tex`. Section 1 is `s`-independent anyway — it is emitted only to confirm
+  that clause segmentation and ATC did not shift.
 
 ### `sensitivity_across_s.py` — items 1, 2, 6
 
@@ -121,7 +152,8 @@ Their findings, for the record:
   0.37, 0.62 and 0.91. The loss surface has several near-equivalent minima.
 - **Training-professor tuning.** Tuning `s` on training professors only — the
   arrangement the pipeline now uses — gives 0.83, three grid steps from the
-  0.86 originally reported on the full sample.
+  0.86 originally reported on the full sample. The paper has since been moved to
+  0.83 throughout; downstream numbers shifted by at most 0.02 rating points.
 - **Downstream sensitivity sweep.** Deltas correlate 0.966–0.9995 across the
   modal range with mean divergence under 0.09 rating points, and expert accuracy
   stayed significant at every value tested. `sensitivity_across_s.py` is the

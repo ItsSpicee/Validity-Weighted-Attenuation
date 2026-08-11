@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage[margin=1cm, paperwidth=20cm, paperheight=17cm]{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{xcolor}
+
+\begin{document}
+\thispagestyle{empty}
+
+\noindent\textbf{Worked Example 1 — Review \#5} 
+
+\vspace{0.5em}
+\noindent\textit{Section 1: Clause Extraction and Categorization}
+
+\vspace{0.3em}
+\noindent
+\begin{tabular}{p{7cm} p{3.5cm} p{1cm} p{5.5cm}}
+\toprule
+\textbf{Clause} & \textbf{Topic} & \textbf{Sim} & \textbf{Top 2 Emotions} \\
+\midrule
+professor [instructor] has great knowledge in astronomy, while he can explain them in a super easy way in an elementary class. & Instructional Effectiveness & 0.430 & admiration=0.889, approval=0.154 \\
+\addlinespace
+he taught this class with great passion and great illustration. & Instructional Effectiveness & 0.570 & admiration=0.957, approval=0.042 \\
+\addlinespace
+this class is definitely fun to take. & Instructional Effectiveness & 0.480 & amusement=0.674, joy=0.658 \\
+\addlinespace
+if you are interested in further knowledge that this class won't cover, don't hesitate to ask him. & Instructional Effectiveness & 0.480 & approval=0.401, optimism=0.042 \\
+\addlinespace
+great teacher. & Instructional Effectiveness & 0.460 & admiration=0.950, approval=0.034 \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.8em}
+\noindent\textit{Section 2: Baseline vs. Attenuated Feature Vector}
+
+\vspace{0.3em}
+\noindent
+\begin{tabular}{p{3.5cm} p{7cm} p{7cm}}
+\toprule
+\textbf{Topic} & \textbf{Baseline Top 4 Emotions} & \textbf{Down-Weighted Top 4 Emotions}  \\
+\midrule
+Instr. Effectiveness & admiration=0.574, amusement=0.136, joy=0.134, approval=0.132 & admiration=0.574, amusement=0.136, joy=0.134, approval=0.132 \\
+\addlinespace
+Fairness & — & — \\
+\addlinespace
+Workload & — & — \\
+\addlinespace
+\textit{Miscellaneous} & — & — \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.8em}
+\noindent\textit{Section 3: Validity-Weighted Attenuation}
+
+\vspace{0.3em}
+\noindent
+\begin{tabular}{p{2cm} p{2cm} p{2cm} p{2.5cm} p{2.5cm} p{2cm} p{2.5cm}}
+\toprule
+$D_{\text{misc}}$ & $\zeta$ & \textbf{Raw} & \textbf{Baseline} & \textbf{Attenuated} & $\Delta$ & \textbf{Adjusted} \\
+\midrule
+0.000 & 1.000 & 5.0 & 5.003 & 5.003 & 0.000 & \textbf{5.000} \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\small\textit{All clauses categorized as Instructional Effectiveness. $D_{\text{misc}}$=0.000 results in $\zeta$=1.000. No down-weighting is applied. The framework leaves the raw rating entirely unchanged.}
+\end{document}
