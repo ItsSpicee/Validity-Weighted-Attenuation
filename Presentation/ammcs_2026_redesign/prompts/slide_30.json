@@ -1,0 +1,39 @@
+{
+  "slide": 30,
+  "title": "Other non-CatBoost Options",
+  "out": "slide_30.png",
+  "expected_backend": "built-in image tool",
+  "requires_context_images": true,
+  "input_images": [
+    {
+      "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+      "role": "approved deck style reference",
+      "fidelity": "match palette, typography mood, texture, and polish only; do not copy content or exact layout"
+    },
+    {
+      "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\slide30_updated_source.png",
+      "role": "strict updated slide 30 source exported from the current presentation file",
+      "fidelity": "preserve the exact title, three-table structure, headers, row labels, values, arrows, mathematical notation, and relationships"
+    }
+  ],
+  "prompt": "Generate a polished 16:9 image-based conference slide in the approved lighter-dusk AMMCS deck style. Use Image 1 only for visual style and Image 2 as the strict content source. The exact title is: Other non-CatBoost Options. Recreate all three tables from Image 2 with complete, legible, exact text and values. Top table headers: Model; MAE ↓; Spearman ρ ↑; R² ↑. Rows: Ordinal Regression | 0.9509 | 0.5414 | 0.0794; Linear Regression | 0.7940 | 0.6875 | 0.5266; Random Forest | 0.6938 | 0.7289 | 0.6217; XGBoost | 0.6710 | 0.7329 | 0.5638. Final Choice table headers: Final Choice; MAE ↓; Spearman ρ ↑; R² ↑. Its only row is CatBoost | 0.6369 | 0.7355 | 0.6140. CRITICAL: CatBoost must be rendered as one unbroken word on one single line; never wrap or split it. Cross-validation table headers: Fold; MAE; Spearman ρ ↑; R² ↑. Rows: 1 | 0.6691 | 0.7102 | 0.5837; 2 | 0.6195 | 0.7424 | 0.6431; 3 | 0.6052 | 0.7462 | 0.6476; 4 | 0.6328 | 0.7282 | 0.6262; 5 | 0.6236 | 0.7241 | 0.6282; Mean | 0.63 | 0.7302 | 0.6258. Use crisp modern sans-serif for title, labels, and values, with mathematical serif only for notation. Keep the layout projection-safe and balanced. Preserve all lexical content exactly. Do not add claims, captions, logos, a watermark, or a visible slide number.",
+  "sample_generation_method": {
+    "backend_used": "built-in image tool",
+    "tool_name": "image_gen",
+    "mode": "generate",
+    "approved_sample_path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+    "handoff_rule": "Use the built-in image_gen backend and return backend_used, selected_source, and qa_note."
+  },
+  "generation_contract": {
+    "must_use_selected_image_backend": true,
+    "must_match_sample_generation_method": true,
+    "forbidden_final_image_methods": [
+      "local drawing/rendering scripts",
+      "Pillow-generated slides",
+      "SVG/HTML/CSS/canvas screenshots",
+      "native PowerPoint screenshots",
+      "manually composited text/image overlays"
+    ],
+    "must_return": ["backend_used", "selected_source", "qa_note"]
+  }
+}

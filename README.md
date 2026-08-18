@@ -6,6 +6,7 @@ A transparent, interpretable NLP pipeline for improving the signal-to-noise rati
 
 *Towards Validity-Weighted Attenuation of Affective Noise in Student Evaluations of Teaching: An Interpretable ABSA Framework*
 
+Research conducted under the supervision of Dr. Somayeh Fatahi.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Table of Contents
@@ -134,7 +135,7 @@ Run from the project root directory with the conda/venv environment activated.
 python pipeline.py
 ```
 
-Runs all six stages in sequence: preprocessing → ATC → sentiment → regression → attenuation → validation.
+Runs five processing stages and two validation stages in sequence: preprocessing → ATC → sentiment → regression → attenuation → ATC validation → attenuation validation.
 
 ### All available flags
 
@@ -215,15 +216,15 @@ Both processed data and model data directories can be empty to start. The pipeli
 
 **`constants.py`** — single source of truth for all configuration. Contains file paths, topic descriptions used for ATC embeddings, emotion label sets, CatBoost hyperparameters, attenuation parameters (including `S_VALUE`), and validation thresholds. Modify this file to change any pipeline behaviour without touching the stage modules.
 
-**`src/preprocessing.py`** — handles all raw data cleaning in two sub-stages. The structural filtering stage removes Quebec reviews, empty/no-comment reviews, auto-tagged profanity reviews, and reviews from professors with fewer than 8 total reviews. The text normalization stage fixes encoding errors (mojibake, escaped apostrophes), converts to lowercase, expands abbreviations and short-forms, tags emojis and self-censored profanity, and cleans punctuation.
+**`src/preprocessing.py`** — handles all raw data cleaning in two sub-stages. The structural filtering stage removes Quebec reviews, missing or empty/unrated reviews, auto-tagged profanity reviews, and reviews from professors with fewer than 8 total reviews. The text normalization stage fixes encoding errors (mojibake, escaped apostrophes), converts to lowercase, expands abbreviations and short-forms, tags emojis and self-censored profanity, and cleans punctuation.
 
 **`src/atc.py`** — implements the Aspect-Term Categorization (ATC) stage. First, reviews are split into clauses using spaCy with a three-strategy adaptive approach (punctuation-based, comma-based, or stopword-based splitting). Each clause is then embedded using `all-mpnet-base-v2` and compared against pre-computed topic description embeddings via cosine similarity. Clauses above the similarity threshold (τ = 0.25) are assigned to the closest topic; all others are labelled Miscellaneous. Pedagogical density metrics (D_eff, D_fair, D_work, D_misc) are calculated per review.
 
 **`src/sentiment.py`** — runs per-clause emotion extraction using the INT8-quantized ONNX variant of `SamLowe/roberta-base-go_emotions`. Each clause produces a 28-dimensional sigmoid probability vector across the GoEmotions label set. The Neutral dimension is retained in the parquet output and dropped in the regression stage. All inference runs on CPU using parallel ONNX session options.
 
-**`src/regression.py`** — builds the per-review feature matrix by pivoting per-clause emotion vectors to produce topic-level mean emotion profiles (108 features) and attaching the four density metrics (112 total). A CatBoost regression model is trained with professor-level stratified 5-fold cross-validation followed by final evaluation on held-out professors. The trained model is saved to `models/`.
+**`src/regression.py`** — builds the per-review feature matrix by pivoting per-clause emotion vectors to produce topic-level mean emotion profiles (108 features) and attaching the four density metrics (112 total). A CatBoost regression model is trained with professor-level grouped 5-fold cross-validation followed by final evaluation on held-out professors. The trained model is saved to `models/`.
 
-**`src/attenuation.py`** — applies validity-weighted attenuation. Miscellaneous emotion features are down-weighted by the factor ζ = 1 − (D_misc)^s, where s is the damping exponent (default 0.86, or optimized via grid search with `--optimize-s`). The trained CatBoost model is run on both the original and down-weighted feature matrices; the difference in predictions (Δ) is added to the raw student rating to produce the adjusted rating.
+**`src/attenuation.py`** — applies validity-weighted attenuation. Miscellaneous emotion features are down-weighted by the factor ζ = 1 − (D_misc)^s, where s is the damping exponent (default 0.83, or optimized via grid search with `--optimize-s`). The trained CatBoost model is run on both the original and down-weighted feature matrices; the difference in predictions (Δ) is added to the raw student rating to produce the adjusted rating.
 
 **`src/validation.py`** — evaluates the attenuation mechanism against expert human judgment using paired comparison. Pairs of reviews are evaluated by an expert who identifies the more pedagogically valid review without access to model outputs. Accuracy is reported overall and separately for coarse pairs (large Δ difference) and fine-grained pairs (subtle Δ difference).
 

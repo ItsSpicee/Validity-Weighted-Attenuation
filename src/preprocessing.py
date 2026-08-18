@@ -66,7 +66,15 @@ def drop_french(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def drop_no_comment(df: pd.DataFrame) -> pd.DataFrame:
+    """Remove reviews lacking either a usable comment or a numerical rating."""
     before = len(df)
+
+    # CSV blank cells are read as NaN.  They do not match the string-based
+    # filters below, so remove them explicitly before continuing downstream.
+    has_review = df["review"].notna() & df["review"].astype(str).str.strip().ne("")
+    has_rating = df["rating"].notna() & df["rating"].astype(str).str.strip().ne("")
+    df = df[has_review & has_rating].copy()
+
     df = df[df["review"] != "No Comments"]
 
     pattern = r"^[nN][oO]\s+[cC][oO][mM][mM][eE][nN][tT][sS]?[\s.!]*$"
@@ -75,7 +83,7 @@ def drop_no_comment(df: pd.DataFrame) -> pd.DataFrame:
     no_letters = r"^[^a-zA-Z]*$"
     df = df[~df["review"].str.contains(no_letters, na=False, regex=True)]
 
-    print(f"  Empty / no-comment reviews excluded: {before - len(df)}")
+    print(f"  Empty, no-comment, or unrated reviews excluded: {before - len(df)}")
     return df
 
 

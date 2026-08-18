@@ -1,0 +1,2849 @@
+{
+  "run_status": "slides_recorded",
+  "deck_name": "ammcs_2026_redesign",
+  "selected_backend": "built-in image tool",
+  "sample_generation_method": {
+    "backend_used": "built-in image tool",
+    "tool_name": "image_gen",
+    "mode": "generate",
+    "prompt_source": "approved slide 31 prompt and user-directed edits",
+    "size": "16:9 landscape, built-in default",
+    "quality": "built-in default",
+    "approved_sample_path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+    "input_context_preparation": "view_image for local strict input assets and approved sample; built-in conversation image context",
+    "handoff_rule": "Use this same built-in image_gen backend and mode; return a blocker if unavailable."
+  },
+  "max_concurrent_slides": 3,
+  "slides": [
+    {
+      "slide_id": "slide_01",
+      "number": 1,
+      "title": "Towards VWA of Affective Noise in SET",
+      "job": "prompts/slide_01.json",
+      "out": "origin_image/slide_01.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_01.png",
+          "role": "existing slide 1 edit target",
+          "fidelity": "preserve all content and design except VWA punctuation and the combined corpus bubble"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\logos\\wlulogo.png",
+          "role": "strict supplied logo asset",
+          "fidelity": "preserve exact brand geometry, lettering, colors, and transparency"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\logos\\ammcslogo_whitebg.png",
+          "role": "strict supplied white-background AMMCS logo asset",
+          "fidelity": "preserve exact brand geometry, lettering, colors, and white background"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_01_vwa_bubble",
+        "agent_nickname": "slide_01_vwa_bubble",
+        "prompt": "prompts/slide_01.json",
+        "prompt_sha256": "843561615c77ee7b41891b2b576f0aea35c494a887d9026418825b5dea8a2656",
+        "dispatched_at": "2026-08-16T17:33:42Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_01_vwa_bubble",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00ba2-6356-71c1-b668-1c855829dde6\\exec-d551478a-701a-4398-ae75-6eef158f7744.png",
+        "selected_source_sha256": "f80915c9e91c33a753ebdc70efa72be1c05b97bf1ccd51700f198b26e6e26530",
+        "final_image": "origin_image/slide_01.png",
+        "final_image_sha256": "f80915c9e91c33a753ebdc70efa72be1c05b97bf1ccd51700f198b26e6e26530",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Exact VWA title verified; one combined bubble contains star icon, RateMyProfessors Reviews, and review icon in order; corpus statistic updated to 17,127.",
+        "recorded_at": "2026-08-16T17:35:15Z"
+      },
+      "revision_history": [
+        {
+          "reason": "User-authorized addition of authors, institution, date, special session, and new white-background AMMCS logo.",
+          "previous_final_image_sha256": "4b2a35e56c93c7a55991c33c38526e2acb7cf479123d9e7b567e3cd2bd6e342f",
+          "previous_recorded_at": "2026-08-16T03:02:15Z"
+        },
+        {
+          "reason": "User-authorized removal of the terminal period from the slide 1 title.",
+          "previous_final_image_sha256": "46b01e3331abc9db566913ea526fd7a08c258f357c59825a0b7b4a00d80e1fa3",
+          "previous_recorded_at": "2026-08-16T17:14:03Z"
+        },
+        {
+          "reason": "User-authorized VWA without periods and a combined RateMyProfessors Reviews bubble with icons at both sides.",
+          "previous_final_image_sha256": "b9d0a0a708a6d951f77f906b59ad20bd921a0930b39877f9355e89e0f774807c",
+          "previous_recorded_at": "2026-08-16T17:26:35Z"
+        }
+      ],
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_02",
+      "number": 2,
+      "title": "​",
+      "job": "prompts/slide_02.json",
+      "out": "origin_image/slide_02.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image1.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_02",
+        "agent_nickname": "slide_02",
+        "prompt": "prompts/slide_02.json",
+        "prompt_sha256": "1ce3d3ecde358d37c6b96a6d9e5c151b28f6afd26fa119b361d96d1dfb3e9de9",
+        "dispatched_at": "2026-08-16T02:56:43Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_02",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a0087f-d50c-74e3-a042-58ef0330cc7c\\exec-0699f73e-518c-4222-97f6-7dc74115f5ea.png",
+        "selected_source_sha256": "7335fa255551245359423a55b890d07fe3dde37ce96ae493c0bb8a0e0bfb32ae",
+        "final_image": "origin_image/slide_02.png",
+        "final_image_sha256": "7335fa255551245359423a55b890d07fe3dde37ce96ae493c0bb8a0e0bfb32ae",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Strict RMP visual is legible and preserved; lighter-dusk frame matches approved sample.",
+        "recorded_at": "2026-08-16T02:58:57Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_03",
+      "number": 3,
+      "title": "​",
+      "job": "prompts/slide_03.json",
+      "out": "origin_image/slide_03.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image2.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_03",
+        "agent_nickname": "slide_03",
+        "prompt": "prompts/slide_03.json",
+        "prompt_sha256": "bb9d37c2a516a458bffaf2145056787f31a39b0af5900408bc37d9b581970b4c",
+        "dispatched_at": "2026-08-16T02:57:07Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_03",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00880-2dda-7420-a9d2-6c19a82e077a\\exec-5593d17c-dfc9-44bf-93e3-3385927ddf4a.png",
+        "selected_source_sha256": "932e24ebcc123aa910086cb95aa69a06c965cd16f5c3706db79b5efbc7f798fd",
+        "final_image": "origin_image/slide_03.png",
+        "final_image_sha256": "932e24ebcc123aa910086cb95aa69a06c965cd16f5c3706db79b5efbc7f798fd",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Strict review screenshot is legible and source content is preserved within approved dusk frame.",
+        "recorded_at": "2026-08-16T02:59:22Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_04",
+      "number": 4,
+      "title": "​",
+      "job": "prompts/slide_04.json",
+      "out": "origin_image/slide_04.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image3.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_04",
+        "agent_nickname": "slide_04",
+        "prompt": "prompts/slide_04.json",
+        "prompt_sha256": "db2ff2cd32277b23992f00b1b419461e509713fe1da682f082d6488c1bb9f97f",
+        "dispatched_at": "2026-08-16T02:59:42Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_04",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00882-90c7-73a2-aa83-751c68a9ffeb\\exec-bb9e00a1-5359-44b3-837b-cd7c2af4b7ab.png",
+        "selected_source_sha256": "c780965562a2344050355875ecc4ecfd9b27ad206f803f560b39f119cb02d1ef",
+        "final_image": "origin_image/slide_04.png",
+        "final_image_sha256": "c780965562a2344050355875ecc4ecfd9b27ad206f803f560b39f119cb02d1ef",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Strict review screenshot is fully legible and preserved; dusk frame consistent.",
+        "recorded_at": "2026-08-16T03:01:45Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_05",
+      "number": 5,
+      "title": "​",
+      "job": "prompts/slide_05.json",
+      "out": "origin_image/slide_05.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image4.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_05",
+        "agent_nickname": "slide_05",
+        "prompt": "prompts/slide_05.json",
+        "prompt_sha256": "d05bbf611888621342a2826f6d71949291570366021491141409c5000e396792",
+        "dispatched_at": "2026-08-16T03:00:05Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_05",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00882-e105-75e0-853d-f100df36be27\\exec-e0f56761-6a2e-41c9-a601-b3cf1b3d45c3.png",
+        "selected_source_sha256": "6d9dcfc1b25aabf9843935ffc7af81188a239bfedd15c3abd76fa680a21303b7",
+        "final_image": "origin_image/slide_05.png",
+        "final_image_sha256": "6d9dcfc1b25aabf9843935ffc7af81188a239bfedd15c3abd76fa680a21303b7",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Strict screenshot content and redaction preserved; dusk frame consistent.",
+        "recorded_at": "2026-08-16T03:03:49Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_06",
+      "number": 6,
+      "title": "What are we actually measuring?",
+      "job": "prompts/slide_06.json",
+      "out": "origin_image/slide_06.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_06",
+        "agent_nickname": "slide_06",
+        "prompt": "prompts/slide_06.json",
+        "prompt_sha256": "a5c5c5c4fdc875e1cc8ba890cd4a26b5133c8e25348bb579a43b4a368607d0ec",
+        "dispatched_at": "2026-08-16T03:02:36Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_06",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00885-3770-7b70-b335-5d0720b65263\\exec-04b8be22-a840-4ad0-a59f-d2168363c88e.png",
+        "selected_source_sha256": "2a1a01b2ffea40ba30ac37a89ab721ccfc28122fa5231354b96f75824ec4ead5",
+        "final_image": "origin_image/slide_06.png",
+        "final_image_sha256": "2a1a01b2ffea40ba30ac37a89ab721ccfc28122fa5231354b96f75824ec4ead5",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Exact section question preserved; clear projection-safe dusk composition.",
+        "recorded_at": "2026-08-16T03:04:42Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_07",
+      "number": 7,
+      "title": "Scores averaged across an ill-defined assortment of items offer no basis for knowing what is being measured.",
+      "job": "prompts/slide_07.json",
+      "out": "origin_image/slide_07.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image2.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image3.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image4.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_07",
+        "agent_nickname": "slide_07",
+        "prompt": "prompts/slide_07.json",
+        "prompt_sha256": "6ee3731a45d3c880671f1efd7719f7174ab1349190fd8047748f4c51941e006f",
+        "dispatched_at": "2026-08-16T03:02:58Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_07",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00885-9237-7e52-8c34-60ebd9b960c2\\exec-0e166807-d4ee-4280-99db-c6683d1a939b.png",
+        "selected_source_sha256": "782218ad12541dfd9af034b95844526f3926a6f26b5ddc81b101b270c7d6e51b",
+        "final_image": "origin_image/slide_07.png",
+        "final_image_sha256": "782218ad12541dfd9af034b95844526f3926a6f26b5ddc81b101b270c7d6e51b",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Exact quotation/citation and all three review images preserved; layout legible and consistent.",
+        "recorded_at": "2026-08-16T03:05:29Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_08",
+      "number": 8,
+      "title": "Wongsurawat",
+      "job": "prompts/slide_08.json",
+      "out": "origin_image/slide_08.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_08",
+        "agent_nickname": "slide_08",
+        "prompt": "prompts/slide_08.json",
+        "prompt_sha256": "060448b098deeb3e9ceb6bffe6fe8fb7bb7af5f8e02bcefed6f97b39fabb9a09",
+        "dispatched_at": "2026-08-16T03:04:12Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_08",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00886-a390-7bb2-be52-43451187e09e\\exec-c80d581c-49a1-4270-aac4-1d1932eddff0.png",
+        "selected_source_sha256": "de6cd563863e1362ed1d62ce3d691e03dfcdf1d8dec9ef96b1c63e264c610658",
+        "final_image": "origin_image/slide_08.png",
+        "final_image_sha256": "de6cd563863e1362ed1d62ce3d691e03dfcdf1d8dec9ef96b1c63e264c610658",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Exact literature wording preserved; readable and consistent with approved style.",
+        "recorded_at": "2026-08-16T03:06:15Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_09",
+      "number": 9,
+      "title": "Schiekirka",
+      "job": "prompts/slide_09.json",
+      "out": "origin_image/slide_09.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_09",
+        "agent_nickname": "slide_09",
+        "prompt": "prompts/slide_09.json",
+        "prompt_sha256": "154857a4ec538abe4925785cb1451917a457475317227f21087a2160f1ae5462",
+        "dispatched_at": "2026-08-16T03:05:06Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_09",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00887-71c6-7ff3-b441-d2f9fa65d9b8\\exec-c3ca578d-98d2-4b56-81eb-39be66670fb0.png",
+        "selected_source_sha256": "1b513119346a2bb14f6e5890cecc513065a26ed92fb2514020fea55c1189a774",
+        "final_image": "origin_image/slide_09.png",
+        "final_image_sha256": "1b513119346a2bb14f6e5890cecc513065a26ed92fb2514020fea55c1189a774",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Exact literature wording preserved; readable and consistent with approved style.",
+        "recorded_at": "2026-08-16T03:06:55Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_10",
+      "number": 10,
+      "title": "Li et al. (2025) — emotional interaction with the instructor leads students to overlook actual teaching quality",
+      "job": "prompts/slide_10.json",
+      "out": "origin_image/slide_10.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_10",
+        "agent_nickname": "slide_10",
+        "prompt": "prompts/slide_10.json",
+        "prompt_sha256": "12a2d2bdb198e843861e43290c4df4956bf3f4364956eab85581722e2ff6f366",
+        "dispatched_at": "2026-08-16T03:05:53Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_10",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00888-3236-7952-affa-e2205a3b9d15\\exec-39151f86-296c-446b-b9d9-c98211064134.png",
+        "selected_source_sha256": "ff7f9be1e22479cdc800c8b9b7a287c49b028fa733dd1e60ba14dcaec490073a",
+        "final_image": "origin_image/slide_10.png",
+        "final_image_sha256": "ff7f9be1e22479cdc800c8b9b7a287c49b028fa733dd1e60ba14dcaec490073a",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Exact literature wording preserved; readable and consistent with approved style.",
+        "recorded_at": "2026-08-16T03:07:34Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_11",
+      "number": 11,
+      "title": "Three literatures, one finding",
+      "job": "prompts/slide_11.json",
+      "out": "origin_image/slide_11.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_08",
+        "agent_nickname": "slide_08",
+        "prompt": "prompts/slide_11.json",
+        "prompt_sha256": "2952ec82f7d75ac053d833aaece0388be7712d4d546e84845bb4ed227f1ddcc3",
+        "dispatched_at": "2026-08-16T03:38:29Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_08",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00886-a390-7bb2-be52-43451187e09e\\exec-c7b32b0e-e212-4445-a7bb-dc1f27b90d7e.png",
+        "selected_source_sha256": "ccb14f288ac2bad3d41163e4adc6a5394fdeb1cf68abfc6f9fcc69279cbb449f",
+        "final_image": "origin_image/slide_11.png",
+        "final_image_sha256": "ccb14f288ac2bad3d41163e4adc6a5394fdeb1cf68abfc6f9fcc69279cbb449f",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Exact title and all three statements are present in order with correct capitalization and punctuation; no extra text, logo, watermark, or slide number; lighter-dusk synthesis layout matches the approved style.",
+        "recorded_at": "2026-08-16T03:40:39Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_12",
+      "number": 12,
+      "title": "Possible Solutions",
+      "job": "prompts/slide_12.json",
+      "out": "origin_image/slide_12.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_09",
+        "agent_nickname": "slide_09",
+        "prompt": "prompts/slide_12.json",
+        "prompt_sha256": "e6a1c0ae5b54f0ad6aa01537ab859fabed351ec1fbd247e0e0316ceab718c0a0",
+        "dispatched_at": "2026-08-16T03:41:00Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_09",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00887-71c6-7ff3-b441-d2f9fa65d9b8\\exec-49e08350-950f-4359-bb83-73b7b88d91dc.png",
+        "selected_source_sha256": "3bd8aa7160316e2df187d331e15972d69892abb82fd1b0daef6f7e639ef98e75",
+        "final_image": "origin_image/slide_12.png",
+        "final_image_sha256": "3bd8aa7160316e2df187d331e15972d69892abb82fd1b0daef6f7e639ef98e75",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "All twelve required phrases and punctuation are present exactly once; three-column comparison is legible and matches the approved lighter-dusk style.",
+        "recorded_at": "2026-08-16T03:43:11Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_13",
+      "number": 13,
+      "title": "Down-weighting is the principled choice",
+      "job": "prompts/slide_13.json",
+      "out": "origin_image/slide_13.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_13.png",
+          "role": "existing slide 13 edit target",
+          "fidelity": "preserve all visual design and unchanged content; change only panel order and Huber text"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_15.png",
+          "role": "general sans-serif typography reference",
+          "fidelity": "match typeface family, weights, and readability only"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_13_revision",
+        "agent_nickname": "slide_13_revision",
+        "prompt": "prompts/slide_13.json",
+        "prompt_sha256": "ca317eec381db063d3f01319760ef9c3124d2094259eda3eafc336887d1324c9",
+        "dispatched_at": "2026-08-16T17:21:56Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_13_revision",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00b98-00eb-7e00-8c27-99a69adb0f67\\exec-49b3936a-8e47-45b6-ae0a-a04c60643623.png",
+        "selected_source_sha256": "fb8cd0b04a197d51bca0fd7946a0babe98194ed4c6fa6cc75442a94b88507852",
+        "final_image": "origin_image/slide_13.png",
+        "final_image_sha256": "fb8cd0b04a197d51bca0fd7946a0babe98194ed4c6fa6cc75442a94b88507852",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Verified exact order Cronbach, Huber, Marsh & Roche; exact revised Huber sentence; all punctuation and unchanged text are readable; layout and style are preserved.",
+        "recorded_at": "2026-08-16T17:25:00Z"
+      },
+      "revision_history": [
+        {
+          "reason": "User-authorized change to author order and exact Huber statement.",
+          "previous_final_image_sha256": "ef2ceee064075e79fc687dcca7f45762ff2b1496e156459a975747a3e9d494d9",
+          "previous_recorded_at": "2026-08-16T03:42:25Z"
+        }
+      ],
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_14",
+      "number": 14,
+      "title": "The corpus",
+      "job": "prompts/slide_14.json",
+      "out": "origin_image/slide_14.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image5.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image6.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_08",
+        "agent_nickname": "slide_08",
+        "prompt": "prompts/slide_14.json",
+        "prompt_sha256": "66889131524eda0f2086ce19f3769879c7149197bb4b3d6af6c0329d941f6e4d",
+        "dispatched_at": "2026-08-16T03:41:24Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_08",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00886-a390-7bb2-be52-43451187e09e\\exec-6b6f5c6b-f134-44ad-bc0a-e609521cbeb0.png",
+        "selected_source_sha256": "afb78c9d5d5879f1ca79dd3a9f7c94044f289c9082642ca50ffcf5690fb99208",
+        "final_image": "origin_image/slide_14.png",
+        "final_image_sha256": "afb78c9d5d5879f1ca79dd3a9f7c94044f289c9082642ca50ffcf5690fb99208",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "All four locked corpus statements, values, punctuation, and He (2020) citation are exact; both supplied charts are visibly included with titles, axes, bar values, distributions, dashed lines, and legend statistics preserved; no extra text, watermark, logo, or slide number.",
+        "recorded_at": "2026-08-16T03:43:12Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_15",
+      "number": 15,
+      "title": "Research Questions",
+      "job": "prompts/slide_15.json",
+      "out": "origin_image/slide_15.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_10",
+        "agent_nickname": "slide_10",
+        "prompt": "prompts/slide_15.json",
+        "prompt_sha256": "66081be3da81cb0aa26b8bccaa775a457d9fc3b1c7e8846a7cd497ad5954a821",
+        "dispatched_at": "2026-08-16T03:43:13Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_10",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00888-3236-7952-affa-e2205a3b9d15\\exec-ed7e0723-c5e1-40c6-82ab-68ca6ea9bd5a.png",
+        "selected_source_sha256": "58d9e9b1b70d809b4423af6f7bf14b95d314ec6279d830cd78558dfe20bd067b",
+        "final_image": "origin_image/slide_15.png",
+        "final_image_sha256": "58d9e9b1b70d809b4423af6f7bf14b95d314ec6279d830cd78558dfe20bd067b",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Title and all three research questions are exact; RQ labels occur once each, em dashes, off-topic hyphen, and question marks verified; no extra wording.",
+        "recorded_at": "2026-08-16T03:46:24Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_16",
+      "number": 16,
+      "title": "​",
+      "job": "prompts/slide_16.json",
+      "out": "origin_image/slide_16.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image7.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_08",
+        "agent_nickname": "slide_08",
+        "prompt": "prompts/slide_16.json",
+        "prompt_sha256": "188f8d1a896544c842a255d0d3d851837606f2558e4c85cb47b1dc9bc4526529",
+        "dispatched_at": "2026-08-16T03:43:50Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_08",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00886-a390-7bb2-be52-43451187e09e\\exec-cdd3f1a9-2c69-4b53-a0e3-a423bf058d7b.png",
+        "selected_source_sha256": "7106a93e66906338675626473707e6d4c96666fe04262d08703786cfed600c8d",
+        "final_image": "origin_image/slide_16.png",
+        "final_image_sha256": "7106a93e66906338675626473707e6d4c96666fe04262d08703786cfed600c8d",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Figure-only slide contains no added text; the complete source workflow remains fully visible and legible with its dashed border, RMP labels, arrows, rating, review, three captions, and visual relationships preserved inside a lighter-dusk frame.",
+        "recorded_at": "2026-08-16T03:49:01Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_17",
+      "number": 17,
+      "title": "​",
+      "job": "prompts/slide_17.json",
+      "out": "origin_image/slide_17.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image8.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_09",
+        "agent_nickname": "slide_09",
+        "prompt": "prompts/slide_17.json",
+        "prompt_sha256": "7d952e1f24397019ec46a290337fed5bb63d74547aad2e03a306483f058a6f05",
+        "dispatched_at": "2026-08-16T03:44:06Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_09",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00887-71c6-7ff3-b441-d2f9fa65d9b8\\exec-8ff8c286-9a61-4aea-a302-61d79e1bff81.png",
+        "selected_source_sha256": "bb5d5a49255bd30418dc0984c3cf2092963fd25639a4f8e3c2ab0cc5c8812bbe",
+        "final_image": "origin_image/slide_17.png",
+        "final_image_sha256": "bb5d5a49255bd30418dc0984c3cf2092963fd25639a4f8e3c2ab0cc5c8812bbe",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Strict figure is fully visible and legible with all labels, values, arrows, dashed boundary, shapes, and the original 4-by-3 dot array preserved; no title or added text.",
+        "recorded_at": "2026-08-16T03:47:58Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_18",
+      "number": 18,
+      "title": "​",
+      "job": "prompts/slide_18.json",
+      "out": "origin_image/slide_18.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image9.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_10",
+        "agent_nickname": "Hegel",
+        "prompt": "prompts/slide_18.json",
+        "prompt_sha256": "96035b359f988be94c287b1df94d49f4b638db10ddbf824eb5b2d2c787a9170b",
+        "dispatched_at": "2026-08-16T04:01:05Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_10",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00888-3236-7952-affa-e2205a3b9d15\\exec-24c554b3-6ab9-4e6e-8912-ac52308ab57a.png",
+        "selected_source_sha256": "daa0d1605dfbf9983223590a20ffcd466036bdff14f081960dcb2b1e28901c65",
+        "final_image": "origin_image/slide_18.png",
+        "final_image_sha256": "daa0d1605dfbf9983223590a20ffcd466036bdff14f081960dcb2b1e28901c65",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Strict figure content is fully visible and legible with no added slide text; exact source figure is presented in the approved lighter-dusk frame.",
+        "recorded_at": "2026-08-16T04:01:06Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_19",
+      "number": 19,
+      "title": "​",
+      "job": "prompts/slide_19.json",
+      "out": "origin_image/slide_19.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image10.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_10",
+        "agent_nickname": "slide_10",
+        "prompt": "prompts/slide_19.json",
+        "prompt_sha256": "dce70e353f9e2c1b6496e5229756e0ea3e0d9e8acecc8ea42edd857bbe942bd6",
+        "dispatched_at": "2026-08-16T04:02:32Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_10",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00888-3236-7952-affa-e2205a3b9d15\\exec-90e81de3-1ba1-4308-ab5a-f9de104c2f9b.png",
+        "selected_source_sha256": "ea98bcf5f11a1a99bfd7ee19cc39f41fc874b3cca6910d191ec0c58e6cae4a3a",
+        "final_image": "origin_image/slide_19.png",
+        "final_image_sha256": "ea98bcf5f11a1a99bfd7ee19cc39f41fc874b3cca6910d191ec0c58e6cae4a3a",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Strict figure is fully visible and legible; all four labels, nine emotion faces, caption, colors, dashed border, and spatial relationships are preserved; no added slide text.",
+        "recorded_at": "2026-08-16T04:04:23Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_20",
+      "number": 20,
+      "title": "​",
+      "job": "prompts/slide_20.json",
+      "out": "origin_image/slide_20.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image11.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_10",
+        "agent_nickname": "slide_10",
+        "prompt": "prompts/slide_20.json",
+        "prompt_sha256": "71797635b124a6dbafcf82c75b11d36804ded7fcc50fcd02180155eb53e55ec2",
+        "dispatched_at": "2026-08-16T04:07:27Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_10",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00888-3236-7952-affa-e2205a3b9d15\\exec-e437bdb3-9b9a-4d49-b70c-1e18ce722236.png",
+        "selected_source_sha256": "b1eb697de1f136ea298ea5cd8ffa0ede514d125f8edc71da142f71a24f446298",
+        "final_image": "origin_image/slide_20.png",
+        "final_image_sha256": "b1eb697de1f136ea298ea5cd8ffa0ede514d125f8edc71da142f71a24f446298",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Strict figure is fully visible and legible; CatBoost/model labels, four aspect labels, emoji grid, arrow, bracket, Numerical Rating, 2.5 value, stars, dashed borders, and relationships are preserved; no added slide text.",
+        "recorded_at": "2026-08-16T04:09:24Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_21",
+      "number": 21,
+      "title": "​",
+      "job": "prompts/slide_21.json",
+      "out": "origin_image/slide_21.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image12.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_21",
+        "agent_nickname": "slide_21",
+        "prompt": "prompts/slide_21.json",
+        "prompt_sha256": "50f7348237b5ed8cfb69ae912997625cdace7db445d5d5b517a6b0bab121dfb3",
+        "dispatched_at": "2026-08-16T17:33:47Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_21",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00ba2-89b8-72f1-8b3d-3af080d7a469\\exec-0a601b94-7b00-4e67-bf28-4002aaae3817.png",
+        "selected_source_sha256": "e1c81d24317f04b6ffce8506eb24d176db7e2037de65c5eda28c0d8798f2cbf6",
+        "final_image": "origin_image/slide_21.png",
+        "final_image_sha256": "e1c81d24317f04b6ffce8506eb24d176db7e2037de65c5eda28c0d8798f2cbf6",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Figure content, labels, formula, arrows, and star counts are legible and preserved; approved dusk framing is consistent; the source figure's outer dashed border is adapted into the slide panel.",
+        "recorded_at": "2026-08-16T17:38:30Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_22",
+      "number": 22,
+      "title": "In Greater Detail",
+      "job": "prompts/slide_22.json",
+      "out": "origin_image/slide_22.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_22",
+        "agent_nickname": "slide_22",
+        "prompt": "prompts/slide_22.json",
+        "prompt_sha256": "71e5ba259a962579566b03fda25147e13043946e49869d9996084aeae708580c",
+        "dispatched_at": "2026-08-16T17:33:51Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_22",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00ba2-abff-7353-8203-15582d1280f8\\exec-8ecf8e58-2fb5-43ef-9875-d6b0d85c6d3f.png",
+        "selected_source_sha256": "de9a487a4c3f6689e9b273ce462118101950d438c59b0a24e6e17dbf202fcd37",
+        "final_image": "origin_image/slide_22.png",
+        "final_image_sha256": "de9a487a4c3f6689e9b273ce462118101950d438c59b0a24e6e17dbf202fcd37",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "All required text is exact, ordered, readable, and untruncated; typography and palette match the approved references.",
+        "recorded_at": "2026-08-16T17:38:34Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_23",
+      "number": 23,
+      "title": "ATC",
+      "job": "prompts/slide_23.json",
+      "out": "origin_image/slide_23.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_23",
+        "agent_nickname": "slide_23",
+        "prompt": "prompts/slide_23.json",
+        "prompt_sha256": "f921dabdb300b62ef5efc8dd93a79ef4e78f24228e3c19e34d7c870a39da8df3",
+        "dispatched_at": "2026-08-16T17:35:34Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_23",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00ba4-7c63-7830-8c9d-a794da083630\\exec-c990648a-63ac-48ef-b2cc-9288c2775ca4.png",
+        "selected_source_sha256": "86c05793ef536323fdd513b8dd2c853127fc073b3eb5fcbab50a656c3b40b14d",
+        "final_image": "origin_image/slide_23.png",
+        "final_image_sha256": "86c05793ef536323fdd513b8dd2c853127fc073b3eb5fcbab50a656c3b40b14d",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "All required ATC text and threshold content are exact and legible; style and typography are consistent with no added text.",
+        "recorded_at": "2026-08-16T17:38:37Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_24",
+      "number": 24,
+      "title": "Miscellaneous",
+      "job": "prompts/slide_24.json",
+      "out": "origin_image/slide_24.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_24",
+        "agent_nickname": "slide_24",
+        "prompt": "prompts/slide_24.json",
+        "prompt_sha256": "1e2b4f6b1bf3dd72ea72dd49557c4da26cfeaf462f5cdeb8369f7971d0416de8",
+        "dispatched_at": "2026-08-16T17:39:45Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_24",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00ba7-ab71-7b43-97c5-c951a29f20a2\\exec-83075215-fb98-4d66-9951-65f4a598767a.png",
+        "selected_source_sha256": "a712eff8285dff255c75497abdd1d9406a7c2446d332271afc861c3856aaec35",
+        "final_image": "origin_image/slide_24.png",
+        "final_image_sha256": "a712eff8285dff255c75497abdd1d9406a7c2446d332271afc861c3856aaec35",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "All density wording, values, arrows, punctuation, and hierarchy are exact and readable; style is consistent with no added text.",
+        "recorded_at": "2026-08-16T17:40:54Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_25",
+      "number": 25,
+      "title": "​",
+      "job": "prompts/slide_25.json",
+      "out": "origin_image/slide_25.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image13.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_25",
+        "agent_nickname": "slide_25",
+        "prompt": "prompts/slide_25.json",
+        "prompt_sha256": "d7ea7ad3d66d3e89ad8c743be5f6f83ceb0682798ab1ccca709edcf99f36bb73",
+        "dispatched_at": "2026-08-16T17:39:48Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_25",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00ba7-ea95-7853-802b-8da05db93feb\\exec-5a238fd9-cdf2-4cdd-ab3e-5fbf19761448.png",
+        "selected_source_sha256": "4298319e14b63fac5c16f298855e3b16d93a8012e46328a5c6b8c58318022b93",
+        "final_image": "origin_image/slide_25.png",
+        "final_image_sha256": "4298319e14b63fac5c16f298855e3b16d93a8012e46328a5c6b8c58318022b93",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The complete strict ATC workflow diagram is dominant and legible; labels, arrows, braces, vectors, formulas, icons, and relationships are preserved within the approved dusk frame.",
+        "recorded_at": "2026-08-16T17:42:28Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_26",
+      "number": 26,
+      "title": "Sentiment Extraction",
+      "job": "prompts/slide_26.json",
+      "out": "origin_image/slide_26.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_26",
+        "agent_nickname": "slide_26",
+        "prompt": "prompts/slide_26.json",
+        "prompt_sha256": "1a954d738022d6592bf38e3faf6cc3cc8d3fafae66b610c74416d54832c42c56",
+        "dispatched_at": "2026-08-16T17:39:52Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_26",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00ba8-3230-7c31-a940-6a69abdcdf5d\\exec-312911fa-8e1a-4f91-9a24-e23237822fbf.png",
+        "selected_source_sha256": "4212ef8708b1da2df411785fd5903a430eb2d36cf8190766391a70cab9709622",
+        "final_image": "origin_image/slide_26.png",
+        "final_image_sha256": "4212ef8708b1da2df411785fd5903a430eb2d36cf8190766391a70cab9709622",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "All sentiment-extraction text, model name, 28-dimensional label, INT8 wording, punctuation, and arrows are exact and readable.",
+        "recorded_at": "2026-08-16T17:42:31Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_27",
+      "number": 27,
+      "title": "Feature Aggregation per Review",
+      "job": "prompts/slide_27.json",
+      "out": "origin_image/slide_27.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_27",
+        "agent_nickname": "slide_27",
+        "prompt": "prompts/slide_27.json",
+        "prompt_sha256": "2a73d72f0a442ee4713caca64fe198a2491924b2c07f01323d9d3470b9ef716f",
+        "dispatched_at": "2026-08-16T17:41:49Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_27",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00ba9-c4c6-79e1-9fd3-f29e0aca33ff\\exec-c2d24a2c-bc68-4ca1-9f57-ba8242ad47b6.png",
+        "selected_source_sha256": "9d4fcb71e1f6911d58d5405b2b68b21b892c7ee12ae5fd8c99f5819514a98370",
+        "final_image": "origin_image/slide_27.png",
+        "final_image_sha256": "9d4fcb71e1f6911d58d5405b2b68b21b892c7ee12ae5fd8c99f5819514a98370",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "All feature-aggregation wording and zero-imputation text are exact, legible, and consistently styled with no additions.",
+        "recorded_at": "2026-08-16T17:44:02Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_28",
+      "number": 28,
+      "title": "Feature Aggregation Cont.",
+      "job": "prompts/slide_28.json",
+      "out": "origin_image/slide_28.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_28",
+        "agent_nickname": "slide_28",
+        "prompt": "prompts/slide_28.json",
+        "prompt_sha256": "6812323413f01809439f8f2873dbd314af027794fb2dc2e58ab09c9b9311399e",
+        "dispatched_at": "2026-08-16T17:43:23Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_28",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00bab-437b-7590-882e-a1a59287358a\\exec-be3775e0-3bfd-4e09-88b0-da5157f782d2.png",
+        "selected_source_sha256": "3497c823ee74ba85f7aacda088d519cd6663d772418ccf69c92a9dbfcde4629c",
+        "final_image": "origin_image/slide_28.png",
+        "final_image_sha256": "3497c823ee74ba85f7aacda088d519cd6663d772418ccf69c92a9dbfcde4629c",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "All feature-vector notation, values, labels, and source-locked spelling are exact and legible; mathematical typography and style match the approved reference.",
+        "recorded_at": "2026-08-16T17:45:54Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_29",
+      "number": 29,
+      "title": "CatBoost",
+      "job": "prompts/slide_29.json",
+      "out": "origin_image/slide_29.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_29",
+        "agent_nickname": "slide_29",
+        "prompt": "prompts/slide_29.json",
+        "prompt_sha256": "3ef70406ed516b35d7b7b8d25729c23d962672e77d32bcd4db4091f63a815edb",
+        "dispatched_at": "2026-08-16T17:43:27Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_29",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00bab-86d5-7ab3-8894-859b6a610e24\\exec-9bfbad1e-c090-4041-87bc-69e05f52f040.png",
+        "selected_source_sha256": "ae066bec5cdc3043b9ba499e391d8b573ae720ed2a61cf74f953de1583157728",
+        "final_image": "origin_image/slide_29.png",
+        "final_image_sha256": "ae066bec5cdc3043b9ba499e391d8b573ae720ed2a61cf74f953de1583157728",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "All CatBoost wording, grouped-split detail, 5-fold CV label, and saved-predictions statement are exact, legible, and consistently styled.",
+        "recorded_at": "2026-08-16T17:45:57Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_30",
+      "number": 30,
+      "title": "Other non-CatBoost Options",
+      "job": "prompts/slide_30.json",
+      "out": "origin_image/slide_30.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\slide30_updated_source.png",
+          "role": "strict updated slide 30 source exported from the current presentation file",
+          "fidelity": "preserve the exact title, three-table structure, headers, row labels, values, arrows, mathematical notation, and relationships; CatBoost must remain one unbroken word on one line"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_30_revision",
+        "agent_nickname": "slide_30_revision",
+        "prompt": "prompts/slide_30.json",
+        "prompt_sha256": "f21ba817e332495c2f4176bbea03532a86efa756586664dec3f75e85e32fbacd",
+        "dispatched_at": "2026-08-16T20:35:48Z"
+      },
+      "previous_result": {
+        "agent_id": "/root/slide_30",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00bac-a785-7043-aa33-0649c867798a\\exec-e59ad40e-ca84-465e-8ece-adaf9da1dd90.png",
+        "selected_source_sha256": "4ac7cde4e43db9bf43d3e29ebdb3908d6f550702ec5cb573eb6a6f9b52c31a89",
+        "final_image": "origin_image/slide_30.png",
+        "final_image_sha256": "4ac7cde4e43db9bf43d3e29ebdb3908d6f550702ec5cb573eb6a6f9b52c31a89",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "All three strict model-performance tables are visible with exact labels, values, arrows, R², and Spearman ρ; the source-locked terminal title hyphen appears visually lengthened.",
+        "recorded_at": "2026-08-16T17:47:57Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_30_revision",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00c49-873a-7640-85d3-f9a58a88ce21\\exec-d9fb3f8d-7b1a-4201-a04f-187b444b478e.png",
+        "selected_source_sha256": "137fd2e238a1ff28385f3c985649ea9fde38d199012b7b5e5f98ba57f0bf232f",
+        "final_image": "origin_image/slide_30.png",
+        "final_image_sha256": "137fd2e238a1ff28385f3c985649ea9fde38d199012b7b5e5f98ba57f0bf232f",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Exact full title and all three updated tables are present with every value verified against the current presentation; CatBoost is rendered as one unbroken word on one line.",
+        "recorded_at": "2026-08-16T20:38:06Z"
+      },
+      "revision_history": [
+        {
+          "reason": "User requested regeneration from the updated presentation table with CatBoost on one line.",
+          "previous_final_image_sha256": "4ac7cde4e43db9bf43d3e29ebdb3908d6f550702ec5cb573eb6a6f9b52c31a89",
+          "reopened_at": "2026-08-16T18:00:00Z"
+        }
+      ],
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_31",
+      "number": 31,
+      "title": "Validity-Weighted Attenuation",
+      "job": "prompts/slide_31.json",
+      "out": "origin_image/slide_31.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image140.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "accepted",
+      "dispatch": null,
+      "result": {
+        "final_image": "origin_image/slide_31.png",
+        "accepted_sample": true
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_32",
+      "number": 32,
+      "title": "Validity-Weighted Attenuation Cont.",
+      "job": "prompts/slide_32.json",
+      "out": "origin_image/slide_32.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image17.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_32",
+        "agent_nickname": "slide_32",
+        "prompt": "prompts/slide_32.json",
+        "prompt_sha256": "d1059fe49de39f35543aaf0ab254bb40e306d382c1def8fd8cc1f8029ca324f7",
+        "dispatched_at": "2026-08-17T02:15:07Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_32",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00d7f-c62a-76e2-829c-823845c2c59d\\exec-d13d11ce-cedc-46fc-8caa-27291bec54f3.png",
+        "selected_source_sha256": "9302259c733563ed1c0f33139c8cff922e525eac648ed8edc0872b609dd26d6f",
+        "final_image": "origin_image/slide_32.png",
+        "final_image_sha256": "9302259c733563ed1c0f33139c8cff922e525eac648ed8edc0872b609dd26d6f",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Exact title, four ordered steps, and the adjusted-rating equation are legible and correct; deck style matches the approved sample.",
+        "recorded_at": "2026-08-17T02:17:04Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_33",
+      "number": 33,
+      "title": "​",
+      "job": "prompts/slide_33.json",
+      "out": "origin_image/slide_33.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image18.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_33",
+        "agent_nickname": "slide_33",
+        "prompt": "prompts/slide_33.json",
+        "prompt_sha256": "b2f8f6fc6acda30a42a1aee726dcb0b9fed8a0904f9427da992cf78bf72d154b",
+        "dispatched_at": "2026-08-17T02:15:08Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_33",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00d7f-ed14-7e42-a5bc-93b37ed4db22\\exec-27f92bd6-e500-46c0-bbe2-b8b81562987d.png",
+        "selected_source_sha256": "778bf307a369adcd38b0e650bfd080e33e52d540595375575361b94c469feb21",
+        "final_image": "origin_image/slide_33.png",
+        "final_image_sha256": "778bf307a369adcd38b0e650bfd080e33e52d540595375575361b94c469feb21",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The strict worked-example figure is dominant and fully visible with its labels, values, notation, and red emphasis preserved; no extra wording appears.",
+        "recorded_at": "2026-08-17T02:17:04Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_34",
+      "number": 34,
+      "title": "Results",
+      "job": "prompts/slide_34.json",
+      "out": "origin_image/slide_34.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_34",
+        "agent_nickname": "slide_34",
+        "prompt": "prompts/slide_34.json",
+        "prompt_sha256": "2b09ef395eea076d4357fd956539e0166a200bfcce30f1e1a506c6ecfb1c858e",
+        "dispatched_at": "2026-08-17T02:15:08Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_34",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00d80-16ec-77b2-9b4d-07f9344fb830\\exec-96e684f6-255e-4e7f-b8e8-6f464f1c989d.png",
+        "selected_source_sha256": "4594366a594aa99583c32e8d3a20e889b53f26769ffa47ec77ebed75f191e230",
+        "final_image": "origin_image/slide_34.png",
+        "final_image_sha256": "4594366a594aa99583c32e8d3a20e889b53f26769ffa47ec77ebed75f191e230",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The divider contains only the exact title Results in a clean, projection-safe composition matching the approved style.",
+        "recorded_at": "2026-08-17T02:17:04Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_35",
+      "number": 35,
+      "title": "​",
+      "job": "prompts/slide_35.json",
+      "out": "origin_image/slide_35.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image19.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_35",
+        "agent_nickname": "slide_35",
+        "prompt": "prompts/slide_35.json",
+        "prompt_sha256": "b7726378e297b3d2c30b769d1f5573076dc77aaf55c57a087de5eb1e928bfe75",
+        "dispatched_at": "2026-08-17T02:17:56Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_35",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00d82-4f54-75f0-b41c-a90bc48ee378\\exec-c728d9b6-5036-4c33-838d-3cf9efb5470e.png",
+        "selected_source_sha256": "db17c13ba86040c9f30f4b0689a407a01bca4d2c0b79eb4c4eba90ad95e7006b",
+        "final_image": "origin_image/slide_35.png",
+        "final_image_sha256": "db17c13ba86040c9f30f4b0689a407a01bca4d2c0b79eb4c4eba90ad95e7006b",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The distribution figure is uncropped and legible with its title, axes, bars, dashed mean and median lines, legend, and values preserved exactly.",
+        "recorded_at": "2026-08-17T02:19:55Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_36",
+      "number": 36,
+      "title": "​",
+      "job": "prompts/slide_36.json",
+      "out": "origin_image/slide_36.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image20.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_36",
+        "agent_nickname": "slide_36",
+        "prompt": "prompts/slide_36.json",
+        "prompt_sha256": "11364a1112602926e3edde0dd9021fcf9fe4a6d05cc9787ea43ae4b7dba89eb9",
+        "dispatched_at": "2026-08-17T02:17:56Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_36",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00d82-7d67-7e00-9b9a-64cdddeee06f\\exec-c701e8a5-db0e-4832-8f12-b218d8d552ce.png",
+        "selected_source_sha256": "a73bd83fec8701933073bcb030a2875352c49e73a390a67b5eb36e0c3b3d0a39",
+        "final_image": "origin_image/slide_36.png",
+        "final_image_sha256": "a73bd83fec8701933073bcb030a2875352c49e73a390a67b5eb36e0c3b3d0a39",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The Clause Topics vs Rating heatmap is fully visible with all 36 values, axes, labels, and color scale preserved exactly.",
+        "recorded_at": "2026-08-17T02:19:55Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_37",
+      "number": 37,
+      "title": "​",
+      "job": "prompts/slide_37.json",
+      "out": "origin_image/slide_37.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image21.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_37",
+        "agent_nickname": "slide_37",
+        "prompt": "prompts/slide_37.json",
+        "prompt_sha256": "1bca8180e7728bcc719794fc7a5ea431666dc0a04574a9993d012edee79a4fc5",
+        "dispatched_at": "2026-08-17T02:17:56Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_37",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00d82-a946-77b0-9b54-585377e2641f\\exec-48ae1e79-1588-4b73-8497-4872e4df6c5f.png",
+        "selected_source_sha256": "ac9aea454bdedc981591ac7cfca309718edb2d2e137f68680b57c9cf6bc298dc",
+        "final_image": "origin_image/slide_37.png",
+        "final_image_sha256": "ac9aea454bdedc981591ac7cfca309718edb2d2e137f68680b57c9cf6bc298dc",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The 5-Star Clauses heatmap is fully visible with all 40 values, topic and emotion labels, label colors, and scale preserved exactly.",
+        "recorded_at": "2026-08-17T02:19:56Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_38",
+      "number": 38,
+      "title": "​",
+      "job": "prompts/slide_38.json",
+      "out": "origin_image/slide_38.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image22.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_38",
+        "agent_nickname": "slide_38",
+        "prompt": "prompts/slide_38.json",
+        "prompt_sha256": "53fab5cbd6b3d387477bc25ac4d5d8f73ebf52f0c0c0b316daafc875e901c4b4",
+        "dispatched_at": "2026-08-17T02:20:45Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_38",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00d84-e82c-7d73-aa6b-4247660b68f4\\exec-977b5f57-eefd-46bd-bec8-5ea9fcdb06ef.png",
+        "selected_source_sha256": "1fe695de17a5c16760a96cb1d3b8c85851b767113a47b3e45980ae8a6c2bc919",
+        "final_image": "origin_image/slide_38.png",
+        "final_image_sha256": "1fe695de17a5c16760a96cb1d3b8c85851b767113a47b3e45980ae8a6c2bc919",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The 1-Star Clauses heatmap is fully visible with all 40 values, topic and emotion labels, label colors, and scale preserved exactly.",
+        "recorded_at": "2026-08-17T02:22:46Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_39",
+      "number": 39,
+      "title": "​",
+      "job": "prompts/slide_39.json",
+      "out": "origin_image/slide_39.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image23.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_39",
+        "agent_nickname": "slide_39",
+        "prompt": "prompts/slide_39.json",
+        "prompt_sha256": "216f12849cb2e3cdaa8c9e0967c850c6730200b1be3161394b54eda67298bd2c",
+        "dispatched_at": "2026-08-17T02:20:46Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_39",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00d85-1399-72a0-b933-ad65a7dc690c\\exec-14aa84c1-e046-4d69-81ac-01689025b0f8.png",
+        "selected_source_sha256": "ac4c8cd193bd1345b7e52c88f071aa24ba5480796cdb78fe9f1527a0c724d767",
+        "final_image": "origin_image/slide_39.png",
+        "final_image_sha256": "ac4c8cd193bd1345b7e52c88f071aa24ba5480796cdb78fe9f1527a0c724d767",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The SHAP summary plot preserves exact feature names and order, label colors, axis title and ticks, zero line, distributions, and High/Low scale.",
+        "recorded_at": "2026-08-17T02:22:46Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_40",
+      "number": 40,
+      "title": "​",
+      "job": "prompts/slide_40.json",
+      "out": "origin_image/slide_40.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image24.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_40",
+        "agent_nickname": "slide_40",
+        "prompt": "prompts/slide_40.json",
+        "prompt_sha256": "1a6fc31d59e0d474248fed5d63b88fd92626e870ca1e97a242cb02ef9fbe2b6c",
+        "dispatched_at": "2026-08-17T02:20:46Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_40",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00d85-3d38-7e91-9312-59e659804602\\exec-69185692-954c-4f1c-8781-645f55823d51.png",
+        "selected_source_sha256": "39b4ae162dde0bd1ab0d9ce27d06a2afafb407cf6e0b221909c712fd02c5f5dc",
+        "final_image": "origin_image/slide_40.png",
+        "final_image_sha256": "39b4ae162dde0bd1ab0d9ce27d06a2afafb407cf6e0b221909c712fd02c5f5dc",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The attenuation distribution preserves its exact title, axes, histogram and KDE, reference lines, legend value, arrows, colors, and relationships.",
+        "recorded_at": "2026-08-17T02:22:46Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_41",
+      "number": 41,
+      "title": "​",
+      "job": "prompts/slide_41.json",
+      "out": "origin_image/slide_41.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image25.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_41",
+        "agent_nickname": "slide_41",
+        "prompt": "prompts/slide_41.json",
+        "prompt_sha256": "7e9b22ddf475e3b901186a06a69c8da8b9ffc4603e73a5130d6643a0800f2ad5",
+        "dispatched_at": "2026-08-17T02:23:14Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_41",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00d87-7f7f-7a62-be83-eb52253a2121\\exec-ca0083d2-a493-4ebd-bac7-5d76411f8118.png",
+        "selected_source_sha256": "7428a6ae799c5987f9d1d079d9ec9fc7717cb7bcdc1e780e10858868812c5746",
+        "final_image": "origin_image/slide_41.png",
+        "final_image_sha256": "7428a6ae799c5987f9d1d079d9ec9fc7717cb7bcdc1e780e10858868812c5746",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The professor rating distribution shift chart preserves the exact title, axes, ticks, legend, curves and fills, colors, and dashed mean-line relationships.",
+        "recorded_at": "2026-08-17T02:24:50Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_42",
+      "number": 42,
+      "title": "​",
+      "job": "prompts/slide_42.json",
+      "out": "origin_image/slide_42.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image26.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_42",
+        "agent_nickname": "slide_42",
+        "prompt": "prompts/slide_42.json",
+        "prompt_sha256": "cd8500577e05a2557ffbdb4d011159004355e7376e34db3cb1452031900c4132",
+        "dispatched_at": "2026-08-17T02:29:15Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_42",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00d8c-8e6a-7f41-8e1c-9a6c3f76993e\\exec-c505a569-5aa6-4724-8283-8bce0be59c41.png",
+        "selected_source_sha256": "69e29ed4b140bc342b5ac61e604b403f30ae028da9f36342738040d8b660e398",
+        "final_image": "origin_image/slide_42.png",
+        "final_image_sha256": "69e29ed4b140bc342b5ac61e604b403f30ae028da9f36342738040d8b660e398",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The strict professor-rating change chart is fully visible with exact title, axes, Professor ID ordering, colors, zero line, ticks, and bar relationships.",
+        "recorded_at": "2026-08-17T02:31:24Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_43",
+      "number": 43,
+      "title": "Validation",
+      "job": "prompts/slide_43.json",
+      "out": "origin_image/slide_43.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_43",
+        "agent_nickname": "slide_43",
+        "prompt": "prompts/slide_43.json",
+        "prompt_sha256": "261b35b06586902a47b1442b28b071bd4f7bce7f59a30aa4e16c5e1b008f97bc",
+        "dispatched_at": "2026-08-17T02:29:15Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_43",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00d8c-bda0-7820-a7fa-3084d99b9516\\exec-37c8cb48-4444-4caf-a1b7-425529136cfc.png",
+        "selected_source_sha256": "cd27d90222ce88e55612828421f73758def558c01c655f33850ed85315ee63e6",
+        "final_image": "origin_image/slide_43.png",
+        "final_image_sha256": "cd27d90222ce88e55612828421f73758def558c01c655f33850ed85315ee63e6",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The section divider contains only the exact title Validation and matches the approved lighter-dusk identity.",
+        "recorded_at": "2026-08-17T02:31:25Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_44",
+      "number": 44,
+      "title": "​",
+      "job": "prompts/slide_44.json",
+      "out": "origin_image/slide_44.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image27.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_44",
+        "agent_nickname": "slide_44",
+        "prompt": "prompts/slide_44.json",
+        "prompt_sha256": "d1b74f42c425b13cc2e011f8223b77af54e38dc3270a3ebdf0b7334431c097e1",
+        "dispatched_at": "2026-08-17T02:29:15Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_44",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00d8c-ef5d-7ff3-a965-00b9b06b8a5d\\exec-b782c93a-4e0f-4fbd-acb5-8017aafde2b7.png",
+        "selected_source_sha256": "e5f9bffa3f54bd94ef41698bc0329d92bd9730e6a08a72141a59f12cc23f8169",
+        "final_image": "origin_image/slide_44.png",
+        "final_image_sha256": "e5f9bffa3f54bd94ef41698bc0329d92bd9730e6a08a72141a59f12cc23f8169",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The strict category-importance chart is fully visible with exact title, axes, category order, colors, legend, ticks, and all eight values.",
+        "recorded_at": "2026-08-17T02:31:26Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_45",
+      "number": 45,
+      "title": "​",
+      "job": "prompts/slide_45.json",
+      "out": "origin_image/slide_45.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image28.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_45",
+        "agent_nickname": "slide_45",
+        "prompt": "prompts/slide_45.json",
+        "prompt_sha256": "bb260933c4abbc0a08777458c87fbafbcccea88a766b87ddd38f07780ef3224c",
+        "dispatched_at": "2026-08-17T02:32:40Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_45",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00d8f-90e3-78b0-9ab1-0ea5fe3cf16e\\exec-0bdf9385-a541-4c02-bb64-4d8e3b8ed28b.png",
+        "selected_source_sha256": "9512be1bb4bdbbf318c3bb816b7c5f25aaff49001236f9a4e8c3955e7b035a2d",
+        "final_image": "origin_image/slide_45.png",
+        "final_image_sha256": "9512be1bb4bdbbf318c3bb816b7c5f25aaff49001236f9a4e8c3955e7b035a2d",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The strict feature-impact chart preserves exact title, axes, categories, bar colors and directions, zero line, ticks, and all four percentage labels.",
+        "recorded_at": "2026-08-17T02:36:45Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_46",
+      "number": 46,
+      "title": "​",
+      "job": "prompts/slide_46.json",
+      "out": "origin_image/slide_46.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image29.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_46",
+        "agent_nickname": "slide_46",
+        "prompt": "prompts/slide_46.json",
+        "prompt_sha256": "7da57c18b56ab6fb1addb835c857d1ec99fde844c04e1d2a8bcb1b7457e2a64f",
+        "dispatched_at": "2026-08-17T02:32:41Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_46",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00d8f-cd82-7470-b382-ab80f6290cc7\\exec-b5b9b255-b763-49d6-9a60-055e17c151ef.png",
+        "selected_source_sha256": "614db26c4077d9df58ddccfbdbad14c06f78adbbb5a9bd360637305c5329f6ac",
+        "final_image": "origin_image/slide_46.png",
+        "final_image_sha256": "614db26c4077d9df58ddccfbdbad14c06f78adbbb5a9bd360637305c5329f6ac",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The strict correlation-change chart preserves exact title, axes, category order, legend colors, zero line, ticks, and all eight percentage labels.",
+        "recorded_at": "2026-08-17T02:36:45Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_47",
+      "number": 47,
+      "title": "∆+  Versus",
+      "job": "prompts/slide_47.json",
+      "out": "origin_image/slide_47.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image30.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_47",
+        "agent_nickname": "slide_47",
+        "prompt": "prompts/slide_47.json",
+        "prompt_sha256": "12046f957104331e53a57bf2c4b358edd2d347f941ffd13315a3aecfba74174e",
+        "dispatched_at": "2026-08-17T02:32:41Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_47",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00d90-14b1-72b2-88ad-37f2da5d3c94\\exec-4e51d1f2-654d-4a5f-af7e-5371e99f2f82.png",
+        "selected_source_sha256": "d5ecb85e8b4cbd15b8523d803d056215fd1fbbb6d9e31f6cc6590b5ef22d5e0c",
+        "final_image": "origin_image/slide_47.png",
+        "final_image_sha256": "d5ecb85e8b4cbd15b8523d803d056215fd1fbbb6d9e31f6cc6590b5ef22d5e0c",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Both Δ comparison tables contain the exact headings, Greek notation, subscripts, and eight values, and both strict scatter/regression plots are fully visible.",
+        "recorded_at": "2026-08-17T02:36:46Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_48",
+      "number": 48,
+      "title": "External Expert Validation",
+      "job": "prompts/slide_48.json",
+      "out": "origin_image/slide_48.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\figures\\image280.png",
+          "role": "strict source content asset from the original slide",
+          "fidelity": "preserve all wording, values, labels, axes, formulas, redactions, and visual relationships exactly; do not redraw or replace"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_48",
+        "agent_nickname": "slide_48",
+        "prompt": "prompts/slide_48.json",
+        "prompt_sha256": "24dbf51d70b753be9dcbbf147d141dd189ba712de6a2e75401e8e2f85744c2a3",
+        "dispatched_at": "2026-08-17T02:37:58Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_48",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00d94-68e7-77e2-a090-8b48596e5acd\\exec-7ea17d82-d956-4029-beb2-d5bb7750a04f.png",
+        "selected_source_sha256": "78327690fecb583d3cab8cefcb86d1e396ef28a6333eb796b4602ca90ddbe4d1",
+        "final_image": "origin_image/slide_48.png",
+        "final_image_sha256": "78327690fecb583d3cab8cefcb86d1e396ef28a6333eb796b4602ca90ddbe4d1",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The exact title and supporting phrases are present, and the strict expert-validation table appears once with exact conditions, headers, and all values.",
+        "recorded_at": "2026-08-17T02:40:47Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_49",
+      "number": 49,
+      "title": "Discussion",
+      "job": "prompts/slide_49.json",
+      "out": "origin_image/slide_49.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_49",
+        "agent_nickname": "slide_49",
+        "prompt": "prompts/slide_49.json",
+        "prompt_sha256": "75e8a23bd54d657ad71e6a9fa852302291dc4c3611106eb29c1dd29d862cab8b",
+        "dispatched_at": "2026-08-17T02:37:59Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_49",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00d94-a71e-7e41-be23-d9a860904d4e\\exec-f5d4fc83-35e7-45b5-a98e-02338aa0fda7.png",
+        "selected_source_sha256": "1076b42c9b99c14ac945659634bb1cb46c92d936d623a13173b7955c9d81d34b",
+        "final_image": "origin_image/slide_49.png",
+        "final_image_sha256": "1076b42c9b99c14ac945659634bb1cb46c92d936d623a13173b7955c9d81d34b",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The section divider contains only the exact title Discussion and matches the approved lighter-dusk identity.",
+        "recorded_at": "2026-08-17T02:40:47Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_50",
+      "number": 50,
+      "title": "Reminder of RQs",
+      "job": "prompts/slide_50.json",
+      "out": "origin_image/slide_50.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_50",
+        "agent_nickname": "slide_50",
+        "prompt": "prompts/slide_50.json",
+        "prompt_sha256": "0194dafc40cfdaa2364b472a4aac862a062183e7b71bd3972f5f65391a692390",
+        "dispatched_at": "2026-08-17T02:37:59Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_50",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00d94-e9f8-7142-bbfa-decf44a37f12\\exec-6de0a24a-22be-4bb0-af3a-a8a4bae7fa24.png",
+        "selected_source_sha256": "f0b3b28a939406d5aeb7113701c63e637e2dbef64e411e49dc98550c2547ffde",
+        "final_image": "origin_image/slide_50.png",
+        "final_image_sha256": "f0b3b28a939406d5aeb7113701c63e637e2dbef64e411e49dc98550c2547ffde",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The title and all three research questions are exact, correctly punctuated, fully legible, and shown without additional wording.",
+        "recorded_at": "2026-08-17T02:40:47Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_51",
+      "number": 51,
+      "title": "RQ1",
+      "job": "prompts/slide_51.json",
+      "out": "origin_image/slide_51.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_51",
+        "agent_nickname": "slide_51",
+        "prompt": "prompts/slide_51.json",
+        "prompt_sha256": "db06fc85c264f9d6b17684789636f0be3e7bcfd44790046232368a34369766ed",
+        "dispatched_at": "2026-08-17T02:41:32Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_51",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00d98-229d-7cb0-ad7b-2fbda6c9a3b9\\exec-2796fdd5-7314-4c63-8a1b-5d5483af1212.png",
+        "selected_source_sha256": "045c2c51577b76a784ccec49e07ad130181c741128798df969bf3838f79d45d1",
+        "final_image": "origin_image/slide_51.png",
+        "final_image_sha256": "045c2c51577b76a784ccec49e07ad130181c741128798df969bf3838f79d45d1",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The exact RQ1 title and both finding sentences are fully legible with Instructional Effectiveness dominates visually emphasized and no added wording.",
+        "recorded_at": "2026-08-17T02:43:05Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_52",
+      "number": 52,
+      "title": "RQ2",
+      "job": "prompts/slide_52.json",
+      "out": "origin_image/slide_52.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_52",
+        "agent_nickname": "slide_52",
+        "prompt": "prompts/slide_52.json",
+        "prompt_sha256": "7ca6afea4043f9e50048cf2374122d4ee091b7c4a6068755a5d79ab04ddbe9a1",
+        "dispatched_at": "2026-08-17T02:47:58Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_52",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00d9d-585e-7313-8e85-96e32d82cd05\\exec-ee3b2e42-df17-4d93-a9ad-f5438b6af583.png",
+        "selected_source_sha256": "0f6c4752133971269b9721147161417ea2d28317d5859c4cc3c37040990bdf59",
+        "final_image": "origin_image/slide_52.png",
+        "final_image_sha256": "0f6c4752133971269b9721147161417ea2d28317d5859c4cc3c37040990bdf59",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The RQ2 title and all three statements are exact, correctly punctuated, legible, and shown without extra wording.",
+        "recorded_at": "2026-08-17T02:50:03Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_53",
+      "number": 53,
+      "title": "RQ3",
+      "job": "prompts/slide_53.json",
+      "out": "origin_image/slide_53.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_53",
+        "agent_nickname": "slide_53",
+        "prompt": "prompts/slide_53.json",
+        "prompt_sha256": "6c599d6c0700e52267752a5c9dbf7d3e929323b9f1207ddbd6df5e4fd4b3b678",
+        "dispatched_at": "2026-08-17T02:47:59Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_53",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00d9d-a6bf-7b20-9a64-587fc3ebcd60\\exec-5ca15abc-5bee-4e8a-a955-2758d0b17007.png",
+        "selected_source_sha256": "3b5ffe6bf1fdec909f5e71daf56710c3c76194532d72a6c457fcb0a21a98dcce",
+        "final_image": "origin_image/slide_53.png",
+        "final_image_sha256": "3b5ffe6bf1fdec909f5e71daf56710c3c76194532d72a6c457fcb0a21a98dcce",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The RQ3 title and all three findings are exact, including Mean |Δ| = 0.207 and the em-dash phrase, with no extra wording.",
+        "recorded_at": "2026-08-17T02:50:03Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_54",
+      "number": 54,
+      "title": "RQ3 Cont.",
+      "job": "prompts/slide_54.json",
+      "out": "origin_image/slide_54.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_54",
+        "agent_nickname": "slide_54",
+        "prompt": "prompts/slide_54.json",
+        "prompt_sha256": "2aa2d599d098242c4d11c95fc192d376f0971d172e0304ddf90f2fd3b3ca1a9b",
+        "dispatched_at": "2026-08-17T02:47:59Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_54",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00d9d-ebb1-7a82-8a5b-683f6d86577e\\exec-4a5cafac-1a9b-444b-a06c-959bdd7ecb5e.png",
+        "selected_source_sha256": "f1468bb5c7f38a77bd633ec6e1888cefbb5c8f2d854024409f60be66d4129ed6",
+        "final_image": "origin_image/slide_54.png",
+        "final_image_sha256": "f1468bb5c7f38a77bd633ec6e1888cefbb5c8f2d854024409f60be66d4129ed6",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The title and both statements are exact and legible, including the ordered names Messick, Huber, Cronbach and the title period.",
+        "recorded_at": "2026-08-17T02:50:04Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_55",
+      "number": 55,
+      "title": "Practical Implications",
+      "job": "prompts/slide_55.json",
+      "out": "origin_image/slide_55.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_55",
+        "agent_nickname": "slide_55",
+        "prompt": "prompts/slide_55.json",
+        "prompt_sha256": "eb09908926b0c51386885cfe92e03f1ae6ef7e79d9ff7641a8672da78651de0b",
+        "dispatched_at": "2026-08-17T02:51:58Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_55",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00da0-bfa5-7e31-aeb4-381ec35f5e89\\exec-ab52997d-b752-4381-b2b2-bb5687a3fb9f.png",
+        "selected_source_sha256": "4b13927068aa9425b9f8d0a8e2d76afa093140167d4fe454a1c772cbceea0859",
+        "final_image": "origin_image/slide_55.png",
+        "final_image_sha256": "4b13927068aa9425b9f8d0a8e2d76afa093140167d4fe454a1c772cbceea0859",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The Practical Implications title and all four fragments are exact, legible, and shown without added text or terminal periods.",
+        "recorded_at": "2026-08-17T02:54:18Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_56",
+      "number": 56,
+      "title": "Limitations",
+      "job": "prompts/slide_56.json",
+      "out": "origin_image/slide_56.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_56",
+        "agent_nickname": "slide_56",
+        "prompt": "prompts/slide_56.json",
+        "prompt_sha256": "a5036a372fddb7fb54b3834c52cb86bc7c6bb19a472b1c21329ebf4a84973df7",
+        "dispatched_at": "2026-08-17T02:51:58Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_56",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00da1-32bc-76c1-8769-7aef9d51213e\\exec-f49bd1af-6399-4461-becb-51a38c9d0600.png",
+        "selected_source_sha256": "28537df82ae18b892c79af1d5b34b39814c730f38d57f2b99c5adf0fb24620eb",
+        "final_image": "origin_image/slide_56.png",
+        "final_image_sha256": "28537df82ae18b892c79af1d5b34b39814c730f38d57f2b99c5adf0fb24620eb",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The Limitations title and long sentence are verbatim and fully legible with every apostrophe, comma, percentage sign, and exclamation mark preserved.",
+        "recorded_at": "2026-08-17T02:54:19Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_57",
+      "number": 57,
+      "title": "Limitations",
+      "job": "prompts/slide_57.json",
+      "out": "origin_image/slide_57.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_57",
+        "agent_nickname": "slide_57",
+        "prompt": "prompts/slide_57.json",
+        "prompt_sha256": "addf4ababdc79999fdfc363e189a0020948122af416f8d4bb4835d1af26a4dec",
+        "dispatched_at": "2026-08-17T02:51:58Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_57",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00da1-a0e6-78b0-b2b7-85ea4fc52924\\exec-a3b68c84-4b88-452e-afe0-164f99ff1790.png",
+        "selected_source_sha256": "ec6eba43ba7d20436d2e15cde85379b2c4d542334ade4afc913707cf1127c940",
+        "final_image": "origin_image/slide_57.png",
+        "final_image_sha256": "ec6eba43ba7d20436d2e15cde85379b2c4d542334ade4afc913707cf1127c940",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The Limitations title and all five fragments are exact, ordered, legible, and preserve their source capitalization and punctuation.",
+        "recorded_at": "2026-08-17T02:54:19Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_58",
+      "number": 58,
+      "title": "Limitations Cont.",
+      "job": "prompts/slide_58.json",
+      "out": "origin_image/slide_58.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_58_revision",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_58.json",
+        "prompt_sha256": "974e5f972a980f448c8dd2d22a546806fa761b3da4cb32ddabd2d96b88a57ed8",
+        "dispatched_at": "2026-08-17T03:10:24Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_58_revision",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00b83-2a7f-7bb3-903e-8797d915277c\\exec-ff7c1f5a-f57b-4065-a326-6c4027c5b7ee.png",
+        "selected_source_sha256": "8623b7829bc6dcc623090f0c70ca1d6291853ebbab6641a561d0a28d87e1ec2f",
+        "final_image": "origin_image/slide_58.png",
+        "final_image_sha256": "8623b7829bc6dcc623090f0c70ca1d6291853ebbab6641a561d0a28d87e1ec2f",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "All six limitation statements are exact, legible, and consistently end with periods.",
+        "recorded_at": "2026-08-17T03:10:29Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_59",
+      "number": 59,
+      "title": "Conclusion",
+      "job": "prompts/slide_59.json",
+      "out": "origin_image/slide_59.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_59",
+        "agent_nickname": "slide_59",
+        "prompt": "prompts/slide_59.json",
+        "prompt_sha256": "869f9268a6a1fb4cec5e58c745baee42180667d146113e73c01b8b75f310d08d",
+        "dispatched_at": "2026-08-17T02:56:04Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_59",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00da4-ee32-7003-82fa-0393f53cbc24\\exec-16f73c0d-e733-4ee0-9e84-39291528a57e.png",
+        "selected_source_sha256": "f8d477bcc0aa648bfe208546181b9dc573b9504d3faa7789f739d766e37b8dab",
+        "final_image": "origin_image/slide_59.png",
+        "final_image_sha256": "f8d477bcc0aa648bfe208546181b9dc573b9504d3faa7789f739d766e37b8dab",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The section divider contains only the exact title Conclusion and matches the approved lighter-dusk identity.",
+        "recorded_at": "2026-08-17T02:58:07Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_60",
+      "number": 60,
+      "title": "Decompose → extract clause emotion → down-weight off-topic proportionally → re-predict → adjust",
+      "job": "prompts/slide_60.json",
+      "out": "origin_image/slide_60.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_60_revision",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_60.json",
+        "prompt_sha256": "4dd4f243cee9047997f4e7181a09114fac5df0fbb4c93c3cb94b0ce0c6c705b7",
+        "dispatched_at": "2026-08-17T03:10:35Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_60_revision",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00b83-2a7f-7bb3-903e-8797d915277c\\exec-1c4d8e0e-9e5b-472e-b7e4-3586c391af27.png",
+        "selected_source_sha256": "a26b6ecd9d6931b16e69e581bbb4a6f5ae05a5f115ab345b72735738f869b7f0",
+        "final_image": "origin_image/slide_60.png",
+        "final_image_sha256": "a26b6ecd9d6931b16e69e581bbb4a6f5ae05a5f115ab345b72735738f869b7f0",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "All five workflow steps are exact, ordered, legible, and consistently capitalized in sentence case.",
+        "recorded_at": "2026-08-17T03:10:41Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_61",
+      "number": 61,
+      "title": "Contributions",
+      "job": "prompts/slide_61.json",
+      "out": "origin_image/slide_61.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_61",
+        "agent_nickname": "slide_61",
+        "prompt": "prompts/slide_61.json",
+        "prompt_sha256": "c6ec47074284743aa6e768502259cabed71a9a4a0c614cb7236fcb48012098fb",
+        "dispatched_at": "2026-08-17T02:59:01Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_61",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00da8-0a81-73a2-a67a-46fcdbd862ad\\exec-9988e2ff-4685-45a6-a08a-5a84e8414865.png",
+        "selected_source_sha256": "909a0266fae58a263752085bd77d903b47797acb153853866418666b0fbfacf5",
+        "final_image": "origin_image/slide_61.png",
+        "final_image_sha256": "909a0266fae58a263752085bd77d903b47797acb153853866418666b0fbfacf5",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The Contributions title and all three fragments are exact, ordered, legible, and shown without terminal periods or added wording.",
+        "recorded_at": "2026-08-17T03:02:43Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_62",
+      "number": 62,
+      "title": "Proof-of-concept noise reduction, not a validated measure of teaching quality.",
+      "job": "prompts/slide_62.json",
+      "out": "origin_image/slide_62.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_62_final",
+        "agent_nickname": "slide_62_final",
+        "prompt": "prompts/slide_62.json",
+        "prompt_sha256": "b763275f32586974dbd2614cbfed8a3af32f21963909723b7a42f924d7333adb",
+        "dispatched_at": "2026-08-17T03:18:38Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_62_final",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00db9-b300-7453-997b-be87498b430a\\exec-5f1bf39a-7c03-4f2c-a941-424519b52518.png",
+        "selected_source_sha256": "3b0c45637f6613bc08d59b738f2ad3ecd904d849f3bc34de707bb0e467f45b4f",
+        "final_image": "origin_image/slide_62.png",
+        "final_image_sha256": "3b0c45637f6613bc08d59b738f2ad3ecd904d849f3bc34de707bb0e467f45b4f",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Both required sentences are exact, fully legible, and rendered without added wording, watermark, or slide number.",
+        "recorded_at": "2026-08-17T03:19:35Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_63",
+      "number": 63,
+      "title": "What’s Next?",
+      "job": "prompts/slide_63.json",
+      "out": "origin_image/slide_63.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_63_final",
+        "agent_nickname": "slide_63_final",
+        "prompt": "prompts/slide_63.json",
+        "prompt_sha256": "4cdc0445e187b14bb9195d44b02069ad8e4ab13f0bfd217e44b60b06eab38f1f",
+        "dispatched_at": "2026-08-17T03:18:45Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_63_final",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00db9-e73d-7dd3-9c43-072785ebdd3a\\exec-5a17fa75-40e8-4006-aa0c-88727439fb80.png",
+        "selected_source_sha256": "7b7d347981de4c966807b30e2e95f4b1e798bf32f68849c38e8be65b116731ce",
+        "final_image": "origin_image/slide_63.png",
+        "final_image_sha256": "7b7d347981de4c966807b30e2e95f4b1e798bf32f68849c38e8be65b116731ce",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The title and all six future-work fragments are exact, ordered, fully legible, and free of added wording, watermark, or slide number.",
+        "recorded_at": "2026-08-17T03:20:41Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_64",
+      "number": 64,
+      "title": "Validity concerns in informal SET can be addressed computationally",
+      "job": "prompts/slide_64.json",
+      "out": "origin_image/slide_64.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_64_final",
+        "agent_nickname": "slide_64_final",
+        "prompt": "prompts/slide_64.json",
+        "prompt_sha256": "78d25b041c5235c3816bcddc1c5b62711909653db407997c3b39b688aab9417d",
+        "dispatched_at": "2026-08-17T03:18:53Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_64_final",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00dba-263e-78b3-8820-ef8a3caee354\\exec-40762a09-e9dc-4e11-a290-4cfa832ae471.png",
+        "selected_source_sha256": "393689b3281718883b9e212bb05d03a3cd4d5ab1b8f4e40ce97885e1328c4b2b",
+        "final_image": "origin_image/slide_64.png",
+        "final_image_sha256": "393689b3281718883b9e212bb05d03a3cd4d5ab1b8f4e40ce97885e1328c4b2b",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The closing statement is exact, continuous, correctly capitalized and punctuated, fully legible, and contains no watermark or slide number.",
+        "recorded_at": "2026-08-17T03:20:47Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_65",
+      "number": 65,
+      "title": "Acknowledgements",
+      "job": "prompts/slide_65.json",
+      "out": "origin_image/slide_65.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\origin_image\\slide_31.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\logos\\wlulogo.png",
+          "role": "strict supplied logo asset",
+          "fidelity": "preserve exact brand geometry, lettering, colors, and transparency"
+        },
+        {
+          "path": "C:\\Users\\Amer\\Desktop\\Git\\Validity-Weighted-Attenuation\\Presentation\\ammcs_2026_redesign\\assets\\logos\\ammcslogo_whitebg.png",
+          "role": "strict supplied white-background logo asset",
+          "fidelity": "preserve exact brand geometry, lettering, colors, and white background"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_65_final",
+        "agent_nickname": "slide_65_final",
+        "prompt": "prompts/slide_65.json",
+        "prompt_sha256": "7c43db034a601ed612c1613e2a8f05c0c2898266ac91fcbf145f093a9ecbd741",
+        "dispatched_at": "2026-08-17T03:20:06Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_65_final",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Amer\\.codex\\generated_images\\01a00dbb-911c-78b2-ba08-b5956b04e602\\exec-c2900ace-f8b9-4caf-8247-0e6af1e32abe.png",
+        "selected_source_sha256": "54f26d16d18865ca6eaefb885081ac19b57c73c5ec56fce17cf8e75036c7b981",
+        "final_image": "origin_image/slide_65.png",
+        "final_image_sha256": "54f26d16d18865ca6eaefb885081ac19b57c73c5ec56fce17cf8e75036c7b981",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The title and all five acknowledgement fragments are exact and ordered, with both supplied logos visibly preserved, including the new white-background AMMCS logo.",
+        "recorded_at": "2026-08-17T03:21:59Z"
+      },
+      "blocker": null
+    }
+  ],
+  "updated_at": "2026-08-17T03:21:59Z"
+}
