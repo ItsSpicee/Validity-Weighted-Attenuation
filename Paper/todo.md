@@ -1,5 +1,13 @@
 # Paper TODO
 
+**Order of work:** rerun the pipeline and update the results → wait on the two
+additional expert raters, then implement the confidence intervals and Fleiss'
+kappa → write the 12-page paper. `handoff.md` in the project root records what
+changed since the last full pipeline run and why.
+
+The 12-page target constrains everything below. Every analysis added this session
+*adds* length; see item 14 for the budget.
+
 ## Methodology and reproducibility
 
 1. **Rerun the full pipeline after the missing-record preprocessing fix.** The
@@ -117,7 +125,7 @@ Regenerate: `Diagrams/SHAP/`, `Diagrams/correlations/`,
 `Diagrams/adjustment_visuals/`, the Section 5.4 adjustment statistics
 (mean Δ 0.0404, |Δ| 0.2072, max +2.6068 / −1.4581, min 2.84e−6 at
 `main.tex:1029`), and the Section 3.9 worked examples in `ex1/ex2/ex3.tex`.
-Run `sidequestz/worked_examples.py` afterwards — it is the only cross-file
+Run `Paper/worked_examples.py` afterwards — it is the only cross-file
 consistency check and it is not wired into `pipeline.py`.
 
 Two items need a decision rather than a rerun:
@@ -246,13 +254,49 @@ anything else.
 
 12. **Make the case against total exclusion explicit in Section 3.5.** The
     section asserts proportional attenuation is preferable to zeroing `E_misc`
-    and leaves it at the Huber citation. An ablation was considered and rejected
-    — see `sidequestz/context.md` for why the comparison would be confounded —
-    so the answer stays a principled one. Strengthen it with a clause noting that
+    and leaves it at the Huber citation. Strengthen it with a clause noting that
     discarding forfeits the information in partially off-topic reviews and
     introduces a discontinuity at `D_misc = 0`.
 
-13. **Coarse/fine bin gap — fixed in code 2026-08-21, needs a paper sentence.**
+    An empirical ablation was considered and **rejected**, for two reasons worth
+    keeping on record. First, the validation metric is not scale-free: total
+    exclusion produces larger deltas, larger deltas produce larger `delta_diff`,
+    and larger `delta_diff` shifts pairs into the regime where the paired
+    comparison is easy — so the comparison would partly reward aggressive
+    attenuation for reasons unrelated to measurement quality, and "total
+    exclusion scores higher" would be close to uninterpretable. Second,
+    proportional down-weighting is a measurement-theoretic commitment following
+    Huber's robust-estimation argument, not a hypothesis to settle by whichever
+    variant maximises a downstream accuracy number; validating it that way would
+    be optimising the wrong objective. The answer therefore stays principled.
+
+    (For the record, it would have been nearly free: total exclusion is the
+    `s → 0` limit of the existing family, since `zeta = 1 - D^s` tends to 0 for
+    any `D > 0` as `s` tends to 0, so it is one extra row in the stage 7
+    sensitivity tables. The decision is about what the test would mean, not what
+    it would cost.)
+
+13. **Length budget for the 12-page version.** This session added a permutation
+    control, three sensitivity tables and confidence intervals, all of which add
+    length to a paper that is already long. Decide early what earns space rather
+    than cutting under deadline.
+
+    Suggested priority if space is tight. The **permutation control** is the one
+    addition that turns Section 4.3 from a description of designed behaviour into
+    evidence, and it compresses to a short paragraph plus one small table — keep
+    it. The **confidence intervals** are three extra columns in a table that
+    already exists, so they cost almost nothing — keep them. **Sensitivity Table
+    A** (delta agreement) is the defence if `s` moves in the rerun and can be
+    reduced to a sentence with a range quoted inline. **Table B** duplicates much
+    of Table A's message; drop to a clause if needed. **Table C** goes first.
+
+    Candidates for compression on the other side: Section 3.9's three worked
+    examples are prose-heavy and could become one example plus an appendix
+    pointer, and the model-comparison table at `main.tex:750-762` may be dropped
+    entirely if its provenance can't be resolved — which would also settle the
+    orphaned-baselines problem noted under "Downstream consequences" above.
+
+14. **Coarse/fine bin gap — fixed in code 2026-08-21, needs a paper sentence.**
     `FINE_DELTA_MAX` was 0.4 against a `COARSE_DELTA_THRESHOLD` of 0.5, so pairs
     with `delta_diff` in (0.4, 0.5) fell in neither bin and the two conditions
     did not partition the sample. `FINE_DELTA_MAX` now equals

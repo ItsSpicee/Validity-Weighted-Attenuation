@@ -1,6 +1,6 @@
 """
-sidequestz/worked_examples.py
------------------------------
+Paper/worked_examples.py
+------------------------
 Recompute the Section 3.9 worked examples (Paper/.../ex1.tex, ex2.tex, ex3.tex)
 at the current S_VALUE.
 
@@ -21,12 +21,28 @@ What does not
 Section 1 is printed anyway as a cheap check that clause segmentation and ATC
 did not shift when the pipeline was rerun.
 
+DO NOT PASTE SECTION 1 INTO THE PAPER. Its clause text is un-anonymized and
+carries real professor names where the paper writes [instructor]. Section 1 is
+s-independent, so it is emitted as a diagnostic only; every value that belongs
+in the .tex comes from Sections 2 and 3.
+
+It also doubles as a cross-file consistency check: deltas are recomputed straight
+from the model and compared against attuned_ratings_full.csv, warning if the
+pipeline's outputs were produced at a different s. This caught the
+S_VALUE-vs-tuned-s divergence before that bug was fixed and is worth keeping as a
+tripwire. It is not wired into pipeline.py, so it has to be run deliberately.
+
+`--s` regenerates at any exponent, which is how the harness was verified before
+its output was trusted: running at the paper's previous s and diffing against the
+committed .tex reproduced every s-independent value exactly.
+
 Nothing here refits: the trained CatBoost model is loaded and used as-is, and
-output goes only to sidequestz/output/.
+output goes only to Paper/output/.
 
 Run from the project root, after the pipeline has finished:
 
-    python sidequestz/worked_examples.py
+    python Paper/worked_examples.py
+    python Paper/worked_examples.py --s 0.83
 """
 
 from __future__ import annotations
