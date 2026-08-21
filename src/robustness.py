@@ -1,0 +1,409 @@
+"""
+src/robustness.py
+-----------------
+Stage 7: robustness analyses supporting Sections 4.3 and 4.4. Opt-in — this
+stage is not part of a default pipeline run, because the permutation control
+re-attenuates the corpus N_PERMUTATIONS times.
+
+Two independent analyses:
+
+  Permutation control
+      Every result in Section 4.3 shows that attenuation behaves as designed,
+      but none of them establish that the behaviour depends on a review's
+      *actual* off-topic content. A mechanism that adjusted ratings by an
+      arbitrary review-specific amount would also produce structured-looking
+      correlations. Permuting D_misc across reviews breaks the correspondence
+      between measured density and applied attenuation while leaving every
+      marginal distribution intact, so it is the control condition that
+      separates the two.
+
+  Sensitivity across s
+      Table A — agreement between the deltas produced at different s.
+      Table B — the Section 4.3.3 modulator correlations recomputed at each s.
+      Table C — expert paired-comparison accuracy at each s.
+      Together these show the framework's behaviour is not an artifact of the
+      particular exponent the grid search happened to select, which matters
+      because the s objective has several near-equivalent minima.
+
+Read-only with respect to the pipeline: loads the trained model, never refits,
+and writes only into RESULTS_DIR.
+
+Produces (in RESULTS_DIR):
+  - permutation_test.csv / permutation_summary.csv
+  - delta_agreement.csv / modulator_corrs.csv / expert_accuracy.csv
+  - robustness_tables.tex
+
+Usage:
+    python pipeline.py --robustness
+    python -m src.robustness --skip-permutation
+    python -m src.robustness --n-permutations 20 --s-values 0.4 0.83
+"""
+
+from __future__ import annotations
+
+import itertools
+
+import numpy as np
+import pandas as pd
+from catboost import CatBoostRegressor
+from scipy import stats
+from scipy.stats import pearsonr, spearmanr
+
+from constants import (
+    CATBOOST_FINAL_MODEL,
+    EXPERT_LABELS_PATH,
+    FINAL_EMOTIONS,
+    MISC_D_COL,
+    N_PERMUTATIONS,
+    PERMUTATION_SEED,
+    RESULTS_DIR,
+    SENSITIVITY_S_VALUES,
+    S_VALUE,
+)
+from src.attenuation import attenuate
+from src.splits import heldout_mask, professor_split
+from src.validation import merge_expert_deltas, score_predictions
+
+
+# ==============================================================================
+# SHARED HELPERS
+# ==============================================================================
+
+def _to_latex(df: pd.DataFrame, caption: str, label: str, float_fmt: str = "%.4f") -> str:
+    body = df.to_latex(
+        index=False, escape=True, float_format=float_fmt, column_format="l" * len(df.columns)
+    )
+    return (
+        "\\begin{table}[htbp]\n\\centering\n"
+        f"\\caption{{{caption}}}\n\\label{{{label}}}\n"
+        f"{body}"
+        "\\end{table}\n"
+    )
+
+
+def deltas_for(model: CatBoostRegressor, df: pd.DataFrame, s: float) -> pd.DataFrame:
+    """Per-review deltas at one `s`, mirroring attenuation.run()."""
+    full = attenuate(model, df, s)
+    return full[full[MISC_D_COL] > 0].reset_index(drop=True)
+
+
+def expert_accuracy(attuned: pd.DataFrame, verbose: bool = False) -> tuple[int, int]:
+    """(correct, n) for the expert paired comparison against one set of deltas."""
+    expert = score_predictions(merge_expert_deltas(attuned, verbose=verbose))
+    return int(expert["correct"].sum()), len(expert)
+
+
+def _modulator_corrs(delta: np.ndarray, misc_d: np.ndarray) -> dict[str, float]:
+    """Delta-vs-D_misc correlations, split by direction of adjustment."""
+    out: dict[str, float] = {}
+    for name, mask in (("pos", delta > 0), ("neg", delta < 0)):
+        if mask.sum() >= 2:
+            out[f"{name}_pearson"]  = pearsonr(delta[mask], misc_d[mask])[0]
+            out[f"{name}_spearman"] = spearmanr(delta[mask], misc_d[mask])[0]
+        else:
+            out[f"{name}_pearson"] = out[f"{name}_spearman"] = np.nan
+    return out
+
+
+# ==============================================================================
+# PERMUTATION CONTROL
+# ==============================================================================
+
+def _permutation_measure(
+    model: CatBoostRegressor,
+    df_variant: pd.DataFrame,
+    test_profs,
+    true_misc_d: pd.Series,
+    verbose: bool = False,
+) -> tuple[float, int, dict[str, float]]:
+    """Attenuate one frame; return (expert accuracy, expert n, modulator corrs).
+
+    Correlations are measured against the TRUE densities, joined on `review_id`,
+    not against whatever densities this frame carries. That is the whole point of
+    the control: the paper claims the adjustment a review receives tracks its
+    *real* off-topic content, so the null has to ask whether a mechanism driven
+    by shuffled densities still reproduces that relationship. Correlating the
+    permuted deltas against the permuted densities would instead re-measure the
+    mechanism against its own input and return roughly the observed value at
+    every permutation, testing nothing.
+
+    Joining on `review_id` also keeps the reporting population fixed. Permuting
+    D_misc moves the zeros to different reviews, so the `D_misc > 0` subset is a
+    different set of rows in every permutation; selecting on the true densities
+    holds it at the same held-out reviews Section 4.3 reports.
+    """
+    full = attenuate(model, df_variant, S_VALUE)
+
+    # Expert accuracy mirrors the pipeline, which scores against the misc subset
+    # of this frame. n can drift by a pair or two between permutations, so it is
+    # returned alongside the accuracy rather than assumed constant.
+    if EXPERT_LABELS_PATH.exists():
+        misc_subset = full[full[MISC_D_COL] > 0].reset_index(drop=True)
+        correct, n = expert_accuracy(misc_subset, verbose=verbose)
+        acc = correct / n if n else float("nan")
+    else:
+        acc, n = float("nan"), 0
+
+    true_d = full["review_id"].map(true_misc_d)
+    mask = heldout_mask(full, test_profs).to_numpy(dtype=bool) & (true_d > 0).to_numpy()
+
+    return acc, n, _modulator_corrs(
+        full.loc[mask, "weighting_delta"].to_numpy(), true_d[mask].to_numpy()
+    )
+
+
+def _summarise_permutation(
+    perm: pd.DataFrame, col: str, observed: float, direction: str
+) -> dict:
+    vals = perm[col].dropna().to_numpy()
+    # One-sided: how often does the permuted null reach what we observed?
+    hits = int((vals >= observed).sum()) if direction == "greater" else int((vals <= observed).sum())
+    # +1 correction: a permutation p-value can never legitimately be zero.
+    p = (hits + 1) / (len(vals) + 1)
+
+    print(f"\n  {col}")
+    print(f"    observed        : {observed:.4f}")
+    print(f"    permuted mean   : {vals.mean():.4f}  (SD {vals.std(ddof=1):.4f})")
+    print(f"    permuted range  : [{vals.min():.4f}, {vals.max():.4f}]")
+    print(f"    permutations reaching observed: {hits}/{len(vals)}   p = {p:.4f}")
+
+    return {
+        "metric": col, "observed": observed, "perm_mean": vals.mean(),
+        "perm_sd": vals.std(ddof=1), "p_value": p,
+    }
+
+
+def permutation_control(
+    model: CatBoostRegressor,
+    df: pd.DataFrame,
+    test_profs,
+    n_permutations: int = N_PERMUTATIONS,
+    seed: int = PERMUTATION_SEED,
+) -> pd.DataFrame:
+    """Permute D_misc, re-attenuate, and compare against the observed result."""
+    true_misc_d = df.set_index("review_id")[MISC_D_COL]
+
+    print(f"\n  Observed (true D_misc), s = {S_VALUE}...")
+    obs_acc, obs_n, obs_corrs = _permutation_measure(
+        model, df, test_profs, true_misc_d, verbose=True
+    )
+    print(f"    Expert accuracy      : {obs_acc:.4f}  (n = {obs_n})")
+    print(f"    Delta+ vs D_misc (r) : {obs_corrs['pos_pearson']:.4f}")
+    print(f"    Delta- vs D_misc (r) : {obs_corrs['neg_pearson']:.4f}")
+
+    print(f"\n  Running {n_permutations} permutations of D_misc...")
+    rng = np.random.default_rng(seed)
+    rows = []
+    for i in range(n_permutations):
+        df_perm = df.copy()
+        # Permuting the column permutes it everywhere it is consumed: as a model
+        # feature and as the zeta driver inside _apply_down_weighting. Permuting
+        # only one would leave a back-channel through which true density still
+        # influences the adjustment.
+        df_perm[MISC_D_COL] = rng.permutation(df_perm[MISC_D_COL].to_numpy())
+
+        acc, n, corrs = _permutation_measure(model, df_perm, test_profs, true_misc_d)
+        rows.append({"permutation": i, "expert_accuracy": acc, "expert_n": n, **corrs})
+
+        if (i + 1) % 10 == 0:
+            print(f"    {i + 1}/{n_permutations}")
+
+    perm = pd.DataFrame(rows)
+    perm.to_csv(RESULTS_DIR / "permutation_test.csv", index=False)
+
+    print("\n" + "=" * 66)
+    print("  PERMUTATION CONTROL")
+    print("=" * 66)
+    summary = pd.DataFrame([
+        _summarise_permutation(perm, "expert_accuracy", obs_acc, "greater"),
+        _summarise_permutation(perm, "pos_pearson", obs_corrs["pos_pearson"], "greater"),
+        _summarise_permutation(perm, "neg_pearson", obs_corrs["neg_pearson"], "less"),
+    ])
+    summary.to_csv(RESULTS_DIR / "permutation_summary.csv", index=False)
+    return summary
+
+
+# ==============================================================================
+# SENSITIVITY ACROSS S
+# ==============================================================================
+
+def table_delta_agreement(delta_by_s: dict[float, np.ndarray]) -> pd.DataFrame:
+    """Table A — do different s values produce the same adjustments?"""
+    rows = []
+    for s_a, s_b in itertools.combinations(delta_by_s, 2):
+        a, b = delta_by_s[s_a], delta_by_s[s_b]
+        rows.append({
+            "$s_a$": s_a,
+            "$s_b$": s_b,
+            "Pearson $r$": pearsonr(a, b)[0],
+            "Spearman $\\rho$": spearmanr(a, b)[0],
+            "Mean $|\\Delta_a - \\Delta_b|$": np.abs(a - b).mean(),
+            "Max $|\\Delta_a - \\Delta_b|$": np.abs(a - b).max(),
+        })
+    return pd.DataFrame(rows)
+
+
+def table_modulator_corrs(
+    delta_by_s: dict[float, np.ndarray], misc_d: np.ndarray
+) -> pd.DataFrame:
+    """Table B — is the Section 4.3.3 result an artifact of the tuned s?"""
+    rows = []
+    for s, d in delta_by_s.items():
+        row: dict = {"$s$": s}
+        for name, mask, sym in (("pos", d > 0, "^+"), ("neg", d < 0, "^-")):
+            if mask.sum() >= 2:
+                row[f"$\\Delta{sym}$ Pearson $r$"]      = pearsonr(d[mask], misc_d[mask])[0]
+                row[f"$\\Delta{sym}$ Spearman $\\rho$"] = spearmanr(d[mask], misc_d[mask])[0]
+            else:
+                row[f"$\\Delta{sym}$ Pearson $r$"]      = np.nan
+                row[f"$\\Delta{sym}$ Spearman $\\rho$"] = np.nan
+        rows.append(row)
+    return pd.DataFrame(rows)
+
+
+def table_expert_accuracy(
+    model: CatBoostRegressor, df: pd.DataFrame, s_values: list[float]
+) -> pd.DataFrame:
+    """Table C — expert paired-comparison accuracy at each s.
+
+    OVERALL accuracy only, deliberately. The coarse and fine bins are defined by
+    `delta_diff` thresholds that are themselves functions of s, so bin
+    membership shifts between settings and those columns would compare different
+    subsets of pairs rather than the same pairs under different treatment.
+    Overall keeps n fixed and is the only apples-to-apples comparison available.
+    State that reason if the table goes in the paper.
+    """
+    rows = []
+    for s in s_values:
+        correct, n = expert_accuracy(deltas_for(model, df, s))
+        rows.append({
+            "$s$": s,
+            "Pairs": n,
+            "Correct": correct,
+            "Accuracy": correct / n if n else np.nan,
+            "$p$": stats.binomtest(correct, n, p=0.5, alternative="greater").pvalue if n else np.nan,
+        })
+    return pd.DataFrame(rows)
+
+
+def sensitivity_across_s(
+    model: CatBoostRegressor,
+    df: pd.DataFrame,
+    test_profs,
+    s_values: list[float],
+) -> list[tuple[pd.DataFrame, str, str, str]]:
+    """Build Tables A, B and C. Returns (table, caption, label, stem) tuples."""
+    print(f"\n  s values: {s_values}   (pipeline uses S_VALUE = {S_VALUE})")
+
+    # Tables A and B are validation metrics, so they use held-out professors,
+    # matching the reporting convention in Section 4.3.
+    delta_by_s: dict[float, np.ndarray] = {}
+    misc_d: np.ndarray | None = None
+    for s in s_values:
+        attuned = deltas_for(model, df, s)
+        mask = heldout_mask(attuned, test_profs).to_numpy(dtype=bool)
+        delta_by_s[s] = attuned.loc[mask, "weighting_delta"].to_numpy()
+        if misc_d is None:
+            misc_d = attuned.loc[mask, MISC_D_COL].to_numpy()
+            print(f"  Held-out misc reviews: {int(mask.sum()):,}")
+
+    tables = [
+        (
+            table_delta_agreement(delta_by_s),
+            "Agreement between attenuation $\\Delta$s produced at different values of $s$ "
+            "(held-out professors).",
+            "tab:sensitivity-delta-agreement",
+            "delta_agreement",
+        ),
+        (
+            table_modulator_corrs(delta_by_s, misc_d),
+            "Modulator correlations ($\\Delta$ versus $D_{misc}$) across values of $s$ "
+            "(held-out professors).",
+            "tab:sensitivity-modulators",
+            "modulator_corrs",
+        ),
+    ]
+
+    # Table C uses the full sample: the expert pairs span all professors and
+    # restricting them to held-out ones would leave too few to be informative.
+    if EXPERT_LABELS_PATH.exists():
+        tables.append((
+            table_expert_accuracy(model, df, s_values),
+            "Overall expert paired-comparison accuracy across values of $s$ (full sample). "
+            "Coarse and fine bins are omitted because bin membership is itself a function "
+            "of $s$.",
+            "tab:sensitivity-expert",
+            "expert_accuracy",
+        ))
+    else:
+        print(f"\n  Skipping Table C — expert labels not found at {EXPERT_LABELS_PATH}")
+
+    return tables
+
+
+# ==============================================================================
+# ENTRY POINT
+# ==============================================================================
+
+def run(
+    skip_permutation: bool = False,
+    skip_sensitivity: bool = False,
+    n_permutations: int = N_PERMUTATIONS,
+    s_values: list[float] | None = None,
+) -> None:
+    print("\n=== Stage 7: Robustness ===")
+
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+
+    print("Loading model and data...")
+    model = CatBoostRegressor()
+    model.load_model(str(CATBOOST_FINAL_MODEL), format="cbm")
+    df = pd.read_csv(FINAL_EMOTIONS)
+    _, test_profs = professor_split(df)
+
+    latex_parts: list[str] = []
+
+    if not skip_sensitivity:
+        resolved = sorted(set(s_values if s_values else SENSITIVITY_S_VALUES + [S_VALUE]))
+        for table, caption, label, stem in sensitivity_across_s(model, df, test_profs, resolved):
+            print(f"\n{'=' * 66}\n  {label}\n{'=' * 66}\n")
+            print(table.to_string(index=False, float_format=lambda v: f"{v:.4f}"))
+            table.to_csv(RESULTS_DIR / f"{stem}.csv", index=False)
+            latex_parts.append(_to_latex(table, caption, label))
+    else:
+        print("  Skipping sensitivity tables.")
+
+    if not skip_permutation:
+        summary = permutation_control(model, df, test_profs, n_permutations=n_permutations)
+        latex_parts.append(_to_latex(
+            summary,
+            "Permutation control: observed statistics against a null in which $D_{misc}$ "
+            "is permuted across reviews.",
+            "tab:permutation-control",
+        ))
+    else:
+        print("\n  Skipping permutation control.")
+
+    if latex_parts:
+        (RESULTS_DIR / "robustness_tables.tex").write_text(
+            "\n".join(latex_parts), encoding="utf-8"
+        )
+        print(f"\n  Saved CSVs and robustness_tables.tex to {RESULTS_DIR}")
+
+
+if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Stage 7: robustness analyses")
+    parser.add_argument("--skip-permutation", action="store_true")
+    parser.add_argument("--skip-sensitivity", action="store_true")
+    parser.add_argument("--n-permutations", type=int, default=N_PERMUTATIONS)
+    parser.add_argument("--s-values", type=float, nargs="+", default=None)
+    args = parser.parse_args()
+
+    run(
+        skip_permutation=args.skip_permutation,
+        skip_sensitivity=args.skip_sensitivity,
+        n_permutations=args.n_permutations,
+        s_values=args.s_values,
+    )

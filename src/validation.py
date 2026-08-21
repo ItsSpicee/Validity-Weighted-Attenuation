@@ -29,12 +29,24 @@ from constants import (
 # DATA PREPARATION
 # ==============================================================================
 
-def load_and_merge(
-    attuned_path=ATTUNED_RATINGS,
+def merge_expert_deltas(
+    attuned: pd.DataFrame,
     expert_path=EXPERT_LABELS_PATH,
+    verbose: bool = True,
 ) -> pd.DataFrame:
-    attuned = pd.read_csv(attuned_path)
-    expert  = pd.read_csv(expert_path)
+    """Attach attenuation deltas to the expert pair labels.
+
+    Split out from `load_and_merge` so callers that already hold an attuned
+    frame can reuse this join instead of round-tripping through a CSV. The
+    robustness analyses build one attuned frame per permutation and per `s`, so
+    without this they would either write hundreds of temp files or duplicate the
+    join — and a duplicated copy would drift once expert labels move to a
+    majority vote across several raters.
+
+    `verbose=False` silences the per-call dropped-pair and unsure notices, which
+    are identical on every iteration of a permutation loop.
+    """
+    expert = pd.read_csv(expert_path)
 
     delta_map = attuned.set_index("review_id")["weighting_delta"].to_dict()
     expert["delta_1"] = expert["review_id_1"].map(delta_map)
@@ -43,19 +55,27 @@ def load_and_merge(
     missing = expert["delta_1"].isna() | expert["delta_2"].isna()
     if missing.any():
         missing_df = expert[missing]
-        print(f"  Warning: {missing.sum()} pair(s) dropped — review_id not found in attuned data.")
-        for _, row in missing_df.iterrows():
-            print(f"    review_id_1={row['review_id_1']}  review_id_2={row['review_id_2']}")
+        if verbose:
+            print(f"  Warning: {missing.sum()} pair(s) dropped — review_id not found in attuned data.")
+            for _, row in missing_df.iterrows():
+                print(f"    review_id_1={row['review_id_1']}  review_id_2={row['review_id_2']}")
         expert = expert[~missing].copy()
 
     # Unsure labels (NaN) → 0, which never matches model prediction (1 or 2)
     unsure = expert["Expert Label:"].isna()
-    if unsure.any():
+    if unsure.any() and verbose:
         print(f"  Note: {unsure.sum()} pair(s) marked unsure — counted as incorrect.")
     expert["Expert Label:"] = expert["Expert Label:"].fillna(0)
     expert["unsure"] = unsure
-    
+
     return expert
+
+
+def load_and_merge(
+    attuned_path=ATTUNED_RATINGS,
+    expert_path=EXPERT_LABELS_PATH,
+) -> pd.DataFrame:
+    return merge_expert_deltas(pd.read_csv(attuned_path), expert_path)
 
 
 # ==============================================================================
@@ -103,15 +123,21 @@ def _accuracy_report(df: pd.DataFrame, label: str) -> None:
     
 
 def report(expert: pd.DataFrame) -> None:
+    # Half-open fine bin so the two conditions partition the pairs rather than
+    # leaving a gap between FINE_DELTA_MAX and COARSE_DELTA_THRESHOLD.
     coarse_mask = expert["delta_diff"] >= COARSE_DELTA_THRESHOLD
-    fine_mask   = expert["delta_diff"].between(FINE_DELTA_MIN, FINE_DELTA_MAX)
+    fine_mask   = expert["delta_diff"].between(
+        FINE_DELTA_MIN, FINE_DELTA_MAX, inclusive="left"
+    )
 
     print("\n" + "=" * 52)
     print("  EXPERT VALIDATION RESULTS")
     print("=" * 52 + "\n")
     _accuracy_report(expert,               "Overall")
     _accuracy_report(expert[coarse_mask],  f"Coarse  (Difference in |Δ| ≥ {COARSE_DELTA_THRESHOLD})")
-    _accuracy_report(expert[fine_mask],    f"Fine    ({FINE_DELTA_MIN} ≤ Difference in |Δ| ≤ {FINE_DELTA_MAX})")
+    _accuracy_report(expert[fine_mask],    f"Fine    ({FINE_DELTA_MIN} ≤ Difference in |Δ| < {FINE_DELTA_MAX})")
+    print(f"  Bins partition the pairs: "
+          f"{int(coarse_mask.sum()) + int(fine_mask.sum())} of {len(expert)} assigned.")
 
 
 # ==============================================================================

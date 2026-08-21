@@ -8,6 +8,7 @@ Usage:
     python pipeline.py --skip-validation
     python pipeline.py --skip-atc-validation
     python pipeline.py --optimize-s
+    python pipeline.py --robustness
     python pipeline.py --visualize
     python pipeline.py --visualize-only
 """
@@ -20,7 +21,10 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
 from constants import DATA_DIR
-from src import preprocessing, atc, sentiment, regression, attenuation, validation, atc_validation
+from src import (
+    preprocessing, atc, sentiment, regression, attenuation, validation,
+    atc_validation, robustness,
+)
 from src.visualizations import attenuation_plots, descriptive_plots, correlation_plots
 
 
@@ -40,6 +44,15 @@ def parse_args() -> argparse.Namespace:
         "--optimize-s",
         action="store_true",
         help="Re-run grid search to find optimal s value",
+    )
+    parser.add_argument(
+        "--robustness",
+        action="store_true",
+        help=(
+            "Run the stage 7 robustness analyses (permutation control and "
+            "s-sensitivity tables). Off by default: the permutation control "
+            "re-attenuates the corpus once per permutation."
+        ),
     )
     parser.add_argument(
         "--visualize",
@@ -86,6 +99,9 @@ def main() -> None:
             _timed(validation.run)
         else:
             print(" Skipping attenuation validation stage.\n")
+
+        if args.robustness:
+            _timed(robustness.run)
 
     if args.visualize or args.visualize_only:
         _timed(descriptive_plots.run)

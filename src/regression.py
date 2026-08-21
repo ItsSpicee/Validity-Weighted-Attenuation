@@ -93,7 +93,13 @@ def _evaluate(y_true, preds) -> tuple[float, float, float]:
 
 
 def cross_validate(df: pd.DataFrame) -> None:
-    """5-fold professor-level cross-validation on training split."""
+    """5-fold professor-level cross-validation on training split.
+
+    Each fold is fitted for a fixed number of iterations and scored on its
+    validation rows. No `eval_set` is passed: early stopping would select the
+    stopping iteration on the same rows the fold is then scored on, biasing the
+    reported fold metrics downward.
+    """
     train_profs, _ = professor_split(df)
     train_df = train_rows(df, train_profs)
 
@@ -111,7 +117,7 @@ def cross_validate(df: pd.DataFrame) -> None:
         y_tr, y_val = y_train_full.iloc[train_idx], y_train_full.iloc[val_idx]
 
         model = CatBoostRegressor(**CATBOOST_PARAMS)
-        model.fit(X_tr, y_tr, eval_set=(X_val, y_val), early_stopping_rounds=50)
+        model.fit(X_tr, y_tr)
 
         mae, rho, r2 = _evaluate(y_val, model.predict(X_val))
         mae_scores.append(mae)
@@ -125,7 +131,15 @@ def cross_validate(df: pd.DataFrame) -> None:
 
 
 def train_final_model(df: pd.DataFrame) -> CatBoostRegressor:
-    """Train on all training professors, evaluate on held-out test professors."""
+    """Train on all training professors, evaluate on held-out test professors.
+
+    Fitting takes no `eval_set`. Passing the test professors as one would let
+    them select the stopping iteration, so the model size would be chosen on the
+    same rows the model is then reported on — and, since this model produces the
+    attenuation deltas, on the same rows Section 4.3 reports. The iteration
+    count is fixed by CATBOOST_PARAMS instead; the loss curve is flat over the
+    final iterations, so the cap is not doing selection work.
+    """
     train_profs, test_profs = professor_split(df)
 
     train_df = train_rows(df, train_profs)
@@ -137,7 +151,7 @@ def train_final_model(df: pd.DataFrame) -> CatBoostRegressor:
     y_test  = test_df["rating"]
 
     model = CatBoostRegressor(**CATBOOST_PARAMS)
-    model.fit(X_train, y_train, eval_set=(X_test, y_test), early_stopping_rounds=50)
+    model.fit(X_train, y_train)
 
     mae, rho, r2 = _evaluate(y_test, model.predict(X_test))
     print(f"\n  Final test (unseen professors):")

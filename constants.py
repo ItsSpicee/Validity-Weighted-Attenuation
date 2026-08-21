@@ -150,6 +150,10 @@ NEG_EMOTIONS = {
 
 METADATA_COLS = ["review_id", "prof_ID", "rating"]
 
+# No early stopping: every fit runs the full `iterations`. Early stopping needs
+# an eval_set, and any set handed to it both sizes the model and is then scored,
+# which biases whatever is reported on it. See train_final_model in
+# src/regression.py.
 CATBOOST_PARAMS = {
     "iterations":            1000,
     "learning_rate":         0.02,
@@ -157,7 +161,6 @@ CATBOOST_PARAMS = {
     "l2_leaf_reg":           6,
     "loss_function":         "MAE",
     "eval_metric":           "MAE",
-    "early_stopping_rounds": 50,
     "verbose":               100,
 }
 
@@ -194,9 +197,14 @@ LAMBDA = 0.01    # hinge tolerance for small pedagogical correlation drops
 # VALIDATION
 # ==============================================================================
 
+# Coarse and fine bins partition the expert pairs by how far apart the two
+# reviews' |delta|s are. FINE_DELTA_MAX meets COARSE_DELTA_THRESHOLD exactly:
+# the fine bin is half-open [MIN, MAX) and the coarse bin is [THRESHOLD, inf),
+# so every pair falls in exactly one. An earlier FINE_DELTA_MAX of 0.4 left
+# pairs in (0.4, 0.5) in neither bin.
 COARSE_DELTA_THRESHOLD   = 0.5
 FINE_DELTA_MIN           = 0
-FINE_DELTA_MAX           = 0.4
+FINE_DELTA_MAX           = COARSE_DELTA_THRESHOLD
 
 EXPERT_LABELS_PATH   = DATA_DIR / "raw" / "expert_labels.csv"
 
@@ -206,3 +214,20 @@ ATC_EXPERT_LABELS        = DATA_DIR / "raw" / "atc_expert_labels.xlsx"
 ATC_PREDICTIONS          = DATA_DIR / "raw" / "atc_predictions.csv"
 GROK_LABELS              = DATA_DIR / "raw" / "grok.csv"
 GPT_LABELS               = DATA_DIR / "raw" / "gpt.csv"
+
+
+# ==============================================================================
+# ROBUSTNESS (Stage 7 — opt-in, not part of a default pipeline run)
+# ==============================================================================
+
+RESULTS_DIR = ROOT_DIR / "results"
+
+# Permutation control: how many times D_misc is shuffled to build the null.
+N_PERMUTATIONS   = 100
+PERMUTATION_SEED = 42
+
+# Comparison points for the s-sensitivity tables. S_VALUE is added at runtime,
+# so list only the alternatives. These are the modes from a resampling study run
+# against an earlier model — re-derive them after any change to the model or to
+# the s grid search, or the table compares the tuned s against stale values.
+SENSITIVITY_S_VALUES = [0.37, 0.62, 0.91]

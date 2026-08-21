@@ -1,20 +1,18 @@
 # sidequestz
 
-Standalone analyses that sit beside the pipeline. `worked_examples.py` is a
-paper-maintenance utility and has been used; the other three are **optional**
-additions worth including if there is space, each chosen for high reviewer impact
-relative to the effort of running it. None of the optional three has been run.
+Standalone analyses that sit beside the pipeline. Nothing here modifies it —
+every script loads the trained model, never refits, and writes only into
+`sidequestz/output/`.
 
-Nothing here modifies the pipeline. Every script loads the trained model, never
-refits, and writes only into `sidequestz/output/`.
+**Most of this folder has moved into the pipeline.** The permutation control and
+the s-sensitivity tables are now `src/robustness.py`, stage 7, run with
+`python pipeline.py --robustness`. What remains here is genuinely peripheral.
 
 Run from the project root:
 
 ```
-python sidequestz/worked_examples.py          # paper maintenance; already used
-python sidequestz/sensitivity_across_s.py     # optional, not yet run
-python sidequestz/expert_confidence_intervals.py
-python sidequestz/permutation_test.py
+python sidequestz/worked_examples.py               # paper maintenance
+python sidequestz/expert_confidence_intervals.py   # interim; folds into validation.py later
 ```
 
 On a cp1252 console, prefix with `PYTHONIOENCODING=utf-8` — output containing
@@ -44,103 +42,82 @@ Three things to know:
   from the model and compares them to `attuned_ratings_full.csv`, warning if the
   pipeline's outputs were produced at a different `s`. This guarded the
   `S_VALUE`-vs-tuned-`s` divergence before that bug was fixed; it is still worth
-  keeping as a tripwire.
+  keeping as a tripwire. It is not wired into `pipeline.py`, so it has to be run
+  deliberately.
 - **Its Section 1 output is un-anonymized.** Clause text carries real professor
   names where the paper writes `[instructor]`. Do not paste that section into the
   `.tex`. Section 1 is `s`-independent anyway — it is emitted only to confirm
   that clause segmentation and ATC did not shift.
 
-### `sensitivity_across_s.py` — items 1, 2, 6
+### `expert_confidence_intervals.py` — interim location
 
-Robustness of the framework to the down-weighting exponent `s`. Produces three
-tables, as CSV and as LaTeX (`output/sensitivity_tables.tex`).
-
-- **Table A — delta agreement.** Pairwise correlation between the attenuation
-  deltas produced at different `s` values. Earlier runs gave Pearson 0.966–0.9995
-  with mean divergence under 0.09 rating points, i.e. the mechanism does
-  substantially the same thing across the whole plausible range.
-- **Table B — modulator correlations.** Section 4.3.3's delta-vs-`D_misc`
-  correlations recomputed at each `s`. Previously flat (0.676–0.694), so the
-  headline result is not an artifact of the tuned value.
-- **Table C — expert accuracy.** Section 4.4's paired-comparison accuracy at
-  each `s`.
-
-Tables A and B use held-out professors, matching the Section 4.3 convention.
-Table C uses the full sample, because the expert pairs span all professors and
-restricting them would leave too few to be informative.
-
-**Table C reports overall accuracy only, and this is deliberate.** The coarse and
-fine bins are defined by `delta_diff` thresholds that are themselves functions of
-`s`, so bin membership shifts between settings and those columns would compare
-different subsets of pairs rather than the same pairs under different treatment.
-Overall keeps `n` fixed and is the only apples-to-apples comparison available.
-If the table goes in the paper, state that reason explicitly — it is a genuine
-methodological point, and it also happens to avoid presenting a fine-grained
-column that swings with `s` for reasons that are partly artefactual.
-
-### `expert_confidence_intervals.py` — item 3
-
-Wilson 95% confidence intervals on the Section 4.4 accuracies. `n = 74` is small
-and a reviewer will notice; reporting the interval pre-empts the objection.
+Wilson 95% confidence intervals on the Section 4.4 accuracies. `n = 77` after
+three pairs drop for missing `review_id`s, which is small enough that a reviewer
+will ask; reporting the interval pre-empts the objection.
 
 The intervals will be wide. That is the honest picture, and stating it is better
 than having someone else compute it. The claim worth making is that the lower
-bound sits above chance — the script prints that check explicitly. Watch the
-fine-grained condition in particular; it is the one most likely to have a lower
-bound near or below 0.5.
+bound sits above chance — the script prints that check explicitly.
+
+Watch the fine-grained condition. Those are pairs where the two reviews received
+nearly the same adjustment, so the model is close to indifferent and accuracy
+should be lowest by construction; its interval may well straddle 0.5. That is
+the expected shape rather than a failure — accuracy rising with the size of the
+separation is evidence that $|\Delta|$ carries graded information — but it needs
+to be written up that way rather than presented as an independent success.
 
 Wilson rather than the normal-approximation interval, because the latter
 misbehaves at proportions near 1 and at small `n`, both of which apply.
 
-### `permutation_test.py` — item 5
-
-The strongest addition of the three, and the one the methodology arguably should
-have had from the start.
-
-Every result in Section 4.3 shows the mechanism behaves as designed, but none of
-them show the behaviour depends on a review's *actual* off-topic content. A
-mechanism assigning arbitrary review-specific adjustments would also produce
-structured-looking correlations. This is the control that separates the two.
-
-`D_misc` is permuted across reviews — breaking the correspondence between
-measured density and applied attenuation while leaving every marginal
-distribution intact — and expert accuracy plus the modulator correlations are
-recomputed. Correlations are measured against *true* `D_misc`, since that is the
-relationship the paper claims.
-
-Expect permuted accuracy to collapse toward 0.5 and the correlations toward 0.
-`D_misc` is permuted in the feature matrix as well as in the down-weighting term,
-since it is both a model input and the driver of zeta; permuting only one would
-leave a back-channel for true density to influence the adjustment.
-
-Default is 100 permutations. Reduce with `--n-permutations` if it is slow.
+**This is scheduled to move into `src/validation.py`** alongside the majority-vote
+label handling, once the two additional expert label sets exist. It lives here
+until then so it stays runnable against the single-expert file. See the
+"Expert validation" section of `Paper/todo.md`.
 
 ---
 
 ## Notes
 
-**Expected exposure.** Items 1, 2, 3 and 5 are uniformly favourable — there is no
-plausible outcome that weakens the paper. Item 6 is favourable as scoped above,
-but reporting the full coarse/fine breakdown across `s` would surface a
-fine-grained accuracy that degrades at high `s`. The scoping is defensible on its
-own merits, but it is a choice, and worth making knowingly.
+**Expected exposure.** The permutation control and the sensitivity tables are
+uniformly favourable — there is no plausible outcome that weakens the paper. The
+confidence intervals are favourable in the sense that matters (they pre-empt an
+objection) but they will make the fine-grained condition look weaker than the
+bare accuracy did, which is the honest picture.
 
 **Deliberately not included: the loss-versus-`s` curve.** The `s` selection
 procedure has several near-equivalent local minima, which is why resampling the
 tuning set moves the selected value around. Plotting the curve advertises that
-directly. Table A conveys the useful half of the message — the choice does not
-matter much downstream — without drawing attention to the soft spot. This is a
-presentation judgement, not a correctness one: the multimodality is real, and if
-a reviewer asks, the honest answer is that the objective does not uniquely
-identify `s` and the sensitivity tables are why that is acceptable.
+directly. Table A of the sensitivity analysis conveys the useful half of the
+message — the choice does not matter much downstream — without drawing attention
+to the soft spot. This is a presentation judgement, not a correctness one: the
+multimodality is real, and if a reviewer asks, the honest answer is that the
+objective does not uniquely identify `s` and the sensitivity tables are why that
+is acceptable.
 
-**Also considered, not implemented: an ablation against total exclusion.**
-Section 3 asserts that proportional attenuation is preferable to zeroing out
-`E_misc` entirely, but never tests it. That test is roughly twenty lines and
-would be the single strongest addition available *if* proportional attenuation
-wins. It carries genuine downside risk, though — if total exclusion performs
-comparably, it undercuts a central design claim. Worth running privately before
-deciding whether it belongs in the paper.
+**Considered and rejected: an ablation against total exclusion.** Section 3.5
+asserts that proportional attenuation is preferable to zeroing out `E_misc`
+entirely, and never tests it. Not worth running, for two reasons.
+
+The validation metric is not scale-free. Total exclusion produces larger deltas,
+larger deltas produce larger `delta_diff`, and larger `delta_diff` shifts pairs
+into the regime where the paired comparison is easy. So the comparison would
+partly reward aggressive attenuation for reasons unrelated to measurement
+quality, and "total exclusion scores higher" would be close to uninterpretable.
+
+More fundamentally, proportional down-weighting is a measurement-theoretic
+commitment following Huber's robust-estimation argument — down-weight
+contaminated observations rather than discard them — not a hypothesis to settle
+by whichever variant maximises a downstream accuracy number. Validating it that
+way would be optimising the wrong objective.
+
+The residual risk is that a reviewer asks "why not just exclude?" anyway. That is
+answered in Section 3.5 on principle; the todo carries an item to make the
+argument slightly more explicit there.
+
+(For the record: total exclusion is the `s → 0` limit of the existing family,
+since `zeta = 1 - D^s` tends to 0 for any `D > 0` as `s` tends to 0. So it could
+have been tested for free as an extra row in the sensitivity tables. The decision
+not to is about what the test would mean, not about what it would cost.)
 
 ## Where these came from
 
@@ -150,11 +127,18 @@ Their findings, for the record:
 - **Tuning-split resampling.** Selecting `s` on 20 different professor-level
   resamples gave SD 0.23 and a range of 0.23–0.94, clustered into modes around
   0.37, 0.62 and 0.91. The loss surface has several near-equivalent minima.
+  These modes are the source of `SENSITIVITY_S_VALUES` in `constants.py`, and
+  they were measured against an earlier model — re-derive them after the rerun.
 - **Training-professor tuning.** Tuning `s` on training professors only — the
   arrangement the pipeline now uses — gives 0.83, three grid steps from the
   0.86 originally reported on the full sample. The paper has since been moved to
   0.83 throughout; downstream numbers shifted by at most 0.02 rating points.
 - **Downstream sensitivity sweep.** Deltas correlate 0.966–0.9995 across the
   modal range with mean divergence under 0.09 rating points, and expert accuracy
-  stayed significant at every value tested. `sensitivity_across_s.py` is the
+  stayed significant at every value tested. Stage 7's sensitivity tables are the
   paper-ready distillation of that sweep.
+
+**Removed:** `find_funny_reviews.py` (conference-slide quote mining; deleted, not
+a result). Its outputs are still in `output/` — `funny_reviews.csv`,
+`hook_reviews_hook.csv`, `hook_reviews_chaotic.csv` — and now have no generator.
+They contain un-anonymized review text. Delete them once the slides are final.
