@@ -172,7 +172,7 @@ RANDOM_STATE = 42
 # ATTENUATION
 # ==============================================================================
 
-S_VALUE = 0.83          # down_weighting exponent, tuned on training professors only
+S_VALUE = 0.93          # down_weighting exponent, tuned on training professors only
 MISC_D_COL = "misc_d"
 
 # Restrict reported attenuation metrics to held-out professors (professors seen
