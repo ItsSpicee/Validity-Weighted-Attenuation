@@ -34,7 +34,6 @@ from constants import (
     NEG_EMOTIONS,
     TOPICS,
     TOPIC_DISPLAY_NAMES,
-    REPORT_ON_HELDOUT,
 )
 from src.splits import heldout_rows, professor_split
 
@@ -332,16 +331,15 @@ def run() -> None:
     model.load_model(str(CATBOOST_FINAL_MODEL), format="cbm")
 
     # Validation figures report on held-out professors only. The Δ-vs-misc_d
-    # correlations are one of the terms the s-value loss optimizes, so on tuning
-    # rows they would partly restate the objective. SHAP is filtered alongside
-    # them so the whole validation section describes the same population.
+    # SHAP is filtered alongside the delta analyses so the whole validation
+    # section describes the same population.
     # df_u and df_w are row-aligned, so the same professor filter applies to both.
     df_att_report, df_u_report, df_w_report = df_att, df_u, df_w
-    if REPORT_ON_HELDOUT:
+    if True:
         if "is_heldout" not in df_att.columns:
             raise KeyError(
                 "attuned_ratings.csv has no 'is_heldout' column — re-run stage 5 "
-                "(attenuation) to regenerate it, or set REPORT_ON_HELDOUT = False."
+                "(attenuation) to regenerate it."
             )
         _, test_profs = professor_split(df_u)
         df_att_report = df_att[df_att["is_heldout"].astype(bool)].reset_index(drop=True)

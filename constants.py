@@ -198,11 +198,6 @@ RANDOM_STATE = 42
 S_VALUE = 1.0
 MISC_D_COL = "misc_d"
 
-# Restrict reported attenuation metrics to held-out professors (professors seen
-# by neither the CatBoost model nor the s-value grid search). Set False to
-# reproduce the full-sample numbers.
-REPORT_ON_HELDOUT = True
-
 # The s grid search and its composite loss weights (S_SEARCH_*, ALPHA, BETA,
 # DELTA, LAMBDA) were removed when s was fixed a priori. They are recoverable
 # from git history if the selection procedure ever needs to be reconstructed.
