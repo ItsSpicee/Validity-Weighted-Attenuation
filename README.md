@@ -345,16 +345,12 @@ Runtimes below are tested using mid-high range hardware (Intel i5-13600K + RTX 4
 | Descriptive visualizations | `descriptive_plots.py` | 7.2 seconds |
 | Attenuation visualizations | `attenuation_plots.py` | 5.3 seconds |
 | Correlation visualizations | `correlation_plots.py` | 1.2 seconds |
+| Rboustness Tests | `robustness.py` | 1.1 minutes |
  
-**Total with GPU:** approximately 8.9 minutes.  
-**Total CPU only:** approximately 16 minutes.
+**Total with GPU:** approximately 10 minutes.  
+**Total CPU only:** approximately 17.1 minutes.
 
-Stage 7 (`--robustness`) is excluded from those totals and is the most expensive
-stage in the project. The sensitivity tables cost roughly one attenuation pass per
-`s` value, but the permutation control costs one per permutation — 100 by default,
-tunable with `--n-permutations`. Budget accordingly, and note that stage 7 loads
-the saved model rather than refitting, so it can be run separately after the
-pipeline has finished.
+
 
 ### Disk Space Requirements
 

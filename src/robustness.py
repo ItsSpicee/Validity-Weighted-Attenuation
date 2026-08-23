@@ -12,10 +12,13 @@ Two independent analyses:
       but none of them establish that the behaviour depends on a review's
       *actual* off-topic content. A mechanism that adjusted ratings by an
       arbitrary review-specific amount would also produce structured-looking
-      correlations. Permuting D_misc across reviews breaks the correspondence
-      between measured density and applied attenuation while leaving every
-      marginal distribution intact, so it is the control condition that
-      separates the two.
+      correlations. Permuting D_misc among the reviews that have off-topic
+      content breaks the correspondence between measured density and applied
+      attenuation while leaving the marginal distribution and the analytic
+      population intact, so it is the control condition that separates the two.
+      The null is therefore "the amount of off-topic content is unrelated to
+      which review it is", not "off-topic content is absent" -- the graded
+      claim Sections 4.3.3 and 4.4 actually make.
 
   Sensitivity across s
       Table A — agreement between the deltas produced at different s.
@@ -127,16 +130,18 @@ def _permutation_measure(
     mechanism against its own input and return roughly the observed value at
     every permutation, testing nothing.
 
-    Joining on `review_id` also keeps the reporting population fixed. Permuting
-    D_misc moves the zeros to different reviews, so the `D_misc > 0` subset is a
-    different set of rows in every permutation; selecting on the true densities
-    holds it at the same held-out reviews Section 4.3 reports.
+    The join is on values, not on population: the permutation is restricted to
+    non-zero densities (see `permutation_control`), so the `D_misc > 0` subset is
+    already identical to the observed one in every permutation. What the join
+    supplies is each review's TRUE density as the correlate.
     """
     full = attenuate(model, df_variant, S_VALUE)
 
     # Expert accuracy mirrors the pipeline, which scores against the misc subset
-    # of this frame. n can drift by a pair or two between permutations, so it is
-    # returned alongside the accuracy rather than assumed constant.
+    # of this frame. Because the permutation preserves the zero pattern, that
+    # subset is the same set of reviews every iteration and n holds at the
+    # observed value; it is still returned so a drift would be visible rather
+    # than assumed away.
     if EXPERT_LABELS_PATH.exists():
         misc_subset = full[full[MISC_D_COL] > 0].reset_index(drop=True)
         correct, n = expert_accuracy(misc_subset, verbose=verbose)
@@ -200,7 +205,20 @@ def permutation_control(
         # feature and as the zeta driver inside _apply_down_weighting. Permuting
         # only one would leave a back-channel through which true density still
         # influences the adjustment.
-        df_perm[MISC_D_COL] = rng.permutation(df_perm[MISC_D_COL].to_numpy())
+        #
+        # The shuffle is restricted to reviews whose density is already non-zero,
+        # so zeros stay zero. That subset IS the analytic population: Section 4.3
+        # reports on `D_misc > 0` and all expert pairs fall inside it, so
+        # exchangeability only has to hold there. Permuting the full column
+        # instead relocates the zeros, which silently resamples the reporting
+        # population every iteration -- the expert comparison then scores only
+        # those pairs whose BOTH reviews happened to draw a positive density
+        # (~0.606^2 x 80 = ~29 of 77), inflating the null's variance and making
+        # the resulting p-value a small-sample artifact.
+        vals = df_perm[MISC_D_COL].to_numpy().copy()
+        nz = np.flatnonzero(vals > 0)
+        vals[nz] = rng.permutation(vals[nz])
+        df_perm[MISC_D_COL] = vals
 
         acc, n, corrs = _permutation_measure(model, df_perm, test_profs, true_misc_d)
         rows.append({"permutation": i, "expert_accuracy": acc, "expert_n": n, **corrs})

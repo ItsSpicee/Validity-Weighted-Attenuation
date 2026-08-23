@@ -52,7 +52,7 @@ Fairness & approval=0.790, realization=0.032, optimism=0.029, admiration=0.017 &
 \addlinespace
 Workload & approval=0.367, sadness=0.355, disappointment=0.121, admiration=0.035 & approval=0.367, sadness=0.355, disappointment=0.121, admiration=0.035 \\
 \addlinespace
-\textit{Miscellaneous} & sadness=0.320, gratitude=0.248, disappointment=0.177, approval=0.143 & \textcolor{red}{sadness=0.155, gratitude=0.120, disappointment=0.086, approval=0.070} \\
+\textit{Miscellaneous} & sadness=0.320, gratitude=0.248, disappointment=0.177, approval=0.143 & \textcolor{red}{sadness=0.176, gratitude=0.137, disappointment=0.097, approval=0.079} \\
 \bottomrule
 \end{tabular}
 
@@ -65,10 +65,10 @@ Workload & approval=0.367, sadness=0.355, disappointment=0.121, admiration=0.035
 \toprule
 $D_{\text{misc}}$ & $\zeta$ & \textbf{Raw} & \textbf{Baseline} & \textbf{Attenuated} & $\Delta$ & \textbf{Adjusted} \\
 \midrule
-0.450 & 0.485 & 5.0 & 4.005 & 3.762 & $-$0.243 & \textbf{4.757} \\
+0.450 & 0.550 & 5.0 & 3.965 & 3.905 & $-$0.061 & \textbf{4.939} \\
 \bottomrule
 \end{tabular}
 
 \vspace{0.5em}
-\small\textit{Four of eight clauses are Miscellaneous ($D_{\text{misc}}$=0.450), including a high-gratitude farewell (gratitude=0.990). Attenuation applies $\zeta$=0.485, roughly halving the Miscellaneous signal. Pedagogical features are unchanged. The positive Miscellaneous signal is reduced, producing a downward adjustment of $-$0.243.}
+\small\textit{Four of eight clauses are Miscellaneous ($D_{\text{misc}}$=0.450), including a high-gratitude farewell (gratitude=0.990). Attenuation applies $\zeta$=0.550, down-weighting the Miscellaneous signal by 45\%. Pedagogical features are unchanged. The positive Miscellaneous signal is reduced, producing a downward adjustment of $-$0.061.}
 \end{document}

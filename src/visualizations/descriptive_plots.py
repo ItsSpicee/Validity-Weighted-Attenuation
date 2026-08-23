@@ -24,6 +24,7 @@ from constants import (
     POS_EMOTIONS,
     NEG_EMOTIONS,
     TOPIC_DISPLAY_NAMES,
+    TOPIC_ABBREVIATIONS,
     ATC_EXTRACTED,
     PROFESSORS_CLEANED
 )
@@ -96,30 +97,42 @@ def plot_topic_frequencies(df: pd.DataFrame) -> None:
 
 
 def plot_topic_combinations(df: pd.DataFrame) -> None:
-    combinations = df.groupby("review_id")["predicted_topic"].apply(
-        lambda x: ", ".join(sorted(set(x)))
+    # predicted_topic is already mapped to display names by _load_exploded, so accept
+    # either the raw key or the display name when abbreviating.
+    to_abbrev = dict(TOPIC_ABBREVIATIONS)
+    to_abbrev.update(
+        {TOPIC_DISPLAY_NAMES[k]: v for k, v in TOPIC_ABBREVIATIONS.items() if k in TOPIC_DISPLAY_NAMES}
     )
 
-    def _to_short(comb_str):
-        return ",".join(TOPIC_DISPLAY_NAMES.get(t.strip(), t.strip()) for t in comb_str.split(","))
+    def _to_short(topics) -> str:
+        codes = {to_abbrev.get(t, t) for t in topics}
+        order = list(TOPIC_ABBREVIATIONS.values())
+        return " + ".join(sorted(codes, key=lambda c: order.index(c) if c in order else len(order)))
 
-    combination_counts = combinations.map(_to_short).value_counts().sort_values()
+    combination_counts = (
+        df.groupby("review_id")["predicted_topic"].apply(_to_short).value_counts().sort_values()
+    )
 
-    plt.figure(figsize=(12, 8))
-    combination_counts.plot(kind="barh", color="goldenrod")
-    plt.title("Frequency of Topic Combinations (per Review)")
-    plt.xlabel("Number of Reviews")
-    plt.ylabel("Topic Combination (IE/W/F/M)")
+    fig, ax = plt.subplots(figsize=(12, 8))
+    combination_counts.plot(kind="barh", color="goldenrod", ax=ax)
+    ax.bar_label(ax.containers[0], padding=3, fontsize=9)
+    ax.set_xlim(right=combination_counts.max() * 1.12)
+    ax.set_title("Frequency of Topic Combinations (per Review)")
+    ax.set_xlabel("Number of Reviews")
+    ax.set_ylabel("Topic Combination")
 
     legend_labels = [
-        mpatches.Patch(color="white", label=f"{v} = {k}") for k, v in TOPIC_DISPLAY_NAMES.items()
+        mpatches.Patch(color="none", label=f"{v} = {TOPIC_DISPLAY_NAMES[k].replace(chr(10), ' ')}")
+        for k, v in TOPIC_ABBREVIATIONS.items()
     ]
-    plt.legend(
+    ax.legend(
         handles=legend_labels,
         title="Topic Key",
         loc="lower right",
         frameon=True,
         fontsize=10,
+        handlelength=0,
+        handletextpad=0,
     )
     plt.tight_layout()
 

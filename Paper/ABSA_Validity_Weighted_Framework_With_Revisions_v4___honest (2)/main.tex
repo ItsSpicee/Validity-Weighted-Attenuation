@@ -632,11 +632,11 @@ demonstrates a review with no \textit{Miscellaneous} content ($D_{\text{misc}}$=
 all clauses are categorized as \textit{Instructional Effectiveness} and the framework applies 
 no adjustment, preserving the raw rating of 5.0. Table~\ref{tab:ex2} 
 demonstrates a review with high \textit{Miscellaneous} density ($D_{\text{misc}}$=0.670), where 
-non-pedagogical sentiment dominates and attenuation produces a positive adjustment of 
-$+$0.664. Table~\ref{tab:ex3} demonstrates a mixed review spanning
-all four topic categories ($D_{\text{misc}}$=0.450), where strong positive \textit{Miscellaneous} 
-sentiment, including a high-gratitude farewell clause (gratitude=0.990), is 
-down-weighted by $\zeta$=0.485, producing a conservative downward adjustment of $-$0.243.
+non-pedagogical sentiment dominates and attenuation produces a positive adjustment of
+$+$0.427. Table~\ref{tab:ex3} demonstrates a mixed review spanning
+all four topic categories ($D_{\text{misc}}$=0.450), where strong positive \textit{Miscellaneous}
+sentiment, including a high-gratitude farewell clause (gratitude=0.990), is
+down-weighted by $\zeta$=0.550, producing a conservative downward adjustment of $-$0.061.
 Together, these examples illustrate the selective and proportional nature of the 
 attenuation mechanism.
 \begin{table*}[btp]  
@@ -764,7 +764,7 @@ To choose a suitable model for predicting numerical ratings from topic specific 
 Results indicate that linear and ordinal models are likely insufficient for predicting student ratings from emotions present in student feedback. Tree-based models display superior ability across metrics to model complex non-linear patterns within the emotions present in student reviews. Among the evaluated models CatBoost achieved the lowest mean absolute error while maintaining strong monotonicity and explained variance, motivating its selection in downstream usage.
 
 \subsubsection{Performance Metrics \& Model Behavior Coherence}
-We employ a professor-level grouped split of the data into test and train sets. This ensures that all reviews from a given professor only appear in one set, which better reflects the prediction challenge in real-world scenarios and minimizes the risk of overfitting to specific professors. 5-fold cross-validation is used to assess CatBoost's predictive performance while controlling for overfitting across folds. The final performance of the model is assessed using the test set, presented in Table~\ref{tab:CatBoost}.    
+We employ a professor-level grouped split of the data into test and train sets. This ensures that all reviews from a given professor only appear in one set, which better reflects the prediction challenge in real-world scenarios and minimizes the risk of overfitting to specific professors. 5-fold cross-validation is used to assess whether CatBoost's predictive performance is consistent across professor subsets, and is presented in Table~\ref{tab:CatBoost}. Fold MAE spans 0.6172-0.6396 with a standard deviation of 0.0081. The final performance of the model is assessed on the held-out professors; its MAE of 0.6347 falls inside the fold range, so the cross-validated and held-out estimates agree.
 \begin{center}
     \captionof{table}{CatBoost 5-fold CV performance.}
     \label{tab:CatBoost}
@@ -772,14 +772,14 @@ We employ a professor-level grouped split of the data into test and train sets. 
     \toprule
     Fold & MAE & Spearman $\rho$ & $R^2$ \\
     \midrule
-    1 & 0.6691 & 0.7102 & 0.5837 \\
-    2 & 0.6195 & 0.7424 & 0.6431 \\
-    3 & 0.6052 & 0.7462 & 0.6476 \\
-    4 & 0.6328 & 0.7282 & 0.6262 \\
-    5 & 0.6236 & 0.7241 & 0.6282 \\
+    1 & 0.6396 & 0.7461 & 0.6212 \\
+    2 & 0.6254 & 0.7206 & 0.6197 \\
+    3 & 0.6373 & 0.7433 & 0.6385 \\
+    4 & 0.6306 & 0.7046 & 0.6151 \\
+    5 & 0.6172 & 0.7273 & 0.6329 \\
     \midrule
-    Mean & 0.6300 & 0.7302 & 0.6258 \\
-    $\pm$SD & $\pm 0.0215$ & $\pm 0.0130$ & $\pm 0.0226$ \\
+    Mean & 0.6300 & 0.7284 & 0.6255 \\
+    $\pm$SD & $\pm 0.0081$ & $\pm 0.0152$ & $\pm 0.0088$ \\
     \bottomrule   
     \end{tabular}
 \end{center}
@@ -857,25 +857,25 @@ To examine how the attenuation mechanism adjusts ratings in response to \textit{
     \toprule
     Comparison Relationship & Pearson $r$ & Spearman $\rho$ \\
     \midrule
-    $\Delta^+$ vs. $D_{misc}$ & 0.6956 & 0.6218 \\
-    $\Delta^-$ vs. $D_{misc}$ & -0.6966 & -0.5607 \\
+    $\Delta^+$ vs. $D_{misc}$ & 0.6872 & 0.6142 \\
+    $\Delta^-$ vs. $D_{misc}$ & -0.7077 & -0.6001 \\
     \midrule
-    $\Delta^+$ vs. Neg. $E_{misc}$  & 0.3600 & 0.4185 \\
-    $\Delta^-$ vs. Pos. $E_{misc}$  & -0.2258 & -0.1063 \\
+    $\Delta^+$ vs. Neg. $E_{misc}$  & 0.4008 & 0.4327 \\
+    $\Delta^-$ vs. Pos. $E_{misc}$  & -0.2470 & -0.1125 \\
     \bottomrule   
     \end{tabular}
 \end{center}
 
 Table~\ref{tab:correlation_deltas} substantiates $D_{misc}$ as the primary and reliable driver of attenuation: ratings tend to increase or decrease in proportion to the modulator, while correlations with $E_{misc}$ intensities are weaker, yet not insignificant. This aligns with expectations. $D_{misc}$ directly controls the weighting strength $\zeta$, meaning that intense \textit{Miscellaneous} sentiment alone does not necessarily produce substantial attenuation.
 
-To further substantiate the proportional nature of attenuation, a Mann-Whitney U test (Wilcoxon rank-sum test) compares absolute adjustment magnitudes between low noise reviews ($D_{misc} < 0.2$, $n=690$) and high noise reviews ($D_{misc} > 0.5$, $n=508$). Results confirm that high noise reviews receive significantly larger absolute adjustments than low noise reviews ($U = 313{,}093$, $p < 0.001$, rank biserial $|r| = 0.786$), with a large effect size. This provides direct empirical evidence that attenuation magnitudes scale proportionally with $D_{misc}$.
+To further substantiate the proportional nature of attenuation, a Mann-Whitney U test (Wilcoxon rank-sum test) compares absolute adjustment magnitudes between low noise reviews ($D_{misc} < 0.2$, $n=690$) and high noise reviews ($D_{misc} > 0.5$, $n=508$). Results confirm that high noise reviews receive significantly larger absolute adjustments than low noise reviews ($U = 313{,}494$, $p < 0.001$, rank biserial $|r| = 0.789$), with a large effect size. This provides direct empirical evidence that attenuation magnitudes scale proportionally with $D_{misc}$.
 
 \subsubsection{Internal Validation Conclusion}
 Internal validation indicates that the attenuation mechanism functions as designed. Feature importance shifts, correlation changes, and attenuation–modulator relationships consistently show that the system reduces the influence of off-topic \textit{Miscellaneous} sentiment while preserving or enhancing sensitivity to core pedagogical signals. These patterns provide evidence that attenuation introduces structured and interpretable adjustments to predicted ratings rather than arbitrary changes.
 \subsection{Attenuation Validation - External}
 To assess whether the validity-weighted attenuation mechanism produces adjustments that align with human judgment, a senior faculty expert conducted a paired comparison evaluation.
 
-Pairs were constructed in two phases. In the first phase, coarse pairs were formed by randomly sampling one review from a minimal adjustment bin ($|\Delta| < 0.15$) and one from a significant adjustment bin ($|\Delta| \geq 0.65$). In the second phase, fine-grained pairs were constructed by sampling two reviews whose absolute attenuation $\Delta$ differed less than 0.40, producing pairs where the difference in CIV contamination is more subtle. In both phases, reviews were verified for correct ATC categorization prior to inclusion. Presentation order within each pair was randomized.
+Pairs were constructed in two phases. In the first phase, coarse pairs were formed by randomly sampling one review from a minimal adjustment bin ($|\Delta| < 0.15$) and one from a significant adjustment bin ($|\Delta| \geq 0.65$). In the second phase, fine-grained pairs were constructed by sampling two reviews whose absolute attenuation $\Delta$ differed by less than 0.5, producing pairs where the difference in CIV contamination is more subtle. The two conditions therefore partition the evaluated pairs: every pair falls in exactly one bin, 43 coarse and 34 fine, and 77 of 77 are assigned. Bin membership is threshold-dependent, since a pair moves between bins whenever its two $\Delta$s shift across the 0.5 boundary; the reported split is the one obtained at the operating point. In both phases, reviews were verified for correct ATC categorization prior to inclusion. Presentation order within each pair was randomized.
 
 The expert was presented with the raw textual content of both reviews in each pair, with no access to model outputs, attenuation $\Delta$s, or ATC categorizations. For each pair, the expert was asked to judge which of the two reviews  was more valid for SET. A prediction was considered correct if the review identified as more valid by the expert corresponded to the review receiving the smaller absolute attenuation $|\Delta|$. This tests the assumption that a more pedagogically valid review requires less adjustment. The expert was also able to leave the label section empty, indicating there was no perceivable difference in review validity. Model predictions for these unsure responses were counted as incorrect.
 
@@ -887,17 +887,17 @@ Expert validation is reported over the full sample of adjusted reviews. Pair con
     \hline
     \textbf{Condition} & \textbf{\#} & \textbf{Unsure} & \textbf{Corr.} & \textbf{Acc.} \\
     \hline
-    ($|\Delta_{1}-\Delta_{2}| \geq 0.5$) & 45 & 3 & 40 & 0.889 \\
-    ($|\Delta_{1}-\Delta_{2}| \leq 0.4$) & 29 & 1 & 22 & 0.759 \\
+    ($|\Delta_{1}-\Delta_{2}| \geq 0.5$) & 43 & 3 & 38 & 0.884 \\
+    ($|\Delta_{1}-\Delta_{2}| < 0.5$) & 34 & 1 & 24 & 0.706 \\
     \hline
     \end{tabular}
 \end{center}
 
-Table~\ref{tab:external-validation} shows that the attenuation mechanism is in strong agreement with expert judgment. Under coarse conditions, the framework correctly identified the more valid review 88.9\% of the time, significantly above chance ($p < 0.001$). Performance declined under fine-grained conditions but remained statistically significant (75.9\%, $p < 0.005$). This pattern is consistent with expectations: larger differences in construct-irrelevant content are easier to detect and adjust for than subtle ones. These results suggest that attenuation $\Delta$s effectively signals the presence of emotional CIV, confirming that the framework successfully identifies reviews where strong off-topic sentiment compromises validity. Despite showing promise, these results should be considered preliminary due to reliance on a single expert; future work will expand validation to include multiple independent evaluators.
+Table~\ref{tab:external-validation} shows that the attenuation mechanism is in strong agreement with expert judgment. Under coarse conditions, the framework correctly identified the more valid review 88.4\% of the time, significantly above chance ($p < 0.001$). Performance declined under fine-grained conditions but remained statistically significant (70.6\%, $p = 0.012$). This pattern is consistent with expectations: larger differences in construct-irrelevant content are easier to detect and adjust for than subtle ones. These results suggest that attenuation $\Delta$s effectively signals the presence of emotional CIV, confirming that the framework successfully identifies reviews where strong off-topic sentiment compromises validity. Despite showing promise, these results should be considered preliminary due to reliance on a single expert; future work will expand validation to include multiple independent evaluators.
 \section{Results}
 Findings across ATC, clause level RoBERTa-GoEmotions sentiment extraction, regression model training, and rating adjustments, are presented next.
 \subsection{ATC Topic Structure}
-We examine the frequency of topics after ATC. Figure~\ref{fig:topic_freq} shows that at the clause level, \textit{Instructional Effectiveness} is the most mentioned topic in our dataset (25,845), followed by \textit{Miscellaneous} (17,607) and \textit{Workload} (15,683), with \textit{Fairness} trailing substantially behind (4,258). The prominence of \textit{Miscellaneous} clauses indicates that a substantial portion of student discourse falls outside pedagogical dimensions.
+We examine the frequency of topics after ATC. Figure~\ref{fig:topic_freq} shows that at the clause level, \textit{Instructional Effectiveness} is the most mentioned topic in our dataset (25,845), followed by \textit{Miscellaneous} (17,602) and \textit{Workload} (15,683), with \textit{Fairness} trailing substantially behind (4,258). The prominence of \textit{Miscellaneous} clauses indicates that a substantial portion of student discourse falls outside pedagogical dimensions.
 
 \begin{figure}[H]  
     \centering
@@ -922,7 +922,7 @@ Review Frequency & 13,494 \\
 Avg. Clauses per Review & \textbf{1.92} \\
 \midrule
 \multicolumn{2}{l}{\textit{Miscellaneous}} \\
-Clause Frequency & 17,607 \\
+Clause Frequency & 17,602 \\
 Review Frequency & 10,375 \\
 Avg. Clauses per Review & \textbf{1.70} \\
 \midrule
@@ -1016,7 +1016,7 @@ Using a professor-level grouped train–test split, the selected CatBoost regres
     \hline
     \textbf{MAE} & \textbf{$\rho$} & $\textbf{$R^2$}$ \\
     \hline
-    0.6369  & 0.7355 & 0.6140\\
+    0.6347  & 0.7352 & 0.6168\\
     \hline
     \end{tabular}
 \end{center}
@@ -1026,7 +1026,7 @@ The final model demonstrates low absolute error, strong ordinal consistency, and
 \subsection{Adjustment Outcomes}
 We report summary statistics and distributions at both the review and professor level to provide a quantitative and descriptive overview of how student and professor-level ratings were impacted by the attenuation framework.
 
-Table~\ref{tab:adjustment-stats} presents summary statistics of the rating adjustments performed using the sentiment-aware attenuation framework. Overall, 10,380 ratings were adjusted, corresponding to 60.59\% of all ratings in the dataset. The average change ($\Delta$) across adjusted ratings was 0.0404, with an average absolute change ($|\Delta|$) of 0.2072. Extreme adjustments indicate a maximum positive change of 2.6068 and a maximum negative change of -1.4581, while the smallest nonzero absolute change observed was $2.84\times10^{-6}$. These statistics provide an overview of the magnitude and frequency of adjustments applied at the review level.
+Table~\ref{tab:adjustment-stats} presents summary statistics of the rating adjustments performed using the sentiment-aware attenuation framework. Overall, 10,375 ratings were adjusted, corresponding to 60.58\% of all ratings in the dataset. The average change ($\Delta$) across adjusted ratings was 0.0440, with an average absolute change ($|\Delta|$) of 0.1964. Extreme adjustments indicate a maximum positive change of 2.7103 and a maximum negative change of -1.3908, while the smallest nonzero absolute change observed was $1.77\times10^{-6}$. These statistics provide an overview of the magnitude and frequency of adjustments applied at the review level.
 
 \begin{center}
 \captionof{table}{Adjustment summary statistics.}
@@ -1036,28 +1036,28 @@ Table~\ref{tab:adjustment-stats} presents summary statistics of the rating adjus
 \textbf{Metric} & \textbf{Value} \\
 \midrule
 \multicolumn{2}{l}{\textbf{Overall Adjustment}} \\
-Total Ratings Adjusted & 10380 \\
-Percentage of Ratings Adjusted & 60.59\% \\
+Total Ratings Adjusted & 10375 \\
+Percentage of Ratings Adjusted & 60.58\% \\
 \midrule
 \multicolumn{2}{l}{\textbf{Average Changes}} \\
-Average $\Delta$ & 0.0404 \\
-Average $|\Delta|$ & 0.2072 \\
+Average $\Delta$ & 0.0440 \\
+Average $|\Delta|$ & 0.1964 \\
 \midrule
 \multicolumn{2}{l}{\textbf{Extreme Values}} \\
-Maximum $\Delta$ & 2.6068 \\
-Minimum $\Delta$ & -1.4581 \\
-Minimum $|\Delta|$ & $2.84\times10^{-6}$ \\
+Maximum $\Delta$ & 2.7103 \\
+Minimum $\Delta$ & -1.3908 \\
+Minimum $|\Delta|$ & $1.77\times10^{-6}$ \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-A Wilcoxon signed-rank test was performed to evaluate whether the observed shifts are systematically different from zero across adjusted reviews. Results indicate a statistically significant shift ($W = 24{,}677{,}804$, $p < 0.001$).
+A Wilcoxon signed-rank test was performed to evaluate whether the observed shifts are systematically different from zero across adjusted reviews. Results indicate a statistically significant shift ($W = 24{,}260{,}091$, $p < 0.001$).
 
 The distribution of individual rating adjustments ($\Delta$) is shown in Figure~\ref{fig:att-distribution}. The majority of adjustments are small, while a long tail extends toward both negative and positive extremes. Positive adjustments tend to reach slightly higher magnitudes than negative adjustments.
 
 Professor-level average rating changes are illustrated in Figure~\ref{fig:prof-distribution}. Two distributions are shown: one for the original average ratings and one for the adjusted averages. The y-axis measures probability density, representing the relative concentration of professors at each rating level. The adjusted averages are generally less dense than the original at the extremes, but more dense across intermediate ranges. The mean professor average increases minimally. Overall, both distributions are negatively skewed, reflecting the predominance of 5-star ratings in the original dataset.
 
-The 20 largest positive and negative changes in professor average ratings are presented in Figure~\ref{fig:largest-prof}. These adjustments are relatively similar in magnitude (approximately $\pm$0.4-0.7), with one moderate outlier among the negative changes.
+The 20 largest positive and negative changes in professor average ratings are presented in Figure~\ref{fig:largest-prof}. These adjustments are relatively similar in magnitude (approximately 0.3-0.7 in absolute terms), with one larger outlier among the negative changes ($-$0.89).
 
 \begin{figure*}[btp]  
     \centering
@@ -1101,15 +1101,15 @@ Together, the findings for RQ1 and RQ2 offer context for interpreting ratings at
 
 \subsection{Effectiveness of Validity-Weighted Attenuation}
 
-Addressing RQ3, the results of internal and external validation provide tentative evidence that the proposed attenuation mechanism can attenuate the influence of CIV while preserving much of the pedagogical signal contained in the reviews. The strong performance of the regression model ($\rho = 0.7355$, $R^2 = 0.6140$) confirms that numerical ratings are not arbitrary and are predictable functions of emotions expressed towards specific review topics. The internal validation results were particularly telling: following attenuation of $E_{misc}$, SHAP-based feature importance shifted away from \textit{Miscellaneous} sentiment ($-10.8\%$) and toward core pedagogical categories (\textit{Instructional Effectiveness}: $+2.0\%$; \textit{Fairness}: $+2.7\%$; \textit{Workload}: $+2.6\%$). This suggests that when construct-irrelevant signals are down-weighted, the model relies more heavily on pedagogical features when predicting ratings.
+Addressing RQ3, the results of internal and external validation provide tentative evidence that the proposed attenuation mechanism can attenuate the influence of CIV while preserving much of the pedagogical signal contained in the reviews. The strong performance of the regression model ($\rho = 0.7352$, $R^2 = 0.6168$) confirms that numerical ratings are not arbitrary and are predictable functions of emotions expressed towards specific review topics. The internal validation results were particularly telling: following attenuation of $E_{misc}$, SHAP-based feature importance shifted away from \textit{Miscellaneous} sentiment ($-9.6\%$) and toward core pedagogical categories (\textit{Instructional Effectiveness}: $+1.6\%$; \textit{Fairness}: $+2.5\%$; \textit{Workload}: $+2.2\%$). This suggests that when construct-irrelevant signals are down-weighted, the model relies more heavily on pedagogical features when predicting ratings.
 
 Crucially, the correlation analysis revealed that attenuated ratings maintained or strengthened correlations with pedagogical emotions ($E_{eff}$, $E_{fair}$, $E_{work}$) while reducing correlations with non-pedagogical emotions ($E_{misc}$). This statistical separation suggests that the framework works as intended. Unlike simple data-exclusion approaches, this method applies proportional down-weighting based on the density of irrelevant content ($D_{misc}$). The raw student rating is preserved throughout, with the adjustment adding only the model-estimated correction for construct-irrelevant sentiment. Reviews with predominantly pedagogical content receive minimal adjustment, while those with high \textit{Miscellaneous} density and emotionally polarized irrelevant content receive larger adjustments. 
 
-The attenuation correlation analysis supports the internal coherence of the adjustment mechanism, confirming that its behaviour is systematic. Positive and negative rating $\Delta$s correlate substantially with $D_{misc}$ ($r = 0.696$ and $r = -0.697$, respectively). Although this relationship is partly expected given that $D_{misc}$ directly controls the weighting factor $\zeta$, the pattern confirms that adjustment magnitudes generally scale proportionally with measured noise density rather than reflecting arbitrary variation. The moderate divergence between Pearson and Spearman correlations ($\rho = 0.622$, $\rho = -0.561$) suggests that a subset of reviews with extreme \textit{Miscellaneous} density and high emotional polarization produce large adjustments that inflate the linear correlation, while the rank-based relationship is more conservative. This observation is consistent with the long-tailed distribution of attenuation $\Delta$s observed in Figure~\ref{fig:att-distribution}. 
+The attenuation correlation analysis supports the internal coherence of the adjustment mechanism, confirming that its behaviour is systematic. Positive and negative rating $\Delta$s correlate substantially with $D_{misc}$ ($r = 0.687$ and $r = -0.708$, respectively). Although this relationship is partly expected given that $D_{misc}$ directly controls the weighting factor $\zeta$, the pattern confirms that adjustment magnitudes generally scale proportionally with measured noise density rather than reflecting arbitrary variation. The moderate divergence between Pearson and Spearman correlations ($\rho = 0.614$, $\rho = -0.600$) suggests that a subset of reviews with extreme \textit{Miscellaneous} density and high emotional polarization produce large adjustments that inflate the linear correlation, while the rank-based relationship is more conservative. This observation is consistent with the long-tailed distribution of attenuation $\Delta$s observed in Figure~\ref{fig:att-distribution}. 
 
-The weaker but non-negligible correlations between attenuation $\Delta$s and \textit{Miscellaneous} emotional intensity ($r = 0.360$ and Spearman $\rho = 0.419$ for $\Delta^+$ vs. negative $E_{misc}$; $r = -0.226$ and $\rho = -0.106$ for $\Delta^-$ vs. positive $E_{misc}$) further indicate that adjustment magnitude is sensitive to both the proportion of irrelevant content and the emotional intensity within it. The correlation asymmetry between upward and downward corrections and $E_\text{misc}$ intensity warrants further investigation.
+The weaker but non-negligible correlations between attenuation $\Delta$s and \textit{Miscellaneous} emotional intensity ($r = 0.401$ and Spearman $\rho = 0.433$ for $\Delta^+$ vs. negative $E_{misc}$; $r = -0.247$ and $\rho = -0.113$ for $\Delta^-$ vs. positive $E_{misc}$) further indicate that adjustment magnitude is sensitive to both the proportion of irrelevant content and the emotional intensity within it. The correlation asymmetry between upward and downward corrections and $E_\text{misc}$ intensity warrants further investigation.
 
-At the review level, the average absolute rating change was $0.2072$ rating points, with a tail of larger targeted adjustments for reviews exhibiting high \textit{Miscellaneous} density and intense off-topic emotional polarization. At the professor level, the overall distribution shape remained largely preserved. These results suggest that the framework functions as a fine-tuning mechanism, correcting the most severe instances of CIV contamination while aiming to preserve valid student feedback. This behavior aligns with the conservative correction strategy advocated by Marsh and Roche (1997).
+At the review level, the average absolute rating change was $0.1964$ rating points, with a tail of larger targeted adjustments for reviews exhibiting high \textit{Miscellaneous} density and intense off-topic emotional polarization. At the professor level, the overall distribution shape remained largely preserved. These results suggest that the framework functions as a fine-tuning mechanism, correcting the most severe instances of CIV contamination while aiming to preserve valid student feedback. This behavior aligns with the conservative correction strategy advocated by Marsh and Roche (1997).
 
 In summary, these results suggest that validity-weighted attenuation can mitigate the influence of CIV while preserving pedagogical signal, providing evidence to address RQ3.
 

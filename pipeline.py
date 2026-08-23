@@ -7,7 +7,6 @@ Usage:
     python pipeline.py
     python pipeline.py --skip-validation
     python pipeline.py --skip-atc-validation
-    python pipeline.py --optimize-s
     python pipeline.py --robustness
     python pipeline.py --visualize
     python pipeline.py --visualize-only
@@ -39,11 +38,6 @@ def parse_args() -> argparse.Namespace:
         "--skip-atc-validation",
         action="store_true",
         help="Skip the ATC validation stage (requires grok.csv, gpt.csv, atc_expert_labels.xlsx)",
-    )
-    parser.add_argument(
-        "--optimize-s",
-        action="store_true",
-        help="Re-run grid search to find optimal s value",
     )
     parser.add_argument(
         "--robustness",
@@ -88,7 +82,7 @@ def main() -> None:
         _timed(atc.run)
         _timed(sentiment.run)
         _timed(regression.run)
-        _timed(attenuation.run, find_optimal_s=args.optimize_s)
+        _timed(attenuation.run)
 
         if not args.skip_atc_validation:
             _timed(atc_validation.run)

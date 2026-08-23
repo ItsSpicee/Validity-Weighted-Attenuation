@@ -8,15 +8,18 @@ Produces:
   - attuned_ratings.csv        (reviews with misc_d > 0, adjusted ratings + deltas)
   - attuned_ratings_full.csv   (all reviews including those with misc_d == 0)
 
+The down-weighting exponent `s` is fixed a priori (constants.S_VALUE), not
+estimated. At s = 1 the misc emotion channel is retained in exact proportion to
+the review's on-topic fraction, so the attenuation is proportional by
+construction and there is no parameter fitted to the reported metrics.
+
 Both attuned_* files carry an `is_heldout` flag marking professors excluded from
-CatBoost training and from s-value tuning. Reporting stages use it to keep the
-validation metrics free of the rows those procedures were fit on.
+CatBoost training. Reporting stages use it to keep validation metrics free of
+the rows the model was fit on.
 """
 
-import numpy as np
 import pandas as pd
 from catboost import CatBoostRegressor
-from scipy.stats import pearsonr, spearmanr
 
 from constants import (
     CATBOOST_FINAL_MODEL,
@@ -30,28 +33,13 @@ from constants import (
     NEG_EMOTIONS,
     TOPICS,
     S_VALUE,
-    S_SEARCH_MIN,
-    S_SEARCH_MAX,
-    S_SEARCH_STEP,
-    ALPHA,
-    BETA,
-    DELTA,
-    LAMBDA,
 )
-from src.splits import heldout_mask, professor_split, train_rows
-
-
+from src.splits import heldout_mask, professor_split
 
 
 # ==============================================================================
 # HELPERS
 # ==============================================================================
-
-def _corr_pair(x: pd.Series, y: pd.Series) -> dict:
-    p, _ = pearsonr(x, y)
-    s, _ = spearmanr(x, y)
-    return {"Pearson": p, "Spearman": s}
-
 
 def _sentiment_sum(df: pd.DataFrame, topic: str, polarity: str) -> pd.Series:
     base = POS_EMOTIONS if polarity == "pos" else NEG_EMOTIONS
@@ -70,95 +58,6 @@ def _apply_down_weighting(df: pd.DataFrame, s: float) -> pd.DataFrame:
     down_weighting = (1 - df_w[MISC_D_COL] ** s).values[:, None]
     df_w[misc_cols] *= down_weighting
     return df_w
-
-
-# ==============================================================================
-# S-value OPTIMIZATION (S value controls the down-weighting function)
-# ==============================================================================
-
-def optimize_s(
-    model: CatBoostRegressor,
-    df_misc: pd.DataFrame,
-    raw_preds: np.ndarray,
-) -> float:
-    """
-    Grid search over [S_SEARCH_MIN, S_SEARCH_MAX] to minimize loss.
-
-    `df_misc` must contain training professors only. Tuning s on rows that are
-    later reported on would make the reported correlation improvements circular,
-    since the loss below is built from those same correlations.
-
-    #Maximizes decreases in correlation strength between raw misc emotions and adjusted ratings
-    #Maximizes increase in correlation strength between raw pedagogical emotions and adjusted ratings
-    #Maximizes correlations of attenuation delta with misc_d value 
-
-    Loss = -ALPHA * ped_reward + BETA * misc_penalty - DELTA * align_reward
-    """
-    print("  Running grid search for optimal s...")
-
-    s_values = np.arange(S_SEARCH_MIN, S_SEARCH_MAX, S_SEARCH_STEP)
-
-    # Baseline correlations (raw rating vs. emotion sums)
-    baseline_corrs: dict = {}
-    for topic in TOPICS:
-        baseline_corrs[topic] = {
-            sent: _corr_pair(df_misc["rating"], _sentiment_sum(df_misc.drop(columns=METADATA_COLS), topic, sent))
-            for sent in ("pos", "neg")
-        }
-
-    ped_topics = [a for a in TOPICS if a != "misc"]
-    best_s, best_loss = S_VALUE, float("inf")
-    results = []
-
-    #original emotions
-    X_misc = df_misc.drop(columns=METADATA_COLS)
-
-    for s in s_values:
-        df_w  = _apply_down_weighting(df_misc, s)
-        X_w   = df_w.drop(columns=METADATA_COLS)
-        w_preds = model.predict(X_w)
-        delta   = w_preds - raw_preds
-        att_rating = df_misc["rating"] + delta
-
-        # Attuned correlations between original emotions and adjusted ratings
-        att_corrs: dict = {}
-        for topic in TOPICS:
-            att_corrs[topic] = {
-                sent: _corr_pair(att_rating, _sentiment_sum(X_misc, topic, sent))
-                for sent in ("pos", "neg")
-            }
-
-        # Alignment reward
-        abs_delta = np.abs(delta)
-        p_align, _ = pearsonr(df_misc[MISC_D_COL], abs_delta)
-        s_align, _ = spearmanr(df_misc[MISC_D_COL], abs_delta)
-        align_reward = p_align + s_align
-
-        # Pedagogical reward (with hinge)
-        ped_terms = [
-            max(att_corrs[a][sent][ct] - baseline_corrs[a][sent][ct], -LAMBDA)
-            for a in ped_topics
-            for sent in ("pos", "neg")
-            for ct in ("Pearson", "Spearman")
-        ]
-        ped_reward = np.mean(ped_terms)
-
-        # Misc leakage penalty
-        misc_terms = [
-            att_corrs["misc"][sent][ct] ** 2
-            for sent in ("pos", "neg")
-            for ct in ("Pearson", "Spearman")
-        ]
-        misc_penalty = np.mean(misc_terms)
-
-        loss = -ALPHA * ped_reward + BETA * misc_penalty - DELTA * align_reward
-        results.append({"s": round(s, 4), "loss": loss})
-
-        if loss < best_loss:
-            best_loss, best_s = loss, s
-
-    print(f"  Optimal s = {best_s:.2f}  (loss = {best_loss:.4f})")
-    return best_s
 
 
 # ==============================================================================
@@ -216,7 +115,7 @@ def _print_summary(full_df: pd.DataFrame, final_df: pd.DataFrame, total_n: int) 
 # ENTRY POINT
 # ==============================================================================
 
-def run(find_optimal_s: bool = False) -> None:
+def run() -> None:
     print("\n=== Stage 5: Attenuation ===")
 
     print("Loading model and data...")
@@ -228,22 +127,12 @@ def run(find_optimal_s: bool = False) -> None:
     # Subset: reviews with miscellaneous content
     df_misc = df[df[MISC_D_COL] > 0].reset_index(drop=True)
 
-    # s is tuned on training professors only — the same rows the CatBoost model
-    # was fit on. Reported metrics are computed on held-out professors, which
-    # neither the model nor the grid search has seen.
+    # The model is still fit on training professors only, so reported metrics
+    # stay on held-out professors. s itself is no longer estimated from data.
     train_profs, test_profs = professor_split(df)
 
-    if find_optimal_s:
-        tune_df = train_rows(df_misc, train_profs).reset_index(drop=True)
-        raw_preds_tune = model.predict(tune_df.drop(columns=METADATA_COLS))
-        print(f"  Tuning s on {len(tune_df):,} reviews from {len(train_profs):,} training professors")
-        s = round(optimize_s(model, tune_df, raw_preds_tune), 2)
-        if s != S_VALUE:
-            print(f"  NOTE: tuned s = {s} differs from S_VALUE = {S_VALUE}. This run uses "
-                  f"{s} throughout; update S_VALUE so later stages agree.")
-    else:
-        s = S_VALUE
-    print(f"  Using s = {s}")
+    s = S_VALUE
+    print(f"  Using s = {s} (fixed a priori, not tuned)")
 
     # The down-weighted feature matrix is written with the s this run actually
     # used, not with S_VALUE. It feeds the SHAP figures while attuned_ratings*
@@ -282,8 +171,4 @@ def run(find_optimal_s: bool = False) -> None:
 
 
 if __name__ == "__main__":
-    import argparse
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--optimize-s", action="store_true")
-    args = parser.parse_args()
-    run(find_optimal_s=args.optimize_s)
+    run()
