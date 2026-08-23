@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage[margin=1cm, paperwidth=20cm, paperheight=14cm]{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{xcolor}
+
+\begin{document}
+\thispagestyle{empty}
+
+\noindent\textbf{Worked Example — Review \#8113}
+
+\vspace{0.5em}
+\noindent\textit{Section 1: Clause Extraction and Categorization}
+
+\vspace{0.3em}
+\noindent
+\begin{tabular}{p{7cm} p{3.5cm} p{1cm} p{5.5cm}}
+\toprule
+\textbf{Clause} & \textbf{Topic} & \textbf{Sim} & \textbf{Top 2 Emotions} \\
+\midrule
+dude is huge & \textit{Miscellaneous} & 0.030 & admiration=0.044, approval=0.024 \\
+\addlinespace
+i mean huge & \textit{Miscellaneous} & -0.010 & approval=0.018, annoyance=0.015 \\
+\addlinespace
+is a rude guy & \textit{Miscellaneous} & 0.200 & anger=0.567, annoyance=0.361 \\
+\addlinespace
+he knows alot about politics & Instr. Effectiveness & 0.270 & approval=0.293, admiration=0.031 \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.8em}
+\noindent\textit{Section 2: Baseline vs. Attenuated Feature Vector}
+
+\vspace{0.3em}
+\noindent
+\begin{tabular}{p{3.5cm} p{7cm} p{7cm}}
+\toprule
+\textbf{Topic} & \textbf{Baseline Top 4 Emotions} & \textbf{Down-Weighted Top 4 Emotions}  \\
+\midrule
+Instr. Effectiveness & approval=0.293, admiration=0.031, realization=0.016, optimism=0.004 & approval=0.293, admiration=0.031, realization=0.016, optimism=0.004 \\
+\addlinespace
+Fairness & — & — \\
+\addlinespace
+Workload & — & — \\
+\addlinespace
+\textit{Miscellaneous} & anger=0.192, annoyance=0.129, admiration=0.016, approval=0.016 & \textcolor{red}{anger=0.063, annoyance=0.042, admiration=0.005, approval=0.005} \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.8em}
+\noindent\textit{Section 3: Validity-Weighted Attenuation}
+
+\vspace{0.3em}
+\noindent
+\begin{tabular}{p{2cm} p{2cm} p{2cm} p{2.5cm} p{2.5cm} p{2cm} p{2.5cm}}
+\toprule
+$D_{\text{misc}}$ & $\zeta$ & \textbf{Raw} & \textbf{Baseline} & \textbf{Attenuated} & $\Delta$ & \textbf{Adjusted} \\
+\midrule
+0.670 & 0.330 & 3.0 & 2.698 & 3.125 & +0.427 & \textbf{3.427} \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\small\textit{Three of four clauses are Miscellaneous ($D_{\text{misc}}$=0.670), yielding $\zeta$=0.330. Miscellaneous emotions are down-weighted by approximately 67\%. The instructional effectiveness signal remains unchanged. The adjusted rating increases by 0.427.}
+
+\end{document}

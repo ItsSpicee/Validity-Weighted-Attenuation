@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage[margin=0cm, paperwidth=14cm, paperheight=21.1cm]{geometry}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+
+\begin{document}
+\thispagestyle{empty}
+\begin{algorithm}[H]
+\caption{Validity-Weighted Attenuation Framework}
+\begin{algorithmic}[1]
+\Require SET reviews $\mathcal{R} = \{r_1, r_2, \ldots, r_N\}$, each with raw rating $y^{\text{raw}}$ \Ensure Adjusted ratings $\hat{y}^{\text{adjusted}}$ 
+\State \textbf{// Stage 1: Data Preprocessing}
+\For{each review $r \in \mathcal{R}$}
+    \State Clean text (encoding errors, abbreviations, profanity tags)
+\EndFor
+
+\State \textbf{// Stage 2: Clause Extraction}
+\For{each review $r$}
+    \State $\mathcal{C}_r \leftarrow$ segment $r$ into clauses using \texttt{spaCy}
+\EndFor
+
+\State \textbf{// Stage 3: Aspect-Term Categorization}
+\For{each clause $c \in \mathcal{C}_r$}
+    \State Embed $c$ using \texttt{all-mpnet-base-v2}
+    \State Compute cosine similarity $\mathbf{s}_c$ against topic embeddings
+    \If{$\max(\mathbf{s}_c) > \tau$}
+        \State Assign $c$ to topic $\hat{k}_c = \arg\max_k s_{c,k}$     \Else
+        \State Assign $c$ to \textit{Miscellaneous}
+    \EndIf
+\EndFor
+
+\State \textbf{// Stage 4: Pedagogical Density Calculation}
+\For{each review $r$}
+    \State Compute $D_{\text{misc}},\, D_{\text{eff}},\, D_{\text{fair}},\, D_{\text{work}}$ \EndFor
+
+\State \textbf{// Stage 5: Emotion Extraction and Aggregation}
+\For{each clause $c$}
+    \State Extract emotion vector $\mathbf{e}_c$ using \texttt{RoBERTa-GoEmotions}
+    \State Remove Neutral component to obtain reduced vector $\mathbf{e}'_c$ 
+\EndFor
+\For{each topic $k$}
+    \State $E_k \leftarrow \frac{1}{|\mathcal{C}_k|} \sum_{c \in \mathcal{C}_k} \mathbf{e}'_c$ \EndFor
+
+\State \textbf{// Stage 6: Feature Construction}
+\For{each review $r$}
+    \State $\mathbf{x}_r \leftarrow [E_{\text{eff}},\, E_{\text{fair}},\, E_{\text{work}},\, E_{\text{misc}},\, D_{\text{eff}},\, D_{\text{fair}},\, D_{\text{work}},\, D_{\text{misc}}]$ \EndFor
+
+\State \textbf{// Stage 7: CatBoost Regression}
+\State Train $f_{\text{CB}}$ on $X$ to predict $y^{\text{raw}}$ 
+\State \textbf{// Stage 8: Validity-Weighted Attenuation}
+\For{each review $r$}
+    \State $\zeta \leftarrow 1 - (D_{\text{misc}})^s$     \State $\hat{E}^{\text{weighted}}_{\text{misc}} \leftarrow E_{\text{misc}} \cdot \zeta$     \State Construct attenuated feature vector $\hat{\mathbf{x}}_r$ replacing $E_{\text{misc}}$ with $\hat{E}^{\text{weighted}}_{\text{misc}}$ 
+    \State $\hat{y}^{\text{attenuated}} \leftarrow f_{\text{CB}}(\hat{\mathbf{x}}_r)$     \State $\hat{y}^{\text{baseline}} \leftarrow f_{\text{CB}}(\mathbf{x}_r)$     \State $\hat{y}^{\text{adjusted}} \leftarrow y^{\text{raw}} + (\hat{y}^{\text{attenuated}} - \hat{y}^{\text{baseline}})$ \EndFor
+
+\State \Return $\hat{y}^{\text{adjusted}}$ \end{algorithmic}
+\end{algorithm}
+\end{document}
