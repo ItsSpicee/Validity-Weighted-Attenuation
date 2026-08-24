@@ -9,6 +9,17 @@ quality*. It says what the study demonstrates: a transparent way to change the
 modelled contribution of construct-irrelevant affect in rating-plus-text
 feedback.
 
+## Assessment of source manuscript (updated 2026-08-24)
+
+A full reading of the source manuscript confirms that the paper is **already
+epistemically careful** throughout its methods, results, and limitations. It
+consistently uses bounded language ("aims to generate," "seeks to mitigate,"
+"proof-of-concept," "tentative evidence"). The problematic spots are narrow —
+the conclusion's opening line and Section 6.3's deployment vision (paragraphs
+2–3) — not a systemic overclaiming problem. The LAK transformation is therefore
+**three targeted moves**, not a wholesale reframe. See `strategy.md` for the
+full assessment.
+
 ## Central claim
 
 Open-ended teaching feedback contains both pedagogically actionable evidence
@@ -63,8 +74,16 @@ is not proposed for automated high-stakes decisions.
 #### 2.1 Validity, construct-irrelevant variance, and teaching feedback
 
 Use Messick, Marsh and Roche, Wongsurawat, and relevant SET literature to
-define the problem. Explain that validity concerns the interpretation and use
-of scores, not a property bestowed on a dataset or algorithm.
+define the problem. Note: Marsh and Roche (1997) are *defenders* of SET
+validity — they argue SETs are multidimensional, reliable, and relatively
+valid, but condition this on well-designed instruments. Their contribution
+to this paper is the principle that validity depends on what an instrument
+elicits, that open-ended instruments offer no design guarantee on content
+composition, and that corrections must preserve valid variance ("throwing the
+validity baby out with the bias bathwater"). They justify the conservative,
+proportional attenuation design — not the claim that ratings are contaminated.
+Explain that validity concerns the interpretation and use of scores, not a
+property bestowed on a dataset or algorithm.
 
 #### 2.2 From descriptive NLP to validity-oriented interpretation
 
@@ -202,9 +221,13 @@ a stated relevance taxonomy; it is not a validated estimate of teaching quality.
 
 ## What can transfer from the existing manuscript
 
+*Updated 2026-08-24: the source paper is more careful than this table originally
+assumed. Most body prose transfers cleanly; the "Revise" and "Rewrite" decisions
+below are corrected to reflect the narrow scope of actual changes needed.*
+
 | Existing material | Transfer decision | LAK treatment |
 | --- | --- | --- |
-| Introductory account of SET contamination and the three original RQs | **Revise** | Retain the problem and citations, but replace claims about improving "actual teaching effectiveness" with the bounded central claim above. |
+| Introductory account of SET contamination and the three original RQs | **Mostly copy** | The body prose is already careful. The one sentence to fix is "misrepresents true teaching effectiveness" in paragraph 1. The RQs are lightly reworded for LAK (RQ3 asks about "consistency with a rationale"). |
 | Contribution bullets in the introduction | **Revise** | Preserve the three contribution categories but foreground learning-analytics interpretation, auditability, and boundaries. |
 | `Literature Review > SET Contamination` | **Mostly copy, then cut** | Directly reusable evidence and citations; reduce to the two or three paragraphs needed for the validity problem. |
 | `Literature Review > Computational SET Analysis` | **Revise heavily** | Keep only the progression needed to establish that prior work is descriptive/predictive; remove broad model-by-model history. |
@@ -216,14 +239,26 @@ a stated relevance taxonomy; it is not a validated estimate of teaching quality.
 | Regression, SHAP, correlation, and delta results | **Revise / verify** | Reuse final figures/tables only after confirming they match the fixed linear rule and final regenerated outputs. Avoid a figure gallery. |
 | Expert-validation results | **Do not copy yet** | Replace entirely with final multi-expert consensus, Wilson intervals, Fleiss' kappa, and the clear 77/80 accounting. |
 | Robustness material | **Do not copy yet** | Use only final post-correction results from the fixed-positive-density permutation design. |
-| Discussion | **Rewrite** | Keep useful interpretations, but make responsible teaching-feedback interpretation—not a claim of recovered truth—the focus. |
-| Limitations and future work | **Mostly copy, then prioritize** | The honest limitations are valuable. Cut proposals that consume space; elevate external-criterion and taxonomy limitations. |
+| Discussion §6.1–6.2 (RQ interpretation) | **Mostly copy** | The interpretive readings of results are already careful and transfer cleanly. No claim of "recovered truth" to fix here. |
+| Discussion §6.3 (Practical Implications) | **Do not copy paragraphs 2–3** | These propose automated platform deployment and institutional SET processing — the wrong direction for LAK. Replace with §5.2 (responsible interpretation by educators) and §5.3 (non-use). Paragraph 1 (theoretical implications) transfers fine. |
+| Discussion §6.4 (Interpretability) | **Mostly copy** | Already makes the auditability argument; reframe as contestability for LAK. |
+| Conclusion | **Rewrite** | Opening line claims "better reflect actual pedagogical quality" — the one clear overclaim. Restate as bounded proof of concept. |
+| Limitations and future work | **Mostly copy, then prioritize** | The honest limitations are valuable and already well-written. Cut proposals that consume space; elevate external-criterion and taxonomy limitations. |
 | Ethical considerations and data/code availability | **Copy-ready with de-identification check** | Preserve REB/exemption and access statements, ensuring double-blind wording and repository visibility follow submission rules. |
 
 ## Material that must not enter the LAK draft unchanged
 
-- Any claim that adjusted ratings reflect, recover, or better measure **actual
-  teaching quality**.
+*Updated 2026-08-24: the source paper's body prose is already careful. The
+"actual teaching quality" issue is confined to two specific locations (the
+conclusion opening and §6.3 deployment paragraphs), not spread throughout.*
+
+- **Conclusion opening line**: "producing adjusted numerical ratings that aim to
+  better reflect actual pedagogical quality." This is the one clear overclaim.
+- **Section 6.3, paragraphs 2–3**: proposes automated deployment on
+  student-facing platforms and institutional SET processing. Replace with the
+  LAK framing (educator interpretation tool, not automated system).
+- **Introduction paragraph 1, final sentence**: "misrepresents true teaching
+  effectiveness" — reword to match the bounded claim.
 - Any statement that Miscellaneous content is inherently irrelevant,
   unimportant, or invalid student voice.
 - Exponent tuning, grid-search, or old `s=0.83` descriptions/results. The

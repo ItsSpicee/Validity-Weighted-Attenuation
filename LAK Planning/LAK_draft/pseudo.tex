@@ -50,7 +50,7 @@
 \State Train $f_{\text{CB}}$ on $X$ to predict $y^{\text{raw}}$ 
 \State \textbf{// Stage 8: Validity-Weighted Attenuation}
 \For{each review $r$}
-    \State $\zeta \leftarrow 1 - (D_{\text{misc}})^s$     \State $\hat{E}^{\text{weighted}}_{\text{misc}} \leftarrow E_{\text{misc}} \cdot \zeta$     \State Construct attenuated feature vector $\hat{\mathbf{x}}_r$ replacing $E_{\text{misc}}$ with $\hat{E}^{\text{weighted}}_{\text{misc}}$ 
+    \State $\zeta \leftarrow 1 - (D_{\text{misc}})$     \State $\hat{E}^{\text{weighted}}_{\text{misc}} \leftarrow E_{\text{misc}} \cdot \zeta$     \State Construct attenuated feature vector $\hat{\mathbf{x}}_r$ replacing $E_{\text{misc}}$ with $\hat{E}^{\text{weighted}}_{\text{misc}}$ 
     \State $\hat{y}^{\text{attenuated}} \leftarrow f_{\text{CB}}(\hat{\mathbf{x}}_r)$     \State $\hat{y}^{\text{baseline}} \leftarrow f_{\text{CB}}(\mathbf{x}_r)$     \State $\hat{y}^{\text{adjusted}} \leftarrow y^{\text{raw}} + (\hat{y}^{\text{attenuated}} - \hat{y}^{\text{baseline}})$ \EndFor
 
 \State \Return $\hat{y}^{\text{adjusted}}$ \end{algorithmic}

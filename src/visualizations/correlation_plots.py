@@ -5,7 +5,14 @@ Correlation change visualizations before and after attenuation.
 
 Produces:
   1. Pearson and Spearman correlation bar charts (before vs after attenuation)
-  2. Weighted average % change in correlation magnitude per topic
+  2. Average relative % change in correlation magnitude per topic
+
+Plot 2 reports a true relative change, (|attuned| - |raw|) / |raw| * 100,
+matching the convention used by the SHAP importance figure in
+attenuation_plots.py so the two results figures are commensurable. It
+previously computed (|attuned| - |raw|) * 100 -- an absolute difference in
+correlation units labelled as a percentage -- and was titled "weighted"
+although the two polarity groups were combined by an unweighted mean.
 """
 
 import numpy as np
@@ -143,44 +150,68 @@ def plot_correlation_changes(corr_df: pd.DataFrame) -> None:
 
 
 # ==============================================================================
-# PLOT 2: Weighted average % change in correlation magnitude
+# PLOT 2: Average relative % change in correlation magnitude
 # ==============================================================================
 
-def plot_weighted_pct_change(corr_df: pd.DataFrame) -> None:
+# Baseline correlations below this magnitude are treated as too small to give a
+# meaningful relative change: dividing by them produces arbitrarily large
+# percentages driven by noise in the denominator rather than by attenuation.
+MIN_BASELINE_CORR = 0.01
+
+
+def plot_relative_pct_change(corr_df: pd.DataFrame) -> None:
     def _pct_change(raw, attuned):
-        return (abs(attuned) - abs(raw)) * 100
+        """Relative change in correlation magnitude, in percent.
+
+        Uses the same convention as the SHAP importance figure in
+        attenuation_plots.py -- (attenuated - baseline) / baseline * 100 -- so
+        that the two results figures report commensurable quantities. The
+        previous form, (abs(attuned) - abs(raw)) * 100, was an absolute
+        difference in correlation units mislabelled as a percentage.
+
+        Magnitudes are compared because the sign of a correlation carries the
+        direction of the emotion-rating relationship, not its strength; a
+        negative correlation becoming more negative is a strengthening.
+        """
+        raw_mag = abs(raw)
+        if raw_mag < MIN_BASELINE_CORR:
+            return float("nan")
+        return (abs(attuned) - raw_mag) / raw_mag * 100
 
     x_labels = corr_df["topic"].unique()
     records  = []
 
+    def _topic_avg(df_a: pd.DataFrame, corr_type: str) -> float:
+        """Mean relative change across the two polarity groups for one topic.
+
+        nanmean, so that a polarity group whose baseline correlation falls below
+        MIN_BASELINE_CORR is skipped rather than voiding the whole topic.
+        """
+        changes = [
+            _pct_change(
+                df_a[(df_a["type"] == corr_type) & (df_a["polarity"] == polarity)]["raw"].values[0],
+                df_a[(df_a["type"] == corr_type) & (df_a["polarity"] == polarity)]["attuned"].values[0],
+            )
+            for polarity in POLARITIES
+        ]
+        if np.all(np.isnan(changes)):
+            return float("nan")
+        return float(np.nanmean(changes))
+
     for topic in x_labels:
         df_a = corr_df[corr_df["topic"] == topic]
-
-        pearson_avg = (
-            _pct_change(
-                df_a[(df_a["type"] == "Pearson") & (df_a["polarity"] == "pos")]["raw"].values[0],
-                df_a[(df_a["type"] == "Pearson") & (df_a["polarity"] == "pos")]["attuned"].values[0],
-            ) +
-            _pct_change(
-                df_a[(df_a["type"] == "Pearson") & (df_a["polarity"] == "neg")]["raw"].values[0],
-                df_a[(df_a["type"] == "Pearson") & (df_a["polarity"] == "neg")]["attuned"].values[0],
-            )
-        ) / 2
-
-        spearman_avg = (
-            _pct_change(
-                df_a[(df_a["type"] == "Spearman") & (df_a["polarity"] == "pos")]["raw"].values[0],
-                df_a[(df_a["type"] == "Spearman") & (df_a["polarity"] == "pos")]["attuned"].values[0],
-            ) +
-            _pct_change(
-                df_a[(df_a["type"] == "Spearman") & (df_a["polarity"] == "neg")]["raw"].values[0],
-                df_a[(df_a["type"] == "Spearman") & (df_a["polarity"] == "neg")]["attuned"].values[0],
-            )
-        ) / 2
-
-        records.append({"topic": topic, "pearson_d": pearson_avg, "spearman_d": spearman_avg})
+        records.append({
+            "topic":      topic,
+            "pearson_d":  _topic_avg(df_a, "Pearson"),
+            "spearman_d": _topic_avg(df_a, "Spearman"),
+        })
 
     df_pct = pd.DataFrame(records)
+
+    print("\n  --- Relative change in correlation magnitude (%) ---")
+    for r in records:
+        print(f"  {r['topic'].replace(chr(10), ' '):<28} "
+              f"Pearson: {r['pearson_d']:+7.2f}%  |  Spearman: {r['spearman_d']:+7.2f}%")
     x      = np.arange(len(df_pct))
     width  = 0.35
 
@@ -190,14 +221,16 @@ def plot_weighted_pct_change(corr_df: pd.DataFrame) -> None:
 
     for xi, (p, s) in enumerate(zip(df_pct["pearson_d"], df_pct["spearman_d"])):
         for val, xpos in [(p, x[xi] - width / 2), (s, x[xi] + width / 2)]:
+            if np.isnan(val):
+                continue
             va     = "bottom" if val >= 0 else "top"
             offset = 0.1     if val >= 0 else -0.1
             ax.text(xpos, val + offset, f"{val:.1f}%", ha="center", va=va, fontsize=9)
 
     ax.set_xticks(x)
     ax.set_xticklabels(df_pct["topic"], rotation=0)
-    ax.set_ylabel("Average % Change in Correlation Magnitude")
-    ax.set_title("Weighted Percentage Change in Correlations After Adjustment")
+    ax.set_ylabel("Average Relative Change in Correlation Magnitude (%)")
+    ax.set_title("Relative Change in Correlation Magnitude After Adjustment")
     ax.axhline(0, color="black", linestyle="--", linewidth=0.8)
     ymin, ymax = ax.get_ylim()
     ax.set_ylim(ymin * 1.1, ymax * 1.1)
@@ -241,8 +274,8 @@ def run() -> None:
     print("  Plotting correlation changes...")
     plot_correlation_changes(corr_df)
 
-    print("  Plotting weighted % change...")
-    plot_weighted_pct_change(corr_df)
+    print("  Plotting relative % change...")
+    plot_relative_pct_change(corr_df)
 
 
     plt.show()

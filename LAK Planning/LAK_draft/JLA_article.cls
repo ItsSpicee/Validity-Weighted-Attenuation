@@ -84,8 +84,7 @@ justification=raggedright]{caption}
 \pagestyle{fancy}          % Enables the custom headers/footers
 % Headers
 \lhead{}%
-% The journal header asset is optional in local draft builds.
-\IfFileExists{header.png}{\chead{\includegraphics[width=\textwidth]{header.png}}}{\chead{}}%
+\chead{\includegraphics[width=\textwidth]{header.png}}%
 \rhead{}
 % Footers
 \lfoot{}%

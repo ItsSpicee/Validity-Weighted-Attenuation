@@ -1,0 +1,1194 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Bhowmik%
+, Mohd.~Nur%
+, Miah%
+\BCBL {}\ \BBA {} Karmekar%
+}{%
+Bhowmik%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2023}}%
+}]{%
+Bhowmik2023}
+\APACinsertmetastar {%
+Bhowmik2023}%
+\begin{APACrefauthors}%
+Bhowmik, A.%
+, Mohd.~Nur, N.%
+, Miah, M\BPBI S\BPBI U.%
+\BCBL {}\ \BBA {} Karmekar, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2023}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Aspect-based sentiment analysis model for evaluating
+  teachers' performance from students' feedback} {Aspect-based sentiment
+  analysis model for evaluating teachers' performance from students'
+  feedback}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{AIUB Journal of Science and
+  Engineering}{22}{3}{287--294}.
+\newblock
+\begin{APACrefDOI} \doi{10.53799/ajse.v22i3.921} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Cronbach%
+}{%
+Cronbach%
+}{%
+{\protect \APACyear {1951}}%
+}]{%
+Cronbach1951}
+\APACinsertmetastar {%
+Cronbach1951}%
+\begin{APACrefauthors}%
+Cronbach, L\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1951}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Coefficient alpha and the internal structure of tests}
+  {Coefficient alpha and the internal structure of tests}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychometrika}{16}{3}{297--334}.
+\newblock
+\begin{APACrefDOI} \doi{10.1007/BF02310555} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Demszky%
+\ \protect \BOthers {.}}{%
+Demszky%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2020}}%
+}]{%
+Demszky2020}
+\APACinsertmetastar {%
+Demszky2020}%
+\begin{APACrefauthors}%
+Demszky, D.%
+, Movshovitz-Attias, D.%
+, Ko, J.%
+, Cowen, A.%
+, Nemade, G.%
+\BCBL {}\ \BBA {} Ravi, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {GoEmotions: A dataset of fine-grained emotions}
+  {Goemotions: A dataset of fine-grained emotions}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the 58th Annual Meeting of the
+  Association for Computational Linguistics} {Proceedings of the 58th annual
+  meeting of the association for computational linguistics}\ (\BPGS\
+  4040--4054).
+\newblock
+\begin{APACrefDOI} \doi{10.18653/v1/2020.acl-main.372} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Dorogush%
+, Ershov%
+\BCBL {}\ \BBA {} Gulin%
+}{%
+Dorogush%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+Dorogush2018}
+\APACinsertmetastar {%
+Dorogush2018}%
+\begin{APACrefauthors}%
+Dorogush, A\BPBI V.%
+, Ershov, V.%
+\BCBL {}\ \BBA {} Gulin, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {CatBoost: Gradient boosting with categorical features
+  support} {Catboost: Gradient boosting with categorical features
+  support}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{arXiv}{}{}{}.
+\newblock
+\begin{APACrefDOI} \doi{10.48550/arXiv.1810.06394} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Doshi-Velez%
+\ \BBA {} Kim%
+}{%
+Doshi-Velez%
+\ \BBA {} Kim%
+}{%
+{\protect \APACyear {2017}}%
+}]{%
+DoshiVelez2017}
+\APACinsertmetastar {%
+DoshiVelez2017}%
+\begin{APACrefauthors}%
+Doshi-Velez, F.%
+\BCBT {}\ \BBA {} Kim, B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Towards a rigorous science of interpretable machine
+  learning} {Towards a rigorous science of interpretable machine
+  learning}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{arXiv}{}{}{}.
+\newblock
+\begin{APACrefDOI} \doi{10.48550/arXiv.1702.08608} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Dowell%
+\ \BBA {} Neal%
+}{%
+Dowell%
+\ \BBA {} Neal%
+}{%
+{\protect \APACyear {1983}}%
+}]{%
+Dowell1983}
+\APACinsertmetastar {%
+Dowell1983}%
+\begin{APACrefauthors}%
+Dowell, D\BPBI A.%
+\BCBT {}\ \BBA {} Neal, J\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1983}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The validity and accuracy of student ratings of
+  instruction: A reply to Peter A. Cohen} {The validity and accuracy of student
+  ratings of instruction: A reply to peter a. cohen}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{The Journal of Higher Education}{54}{4}{459--463}.
+\newblock
+\begin{APACrefDOI} \doi{10.1080/00221546.1983.11778216} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Emery%
+, Kramer%
+\BCBL {}\ \BBA {} Tian%
+}{%
+Emery%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2003}}%
+}]{%
+Emery2003}
+\APACinsertmetastar {%
+Emery2003}%
+\begin{APACrefauthors}%
+Emery, C\BPBI R.%
+, Kramer, T\BPBI R.%
+\BCBL {}\ \BBA {} Tian, R\BPBI G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2003}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Return to academic standards: A critique of student
+  evaluations of teaching effectiveness} {Return to academic standards: A
+  critique of student evaluations of teaching effectiveness}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Quality Assurance in Education}{11}{1}{37--46}.
+\newblock
+\begin{APACrefDOI} \doi{10.1108/09684880310462074} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hancock%
+\ \BBA {} Khoshgoftaar%
+}{%
+Hancock%
+\ \BBA {} Khoshgoftaar%
+}{%
+{\protect \APACyear {2020}}%
+}]{%
+Hancock2020}
+\APACinsertmetastar {%
+Hancock2020}%
+\begin{APACrefauthors}%
+Hancock, J\BPBI T.%
+\BCBT {}\ \BBA {} Khoshgoftaar, T\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {CatBoost for big data: An interdisciplinary review}
+  {Catboost for big data: An interdisciplinary review}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Big Data}{7}{94}{1--45}.
+\newblock
+\begin{APACrefDOI} \doi{10.1186/s40537-020-00369-8} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Haskell%
+}{%
+Haskell%
+}{%
+{\protect \APACyear {1997}}%
+}]{%
+Haskell1997}
+\APACinsertmetastar {%
+Haskell1997}%
+\begin{APACrefauthors}%
+Haskell, R\BPBI E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1997}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Academic freedom, tenure, and student evaluation of
+  faculty} {Academic freedom, tenure, and student evaluation of
+  faculty}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Education Policy Analysis Archives}{5}{6}{}.
+\newblock
+\begin{APACrefDOI} \doi{10.14507/epaa.v5n6.1997} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+He%
+}{%
+He%
+}{%
+{\protect \APACyear {2020}}%
+}]{%
+He2020}
+\APACinsertmetastar {%
+He2020}%
+\begin{APACrefauthors}%
+He, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{}{}.
+\newblock
+\APACrefbtitle {Big dataset from RateMyProfessor.com for professors' teaching
+  evaluation.} {Big dataset from ratemyprofessor.com for professors' teaching
+  evaluation.}
+\newblock
+\APACrefnote{Version 2, Mendeley Data}
+\newblock
+\begin{APACrefDOI} \doi{10.17632/fvtfjyvw7d.2} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Huber%
+}{%
+Huber%
+}{%
+{\protect \APACyear {1964}}%
+}]{%
+Huber1964}
+\APACinsertmetastar {%
+Huber1964}%
+\begin{APACrefauthors}%
+Huber, P\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1964}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Robust estimation of a location parameter} {Robust
+  estimation of a location parameter}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{The Annals of Mathematical Statistics}{35}{1}{73--101}.
+\newblock
+\begin{APACrefDOI} \doi{10.1214/aoms/1177703732} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Iatrellis%
+, Samaras%
+, Kokkinos%
+\BCBL {}\ \BBA {} Xenakis%
+}{%
+Iatrellis%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2024}}%
+}]{%
+Iatrellis2024}
+\APACinsertmetastar {%
+Iatrellis2024}%
+\begin{APACrefauthors}%
+Iatrellis, O.%
+, Samaras, N.%
+, Kokkinos, K.%
+\BCBL {}\ \BBA {} Xenakis, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Elevating academic advising: Natural language processing
+  of student reviews} {Elevating academic advising: Natural language processing
+  of student reviews}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Applied System Innovation}{7}{1}{12}.
+\newblock
+\begin{APACrefDOI} \doi{10.3390/asi7010012} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Irons%
+, Carlson%
+, Kirk%
+\BCBL {}\ \BBA {} Monk%
+}{%
+Irons%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2011}}%
+}]{%
+Irons2011}
+\APACinsertmetastar {%
+Irons2011}%
+\begin{APACrefauthors}%
+Irons, E\BPBI J.%
+, Carlson, N\BPBI L.%
+, Kirk, E\BPBI E.%
+\BCBL {}\ \BBA {} Monk, P\BPBI E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Faculty perceptions of student evaluation impact upon
+  tenure, promotion, and merit decisions} {Faculty perceptions of student
+  evaluation impact upon tenure, promotion, and merit decisions}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{National Social Science Journal}{35}{2}{90--98}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Jazuli%
+, Widowati%
+\BCBL {}\ \BBA {} Kusumaningrum%
+}{%
+Jazuli%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2025}}%
+}]{%
+Jazuli2025}
+\APACinsertmetastar {%
+Jazuli2025}%
+\begin{APACrefauthors}%
+Jazuli, A.%
+, Widowati%
+\BCBL {}\ \BBA {} Kusumaningrum, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Optimizing aspect-based sentiment analysis using BERT
+  for comprehensive analysis of Indonesian student feedback} {Optimizing
+  aspect-based sentiment analysis using bert for comprehensive analysis of
+  indonesian student feedback}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Applied Sciences}{15}{1}{172}.
+\newblock
+\begin{APACrefDOI} \doi{10.3390/app15010172} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kechaou%
+, Bouhajja Ben~Ammar%
+\BCBL {}\ \BBA {} Alimi%
+}{%
+Kechaou%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2011}}%
+}]{%
+Kechaou2011}
+\APACinsertmetastar {%
+Kechaou2011}%
+\begin{APACrefauthors}%
+Kechaou, Z.%
+, Bouhajja Ben~Ammar, M.%
+\BCBL {}\ \BBA {} Alimi, A\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Improving e-learning with sentiment analysis of users'
+  opinions} {Improving e-learning with sentiment analysis of users'
+  opinions}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2011 IEEE Global Engineering Education Conference} {2011
+  ieee global engineering education conference}\ (\BPGS\ 216--222).
+\newblock
+\begin{APACrefDOI} \doi{10.1109/EDUCON.2011.5773275} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kim%
+, Ke%
+, Johnston%
+\BCBL {}\ \BBA {} Fan%
+}{%
+Kim%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2025}}%
+}]{%
+Kim2025}
+\APACinsertmetastar {%
+Kim2025}%
+\begin{APACrefauthors}%
+Kim, F.%
+, Ke, X.%
+, Johnston, E\BPBI L.%
+\BCBL {}\ \BBA {} Fan, Y.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Relationships between numerical score and free text
+  comments in student evaluations of teaching: A sentiment topic analysis
+  reveals the influence of gender and culture} {Relationships between numerical
+  score and free text comments in student evaluations of teaching: A sentiment
+  topic analysis reveals the influence of gender and culture}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{PLOS ONE}{20}{6}{e0324619}.
+\newblock
+\begin{APACrefDOI} \doi{10.1371/journal.pone.0324619} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kopciuszewska%
+\ \BBA {} Rybinski%
+}{%
+Kopciuszewska%
+\ \BBA {} Rybinski%
+}{%
+{\protect \APACyear {2025}}%
+}]{%
+Kopciuszewska2025}
+\APACinsertmetastar {%
+Kopciuszewska2025}%
+\begin{APACrefauthors}%
+Kopciuszewska, E.%
+\BCBT {}\ \BBA {} Rybinski, K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Exploring and modeling cumulative bias and its asymmetry
+  in student evaluations of teaching at a Polish university} {Exploring and
+  modeling cumulative bias and its asymmetry in student evaluations of teaching
+  at a polish university}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Quality Assurance in Education}{33}{3}{359--375}.
+\newblock
+\begin{APACrefDOI} \doi{10.1108/QAE-10-2024-0213} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Landis%
+\ \BBA {} Koch%
+}{%
+Landis%
+\ \BBA {} Koch%
+}{%
+{\protect \APACyear {1977}}%
+}]{%
+Landis1977}
+\APACinsertmetastar {%
+Landis1977}%
+\begin{APACrefauthors}%
+Landis, J\BPBI R.%
+\BCBT {}\ \BBA {} Koch, G\BPBI G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1977}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {An application of hierarchical kappa-type statistics in
+  the assessment of majority agreement among multiple observers} {An
+  application of hierarchical kappa-type statistics in the assessment of
+  majority agreement among multiple observers}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Biometrics}{33}{2}{363--374}.
+\newblock
+\begin{APACrefDOI} \doi{10.2307/2529786} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Langbein%
+}{%
+Langbein%
+}{%
+{\protect \APACyear {1994}}%
+}]{%
+Langbein1994}
+\APACinsertmetastar {%
+Langbein1994}%
+\begin{APACrefauthors}%
+Langbein, L\BPBI I.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1994}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The validity of student evaluations of teaching} {The
+  validity of student evaluations of teaching}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{PS: Political Science and Politics}{27}{3}{545--553}.
+\newblock
+\begin{APACrefDOI} \doi{10.2307/420225} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Li%
+, Wang%
+, Zhang%
+\BCBL {}\ \BBA {} Liu%
+}{%
+Li%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2025}}%
+}]{%
+Li2025}
+\APACinsertmetastar {%
+Li2025}%
+\begin{APACrefauthors}%
+Li, Y.%
+, Wang, X.%
+, Zhang, L.%
+\BCBL {}\ \BBA {} Liu, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Bias in student evaluations of teaching in undergraduate
+  medical education: A qualitative study from a medical school in Northern
+  China} {Bias in student evaluations of teaching in undergraduate medical
+  education: A qualitative study from a medical school in northern
+  china}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{BMC Medical Education}{25}{}{784}.
+\newblock
+\begin{APACrefDOI} \doi{10.1186/s12909-025-07300-w} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Louis%
+\ \BBA {} Nenkova%
+}{%
+Louis%
+\ \BBA {} Nenkova%
+}{%
+{\protect \APACyear {2013}}%
+}]{%
+Louis2013}
+\APACinsertmetastar {%
+Louis2013}%
+\begin{APACrefauthors}%
+Louis, A.%
+\BCBT {}\ \BBA {} Nenkova, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {What makes writing great? First experiments on article
+  quality prediction in the science journalism domain} {What makes writing
+  great? first experiments on article quality prediction in the science
+  journalism domain}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Transactions of the Association for Computational
+  Linguistics}{1}{2}{341--352}.
+\newblock
+\begin{APACrefDOI} \doi{10.1162/tacl_a_00232} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Marsh%
+}{%
+Marsh%
+}{%
+{\protect \APACyear {1982}}%
+}]{%
+Marsh1982}
+\APACinsertmetastar {%
+Marsh1982}%
+\begin{APACrefauthors}%
+Marsh, H\BPBI W.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1982}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {SEEQ: A reliable, valid, and useful instrument for
+  collecting students' evaluations of university teaching} {Seeq: A reliable,
+  valid, and useful instrument for collecting students' evaluations of
+  university teaching}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{British Journal of Educational
+  Psychology}{52}{1}{77--95}.
+\newblock
+\begin{APACrefDOI} \doi{10.1111/j.2044-8279.1982.tb02505.x} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Marsh%
+\ \BBA {} Roche%
+}{%
+Marsh%
+\ \BBA {} Roche%
+}{%
+{\protect \APACyear {1997}}%
+}]{%
+MarshRoche1997}
+\APACinsertmetastar {%
+MarshRoche1997}%
+\begin{APACrefauthors}%
+Marsh, H\BPBI W.%
+\BCBT {}\ \BBA {} Roche, L\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1997}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Making students' evaluations of teaching effectiveness
+  effective: The critical issues of validity, bias, and utility} {Making
+  students' evaluations of teaching effectiveness effective: The critical
+  issues of validity, bias, and utility}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American Psychologist}{52}{11}{1187--1197}.
+\newblock
+\begin{APACrefDOI} \doi{10.1037/0003-066X.52.11.1187} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Messick%
+}{%
+Messick%
+}{%
+{\protect \APACyear {1995}}%
+}]{%
+Messick1995}
+\APACinsertmetastar {%
+Messick1995}%
+\begin{APACrefauthors}%
+Messick, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1995}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Validity of psychological assessment: Validation of
+  inferences from persons' responses and performances as scientific inquiry
+  into score meaning} {Validity of psychological assessment: Validation of
+  inferences from persons' responses and performances as scientific inquiry
+  into score meaning}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American Psychologist}{50}{9}{741--749}.
+\newblock
+\begin{APACrefDOI} \doi{10.1037/0003-066X.50.9.741} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Mihai%
+}{%
+Mihai%
+}{%
+{\protect \APACyear {2024}}%
+}]{%
+Mihai2024}
+\APACinsertmetastar {%
+Mihai2024}%
+\begin{APACrefauthors}%
+Mihai, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Sentiment analysis of students' feedback using the VADER
+  model for teaching process assessment} {Sentiment analysis of students'
+  feedback using the vader model for teaching process assessment}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{EAI Endorsed Transactions on Scalable Information
+  Systems}{}{}{e8}.
+\newblock
+\begin{APACrefDOI} \doi{10.35219/eai15840409445} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Nikolic%
+, Grljevic%
+\BCBL {}\ \BBA {} Kovacevic%
+}{%
+Nikolic%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2020}}%
+}]{%
+Nikolic2020}
+\APACinsertmetastar {%
+Nikolic2020}%
+\begin{APACrefauthors}%
+Nikolic, N.%
+, Grljevic, O.%
+\BCBL {}\ \BBA {} Kovacevic, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Aspect-based sentiment analysis of reviews in the domain
+  of higher education} {Aspect-based sentiment analysis of reviews in the
+  domain of higher education}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{The Electronic Library}{38}{5/6}{1107--1124}.
+\newblock
+\begin{APACrefDOI} \doi{10.1108/EL-06-2019-0140} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Prokhorenkova%
+, Gusev%
+, Vorobev%
+, Dorogush%
+\BCBL {}\ \BBA {} Gulin%
+}{%
+Prokhorenkova%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+Prokhorenkova2018}
+\APACinsertmetastar {%
+Prokhorenkova2018}%
+\begin{APACrefauthors}%
+Prokhorenkova, L.%
+, Gusev, G.%
+, Vorobev, A.%
+, Dorogush, A\BPBI V.%
+\BCBL {}\ \BBA {} Gulin, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {CatBoost: Unbiased boosting with categorical features}
+  {Catboost: Unbiased boosting with categorical features}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Advances in Neural Information Processing Systems}
+  {Advances in neural information processing systems}\ (\BVOL~31, \BPGS\
+  6638--6648).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Rajput%
+, Haider%
+\BCBL {}\ \BBA {} Ghani%
+}{%
+Rajput%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+Rajput2016}
+\APACinsertmetastar {%
+Rajput2016}%
+\begin{APACrefauthors}%
+Rajput, Q.%
+, Haider, S.%
+\BCBL {}\ \BBA {} Ghani, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Lexicon-based sentiment analysis of teachers'
+  evaluation} {Lexicon-based sentiment analysis of teachers'
+  evaluation}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Applied Computational Intelligence and Soft
+  Computing}{}{}{2385429}.
+\newblock
+\begin{APACrefDOI} \doi{10.1155/2016/2385429} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ren%
+, Yang%
+\BCBL {}\ \BBA {} Luo%
+}{%
+Ren%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2022}}%
+}]{%
+Ren2022}
+\APACinsertmetastar {%
+Ren2022}%
+\begin{APACrefauthors}%
+Ren, P.%
+, Yang, L.%
+\BCBL {}\ \BBA {} Luo, F.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2022}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Automatic scoring of student feedback for teaching
+  evaluation based on aspect-level sentiment analysis} {Automatic scoring of
+  student feedback for teaching evaluation based on aspect-level sentiment
+  analysis}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Education and Information
+  Technologies}{28}{4}{4115--4134}.
+\newblock
+\begin{APACrefDOI} \doi{10.1007/s10639-022-11151-z} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Rybinski%
+\ \BBA {} Kopciuszewska%
+}{%
+Rybinski%
+\ \BBA {} Kopciuszewska%
+}{%
+{\protect \APACyear {2021}}%
+}]{%
+Rybinski2021}
+\APACinsertmetastar {%
+Rybinski2021}%
+\begin{APACrefauthors}%
+Rybinski, K.%
+\BCBT {}\ \BBA {} Kopciuszewska, E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2021}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Will artificial intelligence revolutionise the student
+  evaluation of teaching? A big data study of 1.6 million student reviews}
+  {Will artificial intelligence revolutionise the student evaluation of
+  teaching? a big data study of 1.6 million student reviews}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Assessment and Evaluation in Higher
+  Education}{46}{7}{1127--1139}.
+\newblock
+\begin{APACrefDOI} \doi{10.1080/02602938.2020.1844866} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Schiekirka%
+\ \BBA {} Raupach%
+}{%
+Schiekirka%
+\ \BBA {} Raupach%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+Schiekirka2015}
+\APACinsertmetastar {%
+Schiekirka2015}%
+\begin{APACrefauthors}%
+Schiekirka, S.%
+\BCBT {}\ \BBA {} Raupach, T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A systematic review of factors influencing student
+  ratings in undergraduate medical education course evaluations} {A systematic
+  review of factors influencing student ratings in undergraduate medical
+  education course evaluations}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{BMC Medical Education}{15}{}{30}.
+\newblock
+\begin{APACrefDOI} \doi{10.1186/s12909-015-0311-8} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Shuqin%
+\ \BBA {} Raga%
+}{%
+Shuqin%
+\ \BBA {} Raga%
+}{%
+{\protect \APACyear {2024}}%
+}]{%
+Shuqin2024}
+\APACinsertmetastar {%
+Shuqin2024}%
+\begin{APACrefauthors}%
+Shuqin, H.%
+\BCBT {}\ \BBA {} Raga, R\BPBI C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A deep learning model for student sentiment analysis on
+  course reviews} {A deep learning model for student sentiment analysis on
+  course reviews}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{IEEE Access}{12}{}{130862--130874}.
+\newblock
+\begin{APACrefDOI} \doi{10.1109/ACCESS.2024.3463793} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Simpson%
+\ \BBA {} Siguaw%
+}{%
+Simpson%
+\ \BBA {} Siguaw%
+}{%
+{\protect \APACyear {2000}}%
+}]{%
+Simpson2000}
+\APACinsertmetastar {%
+Simpson2000}%
+\begin{APACrefauthors}%
+Simpson, P\BPBI M.%
+\BCBT {}\ \BBA {} Siguaw, J\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2000}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Student evaluations of teaching: An exploratory study of
+  the faculty response} {Student evaluations of teaching: An exploratory study
+  of the faculty response}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Marketing Education}{22}{3}{199--213}.
+\newblock
+\begin{APACrefDOI} \doi{10.1177/0273475300223004} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Sorour%
+, Mine%
+, Goda%
+\BCBL {}\ \BBA {} Hirokawa%
+}{%
+Sorour%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2015}}%
+}]{%
+Sorour2015}
+\APACinsertmetastar {%
+Sorour2015}%
+\begin{APACrefauthors}%
+Sorour, S\BPBI E.%
+, Mine, T.%
+, Goda, K.%
+\BCBL {}\ \BBA {} Hirokawa, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A predictive model to evaluate student performance} {A
+  predictive model to evaluate student performance}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Information Processing}{23}{2}{192--201}.
+\newblock
+\begin{APACrefDOI} \doi{10.2197/ipsjjip.23.192} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Sunar%
+\ \BBA {} Khalid%
+}{%
+Sunar%
+\ \BBA {} Khalid%
+}{%
+{\protect \APACyear {2023}}%
+}]{%
+Sunar2023}
+\APACinsertmetastar {%
+Sunar2023}%
+\begin{APACrefauthors}%
+Sunar, A\BPBI S.%
+\BCBT {}\ \BBA {} Khalid, M\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2023}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Natural language processing of student's feedback to
+  instructors: A systematic review} {Natural language processing of student's
+  feedback to instructors: A systematic review}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{IEEE Transactions on Learning
+  Technologies}{16}{1}{1--14}.
+\newblock
+\begin{APACrefDOI} \doi{10.1109/TLT.2023.3330531} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wongsurawat%
+}{%
+Wongsurawat%
+}{%
+{\protect \APACyear {2011}}%
+}]{%
+Wongsurawat2011}
+\APACinsertmetastar {%
+Wongsurawat2011}%
+\begin{APACrefauthors}%
+Wongsurawat, W.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {What's a comment worth? How to better understand student
+  evaluations of teaching} {What's a comment worth? how to better understand
+  student evaluations of teaching}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Quality Assurance in Education}{19}{1}{67--83}.
+\newblock
+\begin{APACrefDOI} \doi{10.1108/09684881111107762} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Xiong%
+\ \BBA {} Litman%
+}{%
+Xiong%
+\ \BBA {} Litman%
+}{%
+{\protect \APACyear {2011}}%
+}]{%
+Xiong2011}
+\APACinsertmetastar {%
+Xiong2011}%
+\begin{APACrefauthors}%
+Xiong, W.%
+\BCBT {}\ \BBA {} Litman, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Automatically predicting peer-review helpfulness}
+  {Automatically predicting peer-review helpfulness}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the 49th Annual Meeting of the
+  Association for Computational Linguistics: Human Language Technologies}
+  {Proceedings of the 49th annual meeting of the association for computational
+  linguistics: Human language technologies}\ (\BPGS\ 502--507).
+\newblock
+\begin{APACrefURL} \url{https://aclanthology.org/P11-2088/} \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Zhai%
+, Haudek%
+, Wilson%
+\BCBL {}\ \BBA {} Stuhlsatz%
+}{%
+Zhai%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2021}}%
+}]{%
+Zhai2021}
+\APACinsertmetastar {%
+Zhai2021}%
+\begin{APACrefauthors}%
+Zhai, X.%
+, Haudek, K\BPBI C.%
+, Wilson, C.%
+\BCBL {}\ \BBA {} Stuhlsatz, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2021}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A framework of construct-irrelevant variance for
+  contextualized constructed response assessment} {A framework of
+  construct-irrelevant variance for contextualized constructed response
+  assessment}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Frontiers in Education}{6}{}{751283}.
+\newblock
+\begin{APACrefDOI} \doi{10.3389/feduc.2021.751283} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Zhuang%
+, Li%
+\BCBL {}\ \BBA {} Feng%
+}{%
+Zhuang%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2025}}%
+}]{%
+Zhuang2025}
+\APACinsertmetastar {%
+Zhuang2025}%
+\begin{APACrefauthors}%
+Zhuang, G\BHBI Q.%
+, Li, F.%
+\BCBL {}\ \BBA {} Feng, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A teaching effectiveness evaluation method based on deep
+  interpretable learning} {A teaching effectiveness evaluation method based on
+  deep interpretable learning}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Computers}{36}{2}{77--89}.
+\newblock
+\begin{APACrefDOI} \doi{10.63367/199115992025043602006} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Zumbach%
+\ \BBA {} Funke%
+}{%
+Zumbach%
+\ \BBA {} Funke%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+Zumbach2014}
+\APACinsertmetastar {%
+Zumbach2014}%
+\begin{APACrefauthors}%
+Zumbach, J.%
+\BCBT {}\ \BBA {} Funke, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Influences of mood on academic course evaluations}
+  {Influences of mood on academic course evaluations}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Practical Assessment, Research and
+  Evaluation}{19}{1}{4}.
+\newblock
+\begin{APACrefDOI} \doi{10.7275/vbcz-h361} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}
