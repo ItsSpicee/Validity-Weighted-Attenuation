@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.23)  24 AUG 2026 17:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.23)  24 AUG 2026 20:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -798,7 +798,7 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <./header.png>]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 248.
+Package pdftex.def Info: header.png  used on input line 241.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -811,7 +811,7 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 [2]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 295.
+Package pdftex.def Info: header.png  used on input line 294.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -824,7 +824,7 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 [3]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 354.
+Package pdftex.def Info: header.png  used on input line 355.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -835,14 +835,9 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
 [4]
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 3
-96.
- (C:\Users\Amer\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 398.
+Package pdftex.def Info: header.png  used on input line 396.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -853,21 +848,26 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
 [5]
-Overfull \hbox (50.63014pt too wide) in paragraph at lines 400--401
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 3
+98.
+ (C:\Users\Amer\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Overfull \hbox (50.63014pt too wide) in paragraph at lines 402--403
 []\OT1/ptm/m/n/10 (-20) These sep-a-rated and cat-e-go-rized clauses are fed in
 to \OT1/pcr/m/n/10 SamLowe/roberta-base-go[]emotions\OT1/ptm/m/n/10 (-20) ,
  []
 
-<Diagrams/Schematic_Diagrams/FinalSchematic.png, id=343, 2009.5075pt x 2490.303
+<Diagrams/Schematic_Diagrams/FinalSchematic.png, id=339, 2009.5075pt x 2490.303
 76pt>
 File: Diagrams/Schematic_Diagrams/FinalSchematic.png Graphic file (type png)
 <use Diagrams/Schematic_Diagrams/FinalSchematic.png>
 Package pdftex.def Info: Diagrams/Schematic_Diagrams/FinalSchematic.png  used o
-n input line 411.
+n input line 413.
 (pdftex.def)             Requested size: 260.25381pt x 322.49689pt.
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 426.
+Package pdftex.def Info: header.png  used on input line 422.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 Package fancyhdr Warning: \headheight is too small (11.0pt): 
@@ -877,16 +877,11 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
 [6 <./Diagrams/Schematic_Diagrams/FinalSchematic.png>]
-Overfull \hbox (109.38095pt too wide) in paragraph at lines 483--484
-\OT1/ptm/m/n/10 (-20) trained on the GoE-mo-tions dataset [][][]Demszky et al.[
-][][], [][]2020[][]), with the INT8-quantized ONNX vari-ant (\OT1/pcr/m/n/10 Sa
-mLowe/roberta-base-go[]emotions-onnx\OT1/ptm/m/n/10 (-20) )
- []
-
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 484.
+Package pdftex.def Info: header.png  used on input line 481.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
+
 
 Package fancyhdr Warning: \headheight is too small (11.0pt): 
 (fancyhdr)                Make it at least 38.3275pt, for example:
@@ -895,19 +890,26 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
 [7]
-Overfull \hbox (24.216pt too wide) in paragraph at lines 493--495
+Overfull \hbox (109.38095pt too wide) in paragraph at lines 485--486
+\OT1/ptm/m/n/10 (-20) trained on the GoE-mo-tions dataset [][][]Demszky et al.[
+][][], [][]2020[][]), with the INT8-quantized ONNX vari-ant (\OT1/pcr/m/n/10 Sa
+mLowe/roberta-base-go[]emotions-onnx\OT1/ptm/m/n/10 (-20) )
+ []
+
+
+Overfull \hbox (24.216pt too wide) in paragraph at lines 495--497
 \OT1/pcr/m/n/10 Admiration, Amusement, Anger, Annoyance, Approval, Caring, Conf
 usion, Curiosity, Desire,
  []
 
 
-Overfull \hbox (24.516pt too wide) in paragraph at lines 493--495
+Overfull \hbox (24.516pt too wide) in paragraph at lines 495--497
 \OT1/pcr/m/n/10 Disappointment, Disapproval, Disgust, Embarrassment, Excitement
 , Fear, Gratitude, Grief,
  []
 
 
-Overfull \hbox (30.216pt too wide) in paragraph at lines 493--495
+Overfull \hbox (30.216pt too wide) in paragraph at lines 495--497
 \OT1/pcr/m/n/10 Joy, Love, Nervousness, Optimism, Pride, Realization, Relief, R
 emorse, Sadness, Surprise,
  []
@@ -926,7 +928,7 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 [8]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 596.
+Package pdftex.def Info: header.png  used on input line 589.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -937,14 +939,14 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
 [9]
-<Diagrams/pdfs/ex2.pdf, id=402, 569.055pt x 398.3382pt>
+<Diagrams/pdfs/ex2.pdf, id=398, 569.055pt x 398.3382pt>
 File: Diagrams/pdfs/ex2.pdf Graphic file (type pdf)
 <use Diagrams/pdfs/ex2.pdf>
-Package pdftex.def Info: Diagrams/pdfs/ex2.pdf  used on input line 613.
+Package pdftex.def Info: Diagrams/pdfs/ex2.pdf  used on input line 615.
 (pdftex.def)             Requested size: 500.484pt x 268.61519pt.
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 624.
+Package pdftex.def Info: header.png  used on input line 621.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -957,7 +959,7 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 [10 <./Diagrams/pdfs/ex2.pdf>]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 684.
+Package pdftex.def Info: header.png  used on input line 685.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -968,11 +970,11 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
 [11]
-<Diagrams/atc_visuals/dmiscdistribution.png, id=465, 1201.1274pt x 534.798pt>
+<Diagrams/atc_visuals/dmiscdistribution.png, id=462, 1201.1274pt x 534.798pt>
 File: Diagrams/atc_visuals/dmiscdistribution.png Graphic file (type png)
 <use Diagrams/atc_visuals/dmiscdistribution.png>
 Package pdftex.def Info: Diagrams/atc_visuals/dmiscdistribution.png  used on in
-put line 690.
+put line 694.
 (pdftex.def)             Requested size: 360.34908pt x 160.44063pt.
 File: header.png Graphic file (type png)
 <use header.png>
@@ -989,7 +991,7 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 [12 <./Diagrams/atc_visuals/dmiscdistribution.png>]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 786.
+Package pdftex.def Info: header.png  used on input line 776.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -1000,15 +1002,23 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
 [13]
-<Diagrams/SHAP/pct_change_shap.png, id=486, 578.16pt x 361.35pt>
+<Diagrams/SHAP/pct_change_shap.png, id=483, 578.16pt x 361.35pt>
 File: Diagrams/SHAP/pct_change_shap.png Graphic file (type png)
 <use Diagrams/SHAP/pct_change_shap.png>
 Package pdftex.def Info: Diagrams/SHAP/pct_change_shap.png  used on input line 
-812.
+816.
 (pdftex.def)             Requested size: 330.32126pt x 206.45134pt.
+<Diagrams/correlation_changes/average_corr_changes.png, id=484, 722.7pt x 433.6
+2pt>
+File: Diagrams/correlation_changes/average_corr_changes.png Graphic file (type 
+png)
+<use Diagrams/correlation_changes/average_corr_changes.png>
+Package pdftex.def Info: Diagrams/correlation_changes/average_corr_changes.png 
+ used on input line 835.
+(pdftex.def)             Requested size: 330.32126pt x 198.19063pt.
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 826.
+Package pdftex.def Info: header.png  used on input line 842.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -1018,17 +1028,22 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
-[14 <./Diagrams/SHAP/pct_change_shap.png>]
-<Diagrams/correlation_changes/average_corr_changes.png, id=493, 722.7pt x 433.6
-2pt>
-File: Diagrams/correlation_changes/average_corr_changes.png Graphic file (type 
-png)
-<use Diagrams/correlation_changes/average_corr_changes.png>
-Package pdftex.def Info: Diagrams/correlation_changes/average_corr_changes.png 
- used on input line 831.
-(pdftex.def)             Requested size: 330.32126pt x 198.19063pt.
+[14]
+File: header.png Graphic file (type png)
+<use header.png>
+Package pdftex.def Info: header.png  used on input line 842.
+(pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
-Overfull \hbox (63.33672pt too wide) in paragraph at lines 838--839
+
+Package fancyhdr Warning: \headheight is too small (11.0pt): 
+(fancyhdr)                Make it at least 38.3275pt, for example:
+(fancyhdr)                \setlength{\headheight}{38.3275pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
+
+[15 <./Diagrams/SHAP/pct_change_shap.png> <./Diagrams/correlation_changes/avera
+ge_corr_changes.png>]
+Overfull \hbox (63.33672pt too wide) in paragraph at lines 842--843
 [][]\OT1/ptm/b/n/10 (-20) [TODO: Cor-rected from ``with pre-dicted rat-ings''. 
 Nei-ther side of this com-par-i-son is a model pre-dic-tion: \OT1/pcr/b/n/10 co
 rrelation[]plots.py
@@ -1036,21 +1051,8 @@ rrelation[]plots.py
 
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 864.
+Package pdftex.def Info: header.png  used on input line 911.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
-
-Package fancyhdr Warning: \headheight is too small (11.0pt): 
-(fancyhdr)                Make it at least 38.3275pt, for example:
-(fancyhdr)                \setlength{\headheight}{38.3275pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
-
-[15 <./Diagrams/correlation_changes/average_corr_changes.png>]
-File: header.png Graphic file (type png)
-<use header.png>
-Package pdftex.def Info: header.png  used on input line 935.
-(pdftex.def)             Requested size: 500.484pt x 34.72746pt.
-
 
 Package fancyhdr Warning: \headheight is too small (11.0pt): 
 (fancyhdr)                Make it at least 38.3275pt, for example:
@@ -1061,7 +1063,7 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 [16]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 953.
+Package pdftex.def Info: header.png  used on input line 948.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -1074,7 +1076,7 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 [17]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 1028.
+Package pdftex.def Info: header.png  used on input line 1008.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -1084,10 +1086,10 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
-[18] (main.bbl
+[18]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 192.
+Package pdftex.def Info: header.png  used on input line 1045.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -1097,12 +1099,10 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
-[19]
-Underfull \vbox (badness 2452) has occurred while \output is active []
-
+[19] (main.bbl
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 935.
+Package pdftex.def Info: header.png  used on input line 36.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -1112,10 +1112,10 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
-[20])
+[20]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 1095.
+Package pdftex.def Info: header.png  used on input line 748.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -1125,7 +1125,20 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
-[21] 
+[21])
+File: header.png Graphic file (type png)
+<use header.png>
+Package pdftex.def Info: header.png  used on input line 1123.
+(pdftex.def)             Requested size: 500.484pt x 34.72746pt.
+
+
+Package fancyhdr Warning: \headheight is too small (11.0pt): 
+(fancyhdr)                Make it at least 38.3275pt, for example:
+(fancyhdr)                \setlength{\headheight}{38.3275pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
+
+[22] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (main.aux)
  ***********
@@ -1136,13 +1149,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 2B97000D6833EA5D24FEA249A3E674D5;9265.
  ) 
 Here is how much of TeX's memory you used:
- 18213 strings out of 467871
- 292486 string characters out of 5418860
- 771235 words of memory out of 5000000
- 46199 multiletter control sequences out of 15000+600000
- 714796 words of font info for 455 fonts, out of 8000000 for 9000
+ 18231 strings out of 467871
+ 292641 string characters out of 5418860
+ 770235 words of memory out of 5000000
+ 46198 multiletter control sequences out of 15000+600000
+ 715555 words of font info for 467 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,15n,93p,1645b,607s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,15n,93p,1763b,608s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
 mbx10.pfb><C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmex10.pfb><C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -1167,9 +1180,9 @@ es/utmb8a.pfb><C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/type1/urw/time
 s/utmbi8a.pfb><C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/type1/urw/time
 s/utmr8a.pfb><C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times
 /utmri8a.pfb>
-Output written on main.pdf (21 pages, 1317225 bytes).
+Output written on main.pdf (22 pages, 1322323 bytes).
 PDF statistics:
- 664 PDF objects out of 1000 (max. 8388607)
- 127 named destinations out of 1000 (max. 500000)
+ 665 PDF objects out of 1000 (max. 8388607)
+ 128 named destinations out of 1000 (max. 500000)
  112021 words of extra memory for PDF output out of 128383 (max. 10000000)
 

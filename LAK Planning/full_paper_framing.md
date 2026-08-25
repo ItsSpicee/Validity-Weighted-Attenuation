@@ -177,15 +177,23 @@ the use of affective signals, rather than another sentiment classifier.
 
 #### 5.2 Implications for responsible interpretation of teaching feedback
 
-State the appropriate use: an auditable companion view for educators or
-teaching-support staff. Preserve raw ratings/text and surface pedagogical and
-other experience signals separately.
+**DRAFTED.** Three stakeholder scenarios: (1) educator/teaching-support staff —
+structured reading aid, not a corrected score; taxonomy awareness as
+prerequisite; (2) platform responsibility — duty of care sits with the platform,
+not the student; outputs enabling discrimination by instructor identity should
+not be surfaced without governance; (3) student — topic-level decomposition
+helps interpret ratings. Raw data preservation principle. Bridge sentence to
+§5.3. Cite Lockyer et al. (2013).
 
 #### 5.3 Boundaries, risks, and non-use
 
-It must not be used as an automated faculty-quality measure or personnel score.
-Classification error, incomplete taxonomy, RMP self-selection, and broader
-affective experience all constrain interpretation.
+**DRAFTED.** Five paragraphs: (1) not a validated estimate of teaching quality;
+not a substitute for reading the review; (2) platform responsibility and
+governance; (3) automated calculation ≠ automated deployment; (4) unaddressed
+bias sources (gender, race, popularity) — more information can create false
+confidence; (5) auditability has limits — the attenuation rule is transparent but
+upstream components (RoBERTa, ATC embeddings, CatBoost) are partially or fully
+opaque; responsible use requires understanding where the audit trail ends.
 
 ### 6. Limitations and future work (about 0.75 pages)
 

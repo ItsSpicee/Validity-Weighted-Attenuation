@@ -1,6 +1,6 @@
 # LAK27 Draft — Handoff
 
-State of `LAK Planning/LAK_draft/main.tex` as of 2026-08-23.
+State of `LAK Planning/LAK_draft/main.tex` as of 2026-08-24.
 
 ## Intended workflow (decided 2026-08-23)
 
@@ -83,7 +83,7 @@ Pure **deletions are not marked** — cutting was part of the brief. Only
 `%%% [FROM FRAMING DOC]`, and `%%% PLACEHOLDER` explain each block's provenance
 in the source.
 
-Counts: **18** `\new` spans, **28** `\todo`, **4** `\citeneeded`.
+Counts (as of 2026-08-24): **18** `\new` spans, **26** `\todo` (2 resolved), **4** `\citeneeded`.
 
 Worklist:
 
@@ -113,10 +113,10 @@ blocks deleted. No sentence was paraphrased or condensed silently.
 |---|---|
 | Abstract | ≤200 words. Anchor on the framing doc's one-sentence contribution statement, quoted in a comment above the `\Abstract`. |
 | Keywords | Suggested pool present, not fixed. |
-| §1.3 boundary paragraph | Not a measure of true teaching quality; not for automated high-stakes decisions; *Miscellaneous* ≠ unimportant. |
-| §2.3 design principle | Learner-voice preservation, pedagogical role vs. experience-signal role, bounded monotonic rule, exposure of every adjustment. This is the ethical core of the LAK framing and the strongest LAK-specific contribution. |
-| §5.2 responsible use | Auditable companion view + the bounded deployment vignette. The source manuscript's practical-implications text argues the *opposite* framing (platform deployment, institutional SET processing) and was deliberately not carried over. |
-| §5.3 non-use | Prohibition on automated faculty-quality or personnel scoring; constraints from classification error, incomplete taxonomy, RMP self-selection. |
+| §1.3 boundary paragraph | **DONE** — authored by user. Not a measure of true teaching quality; CIV scoped to taxonomy; empowering stakeholders with more information. |
+| §2.3 design principle | **DONE** — authored by user. Learner-voice preservation, pedagogical role vs. experience-signal role, bounded monotonic rule, exposure of every adjustment, auditability limits. |
+| §5.2 responsible use | **DONE** — authored by user. Three stakeholder scenarios (educator, student, platform responsibility), raw data preservation, bridge to §5.3. |
+| §5.3 non-use | **DONE** — authored by user. Five paragraphs: not a quality measure / not a substitute for reading reviews, platform responsibility, automated calculation vs. deployment, unaddressed bias sources, auditability limits as responsible-use requirement. |
 | Conclusion | Not transferred — the source conclusion opens with a claim on the framing doc's prohibited list. |
 
 ## Sections needing revision of transferred text
@@ -128,12 +128,17 @@ redirection (§5.2/5.3) are substantive claim-level changes.*
 
 Flagged in place with `\todo`. Highest-value first:
 
-- §1.1 last sentence contains "misrepresents true teaching effectiveness" — the one clear overclaim in the intro. Reword.
-- §1.3 contribution bullets need reframing toward LA interpretation, auditability, and boundaries.
-- §2.2 needs the one-sentence contrast for Ren et al. and Butt et al.
-- §3.9 expert-pair protocol is written in the singular ("the expert") and must move to the multi-expert consensus wording.
-- §1.2 the gap framing — light revision, not a rewrite. The paragraph already makes the methodological point; it just needs the platform positioned as secondary.
-- §5.1 light reframing as an operational primitive — the existing Discussion paragraphs already make this argument well.
+- §1.1 last sentence contains "misrepresents true teaching effectiveness" — the one clear overclaim in the intro. **TODO** — reword.
+- §1.1 opening paragraph and transition — **DONE** by author.
+- §1.2 Lockyer citation added alongside Doshi-Velez — **DONE** by author. Gap framing is fine as-is.
+- §1.3 contribution bullets revised — **DONE** by author. Boundary paragraph added.
+- §2.2 Ren/Butt contrasts rewritten — **DONE** by author.
+- §2.4 Research Gap rewritten — **DONE** by author.
+- §3.4.1 contestability sentence added — **DONE** by author.
+- §3.9 expert-pair protocol is written in the singular ("the expert") and must move to the multi-expert consensus wording. **TODO**.
+- §5.1 needs Ferguson & Clow (2017) citation added. **TODO** — light touch only.
+- §5.2 responsible use — **DONE** by author.
+- §5.3 boundaries, risks, and non-use — **DONE** by author.
 
 ## What was cut
 
@@ -209,7 +214,7 @@ Measured against it:
 | §2 Background | 2.3 | 1.5 | +0.8 |
 | §3 Method | 5.5 | 3.0 | **+2.5** |
 | §4 Results | 6.0 | 2.25 | **+3.75** |
-| §5 Discussion | 1.7 → ~3.2 written | 1.5 | +1.7 |
+| §5 Discussion | 1.7 → ~3.5 (§5.2+§5.3 drafted) | 1.5 | +2.0 |
 | §6 Limitations | 1.0 | 0.75 | +0.25 |
 | §7 Conclusion | 0 → 0.35 | 0.35 | — |
 | References | 2.3 → 2.6 | 2.6 | — |

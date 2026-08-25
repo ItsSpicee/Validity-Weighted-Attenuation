@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1787608135.02254 "main.aux" "main.bbl" "main" 1787608139.87144 0
+["bibtex main"] 1787617334.52293 "main.aux" "main.bbl" "main" 1787617376.1884 0
   "./references.bib" 1787523739 15404 5c36d062454710df495fbc1b574416b8 ""
   "C:/Users/Amer/AppData/Local/Programs/MiKTeX/bibtex/bst/apacite/apacite.bst" 1374952728 146156 9d7b79dbf9d91133318126032cff8c27 ""
-  "main.aux" 1787608138 20289 5070a6c3ff605d83a965fbc697db3a49 "pdflatex"
+  "main.aux" 1787617375 20270 d45c18953eb0d095063372d0e8884b74 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1787608135.34219 "c:/Users/Amer/Desktop/Git/Validity-Weighted-Attenuation/LAK Planning/LAK_draft/main.tex" "main.pdf" "main" 1787608139.87265 0
+["pdflatex"] 1787617372.81713 "c:/Users/Amer/Desktop/Git/Validity-Weighted-Attenuation/LAK Planning/LAK_draft/main.tex" "main.pdf" "main" 1787617376.18913 0
   "C:/Users/Amer/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1787527879 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/Amer/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1787522538 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/Amer/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1787522329 13333003 d4ff3d4b00c4af1af0d5afe6142af747 ""
@@ -175,12 +175,12 @@
   "Diagrams/correlation_changes/average_corr_changes.png" 1787529967 45715 02bc8370fe9e0884fbab2cff2db93a4d ""
   "Diagrams/pdfs/ex2.pdf" 1787454194 104821 928976c0dc58f1d4d05fd892e71e978a ""
   "JLA_article.cls" 1787516512 9134 ce0cd70d9fdd82e805faea3790c4d92a ""
-  "c:/Users/Amer/Desktop/Git/Validity-Weighted-Attenuation/LAK Planning/LAK_draft/main.tex" 1787608130 112997 854d1cbe7f17d12fe1713132a3e089a3 ""
+  "c:/Users/Amer/Desktop/Git/Validity-Weighted-Attenuation/LAK Planning/LAK_draft/main.tex" 1787617372 120617 75469f4980f5b4ea532ca750ee4dee26 ""
   "header.png" 1787516512 81196 9778dd2402a71bb212046e45ff94a082 ""
-  "main.aux" 1787608138 20289 5070a6c3ff605d83a965fbc697db3a49 "pdflatex"
-  "main.bbl" 1787608135 31232 9cba599db96967f7c5d2b7437fad40b1 "bibtex main"
-  "main.out" 1787608138 9265 2b97000d6833ea5d24fea249a3e674d5 "pdflatex"
-  "main.tex" 1787608130 112997 854d1cbe7f17d12fe1713132a3e089a3 ""
+  "main.aux" 1787617375 20270 d45c18953eb0d095063372d0e8884b74 "pdflatex"
+  "main.bbl" 1787617334 31232 9cba599db96967f7c5d2b7437fad40b1 "bibtex main"
+  "main.out" 1787617375 9265 2b97000d6833ea5d24fea249a3e674d5 "pdflatex"
+  "main.tex" 1787617372 120617 75469f4980f5b4ea532ca750ee4dee26 ""
   (generated)
   "main.aux"
   "main.log"
