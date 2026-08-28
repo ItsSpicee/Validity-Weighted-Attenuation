@@ -33,6 +33,7 @@ Current counts: **8** `\todo`, **14** `\new`, **5** `\citeneeded`.
 6. **Remaining `\citeneeded` items** — 5 remain. Resolve each.
 7. **Strip all red text** — zero `\new`, `\todo`, `\citeneeded` should remain at submission. All are drafting scaffolding.
 8. **BERT introduction** — BERT is first used on line ~285 without being introduced.
+9. **RQ2 discussion paragraphs misaligned** — The paragraphs labeled `%%% VERBATIM -- source 6.1, RQ2 paragraphs` (lines ~826-830) answer the *old* RQ2 (describing CIV presence via SHAP baseline importance). The *new* RQ2 asks whether attenuation reduces CIV contribution while preserving relevant signals. The actual RQ2 answer is in the paragraphs currently labeled RQ3 (SHAP shifts, correlation changes, delta magnitudes). Realign during the cut phase.
 
 ### Cut phase (after all additions are in)
 

@@ -167,7 +167,7 @@ Leveraging large-scale SET data, sentiment analysis has increasingly been used t
 \begin{authcontent}
 \begin{description}[noitemsep]
 \item[RQ1.] How are topic-specific emotional signals associated with numerical ratings in open-ended teaching feedback?
-\item[RQ2.] How does validity-weighted attenuation change the modelled influence of emotion in content classified as pedagogically miscellaneous?
+\item[RQ2.] Can validity-weighted attenuation reduce the contribution of construct-irrelevant affect to numerical ratings while preserving relevant signals, under the taxonomy used in this study?
 \item[RQ3.] Does the mechanism exhibit behaviour consistent with its validity rationale on held-out instructors, expert-labelled comparisons, and robustness controls?
 \end{description}
 \end{authcontent}
@@ -266,7 +266,7 @@ Existing literature shows that CIV and other sources of noise systematically con
 
 Despite computational advances in SET analysis, existing studies remain largely descriptive. To the best of our knowledge, no prior work provides a transparent computational framework that leverages topic-level sentiment to identify and attenuate construct-irrelevant emotional content within the scope of defined taxonomy and mitigate the impact of CIV on SET ratings.
 
-We address this gap by introducing an interpretable ABSA framework combining clause-level aspect-term categorization, fine-grained emotion extraction, pedagogical density estimation, tree-based regression modelling, and validity-weighted attenuation. This framework estimates the contribution of pedagogical signal and affective noise to numerical ratings (RQ1), generates validity-weighted attenuated scores reflecting reduced influence of construct-irrelevant emotional content (RQ2), and offers initial proof-of-concept validation and robustness tests (RQ3). The resulting outputs are designed to enhance and support stakeholder interpretation of teaching feedback \cite{GasevicDawsonSiemens2015}.
+We address this gap by introducing an interpretable ABSA framework combining clause-level aspect-term categorization, fine-grained emotion extraction, pedagogical density estimation, tree-based regression modelling, and validity-weighted attenuation. This framework estimates the contribution of pedagogical signal and affective noise to numerical ratings (RQ1), tests whether validity-weighted attenuation can reduce the contribution of construct-irrelevant affect to ratings while preserving relevant signals (RQ2), and offers initial proof-of-concept validation and robustness tests (RQ3). The resulting outputs are designed to enhance and support stakeholder interpretation of teaching feedback \cite{GasevicDawsonSiemens2015}.
 
 %========================================================================================
 \section{Method}
