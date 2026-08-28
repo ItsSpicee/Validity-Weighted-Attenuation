@@ -41,15 +41,15 @@
 \centering
 \caption{Overall expert paired-comparison accuracy across values of $s$ (full sample). Coarse and fine bins are omitted because bin membership is itself a function of $s$.}
 \label{tab:sensitivity-expert}
-\begin{tabular}{lllll}
+\begin{tabular}{llllll}
 \toprule
-\$s\$ & Pairs & Correct & Accuracy & \$p\$ \\
+\$s\$ & Pairs & Overall & Coarse & Fine & \$p\$ \\
 \midrule
-0.3700 & 77 & 66 & 0.8571 & 0.0000 \\
-0.6200 & 77 & 67 & 0.8701 & 0.0000 \\
-0.9100 & 77 & 65 & 0.8442 & 0.0000 \\
-1.0000 & 77 & 62 & 0.8052 & 0.0000 \\
-1.2000 & 77 & 64 & 0.8312 & 0.0000 \\
+0.3700 & 77 & 0.8571 & 0.8776 & 0.8214 & 0.0000 \\
+0.6200 & 77 & 0.8701 & 0.8750 & 0.8621 & 0.0000 \\
+0.9100 & 77 & 0.8442 & 0.8667 & 0.8125 & 0.0000 \\
+1.0000 & 77 & 0.8052 & 0.8837 & 0.7059 & 0.0000 \\
+1.2000 & 77 & 0.8312 & 0.8810 & 0.7714 & 0.0000 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -63,6 +63,8 @@
 metric & observed & perm\_mean & perm\_sd & p\_value \\
 \midrule
 expert\_accuracy & 0.8052 & 0.6061 & 0.0464 & 0.0010 \\
+expert\_coarse & 0.8837 & 0.7891 & 0.1197 & 0.2328 \\
+expert\_fine & 0.7059 & 0.5772 & 0.0517 & 0.0070 \\
 pos\_pearson & 0.6872 & 0.2327 & 0.0291 & 0.0010 \\
 neg\_pearson & -0.7077 & -0.1579 & 0.0374 & 0.0010 \\
 \bottomrule

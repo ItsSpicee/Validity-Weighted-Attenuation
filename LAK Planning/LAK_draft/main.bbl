@@ -35,6 +35,39 @@ Bhowmik, A.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Butt%
+, N\'{u}\~{n}ez Daruich%
+, Alvarado-Uribe%
+\BCBL {}\ \BBA {} Ceballos%
+}{%
+Butt%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2025}}%
+}]{%
+Butt2025}
+\APACinsertmetastar {%
+Butt2025}%
+\begin{APACrefauthors}%
+Butt, S.%
+, N\'{u}\~{n}ez Daruich, S\BPBI D.%
+, Alvarado-Uribe, J.%
+\BCBL {}\ \BBA {} Ceballos, H\BPBI G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Cutting-edge Technologies for Analyzing Student Feedback
+  to Inform Institutional Decision-making in Higher Education} {Cutting-edge
+  technologies for analyzing student feedback to inform institutional
+  decision-making in higher education}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Foresight and STI Governance}{19}{4}{68--80}.
+\newblock
+\begin{APACrefDOI} \doi{10.17323/fstig.2025.28047} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Cronbach%
 }{%
 Cronbach%
@@ -181,6 +214,40 @@ Dowell, D\BPBI A.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Drachsler%
+\ \BBA {} Greller%
+}{%
+Drachsler%
+\ \BBA {} Greller%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+DrachslerGreller2016}
+\APACinsertmetastar {%
+DrachslerGreller2016}%
+\begin{APACrefauthors}%
+Drachsler, H.%
+\BCBT {}\ \BBA {} Greller, W.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Privacy and Analytics -- It's a {DELICATE} Issue: A
+  Checklist to Establish Trusted Learning Analytics} {Privacy and analytics --
+  it's a {DELICATE} issue: A checklist to establish trusted learning
+  analytics}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the Sixth International Conference on
+  Learning Analytics \& Knowledge} {Proceedings of the sixth international
+  conference on learning analytics \& knowledge}\ (\BPGS\ 89--98).
+\newblock
+\APACaddressPublisher{}{ACM}.
+\newblock
+\begin{APACrefDOI} \doi{10.1145/2883851.2883893} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Emery%
 , Kramer%
 \BCBL {}\ \BBA {} Tian%
@@ -208,6 +275,69 @@ Emery, C\BPBI R.%
 \APACjournalVolNumPages{Quality Assurance in Education}{11}{1}{37--46}.
 \newblock
 \begin{APACrefDOI} \doi{10.1108/09684880310462074} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ferguson%
+\ \BBA {} Clow%
+}{%
+Ferguson%
+\ \BBA {} Clow%
+}{%
+{\protect \APACyear {2017}}%
+}]{%
+FergusonClow2017}
+\APACinsertmetastar {%
+FergusonClow2017}%
+\begin{APACrefauthors}%
+Ferguson, R.%
+\BCBT {}\ \BBA {} Clow, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Where Is the Evidence? A Call to Action for Learning
+  Analytics} {Where is the evidence? a call to action for learning
+  analytics}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the Seventh International Learning
+  Analytics \& Knowledge Conference (LAK '17)} {Proceedings of the seventh
+  international learning analytics \& knowledge conference (lak '17)}\ (\BPGS\
+  56--65).
+\newblock
+\APACaddressPublisher{}{ACM}.
+\newblock
+\begin{APACrefDOI} \doi{10.1145/3027385.3027396} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ga\v{s}evi\'{c}%
+, Dawson%
+\BCBL {}\ \BBA {} Siemens%
+}{%
+Ga\v{s}evi\'{c}%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2015}}%
+}]{%
+GasevicDawsonSiemens2015}
+\APACinsertmetastar {%
+GasevicDawsonSiemens2015}%
+\begin{APACrefauthors}%
+Ga\v{s}evi\'{c}, D.%
+, Dawson, S.%
+\BCBL {}\ \BBA {} Siemens, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Let's Not Forget: Learning Analytics Are about Learning}
+  {Let's not forget: Learning analytics are about learning}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{TechTrends}{59}{1}{64--71}.
+\newblock
+\begin{APACrefDOI} \doi{10.1007/s11528-014-0822-x} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -590,6 +720,36 @@ Li, Y.%
 \APACjournalVolNumPages{BMC Medical Education}{25}{}{784}.
 \newblock
 \begin{APACrefDOI} \doi{10.1186/s12909-025-07300-w} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Lockyer%
+, Heathcote%
+\BCBL {}\ \BBA {} Dawson%
+}{%
+Lockyer%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2013}}%
+}]{%
+LockyerHeathcoteDawson2013}
+\APACinsertmetastar {%
+LockyerHeathcoteDawson2013}%
+\begin{APACrefauthors}%
+Lockyer, L.%
+, Heathcote, E.%
+\BCBL {}\ \BBA {} Dawson, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Informing Pedagogical Action: Aligning Learning
+  Analytics with Learning Design} {Informing pedagogical action: Aligning
+  learning analytics with learning design}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American Behavioral Scientist}{57}{10}{1439--1459}.
+\newblock
+\begin{APACrefDOI} \doi{10.1177/0002764213479367} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -1040,6 +1200,37 @@ Sunar, A\BPBI S.%
   Technologies}{16}{1}{1--14}.
 \newblock
 \begin{APACrefDOI} \doi{10.1109/TLT.2023.3330531} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Tsai%
+\ \BBA {} Martinez-Maldonado%
+}{%
+Tsai%
+\ \BBA {} Martinez-Maldonado%
+}{%
+{\protect \APACyear {2022}}%
+}]{%
+TsaiMartinezMaldonado2022}
+\APACinsertmetastar {%
+TsaiMartinezMaldonado2022}%
+\begin{APACrefauthors}%
+Tsai, Y\BHBI S.%
+\BCBT {}\ \BBA {} Martinez-Maldonado, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2022}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Human-Centered Approaches to Data-Informed Feedback}
+  {Human-centered approaches to data-informed feedback}.{\BBCQ}
+\newblock
+\BIn{} C.~Lang, G.~Siemens, A\BPBI F.~Wise, D.~Ga\v{s}evi\'{c}\BCBL {}\ \BBA {}
+  A.~Merceron\ (\BEDS), \APACrefbtitle {The Handbook of Learning Analytics}
+  {The handbook of learning analytics}\ (\PrintOrdinal{2}\ \BEd, \BPGS\
+  213--222).
+\newblock
+\APACaddressPublisher{Vancouver, Canada}{SoLAR}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%

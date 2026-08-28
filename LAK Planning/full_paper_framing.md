@@ -4,31 +4,14 @@
 
 **Validity-Weighted Attenuation of Affective Noise in Open-Ended Teaching Feedback: An Interpretable ABSA Framework**
 
-This deliberately avoids claiming that the method estimates *true teaching
-quality*. It says what the study demonstrates: a transparent way to change the
-modelled contribution of construct-irrelevant affect in rating-plus-text
-feedback.
-
-## Assessment of source manuscript (updated 2026-08-24)
-
-A full reading of the source manuscript confirms that the paper is **already
-epistemically careful** throughout its methods, results, and limitations. It
-consistently uses bounded language ("aims to generate," "seeks to mitigate,"
-"proof-of-concept," "tentative evidence"). The problematic spots are narrow —
-the conclusion's opening line and Section 6.3's deployment vision (paragraphs
-2–3) — not a systemic overclaiming problem. The LAK transformation is therefore
-**three targeted moves**, not a wholesale reframe. See `strategy.md` for the
-full assessment.
-
 ## Central claim
 
 Open-ended teaching feedback contains both pedagogically actionable evidence
-and broader affective student experience. Existing computational studies mostly
-describe or predict from this text. We introduce **validity-weighted
+and broader affective student experience. We introduce **validity-weighted
 attenuation**, an interpretable, clause-level method that proportionally
 attenuates the modelled contribution of affect in content classified as outside
-of a stated pedagogical taxonomy, while retaining the original review and a
-review-level audit trail.
+of a pedagogical taxonomy that stakeholders have the ability to control, while
+retaining the original review and a review-level audit trail.
 
 ## Research questions
 
@@ -42,306 +25,73 @@ of emotion in content classified as pedagogically miscellaneous?
 rationale on held-out instructors, expert-labelled comparisons, and robustness
 controls?
 
-RQ3 deliberately asks about *consistency with a rationale*, not recovery of
-true teaching effectiveness.
-
-## Full-paper outline (target: 12--14 JLA pages inclusive)
-
-### 1. Introduction (about 1.25 pages)
-
-#### 1.1 Open-ended teaching feedback as a learning-analytics trace
-
-Situate feedback as evidence used to understand and improve teaching. State the
-practical tension: ratings are concise and consequential, while accompanying
-text may mix instruction-relevant experience with other affective expression.
-
-#### 1.2 The unresolved methodological gap
-
-Prior NLP/ABSA work extracts sentiment, identifies topics, or predicts ratings;
-it does not operationalize a transparent validity-oriented rule for interpreting
-the relationship between text and a rating.
-
-#### 1.3 Contribution and boundaries
-
-List three contributions: (1) the attenuation mechanism, (2) its
-psychometric/validity rationale and audit trail, and (3) empirical proof of
-concept on a large, held-out-instructor sample with expert and robustness
-evidence. State upfront that it is not a measure of true teaching quality and
-is not proposed for automated high-stakes decisions.
-
-### 2. Background and conceptual framing (about 1.5 pages)
-
-#### 2.1 Validity, construct-irrelevant variance, and teaching feedback
-
-Use Messick, Marsh and Roche, Wongsurawat, and relevant SET literature to
-define the problem. Note: Marsh and Roche (1997) are *defenders* of SET
-validity — they argue SETs are multidimensional, reliable, and relatively
-valid, but condition this on well-designed instruments. Their contribution
-to this paper is the principle that validity depends on what an instrument
-elicits, that open-ended instruments offer no design guarantee on content
-composition, and that corrections must preserve valid variance ("throwing the
-validity baby out with the bias bathwater"). They justify the conservative,
-proportional attenuation design — not the claim that ratings are contaminated.
-Explain that validity concerns the interpretation and use of scores, not a
-property bestowed on a dataset or algorithm.
-
-#### 2.2 From descriptive NLP to validity-oriented interpretation
-
-Condense the computational SET/ABSA review to establish the gap. Keep only
-studies necessary to distinguish extraction/prediction from intervention on the
-modelled influence of content.
-
-#### 2.3 Design principle: attenuation rather than deletion
-
-Explain why the method preserves raw feedback and emotional expression, uses a
-bounded monotonic rule, and exposes each adjustment. State clearly that
-"Miscellaneous" means outside this study's taxonomy, **not** unimportant to
-the student experience.
-
-### 3. Method (about 3 pages)
-
-#### 3.1 Study context and data
-
-Describe the RMP corpus, filtering, final analytic corpus, and why RMP is used
-as a deliberately noisy stress-test rather than a proxy for institutional SET.
-
-#### 3.2 Clause-level representation
-
-##### 3.2.1 Clause extraction and pedagogical topic categorization
-
-Describe the three pedagogical topics plus Miscellaneous, embedding method,
-thresholding, and density calculation. Include the category table.
-
-##### 3.2.2 Emotion extraction
-
-Describe RoBERTa-GoEmotions outputs and topic-level aggregation.
-
-#### 3.3 Rating model and evaluation split
-
-Explain the feature matrix, CatBoost model, professor-level split and grouped
-cross-validation. Emphasize that no review from held-out professors was used in
-fitting.
-
-#### 3.4 Validity-weighted attenuation
-
-Give the fixed linear rule \(\zeta=1-D_{misc}\), the two model passes, and the
-rating-delta calculation. Do not mention exponent tuning or optimization.
-
-##### 3.4.1 Audit trail and worked examples
-
-Use one compact worked example or a small table tracing clauses to categories,
-density, attenuation, and delta. This is where interpretability becomes
-concrete.
-
-#### 3.5 Evaluation strategy
-
-##### 3.5.1 Model behaviour
-
-Held-out predictive performance; feature/correlation changes and delta patterns.
-
-##### 3.5.2 Initial validity evidence
-
-Expert paired comparisons, consensus rule, uncertainty intervals, and
-inter-rater agreement. Include only final, rerun figures.
-
-##### 3.5.3 Robustness controls
-
-Fixed-positive-density permutation control and the fixed-rule sensitivity/
-robustness evidence selected after the final rerun.
-
-### 4. Results (about 2.25 pages)
-
-#### 4.1 Corpus and model behaviour
-
-Report corpus composition, held-out performance, and which topic-emotion
-features drive ratings.
-
-#### 4.2 What attenuation changes
-
-Report the proportion affected, delta distribution, correlation/feature shifts,
-and one or two contrasting examples. Use careful language: these are changes to
-modelled contributions and ratings, not direct evidence of true quality.
-
-#### 4.3 Initial validity and robustness evidence
-
-Report multi-expert consensus accuracy with Wilson intervals, Fleiss' kappa,
-and final permutation/sensitivity results. Explain the 77 evaluable pairs and
-the three unmatched pairs once, transparently.
-
-### 5. Discussion (about 1.5 pages)
-
-#### 5.1 A new validity-oriented analytic primitive
-
-Argue the contribution is an operational mechanism joining topic relevance to
-the use of affective signals, rather than another sentiment classifier.
-
-#### 5.2 Implications for responsible interpretation of teaching feedback
-
-**DRAFTED.** Three stakeholder scenarios: (1) educator/teaching-support staff —
-structured reading aid, not a corrected score; taxonomy awareness as
-prerequisite; (2) platform responsibility — duty of care sits with the platform,
-not the student; outputs enabling discrimination by instructor identity should
-not be surfaced without governance; (3) student — topic-level decomposition
-helps interpret ratings. Raw data preservation principle. Bridge sentence to
-§5.3. Cite Lockyer et al. (2013).
-
-#### 5.3 Boundaries, risks, and non-use
-
-**DRAFTED.** Five paragraphs: (1) not a validated estimate of teaching quality;
-not a substitute for reading the review; (2) platform responsibility and
-governance; (3) automated calculation ≠ automated deployment; (4) unaddressed
-bias sources (gender, race, popularity) — more information can create false
-confidence; (5) auditability has limits — the attenuation rule is transparent but
-upstream components (RoBERTa, ATC embeddings, CatBoost) are partially or fully
-opaque; responsible use requires understanding where the audit trail ends.
-
-### 6. Limitations and future work (about 0.75 pages)
-
-#### 6.1 Evidence limits
-
-Single noisy platform, no external criterion of teaching quality, incomplete
-topic taxonomy, and initial expert-validation sample.
-
-#### 6.2 Method limits
-
-Hard topic assignments, density as a relevance proxy, and the all-Miscellaneous
-collapse point.
-
-### 7. Conclusion (about 0.35 pages)
-
-Restate the bounded contribution: a transparent proof of concept for
-validity-weighted interpretation of rating-plus-text teaching feedback.
-
-### Notes for Practitioners (required JLA element; about 0.25 pages)
-
-**Users:** instructors and teaching/learning support staff interpreting open
-feedback.
-
-**Use:** inspect a review's original text, topics, and adjustment trail; use it
-to distinguish potentially actionable pedagogical feedback from other student
-experience signals.
-
-**Do not use:** automated ranking, promotion, tenure, discipline, or any
-high-stakes judgment about an instructor.
-
-**Interpretation:** an attenuated value is a model-based alternative view under
-a stated relevance taxonomy; it is not a validated estimate of teaching quality.
-
-## What can transfer from the existing manuscript
-
-*Updated 2026-08-24: the source paper is more careful than this table originally
-assumed. Most body prose transfers cleanly; the "Revise" and "Rewrite" decisions
-below are corrected to reflect the narrow scope of actual changes needed.*
-
-| Existing material | Transfer decision | LAK treatment |
-| --- | --- | --- |
-| Introductory account of SET contamination and the three original RQs | **Mostly copy** | The body prose is already careful. The one sentence to fix is "misrepresents true teaching effectiveness" in paragraph 1. The RQs are lightly reworded for LAK (RQ3 asks about "consistency with a rationale"). |
-| Contribution bullets in the introduction | **Revise** | Preserve the three contribution categories but foreground learning-analytics interpretation, auditability, and boundaries. |
-| `Literature Review > SET Contamination` | **Mostly copy, then cut** | Directly reusable evidence and citations; reduce to the two or three paragraphs needed for the validity problem. |
-| `Literature Review > Computational SET Analysis` | **Revise heavily** | Keep only the progression needed to establish that prior work is descriptive/predictive; remove broad model-by-model history. |
-| `Literature Review > Computational Validity Analysis` | **Mostly copy, then cut** | Retain direct comparison to work that finds bias or adjusts scores, making the mechanism gap explicit. |
-| `Literature Review > Psychometric Validity & Explainable Intervention` | **Copy-ready core** | The Messick/Cronbach/Huber rationale is the theoretical spine. Copy the strongest passages, then add the caveat that relevance classification is a design choice. |
-| Dataset, cleaning, corpus description, and descriptive figures | **Copy-ready factual core** | Update only for JLA formatting and concise presentation. Keep the corrected 17,127-review count consistent everywhere. |
-| ATC, emotion, regression, and attenuation methods | **Copy-ready factual core** | Transfer equations, implementation details, category definitions, and professor-level-split justification. Delete all obsolete exponent-selection language. |
-| Pseudocode and worked examples | **Copy selectively** | Use the pseudocode if it fits; retain only one compact, high-value worked example in the main paper. Move extra examples to supplement/repository if allowed. |
-| Regression, SHAP, correlation, and delta results | **Revise / verify** | Reuse final figures/tables only after confirming they match the fixed linear rule and final regenerated outputs. Avoid a figure gallery. |
-| Expert-validation results | **Do not copy yet** | Replace entirely with final multi-expert consensus, Wilson intervals, Fleiss' kappa, and the clear 77/80 accounting. |
-| Robustness material | **Do not copy yet** | Use only final post-correction results from the fixed-positive-density permutation design. |
-| Discussion §6.1–6.2 (RQ interpretation) | **Mostly copy** | The interpretive readings of results are already careful and transfer cleanly. No claim of "recovered truth" to fix here. |
-| Discussion §6.3 (Practical Implications) | **Do not copy paragraphs 2–3** | These propose automated platform deployment and institutional SET processing — the wrong direction for LAK. Replace with §5.2 (responsible interpretation by educators) and §5.3 (non-use). Paragraph 1 (theoretical implications) transfers fine. |
-| Discussion §6.4 (Interpretability) | **Mostly copy** | Already makes the auditability argument; reframe as contestability for LAK. |
-| Conclusion | **Rewrite** | Opening line claims "better reflect actual pedagogical quality" — the one clear overclaim. Restate as bounded proof of concept. |
-| Limitations and future work | **Mostly copy, then prioritize** | The honest limitations are valuable and already well-written. Cut proposals that consume space; elevate external-criterion and taxonomy limitations. |
-| Ethical considerations and data/code availability | **Copy-ready with de-identification check** | Preserve REB/exemption and access statements, ensuring double-blind wording and repository visibility follow submission rules. |
-
-## Material that must not enter the LAK draft unchanged
-
-*Updated 2026-08-24: the source paper's body prose is already careful. The
-"actual teaching quality" issue is confined to two specific locations (the
-conclusion opening and §6.3 deployment paragraphs), not spread throughout.*
-
-- **Conclusion opening line**: "producing adjusted numerical ratings that aim to
-  better reflect actual pedagogical quality." This is the one clear overclaim.
-- **Section 6.3, paragraphs 2–3**: proposes automated deployment on
-  student-facing platforms and institutional SET processing. Replace with the
-  LAK framing (educator interpretation tool, not automated system).
-- **Introduction paragraph 1, final sentence**: "misrepresents true teaching
-  effectiveness" — reword to match the bounded claim.
-- Any statement that Miscellaneous content is inherently irrelevant,
-  unimportant, or invalid student voice.
-- Exponent tuning, grid-search, or old `s=0.83` descriptions/results. The
-  operative method is fixed and linear (`S_VALUE = 1.0`).
-- Superseded robustness results in `newresults.md`.
-- Single-expert results presented as the final validation evidence once the
-  consensus analysis is available.
-- Identifying institutional/author information, acknowledgements, or a public
-  repository link in the double-blind version.
+## Full-paper outline (target: 12–14 JLA pages inclusive)
+
+### 1. Introduction (~1.25 pages)
+- 1.1 Open-ended teaching feedback as an LA trace
+- 1.2 The unresolved methodological gap
+- 1.3 Contribution and boundaries
+
+### 2. Background (~1.5 pages)
+- 2.1 Validity, CIV, and teaching feedback
+- 2.2 From descriptive NLP to validity-oriented interpretation
+- 2.3 Design principle: attenuation rather than deletion
+- 2.4 Research gap
+
+### 3. Method (~3 pages)
+- 3.1 Study context and data
+- 3.2 Clause-level representation (ATC + emotion)
+- 3.3 Rating model and evaluation split
+- 3.4 Validity-weighted attenuation + audit trail
+- 3.5 Evaluation strategy
+
+### 4. Results (~2.25 pages)
+- 4.1 Corpus and model behaviour
+- 4.2 What attenuation changes
+- 4.3 Initial validity and robustness evidence
+  - 4.3.1 Expert paired comparisons (multi-expert consensus — pending)
+  - 4.3.2 Permutation control (written)
+
+### 5. Discussion (~1.5 pages)
+- 5.1 A validity-oriented analytic primitive
+- 5.2 Responsible interpretation (drafted)
+- 5.3 Boundaries, risks, and non-use (drafted)
+
+### 6. Limitations and future work (~0.75 pages)
+
+### 7. Conclusion (~0.35 pages) — DRAFTED
+
+### Notes for Practitioners (~0.25 pages)
+
+## Page budget
+
+| Section | Current | Target | Over by |
+|---|---|---|---|
+| Front matter + §1 | 2.5 | 1.75 | +0.75 |
+| §2 Background | 2.3 | 1.5 | +0.8 |
+| §3 Method | 5.5 | 3.0 | **+2.5** |
+| §4 Results | 6.0 | 2.25 | **+3.75** |
+| §5 Discussion | ~3.5 | 1.5 | +2.0 |
+| §6 Limitations | 1.0 | 0.75 | +0.25 |
+| §7 Conclusion | 0.35 | 0.35 | — |
+| References | ~2.6 | 2.6 | — |
+
+**~9.2 pages must be cut.** Results and Method account for ~6.25 of them.
+Results is worst because prose narrating cut figures was retained.
+
+## Material that must not enter the LAK draft
+
+- Conclusion opening overclaim ("actual pedagogical quality") — rewritten
+- §6.3 automated deployment paragraphs — not transferred; replaced by §5.2/5.3
+- "misrepresents true teaching effectiveness" in intro — flagged for rewording
+- Any statement that Miscellaneous content is unimportant
+- Exponent tuning / grid-search / old s=0.83 language
+- Single-expert figures presented as final (once consensus available)
+- Identifying information in double-blind version
 
 ## Drafting rule
 
 For every claim, distinguish among:
-
-1. **Observed:** a result in this corpus;
-2. **Modelled:** a change produced by the specified method; and
-3. **Aspirational:** a potential future validation or application.
-
-This distinction will protect the paper's credibility while allowing the
-methodological novelty to remain the centre of the submission.
-
-## Citation strategy: add a lean LAK anchor, not a new literature review
-
-The current bibliography is already strong on SET validity, psychometrics, and
-NLP/ABSA. The LAK draft needs a small number of learning-analytics citations so
-the work is visibly situated in the field. Add the following sources only where
-they advance an argument; do not pad the bibliography.
-
-| Source | Where to cite it | Function in the paper |
-| --- | --- | --- |
-| Gašević, Dawson, & Siemens (2015), *Let's Not Forget: Learning Analytics Are about Learning* | Introduction, Section 1.1 | Establishes that LA must connect analytical work to learning and teaching, not only computational performance. |
-| Lockyer, Heathcote, & Dawson (2013), *Informing Pedagogical Action: Aligning Learning Analytics with Learning Design* | Introduction or Discussion 5.2 | Grounds the claim that the intended contribution is more cautious pedagogical interpretation/action. |
-| Ferguson & Clow (2017), *Where Is the Evidence? A Call to Action for Learning Analytics* | Discussion 5.1 and Limitations 6.1 | Supports the bounded proof-of-concept framing; this paper provides initial method evidence, not an evaluated intervention. |
-| Drachsler & Greller (2016), *Privacy and Analytics: It's a DELICATE Issue* | Discussion 5.3 / Notes for Practitioners | Supports transparency, stated purpose, stakeholder access, and governance. |
-| Prinsloo & Slade, *Ethics and Learning Analytics: Charting the (Un)Charted* | Discussion 5.3 | Supports non-use, possible harms, and contestability in institutional interpretation of data. |
-| Tsai & Martinez-Maldonado (2022), *Human-centered Approaches to Data-informed Feedback* | Discussion 5.2 (optional) | Supports the human-in-the-loop framing: the method assists sensemaking, not judgment automation. |
-
-Suggested LAK-anchoring paragraph for the introduction:
-
-> Learning analytics concerns the interpretation of educational data to
-> understand and improve learning and teaching contexts. Its contribution
-> therefore depends not only on analytical performance, but also on its
-> connection to pedagogical action, stakeholder interpretation, and responsible
-> use. In this study, we treat open-ended teaching feedback as a trace requiring
-> cautious, auditable interpretation rather than as a direct measure of
-> instructor quality.
-
-Use the first, second, and fourth sources in that paragraph or its surrounding
-sentences. Cite Ferguson and Clow in the limitations rather than pretending the
-paper demonstrates intervention impact.
-
-If space is needed, remove broad, model-by-model computational SET citations
-before cutting the core SET-validity, psychometric, or LAK-anchor citations.
-
-### Essential adjacent-method citations
-
-Use these two papers in Section 2.2 (*From descriptive NLP to validity-oriented
-interpretation*). **Ren et al. (2022) is already in the manuscript bibliography:**
-retain it and make its contrast more explicit. Add Butt et al. (2025). Neither is
-a threat to the paper's contribution; together they make the gap concrete and
-credible.
-
-| Source | What it establishes | Precise contrast to state |
-| --- | --- | --- |
-| Ren, Yang, & Luo (2022), *Automatic Scoring of Student Feedback for Teaching Evaluation Based on Aspect-Level Sentiment Analysis*, *Education and Information Technologies*, 28, 797--814. https://doi.org/10.1007/s10639-022-11151-z | Aspect-level sentiment analysis can turn free-text SET comments into aspect scores and richer feedback. | The method extracts and aggregates aspect sentiment; it does not use the relevance of text to proportionally attenuate the modelled contribution of affect to an accompanying numerical rating. |
-| Butt, Núñez-Daruich, Alvarado-Uribe, & Ceballos (2025), *Cutting-Edge Technologies for Analyzing Student Feedback to Inform Institutional Decision-Making in Higher Education*, *Foresight and STI Governance*, 19(4), 68--80. https://doi.org/10.17323/fstig.2025.28047 | Modern ABSA/LLM systems can segment and classify SET opinions into pedagogical aspects for actionable insight. | The framework produces structured insights; it does not propose or evaluate a validity-weighted, review-specific rule for recalibrating the modelled role of affect in ratings. |
-
-Suggested transition sentence:
-
-> Recent aspect-based approaches demonstrate that open-ended teaching feedback
-> can be segmented and organized into pedagogical aspects. However, extracting
-> structured sentiment is not itself a validity intervention: these approaches do
-> not specify how the pedagogical relevance of a clause should change the
-> contribution of its affective content when interpreting the numerical rating
-> that accompanies it.
-
-Follow this sentence with Ren et al. (2022) and Butt et al. (2025), then present
-validity-weighted attenuation as the response to this unaddressed question.
+1. **Observed:** a result in this corpus
+2. **Modelled:** a change produced by the specified method
+3. **Aspirational:** a potential future validation or application

@@ -17,24 +17,16 @@
 %   Text taken verbatim from LAK Planning/full_paper_framing.md is marked
 %   [FROM FRAMING DOC].
 %
-% MARKERS -- all four render RED in the PDF, so nothing that is not your own
-% verbatim text can appear as ordinary black body copy.
+% MARKERS -- \todo and \citeneeded identify remaining submission dependencies;
+% \new and \auth preserve provenance in the rendered PDF.
 %
 %   \todo{...}        red bold [TODO: ...]  -- action needed
-%   \new{...}         red text              -- NOT verbatim from the source
-%                                              manuscript: either added by me or
-%                                              reworded. Approve or replace.
-%   \begin{newcontent}...\end{newcontent}   -- same, for multi-paragraph blocks
+%   \new{...}         red text -- reworded or newly drafted text
+%   \begin{newcontent}...\end{newcontent}   red multi-paragraph content
+%   \auth{...}        blue text -- author-drafted text
 %   \citeneeded{...}  red text              -- citation not yet in references.bib
 %
-% Black body text = verbatim from the source manuscript.
-% Red body text   = not verbatim; your call.
-%
-% Pure deletions are NOT marked (e.g. dropping "As shown in Table 3," when the
-% table is cut), since cutting was part of the brief. Only additions and
-% rewordings are marked.
-%
-% Grep for PLACEHOLDER, \todo, \new, and \citeneeded to find everything outstanding.
+% Grep for \todo and \citeneeded to find outstanding work.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[fleqn,10pt]{JLA_article}
@@ -81,6 +73,7 @@
 \newcommand{\new}[1]{\textcolor{red}{#1}}
 \newenvironment{newcontent}{\color{red}}{\normalcolor}
 \newcommand{\auth}[1]{\textcolor{blue}{#1}}
+\newenvironment{authcontent}{\color{blue}}{\normalcolor}
 %----------------------------------------------------------------------------------------
 %	ARTICLE INFORMATION
 %----------------------------------------------------------------------------------------
@@ -91,7 +84,7 @@
 \Authors{Anonymous Author(s)}
 \affiliation{\textsuperscript{1}\textit{Author affiliation withheld for double-blind review.}}
 
-\Keywords{\todo{Keywords. Suggested pool, not yet fixed: learning analytics; teaching feedback; validity; construct-irrelevant variance; aspect-based sentiment analysis; interpretability.}}
+\Keywords{learning analytics; teaching feedback; validity; construct-irrelevant variance; aspect-based sentiment analysis; interpretability}
 
 \Submitted{--/--/--}
 \Accepted{--/--/--}
@@ -104,13 +97,8 @@
 
 %----------------------------------------------------------------------------------------
 %	NOTES FOR PRACTICE  --  required JLA element
-%----------------------------------------------------------------------------------------
+%-------------------------  ---------------------------------------------------------------
 \Notesname{Notes for Practice}
-
-%%% [FROM FRAMING DOC] -- "Notes for Practitioners" section, verbatim.
-%%% Framing doc supplies four items (Users / Use / Do not use / Interpretation);
-%%% they are placed here unedited. \todo: confirm four notes is acceptable and
-%%% that no rewording is wanted for the \note{} box format.
 
 \note{\new{\textbf{Users:} instructors and teaching/learning support staff interpreting open feedback.}}
 
@@ -155,76 +143,41 @@
 \addcontentsline{toc}{section}{Introduction}
 %========================================================================================
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Framing doc transfer decision for the introduction: REVISE.
-%   "Retain the problem and citations, but replace claims about improving
-%    'actual teaching effectiveness' with the bounded central claim."
-%
-% Handled as follows: the source paragraphs are transferred VERBATIM below
-% because their problem statement and citations are the part being retained.
-% Each spot where the source makes a banned claim is flagged in place with a
-% \todo rather than silently reworded.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \subsection{Open-Ended Teaching Feedback as a Learning-Analytics Trace}
 
-%%% PLACEHOLDER -- LAK anchoring. [FROM FRAMING DOC], suggested paragraph, verbatim.
-%%% Framing doc: cite Gasevic/Dawson/Siemens (2015), Lockyer et al. (2013), and
-%%% Drachsler & Greller (2016) in this paragraph or its surrounding sentences.
-%%% None are in references.bib yet.
-
-\auth{Open-ended teaching feedback is a widely available but analytically underspecified data source. When numerical ratings are accompanied by text, nothing specifies how the content of that text should shape interpretation of the rating. To this extent, any method that attempts to analytically inform stakeholders of the validity of such feedback, must operate under cautious and auditable interpretation. \citeneeded{Ga\v{s}evi\'{c}, Dawson, \& Siemens, 2015; Lockyer, Heathcote, \& Dawson, 2013; Drachsler \& Greller, 2016}}
+\auth{Open-ended teaching feedback is a widely available but analytically underspecified data source. When numerical ratings are accompanied by text, nothing specifies how the content of that text should shape interpretation of the rating. To this extent, any method that attempts to analytically inform stakeholders of the validity of such feedback must operate under cautious and auditable interpretation.}
 \auth{However, open-ended teaching feedback presents a particular challenge for validity-oriented interpretation and current methods have been limited to primarily descriptive approaches.}
 %%% VERBATIM -- source Introduction, paragraph 1.
 Sentiment analysis on Student Evaluations of Teaching (SET) is a popular area for the development of computational and statistical techniques to gain insights into the features of student experiences, as well as feedback for institutions and faculty. SET has historically been used as an evaluative tool to inform and guide consequential administrative decisions for academic institutions \cite{Haskell1997,Simpson2000,Irons2011}. Despite this widespread usage, SET validity remains contested, with a long-running debate over the extent to which ratings reflect teaching effectiveness rather than extraneous influences \cite{Langbein1994,MarshRoche1997}. Situational factors, irrelevant content, and affective noise can act as contaminants, threatening the validity of SET as a measure of instructional experience and quality \cite{Wongsurawat2011,Schiekirka2015}. Informal SET instruments such as RateMyProfessors.com (RMP) exhibit exacerbated contamination, due to being fully open-ended, anonymized and largely unmoderated. Thus, interpreting and acting on SET results without accounting for contamination \auth{risks misinforming stakeholders who interpret and act on these results} and impacts faculty assessment \cite{Haskell1997,Wongsurawat2011,Zumbach2014}.
 
-\todo{Final sentence above contains ``misrepresents true teaching effectiveness'', which the framing doc lists as material that must not enter the LAK draft unchanged. Reword or cut before submission. Left verbatim here so the replacement is yours.}
-
 %%% VERBATIM -- source Introduction, paragraph 2.
 As summarized by \citeA{Emery2003}, drawing on \citeA{Dowell1983}, the systemic existence of these situational variables so thoroughly contaminates the validity of self-reported student learning and teacher effectiveness indices, that they can only be considered a measure of student satisfaction, rather than legitimate actionable feedback.
+
+\auth{Because a numerical rating collapses numerous distinct sources of student expression into a single value, it cannot by itself reveal what is driving its interpretation. The accompanying review provides a multifaceted trace through which those sources can be examined. This study focuses on that examination by treating open-ended teaching feedback as a learning-analytics trace.}
 
 \subsection{The Unresolved Methodological Gap}
 
 %%% VERBATIM -- source Introduction, paragraph 3.
-%%% \todo below flags the two banned claims inside it.
-Leveraging large-scale SET data, sentiment analysis has increasingly been used to analyze SET results, ranging from lexicon-based to deep learning and aspect-level models \cite{Sunar2023,Bhowmik2023}. Despite advances in computational SET analysis, existing research remains largely descriptive. Sentiments are extracted, patterns identified, but ratings are never intervened upon. As a result, contamination documented in the literature continues to distort the numerical ratings that institutions and students rely on. We introduce a validity-weighted attenuation framework that directly adjusts SET ratings to mitigate the influence of construct-irrelevant emotional content. This methodology enables inspection of the framework's outputs and rating-adjustment process in a consequential application where important criteria cannot be fully specified \cite{DoshiVelez2017}, and where analytical outputs must connect to pedagogical interpretation and action (Lockyer et al., 2013).. SET represents an ideal domain for this work: ratings are consequential, contamination is well-documented, and informal platforms like RMP (being fully anonymous and unmoderated) represent a demanding stress test for validity-aware frameworks. The present work aims to establish a foundation for future validity-aware approaches in both informal and formal SET contexts, where interpretability is essential given growing concerns about reliance on black-box systems \cite{Rybinski2021,Zhuang2025}. Findings from this research may also offer insights applicable to any open-ended feedback domain where numerical ratings are accompanied by unmoderated textual reviews.
+Leveraging large-scale SET data, sentiment analysis has increasingly been used to analyze SET results, ranging from lexicon-based to deep learning and aspect-level models \cite{Sunar2023,Bhowmik2023}. Despite advances in computational SET analysis, existing research remains largely descriptive. Sentiments are extracted, patterns identified, but ratings are never intervened upon. As a result, contamination documented in the literature continues to distort the numerical ratings that institutions and students rely on. We introduce a validity-weighted attenuation framework that directly adjusts SET ratings to mitigate the influence of construct-irrelevant emotional content. This methodology enables inspection of the framework's outputs and rating-adjustment process in a consequential application where important criteria cannot be fully specified \cite{DoshiVelez2017}, and where analytical outputs must connect to pedagogical interpretation and action. SET represents an ideal domain for this work: ratings are consequential, contamination is well-documented, and informal platforms like RMP (being fully anonymous and unmoderated) represent a demanding stress test for validity-aware frameworks. The present work aims to establish a foundation for future validity-aware approaches in both informal and formal SET contexts, where interpretability is essential given growing concerns about reliance on black-box systems \cite{Rybinski2021,Zhuang2025}. Findings from this research may also offer insights applicable to any open-ended feedback domain where numerical ratings are accompanied by unmoderated textual reviews.
 
-\todo{Framing doc requires the gap to be stated as a \emph{methodological} gap, led ahead of the platform. Decide whether the paragraph above is repositioned or partly replaced by new text; it is transferred verbatim so the decision stays yours.}
+\auth{Open-ended teaching feedback contains both pedagogically actionable evidence and broader affective student experience. Existing computational studies mostly describe or predict from this text. We introduce \textbf{validity-weighted attenuation}, an interpretable, clause-level method that proportionally attenuates the modelled contribution of affect in content classified as outside of a stated pedagogical taxonomy that stakeholders have the ability to control, while retaining the original review and a review-level audit trail.}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PLACEHOLDER -- CENTRAL CLAIM
-% [FROM FRAMING DOC] the central claim is stated verbatim below. Decide whether
-% it stands as its own paragraph here or is folded into the paragraph above.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\auth{\textbf{Research Questions:}}
 
-\new{Open-ended teaching feedback contains both pedagogically actionable evidence and broader affective student experience. Existing computational studies mostly describe or predict from this text. We introduce \textbf{validity-weighted attenuation}, an interpretable, clause-level method that proportionally attenuates the modelled contribution of affect in content classified as outside of a stated pedagogical taxonomy, while retaining the original review and a review-level audit trail.}
-
-%%% [FROM FRAMING DOC] -- research questions, verbatim from the framing doc but
-%%% NOT from the source manuscript. These replace the three source RQs entirely.
-%%% Marked red accordingly.
-
-\new{\textbf{Research Questions:}}
-
-\begin{newcontent}
+\begin{authcontent}
 \begin{description}[noitemsep]
 \item[RQ1.] How are topic-specific emotional signals associated with numerical ratings in open-ended teaching feedback?
 \item[RQ2.] How does validity-weighted attenuation change the modelled influence of emotion in content classified as pedagogically miscellaneous?
 \item[RQ3.] Does the mechanism exhibit behaviour consistent with its validity rationale on held-out instructors, expert-labelled comparisons, and robustness controls?
 \end{description}
-\end{newcontent}
+\end{authcontent}
 
-%%% [FROM FRAMING DOC] -- not from the source manuscript.
 \new{RQ3 deliberately asks about \emph{consistency with a rationale}, not recovery of true teaching effectiveness.}
 
 %%% VERBATIM -- source Introduction, paragraph 4.
-To answer our research questions, we develop and apply a five-stage NLP framework to 17,127 RMP student evaluations using clause-level aspect-term categorization, fine-grained emotion extraction, pedagogical density estimation, tree-based regression modelling, and validity-weighted attenuation. Rather than excluding emotional expression, the framework proportionally down-weights content \auth{classified outside of the stated pedagogical taxonomy}, preserving student evaluative intent while improving the signal-to-noise ratio of numerical ratings. Adjustments are auditable and grounded in textual evidence provided by the student, minimizing reliance on black-box systems where interpretability is most critical. 
+To answer our research questions, we develop and apply a five-stage NLP framework to 17,127 RMP student evaluations using clause-level aspect-term categorization, fine-grained emotion extraction, pedagogical density estimation, tree-based regression modelling, and validity-weighted attenuation. Rather than excluding emotional expression, the framework proportionally down-weights content \auth{classified outside of the stated pedagogical taxonomy}, preserving student evaluative intent while improving the signal-to-noise ratio of numerical ratings. Adjustments are auditable and grounded in textual evidence provided by the student, minimizing reliance on black-box systems. 
 
 \subsection{Contribution and Boundaries}
-
-%%% VERBATIM -- source contribution bullets.
-%%% Framing doc: REVISE -- "Preserve the three contribution categories but
-%%% foreground learning-analytics interpretation, auditability, and boundaries."
-%%% Transferred unchanged; the reframing is left as the \todo below.
 
 \noindent The primary contributions of this research are:
 \begin{itemize}
@@ -232,26 +185,10 @@ To answer our research questions, we develop and apply a five-stage NLP framewor
 
     \item A theoretically grounded design bridging Messick's \citeyear{Messick1995} unified validity theory with classical reliability and robust estimation principles \cite{Cronbach1951,Huber1964}, translating established psychometric justifications into a concrete computational mechanism and laying groundwork for future validity-aware frameworks.
 
-    \item \auth{Initial empirical proof-of-concept validation on a large held-out intructors set, with expert and robustness evidence.}
+    \item Initial empirical proof-of-concept validation on a large held-out-instructor sample, with expert and robustness evidence.
 \end{itemize}
 
-\todo{Framing doc, Section 1.3: the third contribution should become ``empirical proof of concept on a large, held-out-instructor sample with expert and robustness evidence'', and the auditability point folded into contribution two. Rewrite the three bullets to foreground learning-analytics interpretation, auditability, and boundaries.}
-
-\auth{This framework demonstrates that construct-irrelevant variance, as defined by the stated pedagogical taxonomy, can be attenuated in an interpretable manner, empowering stakeholders with additional information for cautious interpretation of teaching feedback. The resulting adjustments are not validated estimates of teaching quality, and the framework is not proposed for automated high-stakes personnel decisions such as ranking, tenure, or promotion.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PLACEHOLDER -- BOUNDARY STATEMENT
-% Framing doc, Section 1.3: "State upfront that it is not a measure of true
-% teaching quality and is not proposed for automated high-stakes decisions."
-% New paragraph required; nothing in the source manuscript states this at this
-% position, so nothing has been transferred.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\todo{Write the up-front boundary paragraph: not a measure of true teaching quality; not proposed for automated high-stakes personnel decisions; \emph{Miscellaneous} means outside this study's taxonomy, not unimportant to the student experience.}
-
-%%% VERBATIM -- source paper-structure paragraph, adapted only by deletion of the
-%%% section numbers that no longer exist.
-\todo{Rewrite the ``subsequent sections are structured as follows'' paragraph against the final LAK section numbering, or cut it for space.}
+\auth{This framework demonstrates that construct-irrelevant variance, as defined by the stated pedagogical taxonomy, can be attenuated in an interpretable manner, empowering stakeholders with additional information for cautious interpretation of teaching feedback \cite{TsaiMartinezMaldonado2022}. Content classified as \emph{Miscellaneous} falls outside this study's taxonomy; it is not thereby unimportant to the student experience. The resulting adjustments are not validated estimates of teaching quality and are not proposed for automated high-stakes personnel decisions such as ranking, tenure, or promotion; an audit trail alone does not provide the governance required for such use \cite{DrachslerGreller2016}.}
 
 %========================================================================================
 \section{Background and Conceptual Framing}
@@ -264,20 +201,18 @@ To answer our research questions, we develop and apply a five-stage NLP framewor
 %%% rationale is the theoretical spine."
 \citeA{Messick1995} identifies two primary threats to validity in assessment systems: construct underrepresentation and construct-irrelevant variance (CIV). Construct underrepresentation occurs when an assessment fails to adequately capture the dimensions of the construct it is intended to measure. Messick does not address student feedback systems by name; however, his unified theory explicitly extends to any assessment in which observed behaviors or responses are coded or summarized into scores, a formulation that directly encompasses SET. These validity threats are particularly pronounced when collected using informal and anonymous devices such as RMP.
 
-%%% VERBATIM -- source 2.1 "SET Contamination", paragraphs 2-4.
-%%% Framing doc: "Mostly copy, then cut" -- reduced to the paragraphs needed to
-%%% establish the validity problem. Kechaou/Rajput-era detail cut entirely.
-\citeA{MarshRoche1997} scrutinize the validity, bias and utility of SET in a comprehensive review. They conclude that under appropriate conditions, SET are multidimensional, reliable, and relatively valid against a variety of indicators of effective teaching. However, they condition this validity on the content and the coverage of the evaluation items, indicating that ``scores averaged across an ill-defined assortment of items offer no basis for knowing what is being measured'' (p. 1187). Validity is therefore treated as a property of the content an instrument elicits rather than of the instrument itself. Under this criterion, unconstrained and open-ended instruments offer no design guarantee on the composition of the content they collect.
+\auth{Within the SET literature, this concern is well established.} \citeA{MarshRoche1997} scrutinize the validity, bias and utility of SET in a comprehensive review. They conclude that under appropriate conditions, SET are multidimensional, reliable, and relatively valid against a variety of indicators of effective teaching. However, they condition this validity on the content and the coverage of the evaluation items, indicating that ``scores averaged across an ill-defined assortment of items offer no basis for knowing what is being measured'' (p. 1187). Validity is therefore treated as a property of the content an instrument elicits rather than of the instrument itself. Under this criterion, unconstrained and open-ended instruments offer no design guarantee on the composition of the content they collect.
 
 \citeA{Wongsurawat2011} analyzes the value of open-ended SET feedback and proposes a conceptual framework for classifying comments. The author suggests that some students do not put sufficient thought and effort into evaluating their instructors. Importantly, white noise, or pedagogically irrelevant content, is identified as a source of measurement error in SET instruments. A conceptual four-quadrant framework comparing the correlation of subjective and objective comments to class averages is proposed to judge the reliability and representativeness of SET feedback. Wongsurawat indicates that comments that have little to no correlation with average evaluations should be discounted, and that administrators would benefit from metrics quantifying comment quality and reliability.
 
 \citeA{Li2025} conduct a qualitative study using semi-structured interviews with medical students. Thematic analysis reveals that emotional interactions between teachers and students may lead students to overlook the actual quality of teaching. They suggest that teaching evaluations are not only feedback directed to pedagogical experiences, but also reflections of students' emotional, affective and relational states.
 
+\citeA{Schiekirka2015} systematically review which factors influence student ratings in medical education course evaluations. They indicate that situational factors such as student characteristics, performance level and evaluation process might act as confounders, thus threatening the validity of evaluation results. They advocate for administrative awareness of the variety of factors that influence student ratings and encourage additional research into the control of potential confounders and development of robust evaluative instruments.
+
 %%% VERBATIM -- source 2.4, paragraph 3.
 Recent psychometric work has demonstrated that CIV can be identified and mitigated in constructed-response assessments. \citeA{Zhai2021} propose a Many-Facet Rasch Measurement framework that identifies three sources of CIV: the variability of assessment item scenarios, judging severity, and rater scoring sensitivity to the scenarios in tasks. Their framework mitigates these sources of CIV when estimating examinee ability. However, their approach operates under controlled conditions including expert-defined rubrics, trained raters, and a shared observable stimulus (a common video) against which responses can be evaluated. These conditions do not extend to large-scale SET systems.
 
-%%% VERBATIM -- source 2.4, paragraph 4.
-Because pedagogical experience cannot be feasibly observed at the scale of SET data, adjustments to SET scores cannot be validated against an objective ground truth. In this setting, interpretability can help make the effects of modelling assumptions and the framework's adjustment process visible for scrutiny \cite{DoshiVelez2017}.
+\auth{Across these studies, validity threats from construct-irrelevant content are documented in both formal and informal evaluation contexts. However, existing approaches either operate under controlled conditions that do not extend to large-scale SET, or identify contamination without providing a computational mechanism to attenuate its influence on numerical ratings.}
 
 \subsection{From Descriptive NLP to Validity-Oriented Interpretation}
 
@@ -297,13 +232,8 @@ Although deep learning approaches provide a finer-grained representation of emot
 
 %%%\citeA{Ren2022} employ ABSA using a combination of deep learning and dictionary-based approaches to automatically calculate the emotional %%%orientation of SET reviews. Student reviews are computationally separated into references to distinct teaching topics, and sentiment analysis %%%is used to determine the sentiments associated with each topic. This method results in a precision, recall, and F1 score of 0.80, 0.79 and 0.%%%79, respectively.
 
-%%% [FROM FRAMING DOC] -- suggested transition sentence, verbatim. The framing doc
-%%% directs that this be followed by Ren et al. (2022) and Butt et al. (2025),
-%%% then validity-weighted attenuation presented as the response.
-%%% Butt et al. (2025) is NOT in references.bib.
-\auth{Recent aspect-based approaches demonstrate that open-ended teaching feedback can be segmented and organized into distinct aspects before extracting sentiments \cite{Bhowmik2023,Nikolic2020,Jazuli2025}. However, extracting structured sentiment is not itself a validity intervention: these approaches do not specify how the pedagogical relevance of a clause should change the contribution of its affective content when interpreting the numerical rating that accompanies it.} \cite{Ren2022} extract and aggregate aspect sentiment but do not use relevance to proportionally attenuate affect's contribution to the accompanying rating; \citeneeded{but et al.} produce structured insight but propose no validity-weighted, review-specific recalibration rule.
+\auth{Recent aspect-based approaches demonstrate that open-ended teaching feedback can be segmented and organized into distinct aspects before extracting sentiments \cite{Bhowmik2023,Nikolic2020,Jazuli2025}. However, extracting structured sentiment is not itself a validity intervention: these approaches do not specify how the pedagogical relevance of a clause should change the contribution of its affective content when interpreting the numerical rating that accompanies it.} \cite{Ren2022} extract and aggregate aspect sentiment but do not use relevance to proportionally attenuate affect's contribution to the accompanying rating; \citeA{Butt2025} compare the predictive performance of BERT (Bidirectional Encoder Representations from Transformers) and LLM approaches but propose no validity-weighted, review-specific recalibration rule.
 
-\todo{Framing doc gives the precise contrast to state for each of the two papers. Add one sentence per paper: Ren et al.\ extract and aggregate aspect sentiment but do not use relevance to proportionally attenuate affect's contribution to the accompanying rating; Butt et al.\ produce structured insight but propose no validity-weighted, review-specific recalibration rule.}
 
 %%% VERBATIM -- source 2.3 "Computational Validity Analysis of SET".
 %%% Framing doc: "Mostly copy, then cut. Retain direct comparison to work that
@@ -326,36 +256,17 @@ Similar work in computational linguistics and educational text analysis \cite{Lo
 %%% Marsh & Roche rationale for down-weighting over exclusion.
 Addressing validity concerns within SET does not require excluding low-utility reviews. Classical reliability theory holds that measurement quality improves by reducing error variance rather than excluding observations \cite{Cronbach1951}. Robust estimation theory formalizes this principle, showing that down-weighting high-noise observations produces more stable and less biased estimates than exclusionary approaches \cite{Huber1964}. Within the SET domain, \citeA{MarshRoche1997} advocate for a conservative approach for bias mitigation, arguing that corrections should account for known sources of contamination while preserving students' overall evaluative intent. They further caution that corrections applied without regard to valid variance risk ``throwing the validity baby out with the bias bathwater'' (p. 1197), removing genuine signal alongside the contaminant. This supports a bounded, content-targeted adjustment rather than a global correction.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PLACEHOLDER -- LEARNER VOICE / PRESERVATION PRINCIPLE
-%
-% Nothing equivalent exists in the source manuscript, so nothing is transferred.
-% Strategy doc, "the learner-voice tension":
-%   "Make this a central design principle: do not delete negative, emotional, or
-%    off-topic student speech; preserve it, but separate its role in a
-%    pedagogical summary from its role as an experience signal. That is a strong
-%    ethical LAK contribution."
-%
-% Framing doc, Section 2.3, also requires here:
-%   - why the method preserves raw feedback and emotional expression
-%   - why the rule is bounded and monotonic
-%   - why each adjustment is exposed
-%   - the explicit statement that "Miscellaneous" means outside this study's
-%     taxonomy, NOT unimportant to the student experience
-%   - the caveat that relevance classification is a design choice
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\auth{This principle extends beyond statistical preservation. Content classified as \emph{Miscellaneous} falls outside this study's pedagogical taxonomy. It is construct-irrelevant for the purpose of interpreting pedagogical signal in a rating, but it may carry value as a record of the student's broader experience. Similarly, raw ratings and reviews are preserved and presented alongside adjusted ratings for stakeholder interpretation. Stakeholders are further empowered by a comprehensive audit trail that covers all stages of the framework allowing for any indivdual change to be inspected and challenged (Prinsloo \& Slade). The attenuation mechanism itself is bounded and monotonic, ensuring predictable changes to features, though the downstream model is less so. The taxonomy used in this study is just one of many decompositions of student review topics; a different taxonomy would produce differing adjustments.}
-\todo{Write the design-principle section: preservation of learner voice, separation of pedagogical role from experience-signal role, the bounded monotonic rule, exposure of every adjustment, and the explicit statement that \emph{Miscellaneous} means outside this study's taxonomy rather than unimportant. This is the ethical core of the LAK framing and has no counterpart in the source manuscript.}
+\auth{This principle extends beyond statistical preservation. Content classified as \emph{Miscellaneous} falls outside this study's pedagogical taxonomy. It is construct-irrelevant for the purpose of interpreting pedagogical signal in a rating, but it may carry value as a record of the student's broader experience. Similarly, raw ratings and reviews are preserved and presented alongside adjusted ratings for stakeholder interpretation. Stakeholders are further empowered by a comprehensive audit trail that covers all stages of the framework, allowing for any individual change to be inspected and challenged \cite{DrachslerGreller2016}. The attenuation mechanism itself is bounded and monotonic, ensuring predictable changes to features, though the downstream model is less so. The taxonomy used in this RMP proof of concept is one generic decomposition of review content, and a different taxonomy would produce different adjustments. In formal applications, stakeholders could define or refine the categories in relation to course learning design and its documented pedagogical intent, so that the analytic lens reflects local priorities rather than a fixed computational judgment \cite{LockyerHeathcoteDawson2013}.}
 
 \subsection{Research Gap}
 
 %%% VERBATIM -- source 2.6 "Research Gap".
 %%% Source 2.5 "Domain-Adjacent Applications" is CUT in full.
-Existing literature shows that CIV and other sources of noise systematically contaminate SET, influencing numerical ratings in ways unrelated to actual pedagogical experience. Advances in NLP demonstrate that topic-specific emotional sentiment in SET reviews can be reliably extracted. Recent large-scale studies confirm that CIV manifests in real-world evaluation data substantially distorting SET ratings. Reliability and robust estimation theory therefore support the use of proportional down-weighting to reduce the influence of CIV, provided that construct-relevance can be estimated. Since the criteria underlying these types of feedback systems cannot be fully specified, frameworks that attempt toc attenuate CIV must treat interpretability and transparency as essential design constraints, especially when used to inform stakeholders.
+Existing literature shows that CIV and other sources of noise systematically contaminate SET, influencing numerical ratings in ways unrelated to actual pedagogical experience. Advances in NLP demonstrate that topic-specific emotional sentiment in SET reviews can be reliably extracted. Recent large-scale studies confirm that CIV manifests in real-world evaluation data substantially distorting SET ratings. Reliability and robust estimation theory therefore support the use of proportional down-weighting to reduce the influence of CIV, provided that construct-relevance can be estimated. Since the criteria underlying these types of feedback systems cannot be fully specified, frameworks that attempt to attenuate CIV must treat interpretability and transparency as essential design constraints, especially when used to inform stakeholders \cite{DoshiVelez2017,DrachslerGreller2016}.
 
 Despite computational advances in SET analysis, existing studies remain largely descriptive. To the best of our knowledge, no prior work provides a transparent computational framework that leverages topic-level sentiment to identify and attenuate construct-irrelevant emotional content within the scope of defined taxonomy and mitigate the impact of CIV on SET ratings.
 
-We address this gap by introducing an interpretable ABSA framework combining clause-level aspect-term categorization, fine-grained emotion extraction, pedagogical density estimation, tree-based regression modelling, and validity-weighted attenuation. This framework estimates the contribution of pedagogical signal and affective noise to numerical ratings (RQ1), generates validity-weighted attenuated scores reflecting reduced influence of construct-irrelevant emotional content (RQ2), and offers initial proof-of-concept validation and robustness tests (RQ3). The resulting outputs are designed to enhance and support stakeholder interpretation of teaching feedback.
+We address this gap by introducing an interpretable ABSA framework combining clause-level aspect-term categorization, fine-grained emotion extraction, pedagogical density estimation, tree-based regression modelling, and validity-weighted attenuation. This framework estimates the contribution of pedagogical signal and affective noise to numerical ratings (RQ1), generates validity-weighted attenuated scores reflecting reduced influence of construct-irrelevant emotional content (RQ2), and offers initial proof-of-concept validation and robustness tests (RQ3). The resulting outputs are designed to enhance and support stakeholder interpretation of teaching feedback \cite{GasevicDawsonSiemens2015}.
 
 %========================================================================================
 \section{Method}
@@ -368,9 +279,7 @@ We address this gap by introducing an interpretable ABSA framework combining cla
 \subsection{Study Context and Data}
 
 %%% VERBATIM -- source 3.1 "Data". Table of data examples CUT.
-As a source of data, we choose SET reviews from RMP because it is a popular professor and course review website offering anonymous use by any student. Additionally, being an informal SET system, it represents a stress test for our framework's capacity to mitigate CIV. RMP lists a strict "no scraping" policy, and despite attempts to contact site administrators to request permission to source data directly from the site, no permission was granted. Instead, we use an open-source dataset provided by \citeA{He2020}, sourced from RMP. This dataset comprises more than 19,000 individual SET reviews directed towards hundreds of professors. These SET reviews consist of a textual section, numerical rating (1-5) and various meta-tags used on RMP to classify different teaching styles and qualities. The dataset also included demographic information measured by the original researchers. For our purposes, the meta-tags and demographic information is not used.
-
-\todo{Framing doc, Section 3.1: add a sentence stating explicitly that RMP is used as a \emph{deliberately noisy stress-test} rather than a proxy for institutional SET. The source text says ``stress test'' but does not state the non-proxy boundary.}
+As a source of data, we choose SET reviews from RMP because it is a popular professor and course review website offering anonymous use by any student. Additionally, being an informal SET system, it represents a deliberately noisy stress test for our framework's capacity to mitigate CIV, rather than a proxy for institutional SET. RMP lists a strict "no scraping" policy, and despite attempts to contact site administrators to request permission to source data directly from the site, no permission was granted. Instead, we use an open-source dataset provided by \citeA{He2020}, sourced from RMP. This dataset comprises more than 19,000 individual SET reviews directed towards hundreds of professors. These SET reviews consist of a textual section, numerical rating (1-5) and various meta-tags used on RMP to classify different teaching styles and qualities. The dataset also included demographic information measured by the original researchers. For our purposes, the meta-tags and demographic information is not used.
 
 %%% VERBATIM -- source 3.2 "Data Preprocessing", paragraph 1.
 Performing ABSA on SET reviews from RMP is a difficult task. Reviews can be written in multiple languages and contain informal language, spelling, grammatical and punctuation errors, censored profanity, UTF encoding errors (such as mojibake), and other hindrances to NLP models. Additionally, RMP has a built-in profanity censoring feature that infrequently incorrectly censors words or substrings within words. We excluded all non-English reviews as the NLP models used only support English input. Furthermore, any reviews that contained the RMP automatic censorship string "****" are also excluded as its application was prone to error. Any entries with either no review text, or a review text of "No Comment" or similar, are dropped. Finally, reviews in which the professor being reviewed has fewer than 8 total reviews across the dataset are excluded. After these exclusions, the total number of reviews in the dataset is reduced to 17,127.
@@ -385,8 +294,6 @@ After these changes, the text is significantly cleaner. Further processing could
 %%% descriptive sentences that survive without their figures. All three EDA
 %%% figures (rating frequency, review length, reviews per professor) are CUT.
 Examining the rating distribution, a negative-skew can be observed, with 5-star reviews constituting the largest proportion of the dataset. This skew has implications for downstream regression modelling and attenuation outcomes. Review lengths follow a right-skewed distribution with a mean of 40.1 words and a standard deviation of 20.3, reflecting the open-ended and unstructured nature of RMP reviews.
-
-\todo{``The distribution'' above has lost its antecedent: the source manuscript's preceding sentence introduced Figure 1 (rating frequencies), which is cut. Add a short lead-in naming the rating distribution, or reinstate the figure.}
 
 \subsection{Model Pipeline}
 
@@ -476,8 +383,6 @@ D_{k} =
 \frac{\text{wordcount}_{k}}
 {1 + \text{wordcount}_{k} + \text{wordcount}_{\text{misc}}}, \quad k \in \{\text{eff},\,\text{fair},\,\text{work}\}
 \end{equation}
-
-\todo{The three separate density equations in the source manuscript are collapsed above into one indexed equation purely to save vertical space. If you want them verbatim as three displayed equations, restore them; no wording changed either way.}
 
 \subsection{Per-Clause Emotion Extraction \& Per-Topic Aggregation}
 
@@ -606,8 +511,6 @@ The term $(\hat{y}_i^\text{attenuated} - \hat{y}_i^\text{baseline})$ functions a
 
 \new{Two further cases bound the behaviour. A review with no \textit{Miscellaneous} content ($D_{\text{misc}}$=0), where all clauses are categorized as \textit{Instructional Effectiveness}, receives no adjustment, preserving the raw rating of 5.0. Next, a mixed review spanning all four topic categories ($D_{\text{misc}}$=0.450), where strong positive \textit{Miscellaneous} sentiment, including a high-gratitude farewell clause (gratitude=0.990), is down-weighted by $\zeta$=0.550, producing a conservative downward adjustment of $-$0.061. Together, these examples illustrate the selective and proportional nature of the attenuation mechanism.}
 
-\todo{The two sentences above are reworded from the source manuscript, which described Examples 1 and 2 by reference to their own tables (``Table~2 demonstrates a review with no \textit{Miscellaneous} content \ldots and the framework applies no adjustment''). Those tables are cut, so the references had to go. Restore the source phrasing verbatim if you prefer, or reinstate the tables.}
-
 \begin{table*}[htbp]
     \caption{Worked Example, Review \#14848.}
     \label{tab:ex2}
@@ -615,9 +518,7 @@ The term $(\hat{y}_i^\text{attenuated} - \hat{y}_i^\text{baseline})$ functions a
     \includegraphics[trim=10 65 15 41, clip, width=\linewidth]{Diagrams/pdfs/ex2.pdf}
 \end{table*}
 
-\auth{When a review's passage through the framework is presented stage by stage, stakeholders have full ability to inspect and challenge any indivdual outputs and overall adjustments.}
-
-\todo{Framing doc, Section 3.4.1: this is where interpretability becomes concrete, and the strategy doc asks that the trail be framed as \emph{contestability} --- ``a stakeholder can inspect and challenge every adjustment.'' The source manuscript makes the interpretability point in the Discussion, not here. Add a short framing paragraph, or move the relevant Discussion text (Section~5.4 of the source, ``Interpretability \& Design Rationale'') up to this position.}
+\auth{When a review's passage through the framework is presented stage by stage, stakeholders can inspect and challenge individual outputs and overall adjustments.}
 
 \subsection{Evaluation Strategy}
 
@@ -636,18 +537,7 @@ Expert validation is reported over the full sample of adjusted reviews. Pair con
 
 \todo{The three paragraphs above are transferred verbatim and are written in the singular (``the expert''). They must be updated to the multi-expert consensus protocol: majority of cast votes, ties treated as unsure and scored incorrect, and the shared consensus function used across validation, robustness, and sensitivity. Not reworded here because the protocol wording should follow the implementation.}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PLACEHOLDER -- ROBUSTNESS CONTROL, METHOD DESCRIPTION
-%
-% Nothing transferable exists in the source manuscript. Facts to write from,
-% per handoff.md:
-%   - permutes only positive D_misc values, keeps zeros fixed
-%   - therefore preserves the same expert-pair population in every shuffle
-%   - 1,000 permutations
-% Do NOT describe the superseded design in newresults.md.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\todo{Write the permutation-control method paragraph: fixed-positive-density permutation, 1{,}000 shuffles, preserving the evaluable pair population.}
+\auth{To test whether the observed attenuation behaviour depends on the structured relationship between $D_{\text{misc}}$ and review content, rather than on any arbitrary weighting of \textit{Miscellaneous} emotions, a permutation control is applied. In each of 1{,}000 permutations, the positive $D_{\text{misc}}$ values are randomly shuffled across the reviews that contain \textit{Miscellaneous} content, while reviews with $D_{\text{misc}} = 0$ are held fixed. This preserves the same population of evaluable expert pairs in every shuffle, so that permuted expert accuracy is comparable to the observed figure. The full attenuation pipeline is rerun under each permuted density assignment. Crucially, the resulting permuted $\Delta$s are correlated against each review's \emph{true} (unpermuted) density, not the shuffled density that produced the adjustment. This tests whether adjustments driven by arbitrary densities still track a review's actual off-topic content, which is the claim the observed correlations support. Three metrics are recorded per permutation: expert accuracy, $\Delta^{+}$--$D_{\text{misc}}$ Pearson $r$, and $\Delta^{-}$--$D_{\text{misc}}$ Pearson $r$. One-sided permutation $p$-values are computed with the $(k+1)/(N+1)$ correction.}
 
 %========================================================================================
 \section{Results}
@@ -677,8 +567,6 @@ We examine the frequency of topics after ATC. At the clause level, \textit{Instr
 \bottomrule
 \end{tabular}
 \end{table}
-
-\todo{The frequency table above is a transposed re-layout of the source table (same numbers, no wording changed) purely to save a half-page of vertical space. Restore the source's stacked layout if you prefer it.}
 
 %%% VERBATIM -- source 5.1, review-level paragraph.
 At the review level, where frequency reflects whether a review contains at least one clause categorized under a given topic, the same overall ordering holds. However, comparison of clause and review-level frequencies reveals differences in clause density across topics (Table~\ref{tab:clause_review_freq}). \textit{Instructional Effectiveness} exhibits the highest average number of clauses per topic-mentioning review (1.92), suggesting that when students discuss instructional quality, they tend to elaborate across multiple clauses. In contrast, \textit{Fairness} displays a substantially lower clause-per-review ratio (1.19), indicating that fairness and grading-related comments are typically more concise or singular in structure. \textit{Miscellaneous} and \textit{Workload} fall between these extremes (1.70 and 1.67, respectively), reflecting moderate elaboration depth.
@@ -837,9 +725,7 @@ We examine the impact of attenuation on the relationship between baseline emotio
     \label{fig:weighed-corr-change}
 \end{figure}
 
-As shown in Figure~\ref{fig:weighed-corr-change} attenuation appears to reduce the correlation of \textit{Miscellaneous} (noise) features with \new{adjusted ratings, relative to their correlation with raw ratings,} while maintaining or slightly increasing the correlation of pedagogically relevant (signal) features $E_{eff}$, $E_{fair}$ and $E_{work}$.
-
-\todo{Corrected from ``with predicted ratings''. Neither side of this comparison is a model prediction: \texttt{correlation\_plots.py} correlates baseline emotion sums against the raw rating and against $y^{\text{raw}}+\Delta$. \textbf{The long-form manuscript has been corrected to match} (Section~4.3.2, line~829), so this wording is now verbatim in both --- strip the red marking once you have approved it. The other eight occurrences of ``predicted ratings'' in the long form were checked and are correct, since they refer to genuine model output.} These patterns are consistent across both linear and rank-based correlation measures. Averaged across topics and polarities, signal features tend to show modest increases in correlation magnitude, while noise features tend to decrease, suggesting that adjusted ratings offer a net improvement in the focus on relevant features. These trends align with the intended effect of attenuation and rating adjustment though the precise magnitude of changes may vary across individual features and reviews.
+As shown in Figure~\ref{fig:weighed-corr-change} attenuation appears to reduce the correlation of \textit{Miscellaneous} (noise) features with adjusted ratings, relative to their correlation with raw ratings, while maintaining or slightly increasing the correlation of pedagogically relevant (signal) features $E_{eff}$, $E_{fair}$ and $E_{work}$. These patterns are consistent across both linear and rank-based correlation measures. Averaged across topics and polarities, signal features tend to show modest increases in correlation magnitude, while noise features tend to decrease, suggesting that adjusted ratings offer a net improvement in the focus on relevant features. These trends align with the intended effect of attenuation and rating adjustment though the precise magnitude of changes may vary across individual features and reviews.
 
 \subsubsection{Modulator Correlations}
 
@@ -895,33 +781,37 @@ Internal validation indicates that the attenuation mechanism functions as design
 
 \todo{Insert the multi-expert consensus results table (overall / coarse / fine accuracy with 95\% Wilson intervals; Fleiss' $\kappa$) and the interpreting paragraphs. State the 77-of-80 accounting once. The source manuscript's single-expert results are deliberately not transferred here --- see the comment block above.}
 
-\todo{\textbf{Framing, per \texttt{strategy.md}:} report the coarse condition as a \emph{manipulation check}, not as the headline. Correctness is defined as the expert preferring the review the mechanism adjusted less; in the coarse bin that contrast is usually a focused review against one visibly full of off-topic content, which both a human and $D_{\text{misc}}$ will detect. High coarse accuracy therefore mostly re-demonstrates that ATC works --- already established in Section~4.1.3 --- rather than that attenuation tracks expert judgment. Rest the validity claim on the fine-grained condition and the permutation control, and lead with them even though the number is lower. Present the gap between conditions as predicted by the rationale, not as a shortfall. \textbf{Do not report a single pooled accuracy across both conditions.}}
 
 \subsubsection{Permutation Control}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PLACEHOLDER -- ROBUSTNESS RESULTS
-% NOTHING TRANSFERRED. newresults.md predates the fixed-population correction
-% and must not be cited. Awaiting the 1,000-permutation rerun.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\auth{Table~\ref{tab:permutation-control} reports observed values against their null distributions under 1{,}000 permutations of $D_{\text{misc}}$. The permutation shuffles non-zero $D_{\text{misc}}$ values among reviews, preserving the marginal distribution while breaking the correspondence between a review's measured off-topic density and the attenuation it receives. Permuted deltas are then correlated against the \emph{true} densities, testing whether the mechanism's adjustments track real off-topic content or would produce structured-looking results under arbitrary density assignments.}
 
-\todo{Report the observed statistic against the null distribution over 1{,}000 permutations with the permutation $p$-value, and state what the control does and does not establish.}
+\begin{table}[htbp]
+\caption{\auth{Permutation control: observed statistics against the null distribution ($N = 1{,}000$ permutations). $p$-values are one-sided with the $(k+1)/(N+1)$ correction.}}
+\label{tab:permutation-control}
+\centering
+\small
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Metric} & \textbf{Observed} & \textbf{Perm.\ mean} & \textbf{SD} & \textbf{Range} & $p$ \\
+\midrule
+Expert accuracy (coarse) & 0.8837 & 0.7891 & 0.1197 & [0.333, 1.000] & 0.233 \\
+Expert accuracy (fine)   & 0.7059 & 0.5772 & 0.0517 & [0.400, 0.739] & 0.007 \\
+$\Delta^{+}$ vs.\ $D_{\text{misc}}$ ($r$) & 0.6872 & 0.2327 & 0.0291 & [0.128, 0.324] & $< 0.001$ \\
+$\Delta^{-}$ vs.\ $D_{\text{misc}}$ ($r$) & $-$0.7077 & $-$0.1579 & 0.0374 & [$-$0.274, $-$0.048] & $< 0.001$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\auth{The modulator correlations provide the cleanest test: no permutation reached or exceeded the observed $\Delta^{+}$ or $\Delta^{-}$ correlation ($p < 0.001$, both directions). When $D_{\text{misc}}$ is decoupled from the review it belongs to, attenuation deltas no longer track true off-topic density.}
+
+\auth{Expert accuracy separates by condition as the rationale predicts. In the coarse bin, the permuted null frequently reaches the observed value ($p = 0.233$). This is expected: coarse pairs differ so visibly in off-topic content that the CatBoost prediction --- which retains all emotion and topic features --- often points in the correct direction even when $\zeta$ is driven by the wrong density. Coarse accuracy thus functions as a manipulation check confirming that the mechanism responds to gross differences in construct-irrelevant content, but it does not isolate the contribution of $D_{\text{misc}}$ specifically. In the fine bin, where paired reviews are closer in off-topic content and the attenuation signal is the tiebreaker, accuracy drops meaningfully under permutation ($p = 0.007$), confirming that discriminative power in close cases depends on the actual review-level density.}
+
+\auth{The control does not establish that $D_{\text{misc}}$ is a valid measure of construct-irrelevant content, nor that the taxonomy underlying it is correct. It establishes a narrower claim: conditional on the ATC classifications, the attenuation mechanism's behaviour is not an artifact of its functional form.}
 
 %========================================================================================
 \section{Discussion}
 %========================================================================================
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Framing doc transfer decision for the Discussion: REWRITE.
-%   "Keep useful interpretations, but make responsible teaching-feedback
-%    interpretation -- not a claim of recovered truth -- the focus."
-%
-% Handled as follows. The source Discussion paragraphs that are purely
-% interpretive readings of the results are transferred VERBATIM under 5.1,
-% because those are the "useful interpretations" being kept. Sections 5.2 and
-% 5.3 are new LAK-specific arguments with no counterpart in the source, so they
-% are placeholders rather than paraphrase.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{A Validity-Oriented Analytic Primitive}
 
@@ -947,39 +837,14 @@ Crucially, the correlation analysis revealed that attenuated ratings maintained 
 At the review level, the average absolute rating change was $0.1964$ rating points, with a tail of larger targeted adjustments for reviews exhibiting high \textit{Miscellaneous} density and intense off-topic emotional polarization. At the professor level, the overall distribution shape remained largely preserved. These results suggest that the framework functions as a fine-tuning mechanism, correcting the most severe instances of CIV contamination while aiming to preserve valid student feedback. This behavior aligns with the conservative correction strategy advocated by \citeA{MarshRoche1997}.
 
 %%% VERBATIM -- source 6.3, theoretical implications paragraph.
-This work extends prior descriptive SET studies by presenting a proof-of-concept framework for active mitigation of validity threats, motivated primarily by Messick's \citeyear{Messick1995} unified theory of validity. The framework uses classical reliability theory \cite{Cronbach1951,Huber1964} to justify the down-weighting approach. The adjustment process is made transparent by holding the trained model fixed while applying a targeted intervention to $E_\text{misc}$, with the resulting prediction difference taken as the validity correction. This connects traditional psychometric validity concepts with modern computational NLP methods. It addresses the same validity threats targeted by \citeA{Zhai2021}, who demonstrate CIV reduction in controlled constructed-response assessments, to the considerably more challenging setting of informal, anonymous, and unmoderated SET reviews. In doing so, it prioritizes interpretability and transparency as essential design constraints, in contrast to the growing reliance on black-box systems in the domain \cite{Zhuang2025,Rybinski2021}. \auth{This positions the framework as initial method evidence for a validity-oriented direction in teaching-feedback analytics, rather than a ready intervention (Ferguson \& Clow, 2017).}
+This work extends prior descriptive SET studies by presenting a proof-of-concept framework for active mitigation of validity threats, motivated primarily by Messick's \citeyear{Messick1995} unified theory of validity. The framework uses classical reliability theory \cite{Cronbach1951,Huber1964} to justify the down-weighting approach. The adjustment process is made transparent by holding the trained model fixed while applying a targeted intervention to $E_\text{misc}$, with the resulting prediction difference taken as the validity correction. This connects traditional psychometric validity concepts with modern computational NLP methods. It addresses the same validity threats targeted by \citeA{Zhai2021}, who demonstrate CIV reduction in controlled constructed-response assessments, to the considerably more challenging setting of informal, anonymous, and unmoderated SET reviews. In doing so, it prioritizes interpretability and transparency as essential design constraints, in contrast to the growing reliance on black-box systems in the domain \cite{Zhuang2025,Rybinski2021}. \auth{This positions the framework as initial method evidence for a validity-oriented direction in teaching-feedback analytics, rather than a ready intervention.}
 
 %%% VERBATIM -- source 6.4 "Interpretability & Design Rationale", paragraph 1.
-A central strength of the presented framework is its interpretability. By combining transparent down-weighting with SHAP-based feature attribution, each adjustment to a numerical rating can be traced back to the specific topic-level emotions and content density that drove the change, making the inputs and calculation underlying each adjustment auditable, while SHAP-based feature attributions support interpretation of the CatBoost model's feature contributions. The worked example in Table~\ref{tab:ex2} concretely illustrates this property, showing how clause-level categorization, emotion extraction, and validity-weighted attenuation combine to produce a traceable and auditable adjustment for each individual review. Unlike purely predictive approaches, this system actively corrects ratings; given the incomplete specification of pedagogical quality and the absence of an objective ground truth, its adjustment process should therefore be inspectable and open to review \cite{DoshiVelez2017} \citeneeded{Gasevic et al}.
-
-\todo{Framing doc, Section 5.1: the argument here should be reframed so the contribution reads as ``an operational mechanism joining topic relevance to the use of affective signals, rather than another sentiment classifier'', and should cite Ferguson \& Clow (2017) in support of the bounded proof-of-concept framing. The verbatim source paragraphs above supply the material; the new framing sentences are yours to write.}
+A central strength of the presented framework is its interpretability. By combining transparent down-weighting with SHAP-based feature attribution, each adjustment to a numerical rating can be traced back to the specific topic-level emotions and content density that drove the change, making the inputs and calculation underlying each adjustment auditable, while SHAP-based feature attributions support interpretation of the CatBoost model's feature contributions. The worked example in Table~\ref{tab:ex2} concretely illustrates this property, showing how clause-level categorization, emotion extraction, and validity-weighted attenuation combine to produce a traceable and auditable adjustment for each individual review. Unlike purely predictive approaches, this system actively corrects ratings; given the incomplete specification of pedagogical quality and the absence of an objective ground truth, its adjustment process should therefore be inspectable and open to review \cite{DoshiVelez2017}.
 
 \subsection{Implications for Responsible Interpretation of Teaching Feedback}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PLACEHOLDER -- RESPONSIBLE-USE SECTION
-%
-% NOTHING TRANSFERRED. The source manuscript's practical-implications text
-% (Section 6.3, paragraphs 2-3) argues for deployment on student-facing
-% platforms to make ratings "more trustworthy" and for institutional processing
-% of formal SET. That is the opposite of the framing the strategy doc requires,
-% so it is deliberately not carried over.
-%
-% Strategy doc, "a bounded deployment scenario":
-%   "Add a short vignette: an instructor sees raw feedback alongside the
-%    pedagogical signal and an 'other student-experience concerns' channel. The
-%    system prompts reflection; it does not decide an instructor's quality."
-%
-% Framing doc, Section 5.2:
-%   "State the appropriate use: an auditable companion view for educators or
-%    teaching-support staff. Preserve raw ratings/text and surface pedagogical
-%    and other experience signals separately."
-%
-% Citations to add: Lockyer, Heathcote, & Dawson (2013);
-%                   Tsai & Martinez-Maldonado (2022), optional.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\auth{If this direction matures beyond proof of concept, it enables specific interpretive acts for multiple stakeholder groups. For educators and teaching-support staff, the framework surfaces raw feedback alongside its topic-level decomposition and adjustment trail. An instructor reviewing their evaluations could distinguish between pedagogically actionable feedback, criticism of explanation clarity, concerns about grading fairness, and broader affective content such as expressions of personal attachment or frustration directed at topics outside the stated pedagogical taxonomy. The adjustment trail makes visible why a rating shifted, allowing the instructor to assess whether the adjustment is meaningful in their context rather than accepting it uncritically. This supports pedagogical reflection informed by analytics rather than replaced by it (Lockyer et al., 2013).}
+\auth{If this direction matures beyond proof of concept, it enables specific interpretive acts for multiple stakeholder groups. For educators and teaching-support staff, the framework surfaces raw feedback alongside its topic-level decomposition and adjustment trail. An instructor reviewing their evaluations could distinguish between pedagogically actionable feedback, criticism of explanation clarity, concerns about grading fairness, and broader affective content such as expressions of personal attachment or frustration directed at topics outside the stated pedagogical taxonomy. The adjustment trail makes visible why a rating shifted, allowing the instructor to assess whether the adjustment is meaningful in their context rather than accepting it uncritically. This supports pedagogical reflection informed by analytics rather than replaced by it.}
 
 \auth{At an aggregate level, topic-specific emotional profiles could be examined across instructors, courses, or departments. Concentrated negative sentiment directed at Fairness across a department's evaluations might surface a systemic concern about grading practices, whereas the same pattern in a single instructor's reviews might inform targeted pedagogical support. These patterns are already present in the framework's outputs and require no additional computation, only decisions about the appropriate level of aggregation under which such information is shared.
 }
@@ -988,25 +853,11 @@ A central strength of the presented framework is its interpretability. By combin
 \auth{In all cases, raw ratings and reviews are preserved in full. The framework adds a layer of interpretation; it does not replace or conceal anything. However, additional information is not inherently safer to act on; the constraints on interpretation discussed in the following section apply to all of these use cases.
 }
 
-% DONE — §5.2 responsible-use paragraphs drafted by author (\auth blocks above).
-
 \subsection{Boundaries, Risks, and Non-Use}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PLACEHOLDER -- NON-USE SECTION
-%
-% NOTHING TRANSFERRED. No counterpart exists in the source manuscript.
-%
-% Framing doc, Section 5.3:
-%   "It must not be used as an automated faculty-quality measure or personnel
-%    score. Classification error, incomplete taxonomy, RMP self-selection, and
-%    broader affective experience all constrain interpretation."
-%
-% Citations to add: Drachsler & Greller (2016); Prinsloo & Slade.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \auth{The framework produces model-based adjustments under a stated pedagogical taxonomy. An attenuated rating is not a validated estimate of teaching quality, and treating it as one misrepresents both the method and its evidence base. Equally, the framework decomposes a review into topic and emotion components, it does not summarize or replace the review itself. Any interpretation that bypasses the original text discards exactly the context the audit trail is designed to preserve.}
 
-\auth{Responsibility for how these outputs are presented to end users sits with the platform or institution, not with individual users. On informal platforms such as RMP, students cannot reasonably be expected to engage with taxonomy documentation or audit trails. Outputs that could enable discrimination by instructor identity, emotional profiles indexed to individual instructors, for instance, should not be surfaced without governance structures that specify who may access them and under what conditions. The framework's design does not address these governance questions; it only makes them visible.}
+\auth{Auditability alone does not make a deployment trustworthy. Drachsler and Greller's DELICATE framework treats transparency as one element of trusted learning analytics, alongside an explicit purpose, stakeholder involvement, data governance, and routes to contest harmful consequences. Any platform or institution presenting these outputs would be responsible for those conditions; this proof of concept provides no such deployment model \cite{DrachslerGreller2016}.}
 
 \auth{
     A distinction must be drawn between automated calculation and automated deployment. Computing attenuated ratings and decompositions programmatically is the intended use, the mechanism is deterministic and reproducible. Deploying those outputs into a decision pipeline that acts without human interpretation is not. The framework is designed to inform a reader, not to replace one.
@@ -1020,7 +871,6 @@ A central strength of the presented framework is its interpretability. By combin
     Responsible use requires understanding where the framework's auditability ends. The attenuation rule itself is fully transparent: 
     $\zeta = 1 - D_{\text{misc}}$ is a fixed, monotonic function with no learned parameters. However, the components that produce its inputs are not equally interpretable. Topic assignment relies on sentence embeddings and cosine similarity thresholds, emotion classification uses a fine-tuned RoBERTa model, and the downstream rating model is a CatBoost ensemble. The audit trail shows \emph{what} the framework did — which clauses were classified where, what emotions were detected, how the rating changed — but a user contesting an adjustment must recognize that the upstream classifications themselves are model outputs, not ground-truth labels. Engaging critically with the trail, rather than accepting it as a complete explanation, is part of using the framework responsibly.
 }
-% DONE — §5.3 boundaries/risks/non-use paragraphs drafted by author (\auth blocks above).
 
 %========================================================================================
 \section{Limitations and Future Work}
@@ -1054,31 +904,22 @@ Future work should evaluate external validity using larger datasets derived from
 
 Regardless of the modelling approach, the current ATC taxonomy remains relatively broad. A more granular category structure defined by domain experts, or aligned with SEEQ definitions \cite{Marsh1982} could capture important pedagogical distinctions. For example, distinguishing between \textit{procedural fairness} (grading policies and rubrics) and \textit{interactional fairness} (empathy and respect). Moving from single-label classification toward multi-label or soft-assignment approaches would also better reflect how individual clauses frequently address multiple topics simultaneously.
 
+\auth{Future work should co-design a formal-SET version of the framework with educators, students, and institutional stewards, grounding custom taxonomies in course learning design and specifying the purpose, access, retention, and contestation arrangements required before deployment.}
+
 The current density metric ($D_{\text{misc}}$) relies primarily on word counts, which serve only as a proxy for the informational relevance of a review. Alternative approaches could incorporate semantic similarity with expert-defined pedagogical descriptors or other more sophisticated measures of textual quality to provide better estimates of construct relevance.
 
-Additionally, while the attenuation mechanism is here evaluated on professors held out from model fitting, this remains an internal split of a single corpus. Future work should evaluate the mechanism on an independent dataset drawn from a different institutional or platform context, and against a formal external criterion of teaching quality, to establish how far the reported behaviour generalizes beyond the population it was developed on.
+Additionally, while the attenuation mechanism is here evaluated on professors held out from model fitting, this remains an internal split of a single corpus. Future work should evaluate the mechanism on an independent dataset drawn from a different institutional or platform context, and against a formal external criterion of teaching quality, to establish how far the reported behaviour generalizes beyond the population it was developed on. \auth{Establishing the framework as evidence-based under evaluative standards such as those proposed by \citeA{FergusonClow2017} requires external criterion validation and replication across institutional contexts.}
 
 Equally important are fairness audits that ensure the framework does not unintentionally amplify existing inequities. These audits should examine system behaviour across instructor demographics and disciplinary contexts.
 
 %========================================================================================
 \section{Conclusion}
 %========================================================================================
+\auth{Open-ended teaching feedback is an increasingly common learning-analytics trace, yet computational approaches to this data rarely move beyond description toward validity-informed intervention. This research presented validity-weighted attenuation, a framework that mitigates construct-irrelevant variance in teaching evaluations by producing adjusted ratings that attenuate the influence of content classified outside a stated pedagogical taxonomy, in order to complement and extend existing analytics available to students, educators, and institutional decision-makers.}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PLACEHOLDER -- CONCLUSION
-%
-% NOT TRANSFERRED. The source conclusion opens by stating the framework produces
-% "adjusted numerical ratings that aim to better reflect actual pedagogical
-% quality", which the framing doc lists as material that must not enter the LAK
-% draft unchanged. The source text is therefore left in place in the long-form
-% manuscript rather than copied here.
-%
-% Framing doc, Section 7: "Restate the bounded contribution: a transparent proof
-% of concept for validity-weighted interpretation of rating-plus-text teaching
-% feedback."
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\auth{The framework moves beyond descriptive sentiment analysis toward active, interpretable mitigation of construct-irrelevant variance. Its three primary contributions reflect this: a novel attenuation mechanism that directly intervenes on ratings rather than merely detecting noise, where each adjustment is traceable to specific topic-level emotions and content density; a theoretically grounded design that translates established psychometric principles from \citeA{Messick1995}, \citeA{Cronbach1951}, and \citeA{Huber1964} into a concrete computational mechanism; and initial empirical proof-of-concept validation on a large, held-out-instructor sample with expert and robustness evidence.}
 
-\todo{Write the conclusion. Restate the bounded contribution only: a transparent proof of concept for validity-weighted interpretation of rating-plus-text teaching feedback. The source manuscript's conclusion is not transferred because its opening claim is on the framing doc's prohibited list.}
+\auth{Crucially, the framework preserves every original review and its full emotional profile; attenuation reweights how affect contributes to a summary rating, it does not silence student voice. This design choice reflects a commitment to contestability: stakeholders can inspect, question, and override any adjustment. As a proof of concept, the work demonstrates that validity concerns in large-scale teaching feedback can be computationally addressed while balancing interpretability with performance, establishing a foundation for validity-aware analytic tools that decouple pedagogical signals from broader student experience under a taxonomy that stakeholders themselves define, so the interpretive lens reflects their priorities rather than a fixed computational judgment.}
 
 %----------------------------------------------------------------------------------------
 \phantomsection
@@ -1097,15 +938,13 @@ The author(s) declared no potential conflicts of interest with respect to the re
 
 %%% VERBATIM -- source Section "Ethical Considerations", institution name removed
 %%% for double-blind review.
-All expert labelling was conducted under a REB exemption approved by \new{the authors' institution}, ensuring that annotation procedures adhered to ethical research standards. \todo{Institution name replaced for double-blind review; restore at camera-ready.}
+All expert labelling was conducted under a REB exemption approved by the authors' institution, ensuring that annotation procedures adhered to ethical research standards.
 
 \section*{Data \& Code Availability}
 \addcontentsline{toc}{section}{Data and Code Availability}
 
 %%% VERBATIM -- source Section "Data & Code Availability".
 A public codebase for this framework is available online. Due to privacy restrictions, the original RMP dataset is not included; however, all fully anonymized expert-labelled data used for validation is provided.
-
-\todo{Confirm this wording satisfies double-blind requirements --- no resolvable repository link may appear in the review version. Supply the link at camera-ready.}
 
 %%% The source manuscript's Acknowledgments section is NOT transferred: it names
 %%% the supervisor, the institution, and the course code. Restore at camera-ready.
