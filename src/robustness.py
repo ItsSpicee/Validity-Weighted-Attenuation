@@ -442,24 +442,12 @@ def bootstrap_professor_stability(
         misc_d = boot[MISC_D_COL].to_numpy()
         corrs = _modulator_corrs(delta, misc_d)
 
-        # Expert accuracy on the bootstrap sample
-        if EXPERT_LABELS_PATH.exists():
-            accs = expert_accuracy(boot, verbose=False)
-            acc_overall = accs["overall"][0] / accs["overall"][1] if accs["overall"][1] else np.nan
-            acc_coarse = accs["coarse"][0] / accs["coarse"][1] if accs["coarse"][1] else np.nan
-            acc_fine = accs["fine"][0] / accs["fine"][1] if accs["fine"][1] else np.nan
-        else:
-            acc_overall = acc_coarse = acc_fine = np.nan
-
         rows.append({
             "iteration": i,
             "pos_pearson": corrs["pos_pearson"],
             "neg_pearson": corrs["neg_pearson"],
             "pos_spearman": corrs["pos_spearman"],
             "neg_spearman": corrs["neg_spearman"],
-            "expert_overall": acc_overall,
-            "expert_coarse": acc_coarse,
-            "expert_fine": acc_fine,
         })
 
         if (i + 1) % 100 == 0:
@@ -479,9 +467,6 @@ def bootstrap_professor_stability(
         ("neg_pearson",   "Δ- vs D_misc (Pearson r)"),
         ("pos_spearman",  "Δ+ vs D_misc (Spearman ρ)"),
         ("neg_spearman",  "Δ- vs D_misc (Spearman ρ)"),
-        ("expert_overall", "Expert accuracy (overall)"),
-        ("expert_coarse",  "Expert accuracy (coarse)"),
-        ("expert_fine",    "Expert accuracy (fine)"),
     ]:
         vals = boot_df[col].dropna().to_numpy()
         if len(vals) == 0:

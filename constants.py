@@ -253,4 +253,4 @@ PERMUTATION_SEED = 42
 # in (0, 1], a larger s attenuates less, so it probes the low-attenuation
 # direction; 0.37 probes the high-attenuation one. Together they bracket
 # S_VALUE = 1.0 widely enough that the agreement figures are informative.
-SENSITIVITY_S_VALUES = [0.37, 0.62, 0.91, 1.2]
+SENSITIVITY_S_VALUES = [0.5, 0.75, 1.0, 1.25, 1.5]

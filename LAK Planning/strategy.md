@@ -1,5 +1,5 @@
 
-## Strategy — current state (updated 2026-08-27)
+## Strategy — current state (updated 2026-08-28)
 
 The LAK transformation required four targeted moves. Status of each:
 
@@ -14,7 +14,7 @@ All required citations added to `references.bib` and placed in the manuscript:
 
 | Citation | Status | Placement |
 |---|---|---|
-| Gašević, Dawson, & Siemens (2015) | Added | §2.4 Research Gap — "enhance and support stakeholder interpretation" |
+| Gašević, Dawson, & Siemens (2015) | Added | §2.4 Research Gap, §1.2 contribution paragraph |
 | Lockyer, Heathcote, & Dawson (2013) | Added | §1.2 — bridge between taxonomy and pedagogical intent |
 | Ferguson & Clow (2017) | Added | Future Work — evidence standard for intervention claims |
 | Drachsler & Greller (2016) | Added | §2.3 Design Principle, §2.4 Research Gap (transparency) |
@@ -34,6 +34,21 @@ Central claim (~line 190): "that stakeholders have the ability to control."
 Conclusion: stakeholder-defined taxonomy as closing design principle.
 Skipped contribution bullet (too close to central claim, would be redundant).
 
+### 5. s-circularity fix — DONE
+
+Dropped exponent optimization entirely. s=1.0 is now a **principled default**
+justified by Huber's (1964) proportional downweighting principle, not a
+grid-search result. Sensitivity sweep across s ∈ {0.5, 0.75, 1.0, 1.25, 1.5}
+reframed as a robustness check showing results don't depend on this choice.
+Old grid-search values (0.37, 0.62, 0.91, 1.2) replaced with symmetric range.
+
+### 6. RQ discussion alignment — DONE
+
+Discussion paragraphs realigned to match current research questions:
+- Old "RQ2" (CIV presence) → RQ1 continuation
+- Old "RQ3" (SHAP shifts, correlations) → RQ2 answer
+- New RQ3 paragraphs authored covering validation and robustness evidence
+
 ## Reviewer anticipation table
 
 | Reviewer concern | Best response |
@@ -44,6 +59,8 @@ Skipped contribution bullet (too close to central claim, would be redundant).
 | "Why this formula/taxonomy?" | Intentionally simple, monotonic, auditable, grounded in CIV; paper documents limits. |
 | "Why RMP?" | Intentionally difficult, noisy stress-test — not a surrogate for institutional SET. |
 | "Isn't the coarse expert result circular?" | Conceded in paper. Coarse is a manipulation check; validity claim rests on fine-grained condition and permutation control. |
+| "Why s=1.0 specifically?" | Huber's proportional downweighting principle. Sensitivity analysis across s ∈ {0.5–1.5} confirms results are not contingent on this choice. |
+| Your adjustments are a third the size of your model's MAE, so aren't they noise? | Δ is a difference of two predictions from the same model, so correlated errors cancel and the effective noise on Δ is far below the MAE. The max-|Δ| observation feeds directly, since even adversarial exponent choices move typical reviews by ~0.03 while MAE is 0.63. |
 
 ## Handle the coarse expert condition candidly
 

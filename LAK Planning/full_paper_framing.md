@@ -18,8 +18,9 @@ retaining the original review and a review-level audit trail.
 **RQ1.** How are topic-specific emotional signals associated with numerical
 ratings in open-ended teaching feedback?
 
-**RQ2.** How does validity-weighted attenuation change the modelled influence
-of emotion in content classified as pedagogically miscellaneous?
+**RQ2.** Can validity-weighted attenuation reduce the contribution of
+construct-irrelevant affect to numerical ratings while preserving relevant
+signals, under the taxonomy used in this study?
 
 **RQ3.** Does the mechanism exhibit behaviour consistent with its validity
 rationale on held-out instructors, expert-labelled comparisons, and robustness
@@ -51,6 +52,8 @@ controls?
 - 4.3 Initial validity and robustness evidence
   - 4.3.1 Expert paired comparisons (multi-expert consensus — pending)
   - 4.3.2 Permutation control (written)
+  - 4.3.3 Sensitivity to attenuation exponent (written — s ∈ {0.5, 0.75, 1.0, 1.25, 1.5})
+  - 4.3.4 Bootstrap professor stability (written — correlation-only, 1,000 resamples)
 
 ### 5. Discussion (~1.5 pages)
 - 5.1 A validity-oriented analytic primitive
@@ -85,7 +88,7 @@ Results is worst because prose narrating cut figures was retained.
 - §6.3 automated deployment paragraphs — not transferred; replaced by §5.2/5.3
 - "misrepresents true teaching effectiveness" in intro — flagged for rewording
 - Any statement that Miscellaneous content is unimportant
-- Exponent tuning / grid-search / old s=0.83 language
+- Exponent tuning / grid-search / old s=0.83 language (RESOLVED: s=1.0 justified via Huber; sensitivity reframed as robustness)
 - Single-expert figures presented as final (once consensus available)
 - Identifying information in double-blind version
 
