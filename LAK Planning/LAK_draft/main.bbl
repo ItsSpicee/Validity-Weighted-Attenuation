@@ -1173,36 +1173,6 @@ Sorour, S\BPBI E.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-Sunar%
-\ \BBA {} Khalid%
-}{%
-Sunar%
-\ \BBA {} Khalid%
-}{%
-{\protect \APACyear {2023}}%
-}]{%
-Sunar2023}
-\APACinsertmetastar {%
-Sunar2023}%
-\begin{APACrefauthors}%
-Sunar, A\BPBI S.%
-\BCBT {}\ \BBA {} Khalid, M\BPBI S.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2023}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Natural language processing of student's feedback to
-  instructors: A systematic review} {Natural language processing of student's
-  feedback to instructors: A systematic review}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{IEEE Transactions on Learning
-  Technologies}{16}{1}{1--14}.
-\newblock
-\begin{APACrefDOI} \doi{10.1109/TLT.2023.3330531} \end{APACrefDOI}
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
 Tsai%
 \ \BBA {} Martinez-Maldonado%
 }{%

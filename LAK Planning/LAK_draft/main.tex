@@ -144,15 +144,13 @@
 
 \auth{Open-ended teaching feedback is a widely available but analytically underspecified data source. When numerical ratings are accompanied by text, nothing specifies how the content of that text should shape interpretation of the rating. To this extent, any method that attempts to analytically inform stakeholders of the validity of such feedback must operate under cautious and auditable interpretation.}
 \auth{However, open-ended teaching feedback presents a particular challenge for validity-oriented interpretation and current methods have been limited to primarily descriptive approaches.}
-Sentiment analysis on Student Evaluations of Teaching (SET) is a popular area for the development of computational and statistical techniques to gain insights into the features of student experiences, as well as feedback for institutions and faculty. SET has historically been used as an evaluative tool to inform and guide consequential administrative decisions for academic institutions \cite{Haskell1997,Simpson2000,Irons2011}. Despite this widespread usage, SET validity remains contested, with a long-running debate over the extent to which ratings reflect teaching effectiveness rather than extraneous influences \cite{Langbein1994,MarshRoche1997}. Situational factors, irrelevant content, and affective noise can act as contaminants, threatening the validity of SET as a measure of instructional experience and quality \cite{Wongsurawat2011,Schiekirka2015}. Informal SET instruments such as RateMyProfessors.com (RMP) exhibit exacerbated contamination, due to being fully open-ended, anonymized and largely unmoderated. Thus, interpreting and acting on SET results without accounting for contamination \auth{risks misinforming stakeholders who interpret and act on these results} and impacts faculty assessment \cite{Haskell1997,Wongsurawat2011,Zumbach2014}.
-
-As summarized by \citeA{Emery2003}, drawing on \citeA{Dowell1983}, the systemic existence of these situational variables so thoroughly contaminates the validity of self-reported student learning and teacher effectiveness indices, that they can only be considered a measure of student satisfaction, rather than legitimate actionable feedback.
+Sentiment analysis on Student Evaluations of Teaching (SET) is a popular area for the development of computational and statistical techniques to gain insights into the features of student experiences, as well as feedback for institutions and faculty. SET has historically been used as an evaluative tool to inform and guide consequential administrative decisions for academic institutions \cite{Haskell1997,Simpson2000,Irons2011}. Despite this widespread usage, SET validity remains contested, with a long-running debate over the extent to which ratings reflect teaching effectiveness rather than extraneous influences \cite{Langbein1994,MarshRoche1997}. Situational factors, irrelevant content, and affective noise can act as contaminants, threatening the validity of SET as a measure of instructional experience and quality \cite{Wongsurawat2011,Schiekirka2015}. Informal SET instruments such as RateMyProfessors.com (RMP) exhibit exacerbated contamination, due to being fully open-ended, anonymized and largely unmoderated. Thus, interpreting and acting on SET results without accounting for contamination \auth{risks misinforming stakeholders who interpret and act on these results} and impacts faculty assessment \cite{Haskell1997,Wongsurawat2011,Zumbach2014,Emery2003,Dowell1983}.
 
 \auth{Because a numerical rating collapses numerous distinct sources of student expression into a single value, it cannot by itself reveal what is driving its interpretation. The accompanying review provides a multifaceted trace through which those sources can be examined. This study focuses on that examination by treating open-ended teaching feedback as a learning-analytics trace.}
 
 \subsection{The Unresolved Methodological Gap}
 
-\auth{Leveraging large-scale SET data, sentiment analysis has increasingly been used to analyze SET results, ranging from lexicon-based to deep learning and aspect-level models \cite{Sunar2023,Bhowmik2023}. Despite advances in computational SET analysis, existing research remains largely descriptive. Sentiments are extracted, patterns identified, but intervention is rarely attempted. As a result, contamination documented in the literature continues to distort the numerical ratings that institutions and students rely on. We introduce \textbf{validity-weighted attenuation}, an interpretable ABSA method that proportionally attenuates the modelled contribution of affect in content classified as outside of a stated pedagogical taxonomy that stakeholders have the ability to control, while retaining the original review and a review-level audit trail. This methodology enables inspection of the framework's outputs and rating-adjustment process in a consequential application where important criteria cannot be fully specified \cite{DoshiVelez2017}, and where analytical outputs must connect to pedagogical interpretation and action \cite{GasevicDawsonSiemens2015}. SET represents an ideal domain for this work: ratings are consequential, contamination is well-documented, and informal platforms like RMP (being fully anonymous and unmoderated) represent a demanding stress test for validity-aware frameworks. The present work aims to establish a foundation for future validity-aware approaches in both informal and formal SET contexts, where interpretability is essential given growing concerns about reliance on black-box systems \cite{Rybinski2021,Zhuang2025}. Findings from this research may also offer insights applicable to any open-ended feedback domain where numerical ratings are accompanied by unmoderated textual reviews.}
+\auth{Despite advances in computational SET analysis, existing research remains largely descriptive. Sentiments are extracted, patterns identified, but intervention is rarely attempted. As a result, contamination documented in the literature continues to distort the numerical ratings that institutions and students rely on. We introduce \textbf{validity-weighted attenuation}, an interpretable ABSA method that proportionally attenuates the modelled contribution of affect in content classified as outside of a stated pedagogical taxonomy that stakeholders have the ability to control, while retaining the original review and a review-level audit trail. This methodology enables inspection of the framework's outputs and rating-adjustment process in a consequential application where important criteria cannot be fully specified \cite{DoshiVelez2017}, and where analytical outputs must connect to pedagogical interpretation and action \cite{GasevicDawsonSiemens2015}. SET represents an ideal domain for this work: ratings are consequential, contamination is well-documented, and informal platforms like RMP (being fully anonymous and unmoderated) represent a demanding stress test for validity-aware frameworks. The present work aims to establish a foundation for future validity-aware approaches in both informal and formal SET contexts, where interpretability is essential given growing concerns about reliance on black-box systems \cite{Rybinski2021,Zhuang2025}. Findings from this research may also offer insights applicable to any open-ended feedback domain where numerical ratings are accompanied by unmoderated textual reviews.}
 
 \auth{\textbf{Research Questions:}}
 
@@ -164,7 +162,7 @@ As summarized by \citeA{Emery2003}, drawing on \citeA{Dowell1983}, the systemic 
 \end{description}
 \end{authcontent}
 
-To answer our research questions, we develop and apply a five-stage NLP framework to 17,127 RMP student evaluations using clause-level aspect-term categorization, fine-grained emotion extraction, pedagogical density estimation, tree-based regression modelling, and validity-weighted attenuation. Rather than excluding emotional expression, the framework proportionally down-weights content \auth{classified outside of the stated pedagogical taxonomy}, preserving student evaluative intent while \auth{supplementing (was improving)} the signal-to-noise ratio of numerical ratings. Adjustments are auditable and grounded in textual evidence provided by the student, minimizing reliance on black-box systems. 
+To answer our research questions, we develop and apply a five-stage NLP framework to 17,127 RMP student evaluations.
 
 \subsection{Contribution and Boundaries}
 
@@ -191,13 +189,9 @@ To answer our research questions, we develop and apply a five-stage NLP framewor
 
 \citeA{Wongsurawat2011} analyzes the value of open-ended SET feedback and proposes a conceptual framework for classifying comments. The author suggests that some students do not put sufficient thought and effort into evaluating their instructors. Importantly, white noise, or pedagogically irrelevant content, is identified as a source of measurement error in SET instruments. A conceptual four-quadrant framework comparing the correlation of subjective and objective comments to class averages is proposed to judge the reliability and representativeness of SET feedback. Wongsurawat indicates that comments that have little to no correlation with average evaluations should be discounted, and that administrators would benefit from metrics quantifying comment quality and reliability.
 
-\citeA{Li2025} conduct a qualitative study using semi-structured interviews with medical students. Thematic analysis reveals that emotional interactions between teachers and students may lead students to overlook the actual quality of teaching. They suggest that teaching evaluations are not only feedback directed to pedagogical experiences, but also reflections of students' emotional, affective and relational states.
-
-\citeA{Schiekirka2015} systematically review which factors influence student ratings in medical education course evaluations. They indicate that situational factors such as student characteristics, performance level and evaluation process might act as confounders, thus threatening the validity of evaluation results. They advocate for administrative awareness of the variety of factors that influence student ratings and encourage additional research into the control of potential confounders and development of robust evaluative instruments.
-
 Recent psychometric work has demonstrated that CIV can be identified and mitigated in constructed-response assessments. \citeA{Zhai2021} propose a Many-Facet Rasch Measurement framework that identifies three sources of CIV: the variability of assessment item scenarios, judging severity, and rater scoring sensitivity to the scenarios in tasks. Their framework mitigates these sources of CIV when estimating examinee ability. However, their approach operates under controlled conditions including expert-defined rubrics, trained raters, and a shared observable stimulus (a common video) against which responses can be evaluated. These conditions do not extend to large-scale SET systems.
 
-\auth{Across these studies, validity threats from construct-irrelevant content are documented in both formal and informal evaluation contexts. However, existing approaches either operate under controlled conditions that do not extend to large-scale SET, or identify contamination without providing a computational mechanism to attenuate its influence on numerical ratings.}
+\auth{Across these studies, validity threats from construct-irrelevant content, including situational confounders \cite{Schiekirka2015} and students' emotional and relational states \cite{Li2025}, are documented in both formal and informal evaluation contexts. However, existing approaches either operate under controlled conditions that do not extend to large-scale SET, or identify contamination without providing a computational mechanism to attenuate its influence on numerical ratings.}
 
 \subsection{From Descriptive NLP to Validity-Oriented Interpretation}
 
@@ -205,34 +199,17 @@ Prior research demonstrates that simple sentiment analysis on SET reviews can re
 
 Although deep learning approaches provide a finer-grained representation of emotional signals contained within SET reviews, analyzing sentiment per review aggregates multiple review aspects within a single numerical rating, in which affective noise is introduced to different extents \cite{Rybinski2021,Shuqin2024}. Therefore, a validity-weighted attenuation framework likely requires finer-grained representation of sentiments.
 
-\auth{Recent aspect-based approaches demonstrate that open-ended teaching feedback can be segmented and organized into distinct aspects before extracting sentiments \cite{Bhowmik2023,Nikolic2020,Jazuli2025}. However, extracting structured sentiment is not itself a validity intervention: these approaches do not specify how the pedagogical relevance of a clause should change the contribution of its affective content when interpreting the numerical rating that accompanies it.} \cite{Ren2022} extract and aggregate aspect sentiment but do not use relevance to proportionally attenuate affect's contribution to the accompanying rating; \citeA{Butt2025} compare the predictive performance of BERT (Bidirectional Encoder Representations from Transformers) and LLM approaches but propose no validity-weighted, review-specific recalibration rule.
-
-
-\citeA{Kopciuszewska2025} quantify cumulative SET bias using regression models to determine if biases vary across levels of SET scores and time. Their analysis demonstrates that systematic bias exists in SET reviews and can significantly distort ratings, intensified during the shift to E-learning during the COVID-19 pandemic. Additionally, they propose the use of adjusted SET scores to provide a more accurate reflection of teaching performance.
-
-\citeA{Kim2025} study the sentiments in SET reviews directed towards six distinct teaching topics and make use of Bayesian ordinal regression to identify drivers of SET scores. Their findings suggest that students' SET ratings are primarily correlated with the personal characteristics of the lecturer, over teaching dimensions.
-
-While these studies quantify the existence of situational biases that contaminate the validity of SET results, they do not provide a framework for attenuating the influence of affective noise on numerical scores.
-
-Past research has also examined ways to computationally estimate pedagogical relevance or quality of student comments.
-
-\citeA{Sorour2015} employ latent semantic analysis and clustering to predict student grades from lesson reflections. They used the PCN method which categorizes comments into previous (P), current (C), next (N), and other (O) activities. Isolating current pedagogically relevant comments and filtering out semantically distant or noisy comments resulted in an improvement of prediction accuracy from 66.4\% in the baseline model to 86.4\% when using a combined similarity and overlap measuring method on cleaned data.
-
-Similar work in computational linguistics and educational text analysis \cite{Louis2013,Xiong2011} develop models to quantify the utility and quality of textual feedback. Their results suggest that not all comments in student evaluative texts carry equal pedagogical value and relevance. However, more work is needed to implement these detection systems to mitigate the impact of affective noise on SET.
+\auth{Recent aspect-based approaches demonstrate that open-ended teaching feedback can be segmented and organized into distinct aspects before extracting sentiments \cite{Bhowmik2023,Nikolic2020,Jazuli2025}. However, extracting structured sentiment is not itself a validity intervention: these approaches do not specify how the pedagogical relevance of a clause should change the contribution of its affective content when interpreting the numerical rating that accompanies it.} \cite{Ren2022} extract and aggregate aspect sentiment but do not use relevance to proportionally attenuate affect's contribution to the accompanying rating; \citeA{Butt2025} compare the predictive performance of BERT (Bidirectional Encoder Representations from Transformers) and LLM approaches but propose no validity-weighted, review-specific recalibration rule. \new{Other recent work quantifies cumulative SET bias \cite{Kopciuszewska2025} or identifies topic-specific sentiment drivers \cite{Kim2025}, but neither provides a mechanism to attenuate the influence of identified noise on numerical ratings. Research on computational estimation of comment relevance \cite{Sorour2015,Louis2013,Xiong2011} demonstrates that filtering by pedagogical value improves prediction accuracy, but these detection systems have not been applied to mitigate the impact of affective noise on SET ratings.}
 
 \subsection{Design Principle: Attenuation Rather Than Deletion}
 
 Addressing validity concerns within SET does not require excluding low-utility reviews. Classical reliability theory holds that measurement quality improves by reducing error variance rather than excluding observations \cite{Cronbach1951}. Robust estimation theory formalizes this principle, showing that down-weighting high-noise observations produces more stable and less biased estimates than exclusionary approaches \cite{Huber1964}. Within the SET domain, \citeA{MarshRoche1997} advocate for a conservative approach for bias mitigation, arguing that corrections should account for known sources of contamination while preserving students' overall evaluative intent. They further caution that corrections applied without regard to valid variance risk ``throwing the validity baby out with the bias bathwater'' (p. 1197), removing genuine signal alongside the contaminant. This supports a bounded, content-targeted adjustment rather than a global correction.
 
-\auth{This principle extends beyond statistical preservation. Content classified as \emph{Miscellaneous} falls outside this study's pedagogical taxonomy. It is construct-irrelevant for the purpose of interpreting pedagogical signal in a rating, but it may carry value as a record of the student's broader experience. Similarly, raw ratings and reviews are preserved and presented alongside adjusted ratings for stakeholder interpretation. Stakeholders are further empowered by a comprehensive audit trail that covers all stages of the framework, allowing for any individual change to be inspected and challenged \cite{DrachslerGreller2016}. The attenuation mechanism itself is bounded and monotonic, ensuring predictable changes to features, though the downstream model is less so. The taxonomy used in this RMP proof of concept is one generic decomposition of review content, and a different taxonomy would produce different adjustments. In formal applications, stakeholders could define or refine the categories in relation to course learning design and its documented pedagogical intent, so that the analytic lens reflects local priorities rather than a fixed computational judgment \cite{LockyerHeathcoteDawson2013}.}
+\auth{The attenuation mechanism itself is bounded and proportional, ensuring predictable changes to features, though the downstream model is less so. The taxonomy used in this RMP proof of concept is one generic decomposition of review content, and a different taxonomy would produce different adjustments. In formal applications, stakeholders could define or refine the categories in relation to course learning design and its documented pedagogical intent, so that the analytic lens reflects local priorities rather than a fixed computational judgment \cite{LockyerHeathcoteDawson2013}.}
 
 \subsection{Research Gap}
 
-Existing literature shows that CIV and other sources of noise systematically contaminate SET, influencing numerical ratings in ways unrelated to actual pedagogical experience. Advances in NLP demonstrate that topic-specific emotional sentiment in SET reviews can be reliably extracted. Recent large-scale studies confirm that CIV manifests in real-world evaluation data substantially distorting SET ratings. Reliability and robust estimation theory therefore support the use of proportional down-weighting to reduce the influence of CIV, provided that construct-relevance can be estimated. Since the criteria underlying these types of feedback systems cannot be fully specified, frameworks that attempt to attenuate CIV must treat interpretability and transparency as essential design constraints, especially when used to inform stakeholders \cite{DoshiVelez2017,DrachslerGreller2016}.
-
-Despite computational advances in SET analysis, existing studies remain largely descriptive. To the best of our knowledge, no prior work provides a transparent computational framework that leverages topic-level sentiment to identify and attenuate construct-irrelevant emotional content within the scope of defined taxonomy and mitigate the impact of CIV on SET ratings.
-
-We address this gap by introducing an interpretable ABSA framework combining clause-level aspect-term categorization, fine-grained emotion extraction, pedagogical density estimation, tree-based regression modelling, and validity-weighted attenuation. This framework estimates the contribution of pedagogical signal and affective noise to numerical ratings (RQ1), tests whether validity-weighted attenuation can reduce the contribution of construct-irrelevant affect to ratings while preserving relevant signals (RQ2), and offers initial proof-of-concept validation and robustness tests (RQ3). The resulting outputs are designed to enhance and support stakeholder interpretation of teaching feedback \cite{GasevicDawsonSiemens2015}.
+Despite computational advances in SET analysis, existing studies remain largely descriptive. To the best of our knowledge, no prior work provides a transparent computational framework that leverages topic-level sentiment to identify and attenuate construct-irrelevant emotional content within the scope of defined taxonomy and mitigate the impact of CIV on SET ratings. \new{Since the criteria underlying such feedback systems cannot be fully specified, any framework that attempts this must treat interpretability and transparency as essential design constraints \cite{DoshiVelez2017}, with outputs that are explainable and contestable \cite{DrachslerGreller2016} and connected to pedagogical interpretation and action \cite{GasevicDawsonSiemens2015}.}
 
 %========================================================================================
 \section{Method}
@@ -240,81 +217,41 @@ We address this gap by introducing an interpretable ABSA framework combining cla
 
 \subsection{Study Context and Data}
 
-As a source of data, we choose SET reviews from RMP because it is a popular professor and course review website offering anonymous use by any student. Additionally, being an informal SET system, it represents a deliberately noisy stress test for our framework's capacity to mitigate CIV, rather than a proxy for institutional SET. RMP lists a strict "no scraping" policy, and despite attempts to contact site administrators to request permission to source data directly from the site, no permission was granted. Instead, we use an open-source dataset provided by \citeA{He2020}, sourced from RMP. This dataset comprises more than 19,000 individual SET reviews directed towards hundreds of professors. These SET reviews consist of a textual section, numerical rating (1-5) and various meta-tags used on RMP to classify different teaching styles and qualities. The dataset also included demographic information measured by the original researchers. For our purposes, the meta-tags and demographic information is not used.
+As a source of data, we use SET reviews from RateMyProfessors.com (RMP), a popular professor and course review website offering anonymous use by any student. As an informal SET system, RMP represents a deliberately noisy stress test for our framework's capacity to mitigate CIV, rather than a proxy for institutional SET. RMP lists a strict ``no scraping'' policy. Despite attempts to contact site administrators to request permission to source data directly from the site, no permission was granted; we therefore use the open-source dataset provided by \citeA{He2020}, sourced from RMP. This dataset comprises more than 19,000 individual textual SET reviews and associated numerical ratings (1--5) directed towards hundreds of professors, alongside RMP meta-tags and demographic information measured by the original researchers. For our purposes, the meta-tags and demographic information are not used.
 
-Performing ABSA on SET reviews from RMP is a difficult task. Reviews can be written in multiple languages and contain informal language, spelling, grammatical and punctuation errors, censored profanity, UTF encoding errors (such as mojibake), and other hindrances to NLP models. Additionally, RMP has a built-in profanity censoring feature that infrequently incorrectly censors words or substrings within words. We excluded all non-English reviews as the NLP models used only support English input. Furthermore, any reviews that contained the RMP automatic censorship string "****" are also excluded as its application was prone to error. Any entries with either no review text, or a review text of "No Comment" or similar, are dropped. Finally, reviews in which the professor being reviewed has fewer than 8 total reviews across the dataset are excluded. After these exclusions, the total number of reviews in the dataset is reduced to 17,127.
+We excluded non-English reviews, reviews containing RMP's automatic censorship string ``****'' (whose application was prone to error), entries with no review text or text such as ``No Comment'', and reviews for professors with fewer than eight total reviews. After these exclusions, the final dataset contains 17,127 reviews.
 
-Preprocessing this informal text is critical for the accuracy of later ABSA stage. Several different strategies are used to clean the text. First, encoding errors or mojibake are fixed using a combination of Python library ftfy (fixes text for you), regular expressions, and string normalization using NFKD (Normalization Form Compatibility Decomposition). Next, text is standardized to lowercase, and abbreviations and titles are expanded. This step is particularly critical, as periods used in abbreviations or titles can cause unwanted clause segmentation. We replace informal language with equivalent formal representation using regular expressions. Character emojis and self-censored profanity are replaced with textual tags. Punctuation and whitespace are cleaned.
-
-After these changes, the text is significantly cleaner. Further processing could be applied such as spell-checking, stemming and lemmatization, however, it would likely result in a loss of contextual information for future steps in the framework.
-
-Examining the rating distribution, a negative-skew can be observed, with 5-star reviews constituting the largest proportion of the dataset. This skew has implications for downstream regression modelling and attenuation outcomes. Review lengths follow a right-skewed distribution with a mean of 40.1 words and a standard deviation of 20.3, reflecting the open-ended and unstructured nature of RMP reviews.
-
-\subsection{Model Pipeline}
-
-The framework processes each review through a five-stage pipeline. It extracts clause-level emotions across pedagogical and non-pedagogical topics and computes a pedagogical density metric. This density metric is used to proportionally down-weight construct-irrelevant sentiment while preserving pedagogically relevant signals. An overview of the methodology can be described as follows:
-
-\begin{description}
-\item[1. Clause Extraction and Categorization] Reviews are separated into individual clauses using \texttt{spaCy}. Individual clauses are categorized into distinct pedagogical topics using a Sentence-BERT style embedding model and cosine similarity comparisons. If a statement falls below a certain threshold, it is not classified as related to pedagogy and instead is categorized as \textit{Miscellaneous}.
-
-\item[2. Pedagogical Density Calculations] A pedagogical density metric is calculated for each review, representing the relative occurrence of pedagogical feedback in the overall review.
-
-\item[3. Aspect-Based Sentiment Analysis] These separated and categorized clauses are fed into \texttt{SamLowe/roberta-base-go\_emotions}, a deep learning sentiment analysis model based on RoBERTa, trained on the \texttt{go\_emotions} dataset, in order to determine emotional sentiment within reviews.
-
-\item[4. Tree-Based Regression Modelling] Numerical ratings are modelled as a function of their associated topic sentiment features, using CatBoost (tree-based) regression. This step reveals how sentiment directed to each categorization topic contributes to the numerical ratings across the entire dataset.
-
-\item[5. Validity-Weighted Attenuation and Rating Adjustment] \textit{Miscellaneous} sentiment is down-weighted using pedagogical density, to mitigate the influence of pedagogically irrelevant polarized emotions. Finally, using the previously trained CatBoost model, adjusted ratings are generated by adding the difference between attenuated and baseline predicted ratings from raw student ratings.
-\end{description}
+Before analysis, reviews were cleaned (encoding repair via \texttt{ftfy}, lowercase normalization, abbreviation expansion, and punctuation standardization); stemming and lemmatization were withheld to preserve contextual information for downstream models.
 
 A schematic diagram of our framework is shown in Figure~\ref{fig:overall-schematic}.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.52\linewidth]{Diagrams/Schematic_Diagrams/FinalSchematic.png}
     \caption{Schematic diagram of our framework.}
     \label{fig:overall-schematic}
 \end{figure}
 
-\subsection{Clause Extraction}
-
-Cleaned text is separated into individual clauses using \texttt{spaCy}'s \texttt{en\_core\_web\_sm} model which segments text based on punctuation while attempting to avoid splits on non-statement punctuation. Two additional rules supplement \texttt{spaCy} when punctuation is sparse: splitting on commas and stop-words (but, so, yet) when no sentence-ending punctuation exists, or using aggressive stop-word separation for reviews with no punctuation.
-
 \subsection{Aspect-Term Categorization}
 
-The next stage in the processing pipeline assigns each review clause to one of three pedagogically relevant categories (\textit{Instructional Effectiveness}, \textit{Fairness \& Grading}, and \textit{Workload \& Difficulty}) or to a \textit{Miscellaneous} category. This task is formulated as an \emph{aspect-term categorization} (ATC) problem, also referred to in the literature as \emph{aspect topic detection} or \emph{aspect topic classification}.
+Cleaned text is separated into individual clauses using \texttt{spaCy}'s \texttt{en\_core\_web\_sm} model, which segments text based on punctuation while attempting to avoid splits on non-statement punctuation. When punctuation is sparse, two additional rules split text on commas and stop-words (but, so, yet), with aggressive stop-word separation used for reviews containing no punctuation.
 
-Semantic representations of each pedagogical topic are constructed by encoding concise textual descriptions of the categories using a pretrained sentence-embedding model (\texttt{all-mpnet-base-v2}). The resulting sentence embeddings serve as dense vector representations for each topic. Review clauses are embedded using the same model.
+The next stage in the processing pipeline assigns each review clause to one of three pedagogically relevant categories (\textit{Instructional Effectiveness}, \textit{Fairness \& Grading}, and \textit{Workload \& Difficulty}) or to a \textit{Miscellaneous} category. This task is formulated as an \emph{aspect-term categorization} (ATC) problem.
 
-Each pedagogical topic is defined using multiple short natural-language descriptions of common student expressions. For example, the \textit{Instructional Effectiveness} topic includes descriptions such as "clear and effective explanations of concepts" and "lectures are well-organized and easy to follow", while \textit{Fairness \& Grading} captures language related to grading, equitable treatment, leniency, and evaluation policies. \textit{Workload \& Difficulty} captures references to assignment volume, exam difficulty, and time demands.
-
-Clause--topic similarity is computed using cosine similarity between the clause embedding and each topic embedding, producing a similarity vector
-\begin{equation}
-\mathbf{s}_c = \big( s_{c,\text{eff}},\, s_{c,\text{fair}},\, s_{c,\text{work}} \big),
-\end{equation}
-where each component represents the semantic similarity between clause $c$ and a pedagogical topic.
-
-Each clause is first assigned a candidate topic by identifying the highest-scoring pedagogical category:
-\begin{equation}
-\hat{k}_c = \arg\max_{k \in \{\text{eff},\,\text{fair},\,\text{work}\}} s_{c,k}
-\end{equation}
-
-The candidate topic is accepted only if its similarity score exceeds a predefined threshold $\tau$; otherwise the clause is categorized as \textit{Miscellaneous}:
+Each pedagogical topic is defined using multiple short natural-language descriptions of common student expressions. These descriptions and each review clause are encoded using the pretrained sentence-embedding model \texttt{all-mpnet-base-v2}. For a clause $c$, cosine similarity is computed against each pedagogical topic, and the clause is assigned as follows:
 \begin{equation}
 \text{topic}(c) =
 \begin{cases}
-\hat{k}_c, & \text{if } s_{c,\hat{k}_c} > \tau, \\
-\textit{Miscellaneous}, & \text{otherwise}.
+\displaystyle \arg\max_{k \in \{\text{eff},\,\text{fair},\,\text{work}\}} s_{c,k}, & \text{if } \max_{k \in \{\text{eff},\,\text{fair},\,\text{work}\}} s_{c,k} > \tau, \\
+\textit{Miscellaneous}, & \text{otherwise},
 \end{cases}
 \end{equation}
-
-where $\tau = 0.25$. This threshold was selected through validation on a development subset of manually inspected clauses, balancing precision and coverage.
-
-\texttt{all-mpnet-base-v2} was selected for ATC as it provides strong semantic generalization without requiring labelled training data. By encoding both clause text and category descriptions as dense semantic vectors, the model captures meaning across diverse phrasings and informal language common within RMP reviews.
+where $s_{c,k}$ represents the cosine similarity between clause $c$ and pedagogical topic $k$. We set $\tau=0.25$, selected through validation on a development subset of manually inspected clauses to balance precision and coverage. By encoding both clause text and category descriptions as semantic vectors, the model captures meaning across the diverse phrasing and informal language common within RMP reviews.
 
 \auth{Table~\ref{tab:atc-taxonomy} summarises the four-category taxonomy with representative descriptor phrases used to construct each topic embedding.}
 
 \begin{table}[H]
-\caption{\auth{Aspect-term categorization taxonomy. Each pedagogical category is defined by natural-language descriptors encoded as sentence embeddings; representative examples are shown. Clauses that do not exceed the similarity threshold $\tau = 0.25$ for any pedagogical category are assigned to \textit{Miscellaneous}.}}
+\caption{\auth{Aspect-term categorization taxonomy and representative descriptor phrases. Clauses that do not exceed the similarity threshold $\tau = 0.25$ for any pedagogical category are assigned to \textit{Miscellaneous}.}}
 \label{tab:atc-taxonomy}
 \centering
 \small
@@ -333,71 +270,35 @@ Miscellaneous & Clauses below the similarity threshold $\tau$ for all pedagogica
 \end{tabular}
 \end{table}
 
-\subsection{Pedagogical Density Metric}
+\subsection{Pedagogical Density and Per-Clause Emotion Extraction}
 
-Using the categorized statements, a pedagogical density metric is calculated per review. The equations for these metrics are:
-
+Using the categorized statements, density metrics are calculated for each review:
 \begin{equation}
 D_{\text{misc}} =
 \frac{\text{wordcount}_{\text{misc}}}
-{\text{total wordcount}}
-\end{equation}
-
-Here, $D_{\text{misc}}$ represents the proportion of non-pedagogical (miscellaneous) content. As overall pedagogical density is the complement of \textit{Miscellaneous} content, it is implicitly captured as $1 - D_{\text{misc}}$. This relationship is important for later weighting of \textit{Miscellaneous} emotions: reviews with higher $D_{\text{misc}}$ have lower pedagogical density and are therefore subject to stronger changes in the attenuation procedure.
-
-For regression modelling, complementary pedagogical density features ($D_{\text{effectiveness}}$, $D_{\text{fairness}}$, $D_{\text{workload}}$) are also used as predictors of ratings, but not used in the attenuation process.
-
-\begin{equation}
+{\text{total wordcount}},
+\qquad
 D_{k} =
 \frac{\text{wordcount}_{k}}
-{1 + \text{wordcount}_{k} + \text{wordcount}_{\text{misc}}}, \quad k \in \{\text{eff},\,\text{fair},\,\text{work}\}
+{1 + \text{wordcount}_{k} + \text{wordcount}_{\text{misc}}},
+\quad k \in \{\text{eff},\,\text{fair},\,\text{work}\}.
 \end{equation}
 
-\subsection{Per-Clause Emotion Extraction \& Per-Topic Aggregation}
+Here, $D_{\text{misc}}$ represents the proportion of non-pedagogical (\textit{Miscellaneous}) content; overall pedagogical density is therefore captured as $1 - D_{\text{misc}}$. The topic-specific density features ($D_{\text{effectiveness}}$, $D_{\text{fairness}}$, and $D_{\text{workload}}$) are also used as predictors in regression modelling, but not in the attenuation process.
 
-Per-clause sentiment analysis is performed using \texttt{SamLowe/roberta-base-go\_emotions}, a fine-tuned RoBERTa model trained on the GoEmotions dataset \cite{Demszky2020}, with the INT8-quantized ONNX variant (\texttt{SamLowe/roberta-base-go\_emotions-onnx}) used for computational efficiency.
+Per-clause sentiment analysis is performed using \texttt{SamLowe/roberta-base-go\_emotions}, a fine-tuned RoBERTa model trained on the GoEmotions dataset \cite{Demszky2020}. Each clause $c$ is independently processed and represented by a 27-dimensional emotion vector $\mathbf{e}'_c$, where each component denotes the probability estimated by the model that the clause expresses an emotion label. The model initially produces the 28 GoEmotions labels; \textit{Neutral} is removed because it represents the absence of strong emotional activation rather than an independent affective signal.
 
-Given a review segmented into clauses, each clause $c$ is independently processed by the model to produce an emotion vector.
-\begin{equation}
-\mathbf{e}_c = \big(e_{c,1}, e_{c,2}, \ldots, e_{c,28}\big),
-\end{equation}
-where $e_{c,i} \in [0,1]$ denotes the probability estimated by the model that clause $c$ expresses emotion $i$.
-
-The full emotion label set consists of the following 28 categories:
-
-\noindent
-\texttt{Admiration, Amusement, Anger, Annoyance, Approval, Caring, Confusion, Curiosity, Desire, Disappointment, Disapproval, Disgust, Embarrassment, Excitement, Fear, Gratitude, Grief, Joy, Love, Nervousness, Optimism, Pride, Realization, Relief, Remorse, Sadness, Surprise, Neutral.}
-
-Each component of $\mathbf{e}_c$ corresponds to one of the above labels. The \textit{Neutral} topic is subsequently removed, yielding a reduced 27-dimensional emotion vector. This exclusion is justified by the fact that the Neutral score is not an independent affective signal. Instead, it reflects the absence of strong emotional activation and is implicitly defined as the complement of the remaining emotion probabilities. Retaining this dimension introduces redundancy without contributing additional information for downstream aggregation.
-
-Let $\mathbf{e}'\in \mathbb{R}^{27}$ denote the resulting emotion vector for clause $c$ after removing the \texttt{Neutral} dimension.
-
-Using the previously obtained topic labels, clause-level emotion vectors within each review are aggregated at the topic level by computing the mean emotion vector over all clauses assigned to that topic. Formally, for topic $k$:
+Using the previously obtained topic labels, clause-level emotion vectors within each review are aggregated at the topic level by computing the mean emotion vector over all clauses assigned to topic $k$:
 
 \begin{equation}
 \mathbf{E}_k = \frac{1}{|C_k|} \sum_{c \in C_k} \mathbf{e}'_c,
 \end{equation}
 
-where $C_k$ denotes the set of clauses in the review labelled with topic $k$. If no clauses in a review are labelled with a particular topic, the corresponding vector $\mathbf{E}_k$ is imputed as a zero vector of length 27. This zero-padding is justified because many reviews omit certain categories, and using a zero vector preserves the fixed input dimensionality while clearly indicating the absence of observed emotion for that topic.
-
-Each review is thus represented by a structured emotional representation:
-
-\begin{equation}
-\mathbf{E}_{\text{review}} =
-\big[
-\mathbf{E}_{\text{eff}},
-\mathbf{E}_{\text{fair}},
-\mathbf{E}_{\text{work}},
-\mathbf{E}_{\text{misc}}
-\big]
-\in \mathbb{R}^{4 \times 27}
-\end{equation}
-
-where each $\mathbf{E}_k$ captures the average emotional profile associated with a specific pedagogical aspect of the review.
+where $C_k$ denotes the set of clauses in the review labelled with topic $k$. If no clauses are assigned to a topic, the corresponding $\mathbf{E}_k$ is imputed as a zero vector of length 27, preserving the fixed input dimensionality while indicating the absence of observed emotion for that topic.
 
 \subsection{Predicting Ratings from Topic Specific Emotions}
 
-Ratings are modelled as a function of emotions directed towards each topic, as well as density metrics. For a single review, the input feature vector is represented as:
+Ratings are modelled as a function of emotions directed towards each topic and density metrics. For a single review, the input feature vector is represented as:
 
 \begin{equation}
 \mathbf{x}_{\text{review}} =
@@ -407,69 +308,49 @@ Ratings are modelled as a function of emotions directed towards each topic, as w
 & D_{\text{eff}}, \; D_{\text{fair}}, \; D_{\text{work}}, \; D_{\text{misc}}
 \end{aligned}
 \Big]
-\in \mathbb{R}^{4 \times 27 + 4} = \mathbb{R}^{112}
+\in \mathbb{R}^{4 \times 27 + 4} = \mathbb{R}^{112}.
 \end{equation}
 
-where $\mathbf{E}_{k} \in \mathbb{R}^{27}$ is the aggregated emotion vector for topic $k$, and $D_{k}$ is the density metric for that topic. For the complete dataset of $N =17,127$ reviews, the feature matrix is\new{ $\mathbf{X} \in \mathbb{R}^{N \times 112}$ (the source manuscript's display equation, inlined for space).}
+Here, $\mathbf{E}_{k} \in \mathbb{R}^{27}$ is the aggregated emotion vector for topic $k$, and $D_{k}$ is the corresponding density metric. For the complete dataset of $N = 17{,}127$ reviews, the feature matrix is $\mathbf{X} \in \mathbb{R}^{N \times 112}$.
 
-To prevent data leakage and ensure realistic generalization to unseen professors, we employ an 80-20 professor-level grouped split. This design choice results in higher MAE and more conservative performance estimates compared to random splitting, but aims to reflect the real-world challenge of generalizing across professors in larger-scale SET scenarios.
+To prevent data leakage and assess generalization to unseen professors, we employ an 80--20 professor-level grouped split. The CatBoost regressor is trained on 823 professors and evaluated on 206 held-out professors; all attenuation validation metrics are computed exclusively on the held-out professors. This design produces more conservative performance estimates than random splitting while reflecting the challenge of generalizing across professors in larger-scale SET scenarios.
 
-For this task, we employ CatBoost regression, an open-source and lightweight gradient boosted tree-based regression model. CatBoost is found to have strong performance for sparse datasets \cite{Hancock2020}, which is particularly appealing for our use case. Student reviews rarely mention all four topics, meaning that the number of imputed features is relatively high. CatBoost also employs ordered boosting to build symmetric trees, resulting in less overfitting and better generalization \cite{Prokhorenkova2018,Dorogush2018}. Its automatic generation of internal feature combinations captures non-linear interactions between emotional signals and topics, better reflecting the complex relationships present in student reviews than linear models.
-
-The final CatBoost configuration was chosen after exploratory tuning via cross-validation on the training-set professors. The hyperparameters chosen aim to balance predictive performance and model interpretability and are as follows: \new{1000 iterations, learning rate 0.02, depth 7, and L2 leaf regularization 6 (inlined from the source manuscript's hyperparameter table to save space; restore the table if preferred).} Any other hyperparameters not listed above were kept at their default values.
-
-MAE was chosen as a loss function and evaluation metric as it directly measures the average absolute deviations in predicted ratings from true ratings on the 1-5 scale. This aligns with the practical goal of accurately predicting student scores and remaining resilient to occasional outliers.
-
-Performance was assessed using grouped 5-fold cross-validation (GroupKFold, grouped by professor ID) on the training professors, followed by final evaluation on the held-out test professors. This 80--20 professor-level grouped split is applied once and reused throughout the framework: the CatBoost regressor is trained on the 823 training professors, and all attenuation validation metrics are computed exclusively on the 206 held-out professors.
+We employ CatBoost regression, an open-source gradient-boosted tree model that captures non-linear interactions between emotional signals and topics in the sparse review representation \cite{Hancock2020,Prokhorenkova2018,Dorogush2018}. The final configuration was selected through grouped 5-fold cross-validation (GroupKFold, grouped by professor ID) on the training professors: 1000 iterations, learning rate 0.02, depth 7, and L2 leaf regularization 6; all other hyperparameters were kept at their default values. MAE was used as both the loss function and evaluation metric because it measures average absolute deviation from ratings on the 1--5 scale and is resilient to occasional outliers.
 
 \subsection{Validity-Weighted Attenuation \& Rating Adjustment}
 
-Raw ratings are adjusted in order to mitigate the impact of CIV while preserving pedagogical signals. Intuitively, the attenuation mechanism functions like noise cancellation: the more off-topic content a review contains, the more its irrelevant emotional influence is dampened, proportionally to the detected noise, amplifying the underlying pedagogical signal. For example, a 5-star review that is 80\% off-topic praise about an instructor's appearance will have irrelevant sentiments heavily dampened, shifting the adjusted rating (e.g., from 5.0 to 4.0), whereas a review with only 10\% off-topic content will remain virtually unchanged. Formally, this process operates as follows.
-
-Emotional features present in $E_{misc}$ are down-weighted in proportion to $D_{misc}$. As a reminder, $D_{misc}$ is the proportional density of \textit{Miscellaneous} content in the overall review. The down-weighting factor $\zeta$ is calculated as:
+Raw ratings are adjusted to mitigate the impact of CIV while preserving pedagogical signals. Emotional features present in $E_{\text{misc}}$ are down-weighted in proportion to $D_{\text{misc}}$, the density of \textit{Miscellaneous} content in the overall review. The down-weighting factor $\zeta$ is calculated as:
 
 \begin{equation}
-    \zeta = 1-D_{misc}
+    \zeta = 1-D_{\text{misc}}.
 \end{equation}
 
-Thus, a review with no detected \textit{Miscellaneous} content is unchanged ($\zeta=1$), whereas a review composed entirely of such content receives zero weight for its \textit{Miscellaneous} emotion features ($\zeta=0$). Intermediate densities produce proportionate attenuation. The down-weighting factor $\zeta$ aligns with classical reliability theory \cite{Cronbach1951} as a correction term designed to reduce error variance in ratings contaminated by construct-irrelevant content. Its proportional, continuous scaling with measured noise density further reflects robust estimation principles, down-weighting high-noise observations rather than discarding them \cite{Huber1964}.
+A review with no detected \textit{Miscellaneous} content is unchanged ($\zeta=1$), whereas a review composed entirely of such content receives zero weight for its \textit{Miscellaneous} emotion features ($\zeta=0$). Intermediate densities produce proportionate attenuation. The factor $\zeta$ implements the reliability and robust-estimation rationale for down-weighting high-noise observations rather than discarding them \cite{Cronbach1951,Huber1964}.
 
-$\zeta$ is applied to emotions $e$ present in $E_{\text{misc}}$:
+\begin{equation}
+    \hat{E}_{\text{misc}}^{\text{weighted}} = E_{\text{misc}} \cdot \zeta.
+\end{equation}
+
+Applying the trained CatBoost model $f_\mathrm{CB}$, held fixed across conditions, to the baseline and attenuated feature vectors produces:
 
 \begin{equation}
 \begin{aligned}
-    \hat{E}_{\text{misc}}^{\text{weighted}} &= E_{\text{misc}} \cdot \zeta, \\
-    \forall e \in E_{\text{misc}}, \quad \hat{e}^{\text{weighted}} &= e \cdot \zeta
+\hat{y}_i^\text{attenuated} &= f_\mathrm{CB}\big(\hat{\mathbf{x}}_i^\text{weighted}\big), \\
+\hat{y}_i^\text{baseline} &= f_\mathrm{CB}(\mathbf{x}_i), \qquad i = 1, \dots, N.
 \end{aligned}
-\end{equation}
-
-resulting in a down-weighted $E_{\text{misc}}$ feature vector for each review\new{, $\mathbf{\hat{x}}_{\text{review}} \in \mathbb{R}^{112}$}. These individual down-weighted feature vectors are reassembled into a feature matrix\new{ $\hat{\mathbf{X}}^{weighted} \in \mathbb{R}^{N \times 112}$ (both display equations from the source manuscript, inlined for space)}.
-
-Applying the trained CatBoost model $f_\mathrm{CB}$ (held fixed across conditions) to the review feature matrix $\hat{X}^{weighted}$ attenuated ratings are generated $\hat{y}_i^\text{attenuated}$.
-
-\begin{equation}
-\hat{y}_i^\text{attenuated} = f_\mathrm{CB}\big(\hat{X}_i^\text{attenuated}\big), \quad i = 1, \dots, N
-\end{equation}
-
-Similarly for the raw review feature matrix $X$ predicted baseline ratings are generated $\hat{y}_i^\text{baseline}$.
-
-\begin{equation}
-\hat{y}_i^\text{baseline} = f_\mathrm{CB}(X_i), \quad i = 1, \dots, N
 \end{equation}
 
 Adjusted ratings are defined as:
 
 \begin{equation}
-\hat{y}_i^\text{adjusted} = y_i^\text{raw} + \big( \hat{y}_i^\text{attenuated} - \hat{y}_i^\text{baseline}\big), \quad i = 1, \dots, N
+\hat{y}_i^\text{adjusted} = y_i^\text{raw} + \big( \hat{y}_i^\text{attenuated} - \hat{y}_i^\text{baseline}\big), \quad i = 1, \dots, N.
 \end{equation}
 
-The term $(\hat{y}_i^\text{attenuated} - \hat{y}_i^\text{baseline})$ functions as a correction $\Delta$, quantifying the specific rating shift attributable to the baseline $E_{misc}$ feature vector. By adding this $\Delta$ to the raw student rating $y_i^\text{raw}$, the framework subtracts only the model-estimated influence of irrelevant sentiment that exceeds the down-weighting threshold defined by the proportion of noise ($D_\text{misc}$) in the review. This adjustment aims to generate a rating that more effectively represents valid pedagogical signal. By opting for validity-weighted attenuation over total exclusion of $E_\text{misc}$, the framework seeks to mitigate the proportional influence of construct-irrelevant noise, while attempting to preserve the student's original evaluative intent.
+The prediction difference $(\hat{y}_i^\text{attenuated} - \hat{y}_i^\text{baseline})$ functions as a correction $\Delta$, quantifying the rating shift attributable to attenuating $E_{\text{misc}}$. Adding this correction to the raw rating changes only the model-estimated influence of \textit{Miscellaneous} sentiment, rather than excluding it entirely, while attempting to preserve the student's original evaluative intent.
 
 \subsubsection{Audit Trail and Worked Example}
 
 \auth{Table~\ref{tab:ex2} presents a complete end-to-end trace of an individual review through the framework pipeline, covering clause extraction and categorization, per-clause emotion extraction, topic-level feature vector aggregation, validity-weighted attenuation, and final rating adjustment. Table~\ref{tab:ex2} demonstrates a review with high \textit{Miscellaneous} density ($D_{\text{misc}}$=0.670), where non-pedagogical sentiment dominates, receives a positive adjustment of $+$0.427.} 
-
-\new{Two further cases bound the behaviour. A review with no \textit{Miscellaneous} content ($D_{\text{misc}}$=0), where all clauses are categorized as \textit{Instructional Effectiveness}, receives no adjustment, preserving the raw rating of 5.0. Next, a mixed review spanning all four topic categories ($D_{\text{misc}}$=0.450), where strong positive \textit{Miscellaneous} sentiment, including a high-gratitude farewell clause (gratitude=0.990), is down-weighted by $\zeta$=0.550, producing a conservative downward adjustment of $-$0.061. Together, these examples illustrate the selective and proportional nature of the attenuation mechanism.}
 
 \begin{table*}[htbp]
     \caption{Worked Example, Review \#14848.}
@@ -480,20 +361,6 @@ The term $(\hat{y}_i^\text{attenuated} - \hat{y}_i^\text{baseline})$ functions a
 
 \auth{When a review's passage through the framework is presented stage by stage, stakeholders can inspect and challenge individual outputs and overall adjustments.}
 
-\subsection{Evaluation Strategy}
-
-This section evaluates the reliability and effectiveness of the proposed framework across its core components: ATC, RoBERTa sentiment extraction, regression modelling, and validity-weighted attenuation. The accuracy of the ATC model is assessed, followed by regression model selection, predictive performance, and directional coherence. Internal validation examines whether attenuation results in structured, interpretable changes (feature importance, correlations, adjustment patterns) rather than arbitrary modifications. External validation with a senior faculty expert assesses whether pair-wise rating adjustment differences align with expert judgment of student review validity.
-
-Pairs were constructed in two phases. In the first phase, coarse pairs were formed by randomly sampling one review from a minimal adjustment bin ($|\Delta| < 0.15$) and one from a significant adjustment bin ($|\Delta| \geq 0.65$). In the second phase, fine-grained pairs were constructed by sampling two reviews whose absolute attenuation $\Delta$ differed by less than 0.5, producing pairs where the difference in CIV contamination is more subtle. The two conditions therefore partition the evaluated pairs: every pair falls in exactly one bin, 43 coarse and 34 fine, and 77 of 77 are assigned. Bin membership is threshold-dependent, since a pair moves between bins whenever its two $\Delta$s shift across the 0.5 boundary; the reported split is the one obtained at the operating point. In both phases, reviews were verified for correct ATC categorization prior to inclusion. Presentation order within each pair was randomized.
-
-The expert was presented with the raw textual content of both reviews in each pair, with no access to model outputs, attenuation $\Delta$s, or ATC categorizations. For each pair, the expert was asked to judge which of the two reviews was more valid for SET. A prediction was considered correct if the review identified as more valid by the expert corresponded to the review receiving the smaller absolute attenuation $|\Delta|$. This tests the assumption that a more pedagogically valid review requires less adjustment. The expert was also able to leave the label section empty, indicating there was no perceivable difference in review validity. Model predictions for these unsure responses were counted as incorrect.
-
-Expert validation is reported over the full sample of adjusted reviews. Pair construction was constrained on two fronts: both reviews had to fall in the required $|\Delta|$ bins, and both had to be verified as correctly categorised by ATC, which limits the pool of eligible pairs. Reporting on the full sample carries no circularity risk, as the expert judged raw review text alone.
-
-\todo{The three paragraphs above are transferred verbatim and are written in the singular (``the expert''). They must be updated to the multi-expert consensus protocol: majority of cast votes, ties treated as unsure and scored incorrect, and the shared consensus function used across validation, robustness, and sensitivity. Not reworded here because the protocol wording should follow the implementation.}
-
-\auth{To test whether the observed attenuation behaviour depends on the structured relationship between $D_{\text{misc}}$ and review content, rather than on any arbitrary weighting of \textit{Miscellaneous} emotions, a permutation control is applied. In each of 1{,}000 permutations, the positive $D_{\text{misc}}$ values are randomly shuffled across the reviews that contain \textit{Miscellaneous} content, while reviews with $D_{\text{misc}} = 0$ are held fixed. This preserves the same population of evaluable expert pairs in every shuffle, so that permuted expert accuracy is comparable to the observed figure. The full attenuation pipeline is rerun under each permuted density assignment. Crucially, the resulting permuted $\Delta$s are correlated against each review's \emph{true} (unpermuted) density, not the shuffled density that produced the adjustment. This tests whether adjustments driven by arbitrary densities still track a review's actual off-topic content, which is the claim the observed correlations support. Three metrics are recorded per permutation: expert accuracy, $\Delta^{+}$--$D_{\text{misc}}$ Pearson $r$, and $\Delta^{-}$--$D_{\text{misc}}$ Pearson $r$. One-sided permutation $p$-values are computed with the $(k+1)/(N+1)$ correction.}
-
 %========================================================================================
 \section{Results}
 %========================================================================================
@@ -502,7 +369,7 @@ Expert validation is reported over the full sample of adjusted reviews. Pair con
 
 \subsubsection{ATC Topic Structure}
 
-We examine the frequency of topics after ATC. At the clause level, \textit{Instructional Effectiveness} is the most mentioned topic in our dataset (25,845), followed by \textit{Miscellaneous} (17,602) and \textit{Workload} (15,683), with \textit{Fairness} trailing substantially behind (4,258). The prominence of \textit{Miscellaneous} clauses indicates that a substantial portion of student discourse falls outside pedagogical dimensions.
+Table~\ref{tab:clause_review_freq} summarises topic frequencies after ATC. \textit{Instructional Effectiveness} is the most frequent topic at both clause and review level, followed by \textit{Miscellaneous} and \textit{Workload}, with \textit{Fairness} trailing substantially. The prominence of \textit{Miscellaneous} clauses indicates that a substantial portion of student discourse falls outside pedagogical dimensions.
 
 \begin{table}[H]
 \centering
@@ -521,11 +388,11 @@ We examine the frequency of topics after ATC. At the clause level, \textit{Instr
 \end{tabular}
 \end{table}
 
-At the review level, where frequency reflects whether a review contains at least one clause categorized under a given topic, the same overall ordering holds. However, comparison of clause and review-level frequencies reveals differences in clause density across topics (Table~\ref{tab:clause_review_freq}). \textit{Instructional Effectiveness} exhibits the highest average number of clauses per topic-mentioning review (1.92), suggesting that when students discuss instructional quality, they tend to elaborate across multiple clauses. In contrast, \textit{Fairness} displays a substantially lower clause-per-review ratio (1.19), indicating that fairness and grading-related comments are typically more concise or singular in structure. \textit{Miscellaneous} and \textit{Workload} fall between these extremes (1.70 and 1.67, respectively), reflecting moderate elaboration depth.
+Clause-per-review ratios reveal differences in elaboration depth: \textit{Instructional Effectiveness} averages 1.92 clauses per mentioning review, suggesting multi-clause elaboration, whereas \textit{Fairness} (1.19) tends toward single, concise remarks. \textit{Miscellaneous} and \textit{Workload} fall between these extremes.
 
-Examining the frequency of topic combinations reveals clear thematic patterns. Reviews that mention only \textit{Instructional Effectiveness} are substantially more common than reviews containing only one of the other three topics. \textit{Workload} rarely appears in isolation and is most often mentioned alongside \textit{Instructional Effectiveness}. A similar pattern is observed for \textit{Miscellaneous} and \textit{Fairness}, which tend to co-occur with \textit{Instructional Effectiveness} rather than appearing alone. These results indicate that \textit{Instructional Effectiveness} functions as a central topic, while other topics are typically discussed in combination with it.
+Topic co-occurrence patterns show that \textit{Instructional Effectiveness} functions as a central topic: it is the most common standalone topic, and \textit{Workload}, \textit{Fairness}, and \textit{Miscellaneous} each co-occur with it more often than they appear alone.
 
-Clauses from 5-star reviews constitute the majority of all clauses, reflecting the previously observed negative skew in review ratings. Despite this skew, low-rating reviews show notable patterns. For ratings 1.0, 1.5, and 2.0, \textit{Miscellaneous} clauses have the highest absolute counts among the four topics. This is most pronounced for 1-star reviews, where \textit{Miscellaneous} clauses occur approximately 27\% more frequently than the next most frequent pedagogical topic. Additionally, 1-star \textit{Fairness} clauses also appear in relatively high absolute counts, despite the overall predominance of 5-star reviews.
+The rating distribution is negatively skewed, yet low-rating reviews show distinctive patterns: for ratings 1.0--2.0, \textit{Miscellaneous} clauses are the most frequent topic, exceeding the next pedagogical category by approximately 27\% in 1-star reviews. \textit{Fairness} clauses also appear disproportionately in low-rating reviews.
 
 \begin{figure}[htbp]
     \centering
@@ -534,23 +401,19 @@ Clauses from 5-star reviews constitute the majority of all clauses, reflecting t
     \label{fig:dmisc_dist}
 \end{figure}
 
-Finally, Figure~\ref{fig:dmisc_dist} presents the distribution of $D_{\text{misc}}$ across all reviews following ATC. The distribution is heavily positively-skewed, with a median of 0.11 and mean of 0.22, indicating that the majority of reviews contain relatively little Miscellaneous content. A notable spike at $D_{\text{misc}}$=1.0 reflects reviews composed entirely of non-pedagogical content, a subset that receives maximal attenuation under the proposed framework. Miscellaneous content, is present across the dataset but varies substantially in density across reviews.
+Figure~\ref{fig:dmisc_dist} shows the distribution of $D_{\text{misc}}$ across all reviews. The distribution is heavily right-skewed (median 0.11, mean 0.22), with a spike at $D_{\text{misc}} = 1.0$ reflecting reviews composed entirely of non-pedagogical content, a subset receiving maximal attenuation.
 
-In summary, ATC analysis reveals that \textit{Instructional Effectiveness} dominates both clause and review-level frequencies, and is a central topic in co-occurrence patterns. \textit{Miscellaneous} and \textit{Workload} are moderately frequent, while \textit{Fairness} is comparatively rare, but shows notable representation in low-rating reviews. The distribution of $D_\text{misc}$ across reviews is heavily right-skewed, with the majority of reviews containing relatively low proportions of Miscellaneous content, though a non-trivial tail of high-density and fully Miscellaneous reviews motivates the proportional rather than uniform attenuation design. Together, these results provide a structural overview of topic distributions, thematic patterns across ratings, and the distribution of pedagogical noise that the subsequent attenuation procedure is designed to mitigate.
+Together, these patterns show that pedagogical discourse centres on \textit{Instructional Effectiveness}, that \textit{Miscellaneous} content dominates the lowest-rated reviews, and that the right-skewed $D_{\text{misc}}$ distribution motivates proportional rather than uniform attenuation.
 
 \subsubsection{Sentiment Extraction}
 
-In summary, the RoBERTa-GoEmotions analysis reveals that student reviews exhibit structured emotional patterns. While \textit{Miscellaneous} emotional probability is consistently weaker than \textit{Instructional Effectiveness}, it occasionally exceeds \textit{Fairness} or \textit{Workload} individually. Positive emotions dominate in high-rated clauses, while negative emotions are concentrated in low-rated clauses. However, both extremes of the rating spectrum contain cross-valence emotional signals. Comparatively 1-star clauses display a more evenly distributed emotional profile compared to the concentrated signals in 5-star clauses. Overall, these patterns suggest that student affect is nuanced and multi-dimensional, with implications for sentiment-based rating analysis and attenuation frameworks.
+RoBERTa-GoEmotions analysis reveals structured emotional patterns across topics: positive emotions dominate high-rated clauses while negative emotions concentrate in low-rated clauses, though both extremes contain cross-valence signals. \textit{Miscellaneous} emotional probability is consistently weaker than \textit{Instructional Effectiveness} but occasionally exceeds \textit{Fairness} or \textit{Workload}. One-star clauses display a more evenly distributed emotional profile compared to the concentrated signals in 5-star clauses, suggesting that student affect is nuanced and multi-dimensional.
 
 \subsubsection{ATC Validation}
 
-Before conducting expert validation, it is necessary to determine whether the proposed four category system is conceptually distinct and internally consistent. Two independent Large Language Models (GPT-5 mini and Grok 4.1) are used to perform a preliminary categorization of 386 clauses. The goal of this step is to verify that the category definitions themselves are distinct and expansive enough to support consensus agreement on categorization. The resulting Cohen's $\kappa$ of 0.7273 indicates "substantial agreement" \cite{Landis1977}. This supports the claim that the boundaries between topic definitions are conceptually clear.
+To assess whether the four-category taxonomy is conceptually distinct, two independent LLMs (GPT-5 mini and Grok 4.1) categorized 386 clauses, yielding Cohen's $\kappa = 0.7273$ (``substantial agreement''; \citeNP{Landis1977}), supporting the clarity of category boundaries.
 
-To evaluate the accuracy of the ATC model against human judgment, a senior faculty expert with more than 40 years of experience in teaching, evaluation and supervision, independently labelled a subset of clauses using the same four predefined categories. Expert labels were allowed to include multiple valid categories per clause when appropriate, reflecting real-world semantic overlap.
-
-Because expert annotators were permitted to assign multiple valid categories to a single clause, while the ATC model produces exactly one category per clause, evaluation is conducted using a containment criterion: a prediction is considered correct if the model's assigned category appeared within the expert-provided label set. This approach ensures that the model is not penalized in cases where experts identified more than one defensible interpretation of a clause. Across $n = 386$ annotated clauses, the ATC model achieves an accuracy of 0.77 under this validation formula.
-
-Analysis was restricted to clauses for which experts assigned exactly one label (n = 287) to obtain a strict single-category evaluation. Under this condition, overall accuracy is 0.72. Table~\ref{tab:atc-classification-report} presents the category-level precision, recall, and F1-scores.
+A senior faculty expert with more than 15 years of teaching and evaluation experience independently labelled the same 386 clauses, with multiple valid categories permitted per clause. Under a containment criterion (correct if the model's category appeared in the expert's label set), accuracy is 0.77. Restricting to clauses with exactly one expert label ($n = 287$) yields strict accuracy of 0.72; Table~\ref{tab:atc-classification-report} reports per-category precision, recall, and F1.
 
 \begin{table}[H]
 \caption{Single-label classification performance of ATC against expert annotations.}
@@ -574,11 +437,11 @@ Accuracy & \multicolumn{4}{c}{0.72 (n = 287)} \\
 \label{tab:atc-classification-report}
 \end{table}
 
-Overall, expert validation supports that the ATC model consistently aligns with expert judgment under both multi-label and strict single-label evaluation conditions. Performance remains stable across categories. This preliminary validation supports the reliability of the ATC model for subsequent sentiment modelling and further attenuation procedures; however, future work will expand this validation to include multiple independent experts.
+These results indicate acceptable alignment for a proof-of-concept study, though accuracy leaves room for improvement, particularly for \textit{Fairness} and \textit{Workload} where support is limited.
 
 \subsubsection{Rating Regression Performance}
 
-We employ a professor-level grouped split of the data into test and train sets. This ensures that all reviews from a given professor only appear in one set, which better reflects the prediction challenge in real-world scenarios and minimizes the risk of overfitting to specific professors. 5-fold cross-validation is used to assess whether CatBoost's predictive performance is consistent across professor subsets, and is presented in Table~\ref{tab:model-performance}. Fold MAE spans 0.6172-0.6396 with a standard deviation of 0.0081. The final performance of the model is assessed on the held-out professors; its MAE of 0.6347 falls inside the fold range, so the cross-validated and held-out estimates agree.
+The dataset is split 80--20 by professor to prevent leakage and better reflect the difficulty of generalizing to unseen instructors. Table~\ref{tab:model-performance} reports 5-fold GroupKFold CV and held-out performance; the held-out MAE of 0.6347 falls inside the fold range, confirming consistent generalization.
 
 \begin{table}[H]
 \caption{CatBoost 5-fold CV and held-out performance.}
@@ -599,29 +462,23 @@ Held-out professors & 0.6347 & 0.7352 & 0.6168 \\
 
 The final model demonstrates low absolute error, strong ordinal consistency, and substantial explained variance on held-out data, suggesting that it captures meaningful relationships between emotional content and student ratings.
 
-To assess the directional coherence of the CatBoost model, SHAP values are computed on the held-out professors only, so that model behaviour is characterised on data the model was not fitted to. To simplify interpretation, individual SHAP values for each emotion-topic pair were grouped into eight aggregated categories based on polarity (Positive vs. Negative) and pedagogical aspect (\textit{Instructional Effectiveness}, \textit{Fairness}, \textit{Workload}, \textit{Miscellaneous}). Within each group, SHAP values were averaged to produce a single value per observation, preserving both the magnitude of influence and the underlying emotional intensity. Positive emotions generally increase predicted ratings, while negative emotions tend to decrease them. Conversely, low-intensity positive emotions contribute negatively to predicted ratings, and low-intensity negative emotions contribute positively, reflecting that the model responds to the degree of emotional expression rather than its mere presence.
-
-These patterns are broadly consistent with expectations, but not absolute. Some features deviate due to the complexity of psychological and contextual factors in student reviews. This confirms that the model captures intuitively coherent relationships while reflecting the inherent variability of real-world sentiment.
+To assess directional coherence, SHAP values are computed on held-out professors and grouped into eight polarity $\times$ topic categories. High-intensity positive emotions generally increase predicted ratings while high-intensity negative emotions decrease them; however, low-intensity positive emotions can contribute negatively and low-intensity negative emotions positively, indicating that the model responds to the degree of emotional expression rather than its mere presence. These patterns are broadly consistent with expectations, confirming directional coherence while reflecting the inherent variability of real-world sentiment.
 
 \subsection{What Attenuation Changes}
 
-We evaluate whether attenuation produces structured and interpretable changes in feature importance and rating--feature relationships, rather than arbitrary score adjustments. Internal validation examines three results: feature importance changes, correlation changes between features and ratings before and after adjustment, and correlation analysis between attenuation $\Delta$s ($\Delta = \big(\hat{y}_i^\text{attenuated} - \hat{y}_i^\text{baseline}\big)$) and modulators ($D_{misc}$ and $E_{misc}$).
+We evaluate whether attenuation produces structured and interpretable changes rather than arbitrary score adjustments, examining feature importance shifts, correlation changes, and the relationship between attenuation $\Delta$s and modulators ($D_{misc}$, $E_{misc}$).
 
 \subsubsection{Adjustment Outcomes}
 
-\new{The statistics in this subsection are descriptive summaries of the framework's output over the whole corpus, not validation metrics, and are therefore reported on all 17,127 reviews rather than on the held-out professors alone.}
+\new{The statistics in this subsection are descriptive summaries over all 17,127 reviews, not validation metrics.} Of these, 10,375 (60.58\%) were adjusted, with a mean $|\Delta|$ of 0.1964 and a mean signed $\Delta$ of 0.0440. A Wilcoxon signed-rank test confirms the shifts are systematically different from zero ($W = 24{,}260{,}091$, $p < 0.001$).
 
-Overall, 10,375 ratings were adjusted, corresponding to 60.58\% of all ratings in the dataset. The average change ($\Delta$) across adjusted ratings was 0.0440, with an average absolute change ($|\Delta|$) of 0.1964. Extreme adjustments indicate a maximum positive change of 2.7103 and a maximum negative change of -1.3908, while the smallest nonzero absolute change observed was $1.77\times10^{-6}$. These statistics provide an overview of the magnitude and frequency of adjustments applied at the review level.
-
-A Wilcoxon signed-rank test was performed to evaluate whether the observed shifts are systematically different from zero across adjusted reviews. Results indicate a statistically significant shift ($W = 24{,}260{,}091$, $p < 0.001$).
-
-Overall, these results provide a quantitative overview of the impact of the validity-weighted adjustment procedure. Adjustments at the review level were generally small, with occasional significant targeted adjustments. At the professor level, changes were also moderate to minimal, with somewhat greater impacts observed at the extremes of the rating scale. Despite these adjustments, the overall distribution of professor average ratings remained largely consistent, showing high similarity before and after validity-weighted adjustments.
+At the professor level, the overall distribution of average ratings remained largely consistent before and after adjustment.
 
 \new{The three analyses that follow are validation metrics, and are} computed on the 206 held-out professors, which were not seen by the CatBoost model. This corresponds to 3,414 reviews for the feature-importance analysis and, of those, the 2,052 containing \textit{Miscellaneous} content for the correlation and modulator analyses, since reviews with $D_{misc} = 0$ are left unchanged by attenuation by construction. \new{These counts are therefore smaller than the full-corpus figures reported above.}
 
 \subsubsection{Feature Importance Changes}
 
-SHAP-based feature importance is used to examine how proportional down-weighting of \textit{Miscellaneous} emotions influences model predictions. Comparing baseline and attenuated SHAP-based values (Figure~\ref{fig:shap-pct-change}) allows us to assess how down-weighting \textit{Miscellaneous} emotions shifts model sensitivity away from construct-irrelevant sentiments toward pedagogically relevant sentiments.
+Figure~\ref{fig:shap-pct-change} compares baseline and attenuated SHAP-based feature importance. Pedagogically relevant categories increased in importance while \textit{Miscellaneous} sentiment decreased, consistent with the design goal of redirecting model sensitivity away from content classified as construct-irrelevant.
 
 \begin{figure}[htbp]
     \centering
@@ -630,28 +487,22 @@ SHAP-based feature importance is used to examine how proportional down-weighting
     \label{fig:shap-pct-change}
 \end{figure}
 
-Positive and negative shifts indicate increased or decreased model sensitivity to each feature as a result of down-weighting. Pedagogically relevant categories (\textit{Instructional Effectiveness}, \textit{Fairness}, \textit{Workload}) increased in importance, while \textit{Miscellaneous} sentiment decreased.
-
-These results confirm that proportional down-weighting of \textit{Miscellaneous} emotions reduces model sensitivity to construct-irrelevant sentiment, while slightly enhancing attention to pedagogical topics. The observed shifts are consistent with the design goal of attenuation, showing that the model responds to down-weighting in a controlled and interpretable manner.
-
 \subsubsection{Correlation Changes After Attenuation}
 
-We examine the impact of attenuation on the relationship between baseline emotion features and raw versus adjusted ratings using Pearson (linear) and Spearman (rank-order) correlations. In the baseline analysis, the correlations between each feature group and the raw student ratings are computed. In the attenuation analysis, correlations are computed between the baseline emotion features and adjusted ratings. Both sets of correlations are computed exclusively on the held-out professors, over the 2,052 of their reviews containing \textit{Miscellaneous} content; the CatBoost model had no access to these reviews.
-
-\new{Each feature group is the sum of the emotion probabilities of one polarity directed at one topic. The emotion side of the comparison is held fixed at its baseline, un-attenuated values in both correlations; only the rating side changes, from the raw student rating $y^{\text{raw}}_i$ to the adjusted rating $\hat{y}^{\text{adjusted}}_i = y^{\text{raw}}_i + \Delta_i$. Any shift in correlation is therefore attributable to the adjustment alone, not to a change in how the emotions themselves are represented.}
+We compare Pearson and Spearman correlations between baseline emotion features and raw versus adjusted ratings on the 2,052 held-out reviews containing \textit{Miscellaneous} content. \new{The emotion side is held fixed at baseline values in both comparisons; only the rating changes from $y^{\text{raw}}_i$ to $\hat{y}^{\text{adjusted}}_i = y^{\text{raw}}_i + \Delta_i$, so any correlation shift is attributable to the adjustment alone.}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.66\linewidth]{Diagrams/correlation_changes/average_corr_changes.png}
-    \caption{\new{Average relative change in Pearson and Spearman correlation magnitude after adjustment, computed on held-out professors ($n = 2{,}052$ reviews). Each bar is the mean across the two polarity groups of $(|r_{\text{adjusted}}| - |r_{\text{raw}}|)/|r_{\text{raw}}|$, the same relative-change convention used for SHAP importance in Figure~\ref{fig:shap-pct-change}.}}
+    \caption{\new{Average relative change in correlation magnitude (Pearson and Spearman) after adjustment, held-out professors ($n = 2{,}052$). Bars show mean $(|\text{corr}_{\text{adjusted}}| - |\text{corr}_{\text{raw}}|)/|\text{corr}_{\text{raw}}|$ across polarity groups.}}
     \label{fig:weighed-corr-change}
 \end{figure}
 
-As shown in Figure~\ref{fig:weighed-corr-change} attenuation appears to reduce the correlation of \textit{Miscellaneous} (noise) features with adjusted ratings, relative to their correlation with raw ratings, while maintaining or slightly increasing the correlation of pedagogically relevant (signal) features $E_{eff}$, $E_{fair}$ and $E_{work}$. These patterns are consistent across both linear and rank-based correlation measures. Averaged across topics and polarities, signal features tend to show modest increases in correlation magnitude, while noise features tend to decrease, suggesting that adjusted ratings offer a net improvement in the focus on relevant features. These trends align with the intended effect of attenuation and rating adjustment though the precise magnitude of changes may vary across individual features and reviews.
+As shown in Figure~\ref{fig:weighed-corr-change}, attenuation reduces the correlation of \textit{Miscellaneous} features with ratings while maintaining or slightly increasing correlations for pedagogically relevant features, consistent across both linear and rank-based measures.
 
 \subsubsection{Modulator Correlations}
 
-To examine how the attenuation mechanism adjusts ratings in response to \textit{Miscellaneous} content, we analyze the relationships between attenuation $\Delta$s and attenuation modulators $D_{misc}$ and the intensity of \textit{Miscellaneous} emotions $E_{misc}$. Positive and negative $\Delta$s are considered separately to capture upward and downward adjustments. These correlations quantify the extent to which each modulator drives the magnitude and direction of rating changes.
+Table~\ref{tab:correlation_deltas} reports correlations between attenuation $\Delta$s (separated by sign) and the modulators $D_{misc}$ and $E_{misc}$ on held-out professors.
 
 \begin{table}[H]
     \caption{Correlation analysis: attenuation $\Delta$ versus modulators, computed on held-out professors ($n = 2{,}052$ reviews).}
@@ -671,11 +522,11 @@ To examine how the attenuation mechanism adjusts ratings in response to \textit{
     \end{tabular}
 \end{table}
 
-Table~\ref{tab:correlation_deltas} substantiates $D_{misc}$ as the primary and reliable driver of attenuation: ratings tend to increase or decrease in proportion to the modulator, while correlations with $E_{misc}$ intensities are weaker, yet not insignificant. This aligns with expectations. $D_{misc}$ directly controls the weighting strength $\zeta$, meaning that intense \textit{Miscellaneous} sentiment alone does not necessarily produce substantial attenuation.
+$D_{misc}$ is the primary driver of attenuation magnitude: ratings increase or decrease in proportion to off-topic density, while correlations with $E_{misc}$ intensity are weaker but not insignificant. This aligns with expectations, as $D_{misc}$ directly controls the weighting strength $\zeta$.
 
-To further substantiate the proportional nature of attenuation, a Mann-Whitney U test (Wilcoxon rank-sum test) compares absolute adjustment magnitudes between low noise reviews ($D_{misc} < 0.2$, $n=690$) and high noise reviews ($D_{misc} > 0.5$, $n=508$). Results confirm that high noise reviews receive significantly larger absolute adjustments than low noise reviews ($U = 313{,}494$, $p < 0.001$, rank biserial $|r| = 0.789$), with a large effect size. This provides direct empirical evidence that attenuation magnitudes scale proportionally with $D_{misc}$.
+A Mann-Whitney U test comparing absolute adjustments between low-noise ($D_{misc} < 0.2$, $n=690$) and high-noise ($D_{misc} > 0.5$, $n=508$) reviews confirms significantly larger adjustments for high-noise reviews ($U = 313{,}494$, $p < 0.001$, rank biserial $|r| = 0.789$).
 
-Internal validation indicates that the attenuation mechanism functions as designed. Feature importance shifts, correlation changes, and attenuation--modulator relationships consistently show that the system reduces the influence of off-topic \textit{Miscellaneous} sentiment while preserving or enhancing sensitivity to core pedagogical signals. These patterns provide evidence that attenuation introduces structured and interpretable adjustments to predicted ratings rather than arbitrary changes.
+Together, feature importance shifts, correlation changes, and modulator relationships indicate that attenuation introduces structured and interpretable adjustments rather than arbitrary changes.
 
 \subsection{Initial Validity and Robustness Evidence}
 
@@ -809,23 +660,23 @@ $\Delta^{-}$ vs.\ $D_{\text{misc}}$ (Spearman $\rho$) & $-$0.601 & 0.025 & $-$0.
 
 \subsection{A Validity-Oriented Analytic Primitive}
 
-The results regarding RQ1 reveal a clear relationship between pedagogical feedback and numerical ratings. \textit{Instructional Effectiveness} emerged as the most frequent and influential pedagogical topic, exhibiting the highest review elaboration depth (1.92 clauses per review on average), the strongest emotional intensities when mentioned, and the highest mean SHAP value. While \textit{Workload} was the second most frequent pedagogical topic, its contribution to ratings was more variable, and \textit{Fairness}, though less frequent overall, showed distinct behaviour in low-rating contexts.
+RQ1 results reveal that \textit{Instructional Effectiveness} is the most frequent and influential pedagogical topic, with the highest elaboration depth (1.92 clauses/review), strongest emotional intensities, and highest mean SHAP value. \textit{Workload} contributed more variably, while \textit{Fairness}, though less frequent, showed distinct behaviour in low-rating contexts.
 
-The emotional heatmap analysis reveals a distinct asymmetry in how these topics emotionally correspond with ratings at opposing ends of the spectrum. For 5-star reviews, admiration and approval directed towards \textit{Instructional Effectiveness} constituted the dominant emotional signal. In contrast, 1-star reviews exhibited a diffuse emotional profile, where negative emotions such as annoyance, disapproval, and disappointment were spread across all topics, including non-pedagogical ones. Notably, the disproportionately high representation of \textit{Fairness} clauses in low-rating reviews further suggests that perceived fairness and grading inequity may be a higher impact concern among heavily dissatisfied students. This asymmetry suggests that high ratings are driven by concentrated positive affect toward \textit{Instructional Effectiveness}, while low ratings reflect broader, more distributed dissatisfaction.
+An asymmetry emerges at the rating extremes: 5-star reviews are driven by concentrated admiration and approval toward \textit{Instructional Effectiveness}, whereas 1-star reviews exhibit diffuse negative emotions spread across all topics, including non-pedagogical ones. The disproportionate representation of \textit{Fairness} clauses in low-rating reviews suggests that perceived grading inequity may be a heightened concern among dissatisfied students.
 
-SHAP analysis of the baseline model shows that Positive \textit{Instructional Effectiveness} was the dominant driver of predicted ratings, followed by Negative \textit{Instructional Effectiveness}, Negative \textit{Miscellaneous}, and Negative \textit{Workload}, with Positive \textit{Fairness} and Positive \textit{Workload} contributing the least. These patterns confirm that emotional responses to pedagogical topics, particularly those directed towards \textit{Instructional Effectiveness}, are the primary systematic drivers of rating variation, answering RQ1.
+SHAP analysis confirms this hierarchy: Positive \textit{Instructional Effectiveness} was the dominant driver of predicted ratings, followed by Negative \textit{Instructional Effectiveness} and Negative \textit{Miscellaneous}, with \textit{Fairness} and \textit{Workload} contributing least. Emotional responses to pedagogical topics are the primary systematic drivers of rating variation.
 
-Analysis also reveals the substantial contribution of non-pedagogical emotional content to numerical ratings. These results align with Messick's \citeyear{Messick1995} concept of CIV: construct-irrelevant content is not only present in informal SET reviews but contributes to numerical ratings in ways often unrelated to instructional quality. While derived from RMP data, this finding is consistent with the broader validity concerns documented in formal SET contexts \cite{MarshRoche1997,Langbein1994,Schiekirka2015}.
+Non-pedagogical emotional content also contributes substantially to numerical ratings, aligning with Messick's \citeyear{Messick1995} concept of CIV. This finding is consistent with broader validity concerns documented in formal SET contexts \cite{MarshRoche1997,Langbein1994,Schiekirka2015}.
 
-The baseline regression model showed that emotions directed towards \textit{Miscellaneous} topics ($E_{misc}$) carry substantial feature importance (mean SHAP $= 0.674$). Specifically, Negative \textit{Miscellaneous} ranked third overall behind only Positive and Negative \textit{Instructional Effectiveness}, and exceeding the contributions of both \textit{Fairness} and \textit{Workload} in either polarity. Positive \textit{Miscellaneous} sentiment ranked fifth, further confirming that non-pedagogical emotional content influences predicted ratings in both directions. This supports observations that SET scores frequently capture student satisfaction or affective noise rather than instructional quality \cite{Dowell1983,Wongsurawat2011}. It also aligns with qualitative findings that students' evaluative responses reflect emotional and relational states extending beyond pedagogical experiences \cite{Li2025}.
+Negative \textit{Miscellaneous} ranked third in feature importance (mean SHAP $= 0.674$), exceeding both \textit{Fairness} and \textit{Workload} in either polarity, supporting observations that SET scores frequently capture affective noise rather than instructional quality \cite{Dowell1983,Wongsurawat2011,Li2025}.
 
-Together, the RQ1 findings offer context for interpreting ratings at different points on the rating scale. High ratings exhibit a favourable signal-to-noise ratio because the pedagogical signal, particularly toward \textit{Instructional Effectiveness}, is so strong; however, the absolute amount of \textit{Miscellaneous} emotional noise remains high. Low ratings present a different issue: while absolute emotional contributions are lower across all topics, \textit{Miscellaneous} sentiment makes up a proportionally larger share of the signal. Across both extremes, the SHAP analysis confirms that \textit{Miscellaneous} emotions remain among the top contributors to predicted ratings overall. Consequently, construct-irrelevant noise contaminates ratings across the entire spectrum, motivating the need for interpretable attenuation mechanisms that address these variations without excluding data.
+High ratings exhibit a favourable signal-to-noise ratio because the pedagogical signal is strong, though absolute \textit{Miscellaneous} noise remains high. Low ratings present the inverse: \textit{Miscellaneous} sentiment makes up a proportionally larger share. Construct-irrelevant noise contaminates ratings across the spectrum, motivating auditable attenuation.
 
-Addressing RQ2, the results of internal validation provide tentative evidence that the proposed attenuation mechanism can attenuate the influence of CIV while preserving much of the pedagogical signal contained in the reviews. The strong performance of the regression model ($\rho = 0.7352$, $R^2 = 0.6168$) confirms that numerical ratings are not arbitrary and are predictable functions of emotions expressed towards specific review topics. The internal validation results were particularly telling: following attenuation of $E_{misc}$, SHAP-based feature importance shifted away from \textit{Miscellaneous} sentiment ($-9.6\%$) and toward core pedagogical categories (\textit{Instructional Effectiveness}: $+1.6\%$; \textit{Fairness}: $+2.5\%$; \textit{Workload}: $+2.2\%$). This suggests that when construct-irrelevant signals are down-weighted, the model relies more heavily on pedagogical features when predicting ratings.
+Addressing RQ2, internal validation provides tentative evidence that attenuation reduces the influence of CIV while preserving pedagogical signal. Following attenuation, SHAP-based feature importance shifted away from \textit{Miscellaneous} sentiment ($-9.6\%$) and toward pedagogical categories (\textit{Instructional Effectiveness}: $+1.6\%$; \textit{Fairness}: $+2.5\%$; \textit{Workload}: $+2.2\%$).
 
-Crucially, the correlation analysis revealed that attenuated ratings maintained or strengthened correlations with pedagogical emotions ($E_{eff}$, $E_{fair}$, $E_{work}$) while reducing correlations with non-pedagogical emotions ($E_{misc}$). This statistical separation suggests that the framework works as intended. Unlike simple data-exclusion approaches, this method applies proportional down-weighting based on the density of irrelevant content ($D_{misc}$). The raw student rating is preserved throughout, with the adjustment adding only the model-estimated correction for construct-irrelevant sentiment. Reviews with predominantly pedagogical content receive minimal adjustment, while those with high \textit{Miscellaneous} density and emotionally polarized irrelevant content receive larger adjustments.
+Correlation analysis confirmed that adjusted ratings maintained or strengthened associations with pedagogical emotions while reducing associations with \textit{Miscellaneous} emotions. Unlike data-exclusion approaches, the method applies proportional down-weighting based on $D_{misc}$, preserving the raw rating and adding only the model-estimated correction.
 
-At the review level, the average absolute rating change was $0.1964$ rating points, with a tail of larger targeted adjustments for reviews exhibiting high \textit{Miscellaneous} density and intense off-topic emotional polarization. At the professor level, the overall distribution shape remained largely preserved. These results suggest that the framework functions as a fine-tuning mechanism, correcting the most severe instances of CIV contamination while aiming to preserve valid student feedback. This behavior aligns with the conservative correction strategy advocated by \citeA{MarshRoche1997}.
+The average absolute rating change was $0.1964$ points, with larger targeted adjustments for reviews exhibiting high \textit{Miscellaneous} density. The overall professor-level distribution shape remained preserved, consistent with the conservative correction strategy advocated by \citeA{MarshRoche1997}.
 
 \auth{RQ3 asks whether the mechanism exhibits behaviour consistent with its validity rationale across independent checks. The modulator correlations provide the strongest evidence: $\Delta^{+}$ correlates positively with $D_{\text{misc}}$ ($r = 0.687$) and $\Delta^{-}$ correlates negatively ($r = -0.708$), confirming that attenuation increases ratings for positively-rated reviews with high off-topic density and decreases ratings for negatively-rated ones. These relationships hold on held-out professors, remain stable under bootstrap resampling (95\% CI width $\leq 0.08$ for all four correlations), and collapse entirely under permutation of $D_{\text{misc}}$ ($p < 0.001$), ruling out the possibility that the functional form alone produces structured-looking results.}
 
@@ -833,9 +684,7 @@ At the review level, the average absolute rating change was $0.1964$ rating poin
 
 \auth{Together, these checks do not establish that the taxonomy or the density measure are correct. They establish a narrower but necessary claim: conditional on the ATC classifications, the mechanism behaves as its validity argument predicts, and that behaviour is reproducible across professors, robust to resampling, and not an artifact of the functional form.}
 
-This work extends prior descriptive SET studies by presenting a proof-of-concept framework for active mitigation of validity threats, motivated primarily by Messick's \citeyear{Messick1995} unified theory of validity. The framework uses classical reliability theory \cite{Cronbach1951,Huber1964} to justify the down-weighting approach. The adjustment process is made transparent by holding the trained model fixed while applying a targeted intervention to $E_\text{misc}$, with the resulting prediction difference taken as the validity correction. This connects traditional psychometric validity concepts with modern computational NLP methods. It addresses the same validity threats targeted by \citeA{Zhai2021}, who demonstrate CIV reduction in controlled constructed-response assessments, to the considerably more challenging setting of informal, anonymous, and unmoderated SET reviews. In doing so, it prioritizes interpretability and transparency as essential design constraints, in contrast to the growing reliance on black-box systems in the domain \cite{Zhuang2025,Rybinski2021}. \auth{This positions the framework as initial method evidence for a validity-oriented direction in teaching-feedback analytics, rather than a ready intervention.}
-
-A central strength of the presented framework is its interpretability. By combining transparent down-weighting with SHAP-based feature attribution, each adjustment to a numerical rating can be traced back to the specific topic-level emotions and content density that drove the change, making the inputs and calculation underlying each adjustment auditable, while SHAP-based feature attributions support interpretation of the CatBoost model's feature contributions. The worked example in Table~\ref{tab:ex2} concretely illustrates this property, showing how clause-level categorization, emotion extraction, and validity-weighted attenuation combine to produce a traceable and auditable adjustment for each individual review. Unlike purely predictive approaches, this system actively corrects ratings; given the incomplete specification of pedagogical quality and the absence of an objective ground truth, its adjustment process should therefore be inspectable and open to review \cite{DoshiVelez2017}.
+This work extends prior descriptive SET studies toward validity-informed intervention on a learning-analytics trace. By connecting Messick's \citeyear{Messick1995} unified validity theory with classical reliability principles \cite{Cronbach1951,Huber1964}, the framework translates established psychometric justifications into a concrete computational mechanism that attenuates the modelled contribution of construct-irrelevant affect under a stated pedagogical taxonomy. It addresses similar CIV concerns to those documented by \citeA{Zhai2021} in controlled assessments, but in the considerably more challenging setting of informal, unmoderated SET reviews. Each adjustment is traceable to specific topic-level emotions and content density, as illustrated in the worked example (Table~\ref{tab:ex2}); given the incomplete specification of pedagogical quality, this inspectability is essential \cite{DoshiVelez2017}. Outputs must remain explainable and contestable \cite{DrachslerGreller2016}, connected to pedagogical interpretation and action \cite{GasevicDawsonSiemens2015}. \auth{This positions the framework as initial method evidence for a validity-oriented direction in teaching-feedback analytics, rather than a ready intervention.}
 
 \subsection{Implications for Responsible Interpretation of Teaching Feedback}
 

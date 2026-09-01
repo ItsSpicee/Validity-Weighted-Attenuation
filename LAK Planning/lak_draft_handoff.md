@@ -1,4 +1,4 @@
-# LAK27 Draft — Status (updated 2026-08-28)
+# LAK27 Draft — Status (updated 2026-09-01)
 
 ## Build
 
@@ -18,87 +18,103 @@ pdflatex main && bibtex main && pdflatex main && pdflatex main
 | `\begin{newcontent}` | same, for multi-paragraph blocks |
 | `\auth{...}` | authored text, styled blue — will convert to black at submission |
 
-Current counts: **5** `\todo`, **14** `\new`, **0** `\citeneeded`.
+Current active counts: **4** `\todo`, **~6** `\new`, **0** `\citeneeded`.
+
+## Current page estimate
+
+~18 pages (down from ~21 pre-cut). Target: 14 pages. Submission deadline: 2026-09-28 (27 days).
 
 ## Remaining TODOs
 
 ### Must-do before submission
 
 1. **Multi-expert consensus** — §4.3.1 expert validation results need updating from single-expert to multi-expert consensus (majority vote, Fleiss' κ, Wilson intervals). Single-expert figures deliberately not transferred. **Blocks items 2–4 below.**
-2. **§3.9 expert protocol** — wording is singular ("the expert"); must move to multi-expert consensus language once consensus is implemented. (Blocked by #1.)
+2. **Result-local evaluation protocols** — the standalone Evaluation Strategy subsection was deleted during the cut pass. Once consensus is implemented, add only the finalized expert-comparison procedure to §4.3.1 and the necessary permutation procedure to §4.3.2. Do not restore the obsolete single-expert wording. (Blocked by #1.)
 3. **Limitations paragraph** — source manuscript's single-expert limitation paragraph not transferred; replace with multi-expert limits once results exist. (Blocked by #1.)
 4. **Abstract expert placeholder** — abstract contains `\todo{[placeholder: multi-expert consensus results]}`. Fill once consensus is run. (Blocked by #1.)
 5. **Funding statement** — check if required; currently a `\todo`.
 6. **Strip all red text** — zero `\new`, `\todo` should remain at submission. All are drafting scaffolding.
 
-### Cut phase (after all additions are in)
+### Remaining cut work (~4 pages to cut)
 
-The paper is over the 14-page limit. Cuts needed:
-- **Results and Method** are the biggest overruns
-- Results: cut paragraphs that narrate figures no longer present
-- Method: cut duplicative pipeline list, trim preprocessing detail
-- New robustness tables (sensitivity + bootstrap) add ~1 page; account for this
-- See page budget in `full_paper_framing.md`
+Target sections for further compression:
+- §5.2: Compress stakeholder use-case paragraphs (protected content — compress, don't delete)
+- §5.3: Compress non-use paragraphs (protected content — compress, don't delete)
+- §6: Cut redundant limitation points already made in §1.3/§5.3; compress verbose paragraphs
+- §4.3: Consider whether all three sensitivity tables are needed or if one can be moved to supplementary
+
+## Cut phase — completed passes
+
+**Guiding principles (agreed with author):**
+- Highest priority: remove redundant, over-verbose, and low-impact content
+- SHAP feature-importance shift and correlation changes are mechanistic coherence checks, not evidence — present proportionally (compact), not at same weight as modulator correlations/permutation control
+- §5.2 Responsible Interpretation and §5.3 Non-Use are essential LAK positioning — protect these
+- All citations must be accurately attributed to what they actually support
+- Compress before deleting — prefer tightening prose over removing ideas
+
+### Intro & Background cuts (2026-08-31)
+
+- §1.1: Deleted Emery/Dowell standalone paragraph; absorbed citations into preceding paragraph
+- §1.2: Cut five-stage pipeline enumeration after "17,127 RMP student evaluations" — pipeline detail deferred to Method
+- §1.3: Deleted redundant first sentence of boundary paragraph; kept Misc ≠ unimportant and non-use statements with Tsai citation
+- §2.1: Deleted Li2025 and Schiekirka standalone paragraphs; absorbed as parenthetical citations into closing synthesis sentence
+- §2.2: Collapsed Kopciuszewska, Kim, Sorour, Louis/Xiong from four paragraphs to two sentences with all citations preserved
+- §2.3: Cut Misc ≠ unimportant / audit trail / raw-ratings-preserved sentences (covered in §1.3 and §5.3); kept bounded+proportional property, stakeholder taxonomy (Lockyer sole home), changed "monotonic" to "proportional"
+- §2.4: Deleted recap paragraph and pipeline re-enumeration; kept gap statement; absorbed Doshi-Velez, Drachsler, Gašević citations with accurate attribution
+
+### Method cut pass (2026-08-31)
+
+- Deleted the standalone Model Pipeline subsection; moved the schematic to the end of Study Context and Data
+- Compressed Study Context and Data while retaining RMP provenance, no-scraping/permission account, exclusion rules, preprocessing rationale, and corpus statistics
+- Merged Clause Extraction into Aspect-Term Categorization; consolidated the ATC decision rule into one equation
+- Merged pedagogical density with emotion extraction
+- Compressed emotion extraction, rating modelling, and validity-weighted attenuation subsections
+- Deleted the standalone Evaluation Strategy subsection (procedural content to be reinstated beside corresponding results)
+
+### Results & Discussion compression pass (2026-09-01)
+
+- §3.1: Compressed cleaning paragraph from 4 sentences to 1; deleted distribution paragraph (rating skew covered in Results); deleted "ABSA is difficult" catalogue sentence
+- §4.1.1 (ATC Topic Structure): Compressed intro, clause-density, co-occurrence, low-rating, D_misc, and summary paragraphs — all ideas retained in ~half the words
+- §4.1.2 (Sentiment Extraction): Compressed from 6 sentences to 3; retained nuanced/multi-dimensional conclusion
+- §4.1.3 (ATC Validation): Compressed LLM inter-rater from 4 sentences to 1; expert validation from 8 sentences to 3; closing reframed as proof-of-concept acknowledgement of accuracy limitations; expert experience updated to 15 years
+- §4.1.4 (Rating Regression): Compressed opening from 5 sentences to 2; SHAP paragraphs from 8 sentences to 3; retained low-intensity inversion finding
+- §4.2 intro: Compressed from 3 sentences to 1
+- §4.2.1 (Adjustment Outcomes): Compressed stats + Wilcoxon from 7 sentences to 3; closing from 4 sentences to 1
+- §4.2.2 (Feature Importance): Compressed from 5 sentences to 2; figure retained
+- §4.2.3 (Correlation Changes): Compressed opening from 7 sentences to 2; post-figure from 4 sentences to 1; figure caption compressed
+- §4.2.4 (Modulator Correlations): Compressed intro from 3 sentences to 1; post-table + Mann-Whitney + closing from 10 sentences to 4
+- §5.1 (Discussion): Compressed RQ1 discussion from 6 paragraphs to 6 short paragraphs (~half word count); compressed RQ2 from 3 paragraphs to 3 short paragraphs; merged positioning + interpretability paragraphs into one with LA-trace framing, Doshi-Velez/Drachsler/Gašević citations advancing from intro usage
 
 ## Completed work (2026-08-24 through 2026-08-28)
 
 ### Abstract — DRAFTED
-~195 words. Opens with LA-situated framing ("underspecified data source for learning analytics"), introduces VWA with CIV-mitigation framing under definable taxonomy, cites key results (permutation p < 0.001, conservative adjustments, 60% of reviews adjusted), includes boundary statement ("not validated estimates of teaching quality"), closes with complement-to-raw-ratings positioning. One placeholder remains for multi-expert consensus results.
+~195 words. One placeholder remains for multi-expert consensus results.
 
 ### Contribution sentence — CONSOLIDATED
-Duplicate introduction removed. Single contribution sentence now lives in §1.2: "We introduce **validity-weighted attenuation**, an interpretable, clause-level method that proportionally attenuates the modelled contribution of affect in content classified as outside of a stated pedagogical taxonomy that stakeholders have the ability to control, while retaining the original review and a review-level audit trail."
+Single contribution sentence in §1.2.
 
 ### Category table — ADDED
-Four-category ATC taxonomy table added to §3.4 with representative descriptors from `constants.py`.
-
-### BERT introduction — RESOLVED
-Already introduced on line ~235 via Butt et al. (2025): "BERT (Bidirectional Encoder Representations from Transformers)."
+Four-category ATC taxonomy table in §3.4.
 
 ### RQ2/RQ3 discussion — REALIGNED
-- Old "RQ2" paragraphs (CIV presence via SHAP baseline) relabeled as RQ1 continuation
-- Old "RQ3" paragraphs (SHAP shifts, correlation changes, deltas) relabeled as RQ2 answer
-- New RQ3 discussion paragraphs authored: modulator correlations, bootstrap stability, permutation controls, expert accuracy, sensitivity analysis
+Old RQ2/RQ3 relabeled; new RQ3 paragraphs authored.
 
-### s-circularity fix
-- Dropped exponent optimization; s=1.0 set as principled default per Huber's (1964) proportional downweighting principle
-- Sensitivity sweep reframed as robustness check ("results don't depend on this choice"), not justification for an optimized value
-- `SENSITIVITY_S_VALUES` changed from `[0.37, 0.62, 0.91, 1.2]` to `[0.5, 0.75, 1.25, 1.5]` — symmetric around 1.0
+### s-circularity fix — DONE
+s=1.0 as principled default via Huber; sensitivity reframed as robustness.
 
 ### Robustness sections — ADDED to §4.3
-- **§4.3.3 Sensitivity to Attenuation Exponent**: three tables (delta agreement, modulator correlations, expert accuracy summary), Huber justification for s=1.0, notes on Spearman trend and max-delta context
-- **§4.3.4 Bootstrap Professor Stability**: correlation-only bootstrap (expert accuracy removed — not meaningful with small n), 1,000 resamples, tight CIs (SD ≤ 0.027)
-- `src/robustness.py`: expert accuracy removed from bootstrap function
+Sensitivity to exponent, bootstrap professor stability, permutation control.
 
-### Citations — all LAK anchors added (prior session)
-Gašević (2015), Lockyer (2013), Ferguson & Clow (2017), Drachsler & Greller (2016), Tsai & Martinez-Maldonado (2022), Butt (2025). Prinsloo & Slade removed as redundant.
+### Citations — all LAK anchors added
+Gašević, Lockyer, Ferguson & Clow, Drachsler & Greller, Tsai & Martinez-Maldonado, Butt. All `\citeneeded` resolved.
 
-### `\citeneeded` — ALL RESOLVED (0 remain)
-
-### Structural improvements (prior session)
-- §2.1: Added Schiekirka & Raupach paragraph, transition sentence, closing synthesis
-- §2.2: Butt et al. citation resolved, description corrected
-- §2.4: Doshi-Velez + Drachsler transparency citations added
-- Central claim: "stakeholders have the ability to control" language
-- Conclusion: drafted (3 paragraphs)
-- 15 obsolete comment blocks removed
-
-### Robustness (prior session)
-- Permutation control results table and interpretation written into §4.3.2
-  - Coarse/fine expert accuracy reported separately (not pooled)
-  - Coarse framed as manipulation check (p = 0.233)
-  - Fine as load-bearing result (p = 0.007)
-  - Modulator correlations as cleanest evidence (p < 0.001)
-- `src/robustness.py`: coarse/fine breakdown added to `expert_accuracy()` and permutation output
-
-### Corrections (prior session)
-- Ferguson & Clow moved from incorrect "proof of concept" placement to Future Work
-- `correlation_plots.py` percentage calculation fixed (absolute → relative change)
-- Non-breaking space (U+00A0) issue in main.tex identified and worked around
+### Corrections (prior sessions)
+Ferguson & Clow placement fixed; correlation_plots.py percentage calculation fixed; non-breaking space workaround.
 
 ## Known rough edges
 
-- §3.1 "The distribution is negatively skewed" lost its antecedent figure
-- Three density equations collapsed into one indexed equation (flagged; restore if wanted)
-- `Diagrams/pdfs/pseudocode.pdf` is stale (not included in draft)
-- All table floats changed to `[H]` — may need adjustment if layout shifts after cuts
-- Manuscript comments not yet pruned — many `%%%` transfer-provenance comments remain
+- The standalone evaluation procedures have been removed from Method and must be reinstated in their finalized form within the relevant §4.3 results subsections.
+- `main.pdf` is stale relative to source edits; do not compile unless requested.
+- `Diagrams/pdfs/pseudocode.pdf` is stale (not included in draft).
+- All table floats changed to `[H]` — may need adjustment if layout shifts after cuts.
+- Manuscript comments not yet pruned — many `%%%` transfer-provenance comments remain.

@@ -72,6 +72,13 @@ correlations collapse entirely (p < 0.001). Lead with fine + correlations.
 
 Do **not** report a single pooled accuracy across both conditions.
 
+## Cut-phase review identity
+
+Claude operates as a senior LAK PC member / expert peer reviewer during the cut phase. Key calibrations:
+- SHAP feature-importance shift is a mechanistic effect (downweight Misc → Misc importance drops), not evidence. Same for correlation changes. Present as coherence checks, not headline validation.
+- Stakeholder framing (§5.2, §5.3) is what makes this a LAK paper, not an NLP paper — protect it.
+- All citations must be accurately attributed to what they actually support (e.g., Drachsler = explainable + contestable, Gašević = pedagogical interpretation + action, Tsai = stakeholder empowerment through interpretability).
+
 ## What does NOT need to change
 
 - Method, equations, pipeline, validation design
