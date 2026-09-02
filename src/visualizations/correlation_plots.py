@@ -215,7 +215,7 @@ def plot_relative_pct_change(corr_df: pd.DataFrame) -> None:
     x      = np.arange(len(df_pct))
     width  = 0.35
 
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(10, 4.5))
     ax.bar(x - width / 2, df_pct["pearson_d"],  width, label="Pearson Change",  color="dodgerblue")
     ax.bar(x + width / 2, df_pct["spearman_d"], width, label="Spearman Change", color="orange")
 
@@ -225,12 +225,12 @@ def plot_relative_pct_change(corr_df: pd.DataFrame) -> None:
                 continue
             va     = "bottom" if val >= 0 else "top"
             offset = 0.1     if val >= 0 else -0.1
-            ax.text(xpos, val + offset, f"{val:.1f}%", ha="center", va=va, fontsize=9)
+            ax.text(xpos, val + offset, f"{val:+.1f}%", ha="center", va=va, fontsize=13)
 
     ax.set_xticks(x)
-    ax.set_xticklabels(df_pct["topic"], rotation=0)
-    ax.set_ylabel("Average Relative Change in Correlation Magnitude (%)")
-    ax.set_title("Relative Change in Correlation Magnitude After Adjustment")
+    ax.set_xticklabels(df_pct["topic"], rotation=0, fontsize=14.5)
+    ax.set_ylabel("Avg. % Change in Correlation Magnitude", fontsize = 14.5)
+    ax.set_title("Relative Change in Correlation Magnitude After Adjustment", fontsize = 14.5)
     ax.axhline(0, color="black", linestyle="--", linewidth=0.8)
     ymin, ymax = ax.get_ylim()
     ax.set_ylim(ymin * 1.1, ymax * 1.1)

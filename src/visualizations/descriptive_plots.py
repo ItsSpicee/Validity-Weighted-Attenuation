@@ -179,7 +179,7 @@ def _emotion_heatmap(
     if vmax is None:
         vmax = pd.Series(category_emotions.values.flatten()).quantile(0.95)
 
-    plt.figure(figsize=(20, 6))
+    plt.figure(figsize=(20, 3))
     ax = sns.heatmap(
         category_emotions,
         annot=True,
@@ -188,11 +188,15 @@ def _emotion_heatmap(
         vmax=vmax,
         cbar_kws={"extend": "max", "label": "Average Probability"},
     )
+    ax.set_aspect(0.4) 
+    cbar = ax.collections[0].colorbar
+    cbar.set_label("Average Probability", fontsize=12)
+    cbar.ax.tick_params(labelsize=12)
     _color_xticklabels(ax)
-    ax.set_yticklabels(ax.get_yticklabels(), rotation=0, ha="right")
-    plt.title(title, fontsize=16, pad=10)
-    plt.xlabel("Emotion", fontsize=12, labelpad=7)
-    plt.ylabel("Topic", fontsize=12)
+    ax.tick_params(axis="x", labelsize=12, rotation = 5)
+    ax.set_yticklabels(ax.get_yticklabels(), rotation=0, ha="right", fontsize=12)
+    plt.ylabel("")
+    plt.title(title, fontsize=19, pad=10)
     plt.subplots_adjust(left=0.1, right=1.05)
 
 
@@ -282,10 +286,10 @@ def plot_dmisc_distribution(atc_df: pd.DataFrame) -> None:
     ax.axvline(mean_dmisc,   color="navy",  linestyle="--", linewidth=1.5, label=f"Mean: {mean_dmisc:.2f}")
     ax.axvline(median_dmisc, color="green", linestyle="--", linewidth=1.5, label=f"Median: {median_dmisc:.2f}")
     ax.set_xlim(left=0)
-    plt.title("Distribution of Miscellaneous Content Density (D$_{misc}$)")
-    plt.xlabel("D$_{misc}$")
-    plt.ylabel("Number of Reviews")
-    plt.legend()
+    plt.title("Distribution of Miscellaneous Content Density (D$_{misc}$)", fontsize=16)
+    plt.xlabel("D$_{misc}$", fontsize=16, labelpad=1)
+    plt.ylabel("Number of Reviews", fontsize=16)
+    plt.legend(fontsize=16)
     plt.tight_layout()
 
 # ==============================================================================

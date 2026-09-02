@@ -34,6 +34,7 @@ from constants import (
     NEG_EMOTIONS,
     TOPICS,
     TOPIC_DISPLAY_NAMES,
+    TOPIC_DISPLAY_NAMES_WIDE,
 )
 from src.splits import heldout_rows, professor_split
 
@@ -53,7 +54,7 @@ def _annotate_bars(ax, fmt="{:.3f}", offset=0.01) -> None:
         x  = bar.get_x() + bar.get_width() / 2
         y  = height + offset if height >= 0 else height - offset
         va = "bottom" if height >= 0 else "top"
-        ax.text(x, y, fmt.format(height), ha="center", va=va, fontsize=9)
+        ax.text(x, y, fmt.format(height), ha="center", va=va, fontsize=12)
 
 
 def _colour_beeswarm_labels(ax) -> None:
@@ -149,7 +150,7 @@ def _build_agg_explanation(explanation, feat_names: list[str]):
     for topic in TOPICS:
         for polarity, emotions in (("Positive", POS_EMOTIONS), ("Negative", NEG_EMOTIONS)):
             # UPDATED: Use TOPIC_DISPLAY_NAMES for lookup
-            group_name = f"{polarity}\n{TOPIC_DISPLAY_NAMES[topic]}"
+            group_name = f"{polarity}\n{TOPIC_DISPLAY_NAMES_WIDE[topic]}"
             indices = [
                 i for i, col in enumerate(feat_names)
                 if any(col == f"{e}_{topic}" for e in emotions)
@@ -196,18 +197,24 @@ def plot_shap(
     plt.tight_layout()
 
     # --- Delta bar chart ---
-    fig, ax = plt.subplots(figsize=(8, 5))
+    fig, ax = plt.subplots(figsize=(10, 4.5))
+
     delta = ((df_mass.loc["Attenuated"] - df_mass.loc["Baseline"]) / df_mass.loc["Baseline"]) * 100
     # UPDATED: Use TOPIC_COLORS
     delta.plot(kind="bar", ax=ax, color=TOPIC_COLORS)
 
     plt.axhline(0, color="black", linewidth=0.8)
-    plt.ylabel("% Change in Mean |SHAP|")
+    plt.ylabel("% Change in Mean |SHAP|", fontsize = 14)
     ymin, ymax = ax.get_ylim()
     ax.set_ylim(ymin * 1.05, ymax * 1.05)
-    plt.title("Relative Impact of Attenuation on Feature Importance")
-    plt.xticks(rotation=0)
+    plt.title("Relative Impact of Attenuation on Feature Importance", fontsize = 14)
+    plt.xticks(rotation=0, fontsize=14)
+    ax.set_axisbelow(True)
+    ax.grid(axis="y", linestyle="--", alpha=0.7)
+    ax.grid(axis="x", linestyle="--", alpha=0.7)
     _annotate_bars(ax, fmt="{:+.3f}%", offset=0.002)
+
+
     plt.tight_layout()
 
     # --- Beeswarm ---
@@ -216,10 +223,16 @@ def plot_shap(
 
     plt.figure(figsize=(14, 1.2 * n_features))
     shap.plots.beeswarm(agg_shap_u, show=False)
-    plt.subplots_adjust(left=0.15, right=0.95, top=0.92, bottom=0.1)
     ax = plt.gca()
-    ax.tick_params(axis="y", labelsize=11)
+    for cax in ax.figure.axes[1:]:
+        cax.tick_params(labelsize=12)
+        cax.set_ylabel(cax.get_ylabel(), fontsize=14)
+    plt.subplots_adjust(left=0.15, right=0.95, top=0.92, bottom=0.1)
+    
+    ax.tick_params(axis="y", labelsize=10)
+    ax.tick_params(axis="x", labelsize=11)
     _colour_beeswarm_labels(ax)
+    plt.title("CatBoost SHAP Beeswarm", fontsize = 16)
     plt.tight_layout()
 
 

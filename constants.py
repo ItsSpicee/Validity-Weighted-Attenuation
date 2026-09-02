@@ -114,6 +114,12 @@ TOPIC_DISPLAY_NAMES = {
     "misc":                        "Miscellaneous",
 }
 
+TOPIC_DISPLAY_NAMES_WIDE = {
+    "instructional_effectiveness": "Instructional Eff.",
+    "workload":                    "Workload",
+    "fairness":                    "Fairness",
+    "misc":                        "Miscellaneous",
+}
 # Short codes used where full topic names do not fit (e.g. topic-combination labels)
 TOPIC_ABBREVIATIONS = {
     "instructional_effectiveness": "IE",
