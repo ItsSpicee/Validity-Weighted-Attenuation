@@ -1,5 +1,7 @@
 # LAK27 Draft — Status (updated 2026-09-01)
 
+> Last layout update: 2026-09-02.
+
 ## Build
 
 ```
@@ -22,7 +24,7 @@ Current active counts: **4** `\todo`, **14** `\new`, **0** `\citeneeded`.
 
 ## Current page estimate
 
-~18 pages (down from ~21 pre-cut). Target: 14 pages. Submission deadline: 2026-09-28 (27 days).
+~17.75 pages (down from ~21 pre-cut). Target: 14 pages. Submission deadline: 2026-09-28 (26 days).
 
 ## Remaining TODOs
 
@@ -41,8 +43,12 @@ The prose-cut pass is complete: the paper has been compressed as far as is
 useful without weakening its argument. Do not pursue further global prose
 compression.
 
-- Reformat the manuscript for the target page budget, then inspect the revised
-  page flow, tables, figures, and float placement.
+- Continue the layout pass from the current 17.75-page baseline. The ordinary
+  floats have been re-enabled and reflowed; inspect each subsequent layout
+  change against the page budget rather than assuming a local compression saves
+  a physical page.
+- Decision: retain the full Section 4.3 evidence in the compact three-panel
+  Table 8(a--c), rather than moving those results to supplementary material.
 - Regenerate the source images used in the SHAP/correlation two-panel figure with larger
   axis, tick, legend, and annotation fonts; the new side-by-side layout is
   space-efficient, but its labels need to remain readable at panel scale.
@@ -102,6 +108,23 @@ compression.
 - §6: Consolidated the overlapping final limitations material. The remaining
   multi-expert limitation is intentionally deferred until consensus results are
   available; no further prose compression is planned.
+
+### Layout and evidence pass (2026-09-02)
+
+- Added the one-star emotion heatmap to Sentiment Extraction and the SHAP
+  beeswarm to Rating Regression Performance; both are now intended main-paper
+  evidence, not supplementary candidates.
+- Combined SHAP feature-importance change and correlation change into a
+  side-by-side figure. Regenerate its source images with larger labels before
+  submission.
+- Replaced forced `[H]` placement with `[htbp]` for ordinary figures and
+  tables; full-width figures use `[tbp]`. The introductory schematic uses
+  `[!htb]` so it floats with method text rather than occupying a float-only
+  page.
+- Reformatted the modulator-correlation table as density and intensity panels.
+- Consolidated the exponent sensitivity, modulator-correlation, and bootstrap
+  stability tables into Table 8(a--c), retaining every reported value while
+  using the available horizontal space effectively.
 
 ## Completed work (2026-08-24 through 2026-08-28)
 
