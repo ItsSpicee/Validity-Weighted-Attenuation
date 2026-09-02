@@ -18,7 +18,7 @@ pdflatex main && bibtex main && pdflatex main && pdflatex main
 | `\begin{newcontent}` | same, for multi-paragraph blocks |
 | `\auth{...}` | authored text, styled blue — will convert to black at submission |
 
-Current active counts: **4** `\todo`, **~6** `\new`, **0** `\citeneeded`.
+Current active counts: **4** `\todo`, **14** `\new`, **0** `\citeneeded`.
 
 ## Current page estimate
 
@@ -35,13 +35,25 @@ Current active counts: **4** `\todo`, **~6** `\new`, **0** `\citeneeded`.
 5. **Funding statement** — check if required; currently a `\todo`.
 6. **Strip all red text** — zero `\new`, `\todo` should remain at submission. All are drafting scaffolding.
 
-### Remaining cut work (~4 pages to cut)
+### Next phase — reformatting and strategic omission
 
-Target sections for further compression:
-- §5.2: Compress stakeholder use-case paragraphs (protected content — compress, don't delete)
-- §5.3: Compress non-use paragraphs (protected content — compress, don't delete)
-- §6: Cut redundant limitation points already made in §1.3/§5.3; compress verbose paragraphs
-- §4.3: Consider whether all three sensitivity tables are needed or if one can be moved to supplementary
+The prose-cut pass is complete: the paper has been compressed as far as is
+useful without weakening its argument. Do not pursue further global prose
+compression.
+
+- Reformat the manuscript for the target page budget, then inspect the revised
+  page flow, tables, figures, and float placement.
+- Regenerate the source images used in the SHAP/correlation two-panel figure with larger
+  axis, tick, legend, and annotation fonts; the new side-by-side layout is
+  space-efficient, but its labels need to remain readable at panel scale.
+- Make deliberate, argument-preserving omissions where needed: retain the core
+  validity mechanism and its direct evidence; move or omit secondary supporting
+  material rather than thinning the protected responsible-use and non-use
+  content.
+- In particular, decide whether every §4.3 sensitivity table belongs in the
+  main paper or whether selected detail should move to supplementary material.
+- Reassess the final narrative order and visual hierarchy only after the
+  reformatted layout makes the remaining page pressure visible.
 
 ## Cut phase — completed passes
 
@@ -84,6 +96,12 @@ Target sections for further compression:
 - §4.2.3 (Correlation Changes): Compressed opening from 7 sentences to 2; post-figure from 4 sentences to 1; figure caption compressed
 - §4.2.4 (Modulator Correlations): Compressed intro from 3 sentences to 1; post-table + Mann-Whitney + closing from 10 sentences to 4
 - §5.1 (Discussion): Compressed RQ1 discussion from 6 paragraphs to 6 short paragraphs (~half word count); compressed RQ2 from 3 paragraphs to 3 short paragraphs; merged positioning + interpretability paragraphs into one with LA-trace framing, Doshi-Velez/Drachsler/Gašević citations advancing from intro usage
+
+### Final limitation compression (2026-09-01)
+
+- §6: Consolidated the overlapping final limitations material. The remaining
+  multi-expert limitation is intentionally deferred until consensus results are
+  available; no further prose compression is planned.
 
 ## Completed work (2026-08-24 through 2026-08-28)
 

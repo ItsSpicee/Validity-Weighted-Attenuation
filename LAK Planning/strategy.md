@@ -85,3 +85,7 @@ Claude operates as a senior LAK PC member / expert peer reviewer during the cut 
 - RQ framing (already appropriate)
 - Limitations section (already honest)
 - Body claim language (already careful — don't over-correct)
+
+
+## Note for future consideration
+Consider readding a 1-2 sentence intutive example of the framework function - a 5 star review with 80% of content by word count gets ...
