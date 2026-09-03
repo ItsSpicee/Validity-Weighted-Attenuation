@@ -24,7 +24,7 @@ Current active counts: **4** `\todo`, **14** `\new`, **0** `\citeneeded`.
 
 ## Current page estimate
 
-~17.75 pages (down from ~21 pre-cut). Target: 14 pages. Submission deadline: 2026-09-28 (26 days).
+~16 pages estimated (down from ~17.75 after redundancy compression pass, ~21 pre-cut). Target: 14 pages. Submission deadline: 2026-09-28 (25 days).
 
 ## Remaining TODOs
 
@@ -83,29 +83,53 @@ evidence. A final copy-edit is still needed after expert results are inserted;
 the current discussion pass was substantive, not a full typography/spacing
 pass.
 
-### Next phase — reformatting and strategic omission
+### Redundancy compression pass (2026-09-03)
 
-The prose-cut pass is complete: the paper has been compressed as far as is
-useful without weakening its argument. Do not pursue further global prose
-compression.
+Systematic redundancy and excessive-negation pass, applied point-by-point with
+author approval. Estimated ~1.75 pages saved from prose alone (layout-dependent).
 
-- Continue the layout pass from the current 17.75-page baseline. The ordinary
-  floats have been re-enabled and reflowed; inspect each subsequent layout
-  change against the page budget rather than assuming a local compression saves
-  a physical page.
+- §5.1 RQ1 discussion: removed restatement of topic frequencies, elaboration
+  depth, and SHAP hierarchy already reported in §4.1; kept interpretive framing
+  only
+- §5.1 RQ3 discussion: collapsed four paragraphs to two — dropped restated
+  correlation values, CI widths, and expert accuracy numbers; kept evidence-type
+  summary with key p-values and bounded synthesis
+- §5.1 positioning paragraph: cut Messick/Cronbach/Huber/Doshi-Velez/Drachsler/
+  Gašević restatement (all appear in §1–2); kept Zhai contrast and "initial
+  method evidence" positioning
+- §5.3 Boundaries: merged three paragraphs into two — combined deployment
+  prohibition, DELICATE framing, and automated-vs-decision-making distinction;
+  dropped repeated contestation/governance language
+- §1.3: removed "not validated estimates / not for high-stakes decisions"
+  sentence (covered fully in §5.3); kept Misc ≠ unimportant and Tsai citation
+- §4.3.2 permutation control: replaced "does not establish X; establishes Y"
+  with positive claim only
+- §7 conclusion: cut "it does not silence student voice" (positive half already
+  says "preserves every original review and its full emotional profile")
+- §2.1: collapsed Zhai paragraph into synthesis sentence; preserved citation
+  and controlled-conditions contrast
+- §5.2→5.3 bridge: deleted redundant paragraph; moved "additional information
+  is not inherently safer to act on" to open §5.3 as transition
+- §4.2: merged Feature Importance, Correlation Changes, and Modulator
+  Correlations subsubsections into single "Mechanistic Coherence" subsubsection;
+  dropped three headers and tightened prose
+- Figure caption fixes: "Relative changes" → "Change (%)" in both panels of
+  the mechanistic-checks figure
+
+### Next phase — layout and strategic omission
+
+- Continue from the ~16-page baseline. Compile and inspect actual page count
+  before further cuts.
 - Decision: retain the full Section 4.3 evidence in the compact three-panel
   Table 8(a--c), rather than moving those results to supplementary material.
 - Regenerate the source images used in the SHAP/correlation two-panel figure with larger
   axis, tick, legend, and annotation fonts; the new side-by-side layout is
   space-efficient, but its labels need to remain readable at panel scale.
-- Make deliberate, argument-preserving omissions where needed: retain the core
-  validity mechanism and its direct evidence; move or omit secondary supporting
-  material rather than thinning the protected responsible-use and non-use
-  content.
-- In particular, decide whether every §4.3 sensitivity table belongs in the
-  main paper or whether selected detail should move to supplementary material.
-- Reassess the final narrative order and visual hierarchy only after the
-  reformatted layout makes the remaining page pressure visible.
+- Remaining cut candidates if needed: one-star heatmap to supplementary (~0.4p),
+  sensitivity Table 8(a) to supplementary with representative subset (~0.3p),
+  SHAP beeswarm to supplementary (~0.4p), citation cluster trimming (~0.15p).
+- Reassess after compile — float placement may recover or lose space
+  unpredictably.
 
 ## Cut phase — completed passes
 
