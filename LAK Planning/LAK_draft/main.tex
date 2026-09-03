@@ -149,7 +149,7 @@ To answer our research questions, we develop and apply a five-stage NLP framewor
     \item Initial empirical proof-of-concept validation on a large held-out-instructor sample, with expert and robustness evidence.
 \end{itemize}
 
-\auth{This framework demonstrates that construct-irrelevant variance, as defined by the stated pedagogical taxonomy, can be attenuated in an interpretable manner, empowering stakeholders with additional information for cautious interpretation of teaching feedback \cite{TsaiMartinezMaldonado2022}. Content classified as \emph{Miscellaneous} falls outside this study's taxonomy; it is not thereby unimportant to the student experience. The resulting adjustments are not validated estimates of teaching quality and are not proposed for automated high-stakes personnel decisions such as ranking, tenure, or promotion; an audit trail alone does not provide the governance required for such use \cite{DrachslerGreller2016}.}
+\auth{This framework demonstrates that construct-irrelevant variance, as defined by the stated pedagogical taxonomy, can be attenuated in an interpretable manner, empowering stakeholders with additional information for cautious interpretation of teaching feedback \cite{TsaiMartinezMaldonado2022}. Content classified as \emph{Miscellaneous} falls outside this study's taxonomy; it is not thereby unimportant to the student experience.}
 
 %========================================================================================
 \section{Background and Conceptual Framing}
@@ -163,9 +163,7 @@ To answer our research questions, we develop and apply a five-stage NLP framewor
 
 \citeA{Wongsurawat2011} analyzes the value of open-ended SET feedback and proposes a conceptual framework for classifying comments. The author suggests that some students do not put sufficient thought and effort into evaluating their instructors. Importantly, white noise, or pedagogically irrelevant content, is identified as a source of measurement error in SET instruments. A conceptual four-quadrant framework comparing the correlation of subjective and objective comments to class averages is proposed to judge the reliability and representativeness of SET feedback. Wongsurawat indicates that comments that have little to no correlation with average evaluations should be discounted, and that administrators would benefit from metrics quantifying comment quality and reliability.
 
-Recent psychometric work has demonstrated that CIV can be identified and mitigated in constructed-response assessments. \citeA{Zhai2021} propose a Many-Facet Rasch Measurement framework that identifies three sources of CIV: the variability of assessment item scenarios, judging severity, and rater scoring sensitivity to the scenarios in tasks. Their framework mitigates these sources of CIV when estimating examinee ability. However, their approach operates under controlled conditions including expert-defined rubrics, trained raters, and a shared observable stimulus (a common video) against which responses can be evaluated. These conditions do not extend to large-scale SET systems.
-
-\auth{Across these studies, validity threats from construct-irrelevant content, including situational confounders \cite{Schiekirka2015} and students' emotional and relational states \cite{Li2025}, are documented in both formal and informal evaluation contexts. However, existing approaches either operate under controlled conditions that do not extend to large-scale SET, or identify contamination without providing a computational mechanism to attenuate its influence on numerical ratings.}
+\auth{Across these studies, validity threats from construct-irrelevant content, including situational confounders \cite{Schiekirka2015} and students' emotional and relational states \cite{Li2025}, are documented in both formal and informal evaluation contexts. Recent psychometric work has demonstrated that CIV can be identified and mitigated in constructed-response assessments under controlled conditions \cite{Zhai2021}, but existing approaches either operate under such conditions, which do not extend to large-scale SET, or identify contamination without providing a computational mechanism to attenuate its influence on numerical ratings.}
 
 \subsection{From Descriptive NLP to Validity-Oriented Interpretation}
 
@@ -179,7 +177,7 @@ Although deep learning approaches provide a finer-grained representation of emot
 
 Addressing validity concerns within SET does not require excluding low-utility reviews. Classical reliability theory holds that measurement quality improves by reducing error variance rather than excluding observations \cite{Cronbach1951}. Robust estimation theory formalizes this principle, showing that down-weighting high-noise observations produces more stable and less biased estimates than exclusionary approaches \cite{Huber1964}. Within the SET domain, \citeA{MarshRoche1997} advocate for a conservative approach for bias mitigation, arguing that corrections should account for known sources of contamination while preserving students' overall evaluative intent. They further caution that corrections applied without regard to valid variance risk ``throwing the validity baby out with the bias bathwater'' (p. 1197), removing genuine signal alongside the contaminant. This supports a bounded, content-targeted adjustment rather than a global correction.
 
-\auth{The attenuation mechanism itself is bounded and proportional, ensuring predictable changes to features, though the downstream model is less so. The taxonomy used in this RMP proof of concept is one generic decomposition of review content, and a different taxonomy would produce different adjustments. In formal applications, stakeholders could define or refine the categories in relation to course learning design and its documented pedagogical intent, so that the analytic lens reflects local priorities rather than a fixed computational judgment \cite{LockyerHeathcoteDawson2013}.}
+\auth{The attenuation mechanism itself is bounded and proportional, resulting in predictable changes to features. The taxonomy used in this RMP proof of concept is one generic decomposition of review content, and a different taxonomy would produce different adjustments. In formal applications, stakeholders could define or refine the categories in relation to course learning design and its documented pedagogical intent, so that the analytic lens reflects local priorities rather than a fixed computational judgment \cite{LockyerHeathcoteDawson2013}.}
 
 \subsection{Research Gap}
 
@@ -333,8 +331,6 @@ The prediction difference $(\hat{y}_i^\text{attenuated} - \hat{y}_i^\text{baseli
     \includegraphics[trim=10 85 15 41, clip, width=\linewidth]{Diagrams/pdfs/ex2.pdf}
 \end{table*}
 
-\auth{When a review's passage through the framework is presented stage by stage, stakeholders can inspect and challenge individual outputs and overall adjustments.}
-
 %========================================================================================
 \section{Results}
 %========================================================================================
@@ -475,13 +471,9 @@ At the professor level, the overall distribution of average ratings remained lar
 
 \new{The three analyses that follow are validation metrics, and are} computed on the 206 held-out professors, which were not seen by the CatBoost model. This corresponds to 3,414 reviews for the feature-importance analysis and, of those, the 2,052 containing \textit{Miscellaneous} content for the correlation and modulator analyses, since reviews with $D_{misc} = 0$ are left unchanged by attenuation by construction. \new{These counts are therefore smaller than the full-corpus figures reported above.}
 
-\subsubsection{Feature Importance Changes}
+\subsubsection{Mechanistic Coherence}
 
-Figure~\ref{fig:mechanistic-checks}(a) compares baseline and attenuated SHAP-based feature importance. Pedagogically relevant categories increased in importance while \textit{Miscellaneous} sentiment decreased, consistent with the design goal of redirecting model sensitivity away from content classified as construct-irrelevant.
-
-\subsubsection{Correlation Changes After Attenuation}
-
-We compare Pearson and Spearman correlations between baseline emotion features and raw versus adjusted ratings on the 2,052 held-out reviews containing \textit{Miscellaneous} content. \new{The emotion side is held fixed at baseline values in both comparisons; only the rating changes from $y^{\text{raw}}_i$ to $\hat{y}^{\text{adjusted}}_i = y^{\text{raw}}_i + \Delta_i$, so any correlation shift is attributable to the adjustment alone.}
+Figure~\ref{fig:mechanistic-checks} and Table~\ref{tab:correlation_deltas} summarise three coherence checks on held-out professors. SHAP-based feature importance shifts away from \textit{Miscellaneous} sentiment and toward pedagogically relevant categories (Figure~\ref{fig:mechanistic-checks}a). Pearson and Spearman correlations between baseline emotion features and ratings show the same pattern: \textit{Miscellaneous} associations weaken while pedagogical associations are maintained or slightly strengthened (Figure~\ref{fig:mechanistic-checks}b). \new{The emotion side is held fixed at baseline values; only the rating changes from $y^{\text{raw}}_i$ to $\hat{y}^{\text{adjusted}}_i = y^{\text{raw}}_i + \Delta_i$, so any correlation shift is attributable to the adjustment alone.}
 
 \begin{figure*}[tbp]
     \centering
@@ -495,15 +487,10 @@ We compare Pearson and Spearman correlations between baseline emotion features a
         \textbf{(b)}\\[-0.25em]
         \includegraphics[width=\linewidth]{Diagrams/correlation_changes/average_corr_changes.png}
     \end{minipage}
-    \caption{Mechanistic coherence checks after attenuation. (a) Relative changes in SHAP-based feature importance, computed on held-out professors ($n = 3{,}414$ reviews). (b) \new{Average relative change in correlation magnitude (Pearson and Spearman) after adjustment, held-out professors ($n = 2{,}052$). Bars show mean $(|\text{corr}_{\text{adjusted}}| - |\text{corr}_{\text{raw}}|)/|\text{corr}_{\text{raw}}|$ across polarity groups.}}
+    \caption{Mechanistic coherence checks after attenuation. (a) Change in SHAP-based feature importance (\%), computed on held-out professors ($n = 3{,}414$ reviews). (b) \new{Average change in correlation magnitude (\%, Pearson and Spearman) after adjustment, held-out professors ($n = 2{,}052$). Bars show mean $(|\text{corr}_{\text{adjusted}}| - |\text{corr}_{\text{raw}}|)/|\text{corr}_{\text{raw}}|$ across polarity groups.}}
     \label{fig:mechanistic-checks}
 \end{figure*}
 
-As shown in Figure~\ref{fig:mechanistic-checks}(b), attenuation reduces the correlation of \textit{Miscellaneous} features with ratings while maintaining or slightly increasing correlations for pedagogically relevant features, consistent across both linear and rank-based measures.
-
-\subsubsection{Modulator Correlations}
-
-Table~\ref{tab:correlation_deltas} reports correlations between attenuation $\Delta$s (separated by sign) and the modulators $D_{misc}$ and $E_{misc}$ on held-out professors.
 
 \begin{table}[htbp]
     \caption{Correlation analysis: attenuation $\Delta$ versus modulators, computed on held-out professors ($n = 2{,}052$ reviews).}
@@ -537,11 +524,7 @@ Table~\ref{tab:correlation_deltas} reports correlations between attenuation $\De
     \end{minipage}
 \end{table}
 
-$D_{misc}$ is the primary driver of attenuation magnitude: ratings increase or decrease in proportion to off-topic density, while correlations with $E_{misc}$ intensity are weaker but not insignificant. This aligns with expectations, as $D_{misc}$ directly controls the weighting strength $\zeta$.
-
-A Mann-Whitney U test comparing absolute adjustments between low-noise ($D_{misc} < 0.2$, $n=690$) and high-noise ($D_{misc} > 0.5$, $n=508$) reviews confirms significantly larger adjustments for high-noise reviews ($U = 313{,}494$, $p < 0.001$, rank biserial $|r| = 0.789$).
-
-Together, feature importance shifts, correlation changes, and modulator relationships indicate that attenuation introduces structured and interpretable adjustments rather than arbitrary changes.
+$D_{misc}$ is the primary driver of attenuation magnitude (Table~\ref{tab:correlation_deltas}a): ratings increase or decrease in proportion to off-topic density, while correlations with $E_{misc}$ intensity are weaker but directionally consistent. A Mann-Whitney U test confirms significantly larger absolute adjustments for high-noise ($D_{misc} > 0.5$, $n=508$) than low-noise ($D_{misc} < 0.2$, $n=690$) reviews ($U = 313{,}494$, $p < 0.001$, rank biserial $|r| = 0.789$). Together, these checks indicate that attenuation introduces structured and interpretable adjustments consistent with its design rationale.
 
 \subsection{Initial Validity and Robustness Evidence}
 
@@ -593,7 +576,7 @@ $\Delta^{-}$ vs.\ $D_{\text{misc}}$ ($r$) & $-$0.7077 & $-$0.1579 & 0.0374 & [$-
 
 \auth{Expert accuracy separates by condition as the rationale predicts. In the coarse bin, the permuted null frequently reaches the observed value ($p = 0.233$). This is expected: coarse pairs differ so visibly in off-topic content that the CatBoost prediction --- which retains all emotion and topic features --- often points in the correct direction even when $\zeta$ is driven by the wrong density. Coarse accuracy thus functions as a manipulation check confirming that the mechanism responds to gross differences in construct-irrelevant content, but it does not isolate the contribution of $D_{\text{misc}}$ specifically. In the fine bin, where paired reviews are closer in off-topic content and the attenuation signal is the tiebreaker, accuracy drops meaningfully under permutation ($p = 0.007$), confirming that discriminative power in close cases depends on the actual review-level density.}
 
-\auth{The control does not establish that $D_{\text{misc}}$ is a valid measure of construct-irrelevant content, nor that the taxonomy underlying it is correct. It establishes a narrower claim: conditional on the ATC classifications, the attenuation mechanism's behaviour is not an artifact of its functional form.}
+\auth{The control establishes that, conditional on the ATC classifications, the attenuation mechanism's behaviour depends on actual review-level density rather than its functional form.}
 
 \subsubsection{Sensitivity to Attenuation Exponent}
 
@@ -705,19 +688,16 @@ prompting further investigation where appropriate \cite{TsaiMartinezMaldonado202
 
 \auth{A second theoretical contribution is that the framework makes its evaluative taxonomy explicit and, in
 principle, configurable. Rather than treating pedagogical relevance as a fixed computational judgment, the categories
-can be defined around a stated purpose and local learning design \cite{LockyerHeathcoteDawson2013}. This makes visible a choice that is often implicitin feedback analytics: which dimensions should inform a particular interpretation of teaching feedback, and which
+can be defined around a stated purpose and local learning design \cite{LockyerHeathcoteDawson2013}. This makes visible a choice that is often implicit in feedback analytics: which dimensions should inform a particular interpretation of teaching feedback, and which
 should be treated separately.}
 
 \auth{At an aggregate level, topic-level emotional profiles may support exploratory identification of recurring
 concerns across courses or departments, provided they are interpreted in context rather than used as instructor
 rankings or performance measures.}
 
-\auth{In all cases, raw ratings and reviews are preserved in full. The framework adds a layer of interpretation to existing traces. However, additional information is not inherently safer to act on; the constraints on interpretation discussed in the following section apply to all of these use cases.
-}
-
 \subsection{Boundaries, Risks, and Non-Use}
 
-\auth{The framework produces model-based adjustments under a stated pedagogical taxonomy. An attenuated rating is not a validated estimate of teaching quality; the framework decomposes a review into topic and emotion components, it does not summarize or replace the review itself. Any interpretation that bypasses the original text discards exactly the context the audit trail is designed to preserve.}
+\auth{Additional information is not inherently safer to act on. The framework produces model-based adjustments under a stated pedagogical taxonomy. An attenuated rating is not a validated estimate of teaching quality; the framework decomposes a review into topic and emotion components, it does not summarize or replace the review itself. Any interpretation that bypasses the original text discards exactly the context the audit trail is designed to preserve.}
 
 \auth{Auditability alone does not make a deployment trustworthy. Drachsler and Greller's DELICATE framework treats transparency as one element of trusted learning analytics, alongside an explicit purpose, stakeholder involvement, data governance, and routes to contest harmful consequences \cite{DrachslerGreller2016}. The mechanism can reproducibly compute review-level decompositions and adjustments; it must not autonomously rank, reward, penalize, or otherwise make consequential decisions about instructors or students. The present proof of concept does not authorize deployment in a consequential institutional or platform decision process.}
 
@@ -764,7 +744,7 @@ content, requiring recalibration. The formal-SET version should ground finer tax
 
 \auth{  The framework moves beyond descriptive sentiment analysis by operationalizing an interpretable, validity-oriented attenuation mechanism. Its three primary contributions reflect this: a novel attenuation mechanism that directly intervenes on ratings rather than merely detecting noise, where each adjustment is traceable to specific topic-level emotions and content density; a theoretically grounded design that translates established psychometric principles from \citeA{Messick1995}, \citeA{Cronbach1951}, and \citeA{Huber1964} into a concrete computational mechanism;and initial proof-of-concept evidence from a held-out-instructor sample, expert comparisons, and robustness analyses.}
 
-\auth{Crucially, the framework preserves every original review and its full emotional profile; attenuation reweights the modelled contribution of affect to a summary rating, it does not silence student voice. This design choice reflects a commitment to contestability:  stakeholders can inspect and question the basis of any adjustment. As a proof of concept, the work shows how validity concerns can be made computationally explicit and auditable under a stakeholder-defined taxonomy, providing a basis for future evaluation of validity-aware analytic tools.}
+\auth{Crucially, the framework preserves every original review and its full emotional profile; attenuation reweights the modelled contribution of affect to a summary rating. This design choice reflects a commitment to contestability:  stakeholders can inspect and question the basis of any adjustment. As a proof of concept, the work shows how validity concerns can be made computationally explicit and auditable under a stakeholder-defined taxonomy, providing a basis for future evaluation of validity-aware analytic tools.}
 
 %----------------------------------------------------------------------------------------
 \phantomsection
