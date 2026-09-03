@@ -1,4 +1,4 @@
-# LAK27 Draft — Status (updated 2026-09-01)
+# LAK27 Draft — Status (updated 2026-09-03)
 
 > Last layout update: 2026-09-02.
 
@@ -31,11 +31,57 @@ Current active counts: **4** `\todo`, **14** `\new`, **0** `\citeneeded`.
 ### Must-do before submission
 
 1. **Multi-expert consensus** — §4.3.1 expert validation results need updating from single-expert to multi-expert consensus (majority vote, Fleiss' κ, Wilson intervals). Single-expert figures deliberately not transferred. **Blocks items 2–4 below.**
-2. **Result-local evaluation protocols** — the standalone Evaluation Strategy subsection was deleted during the cut pass. Once consensus is implemented, add only the finalized expert-comparison procedure to §4.3.1 and the necessary permutation procedure to §4.3.2. Do not restore the obsolete single-expert wording. (Blocked by #1.)
+2. **Result-local evaluation protocols** — the standalone Evaluation Strategy subsection was deleted during the cut pass. Once consensus is implemented, add the finalized expert-comparison procedure to §4.3.1 and the necessary permutation procedure to §4.3.2. The §4.3.1 insertion must explain pair construction and coarse/fine allocation; the blinded raw-text task and randomized order; the more-valid-review / unsure response options; scoring against the smaller $|\Delta|$; panel composition, independent labels, consensus/tie handling, and Fleiss' $\kappa$; and final inclusion/exclusion accounting. Do not restore the obsolete single-expert wording. (Blocked by #1.)
 3. **Limitations paragraph** — source manuscript's single-expert limitation paragraph not transferred; replace with multi-expert limits once results exist. (Blocked by #1.)
 4. **Abstract expert placeholder** — abstract contains `\todo{[placeholder: multi-expert consensus results]}`. Fill once consensus is run. (Blocked by #1.)
 5. **Funding statement** — check if required; currently a `\todo`.
 6. **Strip all red text** — zero `\new`, `\todo` should remain at submission. All are drafting scaffolding.
+
+### Discussion hardening pass (2026-09-03)
+
+This pass tightened the validity argument from a LAK/psychometric-review
+perspective. The governing distinction is now: **mechanistic coherence** shows
+that the implemented rule behaves as specified; **robustness and falsification**
+show that this behaviour is stable and depends on the review-level density
+assignment; **expert paired comparisons** provide bounded human-judgment
+evidence under their curated protocol. None establishes that the taxonomy or
+density proxy is correct, or that adjusted ratings measure teaching quality.
+
+- §5.1 now frames SHAP as attribution within the fitted model, rather than as
+  causal evidence about rating drivers. It describes \textit{Miscellaneous} as
+  content classified outside the stated taxonomy, rather than inherently
+  irrelevant or unimportant content.
+- RQ3 is organized in four short moves: mechanistic coherence; bootstrap,
+  exponent-sensitivity, and permutation checks; expert paired-comparison
+  evidence; then a bounded synthesis. Keep this architecture when inserting
+  the finalized multi-expert results. Current single-expert figures remain
+  temporarily, by author decision, until those results arrive.
+- §5.2 has been narrowed to its practical and theoretical value: an auditable,
+  corpus-scale review queue sortable by $|\Delta|$ for human inspection, and an
+  explicit, in-principle configurable taxonomy aligned to purpose and learning
+  design. Aggregate use is intentionally one sentence and limited to
+  exploratory topic profiles, not rankings or performance measures. Tsai &
+  Martinez-Maldonado, Gašević et al., and Lockyer et al. anchor this LAK
+  framing.
+- §5.3 now explicitly rejects consequential institutional/platform deployment
+  and automated decision-making; it retains the raw review and rating as the
+  primary record and cites documented demographic/popularity bias risks.
+- §6 replaces the “objective ground truth” formulation with the precise
+  limitation: there is no independent, triangulated external evidence to
+  support stronger inferences from adjusted than raw ratings. It also sharpens
+  the RMP, ATC, neutral-content, taxonomy-scope, and formal-SET caveats.
+- §7 conclusion now describes the operation (attenuating the modelled
+  contribution of affect under a stated taxonomy) rather than claiming that
+  construct-irrelevant variance has been eliminated. It positions the work as
+  a theoretical complement and extension to learning-analytics approaches to
+  open-ended teaching feedback.
+
+**Process rule for subsequent prose edits:** prefer minimally additive,
+claim-matched changes. Do not broaden uses or reintroduce “signal-to-noise,”
+causal-driver, ground-truth, or ready-for-deployment language without new
+evidence. A final copy-edit is still needed after expert results are inserted;
+the current discussion pass was substantive, not a full typography/spacing
+pass.
 
 ### Next phase — reformatting and strategic omission
 
