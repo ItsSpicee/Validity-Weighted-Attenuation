@@ -116,15 +116,15 @@
 
 \subsection{Open-Ended Teaching Feedback as a Learning-Analytics Trace}
 
-\auth{Open-ended teaching feedback is a widely available but analytically underspecified data source. When numerical ratings are accompanied by text, nothing specifies how the content of that text should shape interpretation of the rating. To this extent, any method that attempts to analytically inform stakeholders of the validity of such feedback must operate under cautious and auditable interpretation.}
-\auth{However, open-ended teaching feedback presents a particular challenge for validity-oriented interpretation and current methods have been limited to primarily descriptive approaches.}
-Sentiment analysis on Student Evaluations of Teaching (SET) is a popular area for the development of computational and statistical techniques to gain insights into the features of student experiences, as well as feedback for institutions and faculty. SET has historically been used as an evaluative tool to inform and guide consequential administrative decisions for academic institutions \cite{Haskell1997,Simpson2000,Irons2011}. Despite this widespread usage, SET validity remains contested, with a long-running debate over the extent to which ratings reflect teaching effectiveness rather than extraneous influences \cite{Langbein1994,MarshRoche1997}. Situational factors, irrelevant content, and affective noise can act as contaminants, threatening the validity of SET as a measure of instructional experience and quality \cite{Wongsurawat2011,Schiekirka2015}. Informal SET instruments such as RateMyProfessors.com (RMP) exhibit exacerbated contamination, due to being fully open-ended, anonymized and largely unmoderated. Thus, interpreting and acting on SET results without accounting for contamination \auth{risks misinforming stakeholders who interpret and act on these results} and impacts faculty assessment \cite{Haskell1997,Wongsurawat2011,Zumbach2014,Emery2003,Dowell1983}.
+\auth{Open-ended teaching feedback is a widely available but analytically underspecified data source: nothing constrains how the content of accompanying text should shape interpretation of the rating, so any method that attempts to inform stakeholders of its validity must operate under cautious and auditable interpretation.}
+\auth{Current methods, however, have been limited to primarily descriptive approaches.}
+Sentiment analysis on Student Evaluations of Teaching (SET) is a growing area for computational insight into student experiences and institutional feedback. SET has historically guided consequential administrative decisions \cite{Haskell1997,Simpson2000,Irons2011}. Despite this widespread usage, SET validity remains contested: ratings may reflect extraneous influences rather than teaching effectiveness \cite{Langbein1994,MarshRoche1997}. Situational factors, irrelevant content, and affective noise threaten validity \cite{Wongsurawat2011,Schiekirka2015}, especially in informal instruments such as RateMyProfessors.com (RMP), which are fully open-ended, anonymized, and largely unmoderated. Interpreting SET results without accounting for contamination \auth{risks misinforming stakeholders} and distorting faculty assessment \cite{Haskell1997,Wongsurawat2011,Zumbach2014,Emery2003,Dowell1983}.
 
-\auth{Because a numerical rating collapses numerous distinct sources of student expression into a single value, it cannot by itself reveal what is driving its interpretation. The accompanying review provides a multifaceted trace through which those sources can be examined. This study focuses on that examination by treating open-ended teaching feedback as a learning-analytics trace.}
+\auth{Because a numerical rating collapses distinct sources of expression into a single value, the accompanying review text provides a trace through which those sources can be examined. This study treats open-ended teaching feedback as such a learning-analytics trace.}
 
 \subsection{The Unresolved Methodological Gap}
 
-\auth{Despite advances in computational SET analysis, existing research remains largely descriptive. Sentiments are extracted, patterns identified, but intervention is rarely attempted. As a result, contamination documented in the literature continues to distort the numerical ratings that institutions and students rely on. We introduce \textbf{validity-weighted attenuation}, an interpretable ABSA method that proportionally attenuates the modelled contribution of affect in content classified as outside of a stated pedagogical taxonomy that stakeholders have the ability to control, while retaining the original review and a review-level audit trail. This methodology enables inspection of the framework's outputs and rating-adjustment process in a consequential application where important criteria cannot be fully specified \cite{DoshiVelez2017}, and where analytical outputs must connect to pedagogical interpretation and action \cite{GasevicDawsonSiemens2015}. SET represents an ideal domain for this work: ratings are consequential, contamination is well-documented, and informal platforms like RMP (being fully anonymous and unmoderated) represent a demanding stress test for validity-aware frameworks. The present work aims to establish a foundation for future validity-aware approaches in both informal and formal SET contexts, where interpretability is essential given growing concerns about reliance on black-box systems \cite{Rybinski2021,Zhuang2025}. Findings from this research may also offer insights applicable to any open-ended feedback domain where numerical ratings are accompanied by unmoderated textual reviews.}
+\auth{Despite advances in computational SET analysis, existing research remains largely descriptive. Sentiments are extracted, patterns identified, but intervention is rarely attempted. As a result, contamination documented in the literature continues to distort the numerical ratings that institutions and students rely on. We introduce \textbf{validity-weighted attenuation}, an interpretable ABSA method that proportionally attenuates the modelled contribution of affect in content classified as outside of a stated pedagogical taxonomy that stakeholders have the ability to control, while retaining the original review and a review-level audit trail. This methodology enables inspection of the framework's outputs and rating-adjustment process in a consequential application where important criteria cannot be fully specified \cite{DoshiVelez2017}, and where analytical outputs must connect to pedagogical interpretation and action \cite{GasevicDawsonSiemens2015}. SET is an ideal domain: ratings are consequential, contamination is well-documented, and informal platforms like RMP represent a demanding stress test for validity-aware frameworks. Interpretability is essential given growing concerns about black-box systems in SET \cite{Rybinski2021,Zhuang2025}, and findings may generalize to any open-ended feedback domain where numerical ratings are accompanied by unmoderated text.}
 
 \auth{\textbf{Research Questions:}}
 
@@ -157,31 +157,35 @@ To answer our research questions, we develop and apply a five-stage NLP framewor
 
 \subsection{Validity, Construct-Irrelevant Variance, and Teaching Feedback}
 
-\citeA{Messick1995} identifies two primary threats to validity in assessment systems: construct underrepresentation and construct-irrelevant variance (CIV). Construct underrepresentation occurs when an assessment fails to adequately capture the dimensions of the construct it is intended to measure. Messick does not address student feedback systems by name; however, his unified theory explicitly extends to any assessment in which observed behaviors or responses are coded or summarized into scores, a formulation that directly encompasses SET. These validity threats are particularly pronounced when collected using informal and anonymous devices such as RMP.
+\citeA{Messick1995} identifies two primary threats to validity: construct underrepresentation and construct-irrelevant variance (CIV). His unified theory extends to any assessment in which responses are summarized into scores, a formulation that directly encompasses SET, with these threats particularly pronounced in informal, anonymous instruments such as RMP.
 
-\auth{Within the SET literature, this concern is well established.} \citeA{MarshRoche1997} scrutinize the validity, bias and utility of SET in a comprehensive review. They conclude that under appropriate conditions, SET are multidimensional, reliable, and relatively valid against a variety of indicators of effective teaching. However, they condition this validity on the content and the coverage of the evaluation items, indicating that ``scores averaged across an ill-defined assortment of items offer no basis for knowing what is being measured'' (p. 1187). Validity is therefore treated as a property of the content an instrument elicits rather than of the instrument itself. Under this criterion, unconstrained and open-ended instruments offer no design guarantee on the composition of the content they collect.
+\citeA{MarshRoche1997} conclude that SET can be multidimensional, reliable, and relatively valid, but condition this on the content and coverage of items: ``scores averaged across an ill-defined assortment of items offer no basis for knowing what is being measured'' (p.\ 1187). Validity is thus a property of the content an instrument elicits; unconstrained, open-ended instruments offer no design guarantee on the composition of what they collect.
 
-\citeA{Wongsurawat2011} analyzes the value of open-ended SET feedback and proposes a conceptual framework for classifying comments. The author suggests that some students do not put sufficient thought and effort into evaluating their instructors. Importantly, white noise, or pedagogically irrelevant content, is identified as a source of measurement error in SET instruments. A conceptual four-quadrant framework comparing the correlation of subjective and objective comments to class averages is proposed to judge the reliability and representativeness of SET feedback. Wongsurawat indicates that comments that have little to no correlation with average evaluations should be discounted, and that administrators would benefit from metrics quantifying comment quality and reliability.
+\citeA{Wongsurawat2011} identifies pedagogically irrelevant comment content as a potential source of measurement error in open-ended SET and argue for evaluating comment reliability. Comments with little to no correlation with average evaluations should be discounted, and administrators would benefit from metrics quantifying comment quality and reliability.
 
 \auth{Across these studies, validity threats from construct-irrelevant content, including situational confounders \cite{Schiekirka2015} and students' emotional and relational states \cite{Li2025}, are documented in both formal and informal evaluation contexts. Recent psychometric work has demonstrated that CIV can be identified and mitigated in constructed-response assessments under controlled conditions \cite{Zhai2021}, but existing approaches either operate under such conditions, which do not extend to large-scale SET, or identify contamination without providing a computational mechanism to attenuate its influence on numerical ratings.}
 
 \subsection{From Descriptive NLP to Validity-Oriented Interpretation}
 
-Prior research demonstrates that simple sentiment analysis on SET reviews can reliably extract coarse sentiments that have moderate-to-strong correlation with numerical ratings \cite{Kechaou2011,Rajput2016,Iatrellis2024,Mihai2024}. However, these early approaches combine sentiments as a single aggregate, limiting their ability to capture complex emotional context and signal. These limitations provide motivation for more advanced approaches that utilize deep learning and aspect-based sentiment analysis (ABSA) to analyze SET traces.
+Prior SET research shows that aggregate sentiment can be associated with numerical ratings
+\cite{Kechaou2011,Rajput2016,Iatrellis2024,Mihai2024}, but aggregation obscures topic-specific emotional context.
+Deep-learning and ABSA (Aspect-Based Sentiment Analysis) techniques enable finer-grained representations of review
+content \cite{Rybinski2021,Shuqin2024}; in SET, aspect-based approaches use this granularity to segment feedback and
+extract aspect-level sentiment \cite{Bhowmik2023,Nikolic2020,Jazuli2025}. \citeA{Ren2022} extract and aggregate aspect
+sentiment, while \citeA{Butt2025} compare BERT and LLM approaches for SET analysis.
 
-Although deep learning approaches provide a finer-grained representation of emotional signals contained within SET reviews, analyzing sentiment per review aggregates multiple review aspects within a single numerical rating, in which affective noise is introduced to different extents \cite{Rybinski2021,Shuqin2024}. Therefore, a validity-weighted attenuation framework likely requires finer-grained representation of sentiments.
-
-\auth{Recent aspect-based approaches demonstrate that open-ended teaching feedback can be segmented and organized into distinct aspects before extracting sentiments \cite{Bhowmik2023,Nikolic2020,Jazuli2025}. However, extracting structured sentiment is not itself a validity intervention: these approaches do not specify how the pedagogical relevance of a clause should change the contribution of its affective content when interpreting the numerical rating that accompanies it.} \cite{Ren2022} extract and aggregate aspect sentiment but do not use relevance to proportionally attenuate affect's contribution to the accompanying rating; \citeA{Butt2025} compare the predictive performance of BERT (Bidirectional Encoder Representations from Transformers) and LLM approaches but propose no validity-weighted, review-specific recalibration rule. \new{Other recent work quantifies cumulative SET bias \cite{Kopciuszewska2025} or identifies topic-specific sentiment drivers \cite{Kim2025}, but neither provides a mechanism to attenuate the influence of identified noise on numerical ratings. Research on computational estimation of comment relevance \cite{Sorour2015,Louis2013,Xiong2011} demonstrates that filtering by pedagogical value improves prediction accuracy, but these detection systems have not been applied to mitigate the impact of affective noise on SET ratings.}
+Research on computational estimation of comment relevance shows that filtering by pedagogical value can improve
+prediction accuracy \cite{Sorour2015,Louis2013,Xiong2011}, but does not use relevance to alter affect’s contribution
+to ratings. Neither line of work specifies how pedagogical relevance should modulate affect’s contribution to rating interpretation.
 
 \subsection{Design Principle: Attenuation Rather Than Deletion}
 
 Addressing validity concerns within SET does not require excluding low-utility reviews. Classical reliability theory holds that measurement quality improves by reducing error variance rather than excluding observations \cite{Cronbach1951}. Robust estimation theory formalizes this principle, showing that down-weighting high-noise observations produces more stable and less biased estimates than exclusionary approaches \cite{Huber1964}. Within the SET domain, \citeA{MarshRoche1997} advocate for a conservative approach for bias mitigation, arguing that corrections should account for known sources of contamination while preserving students' overall evaluative intent. They further caution that corrections applied without regard to valid variance risk ``throwing the validity baby out with the bias bathwater'' (p. 1197), removing genuine signal alongside the contaminant. This supports a bounded, content-targeted adjustment rather than a global correction.
 
-\auth{The attenuation mechanism itself is bounded and proportional, resulting in predictable changes to features. The taxonomy used in this RMP proof of concept is one generic decomposition of review content, and a different taxonomy would produce different adjustments. In formal applications, stakeholders could define or refine the categories in relation to course learning design and its documented pedagogical intent, so that the analytic lens reflects local priorities rather than a fixed computational judgment \cite{LockyerHeathcoteDawson2013}.}
+\auth{The attenuation mechanism itself is bounded and proportional, resulting in predictable changes to features. The taxonomy used in this RMP proof of concept is one generic decomposition of review content, and a different taxonomy would produce different adjustments. In formal applications, stakeholders could define or refine the categories in relation to course learning design and its documented pedagogical intent, so that the analytic lens reflects local priorities \cite{LockyerHeathcoteDawson2013}.}
 
 \subsection{Research Gap}
-
-Despite computational advances in SET analysis, existing studies remain largely descriptive. To the best of our knowledge, no prior work provides a transparent computational framework that leverages topic-level sentiment to identify and attenuate construct-irrelevant emotional content within the scope of defined taxonomy and mitigate the impact of CIV on SET ratings. \new{Since the criteria underlying such feedback systems cannot be fully specified, any framework that attempts this must treat interpretability and transparency as essential design constraints \cite{DoshiVelez2017}, with outputs that are explainable and contestable \cite{DrachslerGreller2016} and connected to pedagogical interpretation and action \cite{GasevicDawsonSiemens2015}.}
+  Despite advances in SET analysis, research offers limited computational support for operationalizing construct relevance to inform transparent, validity-oriented analysis of open-ended teaching feedback and its accompanying ratings. To our knowledge, no prior work links topic-level sentiment to an explicit model-estimated adjustment of accompanying ratings. Such an approach requires prioritizing transparency outputs that are auditable, contestable \cite{DrachslerGreller2016} and connected to pedagogical interpretation and action \cite{GasevicDawsonSiemens2015}.
 
 %========================================================================================
 \section{Method}
@@ -194,15 +198,6 @@ As a source of data, we use SET reviews from RateMyProfessors.com (RMP), a popul
 We excluded non-English reviews, reviews containing RMP's automatic censorship string ``****'' (whose application was prone to error), entries with no review text or text such as ``No Comment'', and reviews for professors with fewer than eight total reviews. After these exclusions, the final dataset contains 17,127 reviews.
 
 Before analysis, reviews were cleaned (encoding repair via \texttt{ftfy}, lowercase normalization, abbreviation expansion, and punctuation standardization); stemming and lemmatization were withheld to preserve contextual information for downstream models.
-
-A schematic diagram of our framework is shown in Figure~\ref{fig:overall-schematic}.
-
-\begin{figure}[!htb]
-    \centering
-    \includegraphics[width=0.52\linewidth]{Diagrams/Schematic_Diagrams/FinalSchematic.png}
-    \caption{Schematic diagram of our framework.}
-    \label{fig:overall-schematic}
-\end{figure}
 
 \subsection{Aspect-Term Categorization}
 
@@ -231,14 +226,13 @@ where $s_{c,k}$ represents the cosine similarity between clause $c$ and pedagogi
 \toprule
 \textbf{Category} & \textbf{Representative Descriptors} \\
 \midrule
-Instructional Effectiveness & Clear and effective explanations of concepts; lectures are well-organized and easy to follow; helps students learn and grasp the subject matter \\
+Instructional Effectiveness & Clear and effective explanations of concepts; lectures are well-organized and easy to follow; helps students learn \\
 \addlinespace
 Fairness \& Grading & Grading feels fair, earned, and based on actual performance; tough but fair grader; adjusts grading to student's current ability \\
 \addlinespace
 Workload \& Difficulty & Heavy workload, lots of effort and time required; tests, exams, or quizzes are hard or demanding; easy class, light workload \\
 \addlinespace
-Miscellaneous & Clauses below the similarity threshold $\tau$ for all pedagogical categories; includes personal remarks, social commentary, and other construct-irrelevant content \\
-\bottomrule
+Miscellaneous & Clauses below the similarity threshold $\tau$ for all pedagogical categories; includes personal remarks and social commentary \\
 \end{tabular}
 \end{table}
 
@@ -324,12 +318,12 @@ The prediction difference $(\hat{y}_i^\text{attenuated} - \hat{y}_i^\text{baseli
 
 \auth{Table~\ref{tab:ex2} presents an end-to-end trace of an individual review with high \textit{Miscellaneous} density ($D_{\text{misc}}$=0.670), where non-pedagogical sentiment dominates, receiving a positive adjustment of $+$0.427.} 
 
-\begin{table*}[htbp]
+\begin{table}[htbp]
     \caption{Worked Example, Review \#14848.}
     \label{tab:ex2}
     \centering
-    \includegraphics[trim=10 85 15 41, clip, width=\linewidth]{Diagrams/pdfs/ex2.pdf}
-\end{table*}
+    \includegraphics[trim=10 89 15 43, clip, width=\linewidth]{Diagrams/pdfs/ex2.pdf}
+\end{table}
 
 %========================================================================================
 \section{Results}
@@ -340,6 +334,11 @@ The prediction difference $(\hat{y}_i^\text{attenuated} - \hat{y}_i^\text{baseli
 \subsubsection{ATC Topic Structure}
 
 Table~\ref{tab:clause_review_freq} summarises topic frequencies after ATC. \textit{Instructional Effectiveness} is the most frequent topic at both clause and review level, followed by \textit{Miscellaneous} and \textit{Workload}, with \textit{Fairness} trailing substantially. The prominence of \textit{Miscellaneous} clauses indicates that a substantial portion of student discourse falls outside pedagogical dimensions.
+
+The rating distribution is negatively skewed, yet low-rating reviews show distinctive patterns: for ratings 1.0--2.0, \textit{Miscellaneous} clauses are the most frequent topic, exceeding the next pedagogical category by approximately 27\% in 1-star reviews.
+
+
+Figure~\ref{fig:dmisc_dist} shows the distribution of $D_{\text{misc}}$ across all reviews. The distribution is heavily right-skewed (median 0.11, mean 0.22), with a spike at $D_{\text{misc}} = 1.0$ reflecting reviews composed entirely of non-pedagogical content, a subset receiving maximal attenuation.
 
 \begin{table}[htbp]
 \centering
@@ -358,12 +357,6 @@ Table~\ref{tab:clause_review_freq} summarises topic frequencies after ATC. \text
 \end{tabular}
 \end{table}
 
-Clause-per-review ratios reveal differences in elaboration depth: \textit{Instructional Effectiveness} averages 1.92 clauses per mentioning review, suggesting multi-clause elaboration, whereas \textit{Fairness} (1.19) tends toward single, concise remarks. \textit{Miscellaneous} and \textit{Workload} fall between these extremes.
-
-Topic co-occurrence patterns show that \textit{Instructional Effectiveness} functions as a central topic: it is the most common standalone topic, and \textit{Workload}, \textit{Fairness}, and \textit{Miscellaneous} each co-occur with it more often than they appear alone.
-
-The rating distribution is negatively skewed, yet low-rating reviews show distinctive patterns: for ratings 1.0--2.0, \textit{Miscellaneous} clauses are the most frequent topic, exceeding the next pedagogical category by approximately 27\% in 1-star reviews. \textit{Fairness} clauses also appear disproportionately in low-rating reviews.
-
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.72\linewidth]{Diagrams/atc_visuals/dmiscdistribution.png}
@@ -371,13 +364,12 @@ The rating distribution is negatively skewed, yet low-rating reviews show distin
     \label{fig:dmisc_dist}
 \end{figure}
 
-Figure~\ref{fig:dmisc_dist} shows the distribution of $D_{\text{misc}}$ across all reviews. The distribution is heavily right-skewed (median 0.11, mean 0.22), with a spike at $D_{\text{misc}} = 1.0$ reflecting reviews composed entirely of non-pedagogical content, a subset receiving maximal attenuation.
 
 Together, these patterns show that pedagogical discourse centres on \textit{Instructional Effectiveness}, that \textit{Miscellaneous} content dominates the lowest-rated reviews, and that the right-skewed $D_{\text{misc}}$ distribution motivates proportional rather than uniform attenuation.
 
 \subsubsection{Sentiment Extraction}
 
-RoBERTa-GoEmotions analysis reveals structured emotional patterns across topics: positive emotions dominate high-rated clauses while negative emotions concentrate in low-rated clauses, though both extremes contain cross-valence signals. \textit{Miscellaneous} emotional probability is consistently weaker than \textit{Instructional Effectiveness} but occasionally exceeds \textit{Fairness} or \textit{Workload}. One-star clauses display a more evenly distributed emotional profile compared to the concentrated signals in 5-star clauses, with notable ocurrence of positive valence emotions, suggesting that student affect is nuanced and multi-dimensional. Figure~\ref{fig:one-star-emotion-heatmap} shows this profile for one-star clauses.
+RoBERTa-GoEmotions analysis reveals structured emotional patterns: positive emotions dominate high-rated clauses while negative emotions concentrate in low-rated clauses, though both extremes contain cross-valence signals. One-star clauses display a more evenly distributed profile than 5-star clauses, with notable positive-valence emotions, suggesting nuanced, multi-dimensional affect (Figure~\ref{fig:one-star-emotion-heatmap}).
 
 \begin{figure}[htbp]
     \centering
@@ -450,7 +442,7 @@ Held-out professors & 0.6347 & 0.7352 & 0.6168 \\
 
 The final model demonstrates low absolute error, strong ordinal consistency, and substantial explained variance on held-out data, suggesting that it captures meaningful relationships between emotional content and student ratings.
 
-To assess directional coherence, SHAP values are computed on held-out professors and grouped into eight polarity $\times$ topic categories. High-intensity positive emotions generally increase predicted ratings while high-intensity negative emotions decrease them; however, low-intensity positive emotions can contribute negatively and low-intensity negative emotions positively, indicating that the model responds to the degree of emotional expression rather than its mere presence. These patterns are broadly consistent with expectations, confirming directional coherence while reflecting the inherent variability of real-world sentiment.
+SHAP values on held-out professors, grouped into eight polarity $\times$ topic categories, confirm directional coherence: high-intensity positive emotions increase predicted ratings while negative emotions decrease them, though low-intensity signals can reverse direction, indicating the model responds to the degree of expression rather than its mere presence (Figure~\ref{fig:baseline-shap}).
 
 \begin{figure*}[tbp]
     \centering
