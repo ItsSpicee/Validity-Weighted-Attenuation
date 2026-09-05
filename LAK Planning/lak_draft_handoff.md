@@ -24,7 +24,7 @@ Current active counts: **4** `\todo`, **14** `\new`, **0** `\citeneeded`.
 
 ## Current page estimate
 
-~16 pages estimated (down from ~17.75 after redundancy compression pass, ~21 pre-cut). Target: 14 pages. Submission deadline: 2026-09-28 (25 days).
+~14 pages compiled (down from ~16 after prose tightening pass, ~17.75 after redundancy compression, ~21 pre-cut). Target: 13 pages. Submission deadline: 2026-09-28 (24 days). **Reassess page count after multi-expert results are inserted — those will add content to §4.3.1, abstract, and limitations; further cuts may be needed then.**
 
 ## Remaining TODOs
 
@@ -116,20 +116,58 @@ author approval. Estimated ~1.75 pages saved from prose alone (layout-dependent)
 - Figure caption fixes: "Relative changes" → "Change (%)" in both panels of
   the mechanistic-checks figure
 
-### Next phase — layout and strategic omission
+### Prose tightening pass (2026-09-04)
 
-- Continue from the ~16-page baseline. Compile and inspect actual page count
-  before further cuts.
-- Decision: retain the full Section 4.3 evidence in the compact three-panel
-  Table 8(a--c), rather than moving those results to supplementary material.
-- Regenerate the source images used in the SHAP/correlation two-panel figure with larger
-  axis, tick, legend, and annotation fonts; the new side-by-side layout is
-  space-efficient, but its labels need to remain readable at panel scale.
-- Remaining cut candidates if needed: one-star heatmap to supplementary (~0.4p),
-  sensitivity Table 8(a) to supplementary with representative subset (~0.3p),
-  SHAP beeswarm to supplementary (~0.4p), citation cluster trimming (~0.15p).
-- Reassess after compile — float placement may recover or lose space
-  unpredictably.
+Targeted prose compression across all sections, applied with author approval.
+Estimated ~2 pages saved. All figures, tables, and equations retained.
+
+- §1.1: Merged opening sentences (3→2); compressed SET intro, validity-contested
+  paragraph, and "numerical rating collapses" paragraph
+- §1.2: Compressed "ideal domain" paragraph (3 sentences→2)
+- §2.1: Compressed Messick paragraph (4→2 sentences); Marsh & Roche paragraph
+  (6→3 sentences, dropped "Within the SET literature" lead-in)
+- §2.2: Removed duplicate "do not specify how pedagogical relevance..." sentence;
+  replaced with single bridging sentence
+- §4.1.1: Cut co-occurrence and clause-per-review paragraphs; kept key
+  low-rating Miscellaneous finding
+- §4.1.2: Dropped Misc-vs-other intensity comparison sentence
+- §4.1.4: SHAP directional coherence paragraph (3→1 sentence)
+- §4.2.1: Compressed adjustment outcomes (7→2 sentences); merged descriptive/
+  validation framing
+- §5.1 RQ1: Merged RQ1 + Miscellaneous-importance paragraphs; corrected
+  "pedagogical topics are primary drivers" to "Instructional Effectiveness is
+  primary driver, non-pedagogical emotion ranks second"
+- §5.1 RQ2/RQ3: Restructured split — RQ2 now owns all coherence checks (SHAP,
+  correlations, modulators); RQ3 owns stability + external validation (bootstrap,
+  permutation, sensitivity, expert). RQ3 wording updated to match.
+- §7 Conclusion: Merged paragraphs 1 (3→2 sentences); compressed three-
+  contribution restatement (dropped redundant lead-in sentence)
+- §6 Limitations: Merged paragraphs 2+3 (RMP generalizability + ATC/RoBERTa);
+  compressed attenuation-outcomes paragraph (dropped neutral-content and
+  hyperparameter sentences)
+
+**RQ restructure note:** RQ3 wording changed from "Does the mechanism exhibit
+behaviour consistent with its validity rationale on held-out instructors,
+expert-labelled comparisons, and robustness controls?" to "Are the mechanism's
+coherence patterns stable under perturbation and consistent with expert
+judgment?" — because held-out coherence evidence now lives under RQ2.
+
+### Next phase — post-expert reassessment
+
+- **Wait for multi-expert consensus results** before further cuts. Expert
+  content will add to §4.3.1, abstract, and limitations — page count will
+  increase.
+- Remaining cut candidates if needed after expert insertion:
+  - §2.3 Design Principle paragraph 2 (stakeholder taxonomy — repeated in §1.2,
+    §5.2, §6): ~0.15p
+  - §5.3 "Responsible use / auditability ends" paragraph: ~0.2p
+  - Figure 1 (D_misc histogram — stats in text): ~0.35p
+  - Figure 2 (1-star heatmap): ~0.35p
+  - Table 8(a) reduce to 4-5 representative rows: ~0.15p
+  - SHAP beeswarm to supplementary: ~0.4p
+- Regenerate SHAP/correlation two-panel figure with larger fonts before
+  submission.
+- Reassess after compile — float placement may recover or lose space.
 
 ## Cut phase — completed passes
 

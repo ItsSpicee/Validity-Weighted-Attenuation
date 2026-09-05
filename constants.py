@@ -223,7 +223,11 @@ COARSE_DELTA_THRESHOLD   = 0.5
 FINE_DELTA_MIN           = 0
 FINE_DELTA_MAX           = COARSE_DELTA_THRESHOLD
 
-EXPERT_LABELS_PATH   = DATA_DIR / "raw" / "expert_labels.csv"
+EXPERT_LABELS_PATH = (
+    DATA_DIR / "raw" / "expert_labels.csv",
+    DATA_DIR / "raw" / "expert2_labels.csv",
+    DATA_DIR / "raw" / "expert3_labels.csv",
+)
 
 
 # ATC validation

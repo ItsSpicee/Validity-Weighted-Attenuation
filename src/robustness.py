@@ -108,6 +108,7 @@ def expert_accuracy(
     Returns a dict with keys 'overall', 'coarse', 'fine'.
     """
     expert = score_predictions(merge_expert_deltas(attuned, verbose=verbose))
+    expert = expert.loc[expert["evaluable"]]
     coarse = expert[expert["delta_diff"] >= COARSE_DELTA_THRESHOLD]
     fine = expert[expert["delta_diff"].between(FINE_DELTA_MIN, FINE_DELTA_MAX, inclusive="left")]
     return {
@@ -163,7 +164,7 @@ def _permutation_measure(
     # subset is the same set of reviews every iteration and n holds at the
     # observed value; it is still returned so a drift would be visible rather
     # than assumed away.
-    if EXPERT_LABELS_PATH.exists():
+    if all(path.exists() for path in EXPERT_LABELS_PATH):
         misc_subset = full[full[MISC_D_COL] > 0].reset_index(drop=True)
         accs = expert_accuracy(misc_subset, verbose=verbose)
         acc_overall = accs["overall"][0] / accs["overall"][1] if accs["overall"][1] else float("nan")
@@ -381,7 +382,7 @@ def sensitivity_across_s(
 
     # Table C uses the full sample: the expert pairs span all professors and
     # restricting them to held-out ones would leave too few to be informative.
-    if EXPERT_LABELS_PATH.exists():
+    if all(path.exists() for path in EXPERT_LABELS_PATH):
         tables.append((
             table_expert_accuracy(model, df, s_values),
             "Overall expert paired-comparison accuracy across values of $s$ (full sample). "
@@ -391,7 +392,8 @@ def sensitivity_across_s(
             "expert_accuracy",
         ))
     else:
-        print(f"\n  Skipping Table C — expert labels not found at {EXPERT_LABELS_PATH}")
+        missing = [str(path) for path in EXPERT_LABELS_PATH if not path.exists()]
+        print(f"\n  Skipping Table C — expert labels not found: {', '.join(missing)}")
 
     return tables
 
