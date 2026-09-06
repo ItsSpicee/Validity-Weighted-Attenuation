@@ -1,4 +1,0 @@
-condition,n_total,n_agreement_pairs,n_marginal_pairs,n_two_raters,n_three_raters,n_one_rater,n_zero_raters,n_excluded_3,n_blank_votes,observed_agreement,expected_agreement,generalized_fleiss_kappa
-Overall,77,76,77,10,66,1,0,11,1,0.9035087719298246,0.5090047038098986,0.8034783045399759
-Coarse,43,43,43,4,39,0,0,4,0,0.9689922480620156,0.5158944774953428,0.9359483614697122
-Fine,34,33,34,6,27,1,0,7,1,0.8181818181818182,0.5030757400999617,0.6341128890451908

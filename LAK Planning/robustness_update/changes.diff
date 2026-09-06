@@ -1,0 +1,217 @@
+--- src/robustness.py
++++ src/robustness.py
+@@ -16,6 +16,9 @@
+       content breaks the correspondence between measured density and applied
+       attenuation while leaving the marginal distribution and the analytic
+       population intact, so it is the control condition that separates the two.
++      Reports subgroup size variation when bins are recomputed, plus a second
++      comparison with bins fixed at the observed operating point. Both use the
++      same shuffles and predictions.
+       The null is therefore "the amount of off-topic content is unrelated to
+       which review it is", not "off-topic content is absent" -- the graded
+       claim Sections 4.3.3 and 4.4 actually make.
+@@ -53,11 +56,8 @@
+ 
+ from constants import (
+     CATBOOST_FINAL_MODEL,
+-    COARSE_DELTA_THRESHOLD,
+     EXPERT_LABELS_PATH,
+     FINAL_EMOTIONS,
+-    FINE_DELTA_MIN,
+-    FINE_DELTA_MAX,
+     MISC_D_COL,
+     N_PERMUTATIONS,
+     PERMUTATION_SEED,
+@@ -79,22 +79,26 @@
+     return full[full[MISC_D_COL] > 0].reset_index(drop=True)
+ 
+ 
+-def expert_accuracy(
+-    attuned: pd.DataFrame, verbose: bool = False
+-) -> dict[str, tuple[int, int]]:
+-    """Per-condition (correct, n) for the expert paired comparison.
+-
+-    Returns a dict with keys 'overall', 'coarse', 'fine'.
+-    """
++def _expert_counts(expert, reference=None):
++    """Score dynamic bins, or bins from an observed pair-indexed reference."""
++    if reference is None:
++        expert = expert.loc[expert.evaluable]
++        masks = condition_masks(expert)
++    else:
++        expert = expert.reindex(reference.index)
++        if not expert.evaluable.fillna(False).all():
++            raise ValueError("Model deltas unavailable for an observed reference pair")
++        masks = condition_masks(reference)
++    return {
++        name.lower(): (int(expert.loc[mask, "correct"].sum()), int(mask.sum()))
++        for name, mask in masks.items()
++    }
++
++
++def expert_accuracy(attuned, verbose=False):
++    """Per-condition (correct, n), recomputing bins from supplied deltas."""
+     expert = score_predictions(merge_expert_deltas(attuned, verbose=verbose))
+-    expert = expert.loc[expert["evaluable"]]
+-    coarse = expert[expert["delta_diff"] >= COARSE_DELTA_THRESHOLD]
+-    fine = expert[expert["delta_diff"].between(FINE_DELTA_MIN, FINE_DELTA_MAX, inclusive="left")]
+-    return {
+-        "overall": (int(expert["correct"].sum()), len(expert)),
+-        "coarse": (int(coarse["correct"].sum()), len(coarse)),
+-        "fine": (int(fine["correct"].sum()), len(fine)),
+-    }
++    return _expert_counts(expert.set_index(PAIR_KEYS))
+ 
+ 
+ def _modulator_corrs(delta: np.ndarray, misc_d: np.ndarray) -> dict[str, float]:
+@@ -119,8 +123,9 @@
+     test_profs,
+     true_misc_d: pd.Series,
+     verbose: bool = False,
+-) -> tuple[float, int, dict[str, float]]:
+-    """Attenuate one frame; return (expert accuracy, expert n, modulator corrs).
++    reference: pd.DataFrame | None = None,
++) -> tuple[dict, pd.DataFrame | None]:
++    """Attenuate once; return metrics and scored pairs for both bin definitions.
+ 
+     Correlations are measured against the TRUE densities, joined on `review_id`,
+     not against whatever densities this frame carries. That is the whole point of
+@@ -143,29 +148,38 @@
+     # subset is the same set of reviews every iteration and n holds at the
+     # observed value; it is still returned so a drift would be visible rather
+     # than assumed away.
++    metrics = {}
++    expert = None
+     if all(path.exists() for path in EXPERT_LABELS_PATH):
+         misc_subset = full[full[MISC_D_COL] > 0].reset_index(drop=True)
+-        accs = expert_accuracy(misc_subset, verbose=verbose)
+-        acc_overall = accs["overall"][0] / accs["overall"][1] if accs["overall"][1] else float("nan")
+-        acc_coarse = accs["coarse"][0] / accs["coarse"][1] if accs["coarse"][1] else float("nan")
+-        acc_fine = accs["fine"][0] / accs["fine"][1] if accs["fine"][1] else float("nan")
+-        n = accs["overall"][1]
+-    else:
+-        acc_overall = acc_coarse = acc_fine = float("nan")
+-        n = 0
++        expert = score_predictions(
++            merge_expert_deltas(misc_subset, verbose=verbose)
++        ).set_index(PAIR_KEYS)
++        if reference is not None:
++            if set(expert.index[expert.evaluable]) != set(reference.index):
++                raise ValueError("Permutation changed the evaluable expert-pair population")
++        for suffix, bins in (("", None), ("_fixed", reference)):
++            for name, (correct, n) in _expert_counts(expert, bins).items():
++                key = "expert_accuracy" if name == "overall" else f"expert_{name}"
++                metrics[key + suffix] = correct / n if n else np.nan
++                metrics[key + suffix + "_n"] = n
+ 
+     true_d = full["review_id"].map(true_misc_d)
+     mask = heldout_mask(full, test_profs).to_numpy(dtype=bool) & (true_d > 0).to_numpy()
+-
+-    return acc_overall, acc_coarse, acc_fine, n, _modulator_corrs(
++    metrics.update(_modulator_corrs(
+         full.loc[mask, "weighting_delta"].to_numpy(), true_d[mask].to_numpy()
+-    )
++    ))
++    return metrics, expert
+ 
+ 
+ def _summarise_permutation(
+     perm: pd.DataFrame, col: str, observed: float, direction: str
+ ) -> dict:
+     vals = perm[col].dropna().to_numpy()
++    if not np.isfinite(observed) or len(vals) == 0:
++        print(f"\n  {col}: undefined (empty observed group or no valid permutations)")
++        return dict(metric=col, observed=observed, perm_mean=np.nan,
++                    perm_sd=np.nan, p_value=np.nan, n_valid=len(vals))
+     # One-sided: how often does the permuted null reach what we observed?
+     hits = int((vals >= observed).sum()) if direction == "greater" else int((vals <= observed).sum())
+     # +1 correction: a permutation p-value can never legitimately be zero.
+@@ -175,11 +189,12 @@
+     print(f"    observed        : {observed:.4f}")
+     print(f"    permuted mean   : {vals.mean():.4f}  (SD {vals.std(ddof=1):.4f})")
+     print(f"    permuted range  : [{vals.min():.4f}, {vals.max():.4f}]")
++    print(f"    valid permutations: {len(vals)}/{len(perm)}")
+     print(f"    permutations reaching observed: {hits}/{len(vals)}   p = {p:.4f}")
+ 
+     return {
+         "metric": col, "observed": observed, "perm_mean": vals.mean(),
+-        "perm_sd": vals.std(ddof=1), "p_value": p,
++        "perm_sd": vals.std(ddof=1), "p_value": p, "n_valid": len(vals),
+     }
+ 
+ 
+@@ -191,17 +206,20 @@
+     seed: int = PERMUTATION_SEED,
+ ) -> pd.DataFrame:
+     """Permute D_misc, re-attenuate, and compare against the observed result."""
++    if n_permutations < 1:
++        raise ValueError("n_permutations must be positive")
+     true_misc_d = df.set_index("review_id")[MISC_D_COL]
+ 
+     print(f"\n  Observed (true D_misc), s = {S_VALUE}...")
+-    obs_acc, obs_coarse, obs_fine, obs_n, obs_corrs = _permutation_measure(
++    observed, reference = _permutation_measure(
+         model, df, test_profs, true_misc_d, verbose=True
+     )
+-    print(f"    Expert accuracy (overall) : {obs_acc:.4f}  (n = {obs_n})")
+-    print(f"    Expert accuracy (coarse)  : {obs_coarse:.4f}")
+-    print(f"    Expert accuracy (fine)    : {obs_fine:.4f}")
+-    print(f"    Delta+ vs D_misc (r)      : {obs_corrs['pos_pearson']:.4f}")
+-    print(f"    Delta- vs D_misc (r)      : {obs_corrs['neg_pearson']:.4f}")
++    if reference is not None:
++        reference = reference.loc[reference.evaluable].copy()
++        for key in ("expert_accuracy", "expert_coarse", "expert_fine"):
++            print(f"    {key}: {observed[key]:.4f} (n = {observed[key + '_n']})")
++    for key in ("pos_pearson", "neg_pearson"):
++        print(f"    {key}: {observed[key]:.4f}")
+ 
+     print(f"\n  Running {n_permutations} permutations of D_misc...")
+     rng = np.random.default_rng(seed)
+@@ -227,12 +245,10 @@
+         vals[nz] = rng.permutation(vals[nz])
+         df_perm[MISC_D_COL] = vals
+ 
+-        acc, coarse, fine, n, corrs = _permutation_measure(model, df_perm, test_profs, true_misc_d)
+-        rows.append({
+-            "permutation": i,
+-            "expert_accuracy": acc, "expert_coarse": coarse, "expert_fine": fine,
+-            "expert_n": n, **corrs,
+-        })
++        metrics, _ = _permutation_measure(
++            model, df_perm, test_profs, true_misc_d, reference=reference
++        )
++        rows.append({"permutation": i, **metrics})
+ 
+         if (i + 1) % 10 == 0:
+             print(f"    {i + 1}/{n_permutations}")
+@@ -242,13 +258,23 @@
+     print("\n" + "=" * 66)
+     print("  PERMUTATION CONTROL")
+     print("=" * 66)
+-    summary = pd.DataFrame([
+-        _summarise_permutation(perm, "expert_accuracy", obs_acc, "greater"),
+-        _summarise_permutation(perm, "expert_coarse", obs_coarse, "greater"),
+-        _summarise_permutation(perm, "expert_fine", obs_fine, "greater"),
+-        _summarise_permutation(perm, "pos_pearson", obs_corrs["pos_pearson"], "greater"),
+-        _summarise_permutation(perm, "neg_pearson", obs_corrs["neg_pearson"], "less"),
+-    ])
++    summary_rows = []
++    if reference is not None:
++        print("  Test 1: bins recomputed after each permutation")
++        for key in ("expert_accuracy", "expert_coarse", "expert_fine"):
++            sizes = perm[key + "_n"]
++            print(f"\n  {key} subgroup size: observed={observed[key + '_n']}; "
++                  f"mean={sizes.mean():.2f}, SD={sizes.std(ddof=1):.2f}, "
++                  f"min={sizes.min()}, max={sizes.max()}, empty={(sizes == 0).sum()}")
++            summary_rows.append(_summarise_permutation(perm, key, observed[key], "greater"))
++        print(f"\n  Test 2: bins fixed at observed s={S_VALUE} (same shuffles)")
++        print("  Overall accuracy is identical to Test 1; only subgroup tests are repeated.")
++        for key in ("expert_coarse_fixed", "expert_fine_fixed"):
++            print(f"\n  {key} fixed subgroup size: {observed[key + '_n']}")
++            summary_rows.append(_summarise_permutation(perm, key, observed[key], "greater"))
++    for key, direction in (("pos_pearson", "greater"), ("neg_pearson", "less")):
++        summary_rows.append(_summarise_permutation(perm, key, observed[key], direction))
++    summary = pd.DataFrame(summary_rows)
+     return summary
+ 
+ 

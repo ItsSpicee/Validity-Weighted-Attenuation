@@ -1,0 +1,79 @@
+
+  Observed (true D_misc), s = 1.0...
+Pairs: 77; no majority: 0; non-directional majority: 1; missing model deltas: 0; evaluable: 77
+    expert_accuracy: 0.8312 (n = 77)
+    expert_coarse: 1.0000 (n = 43)
+    expert_fine: 0.6176 (n = 34)
+    pos_pearson: 0.6872
+    neg_pearson: -0.7077
+
+  Running 20 permutations of D_misc...
+    10/20
+    20/20
+
+==================================================================
+  PERMUTATION CONTROL
+==================================================================
+  Test 1: bins recomputed after each permutation
+
+  expert_accuracy subgroup size: observed=77; mean=77.00, SD=0.00, min=77, max=77, empty=0
+
+  expert_accuracy
+    observed        : 0.8312
+    permuted mean   : 0.6474  (SD 0.0501)
+    permuted range  : [0.5584, 0.7273]
+    valid permutations: 20/20
+    permutations reaching observed: 0/20   p = 0.0476
+
+  expert_coarse subgroup size: observed=43; mean=9.75, SD=3.71, min=3, max=17, empty=0
+
+  expert_coarse
+    observed        : 1.0000
+    permuted mean   : 0.8854  (SD 0.1014)
+    permuted range  : [0.6667, 1.0000]
+    valid permutations: 20/20
+    permutations reaching observed: 6/20   p = 0.3333
+
+  expert_fine subgroup size: observed=34; mean=67.25, SD=3.71, min=60, max=74, empty=0
+
+  expert_fine
+    observed        : 0.6176
+    permuted mean   : 0.6119  (SD 0.0500)
+    permuted range  : [0.5077, 0.7042]
+    valid permutations: 20/20
+    permutations reaching observed: 9/20   p = 0.4762
+
+  Test 2: bins fixed at observed s=1.0 (same shuffles)
+  Overall accuracy is identical to Test 1; only subgroup tests are repeated.
+
+  expert_coarse_fixed fixed subgroup size: 43
+
+  expert_coarse_fixed
+    observed        : 1.0000
+    permuted mean   : 0.7058  (SD 0.0566)
+    permuted range  : [0.6047, 0.7907]
+    valid permutations: 20/20
+    permutations reaching observed: 0/20   p = 0.0476
+
+  expert_fine_fixed fixed subgroup size: 34
+
+  expert_fine_fixed
+    observed        : 0.6176
+    permuted mean   : 0.5735  (SD 0.0704)
+    permuted range  : [0.4118, 0.6765]
+    valid permutations: 20/20
+    permutations reaching observed: 9/20   p = 0.4762
+
+  pos_pearson
+    observed        : 0.6872
+    permuted mean   : 0.2377  (SD 0.0207)
+    permuted range  : [0.2029, 0.2820]
+    valid permutations: 20/20
+    permutations reaching observed: 0/20   p = 0.0476
+
+  neg_pearson
+    observed        : -0.7077
+    permuted mean   : -0.1570  (SD 0.0479)
+    permuted range  : [-0.2217, -0.0611]
+    valid permutations: 20/20
+    permutations reaching observed: 0/20   p = 0.0476

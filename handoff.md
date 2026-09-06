@@ -52,7 +52,7 @@ These figures must be rerun after multi-expert consensus is implemented.
 
 ## Safe operating notes
 
-- `src/robustness.py` overwrites files in `results/`.
+- `src/robustness.py` prints summary reports to the console; capture the console output when archiving a run.
 - Retraining the model requires rerunning attenuation, validation, robustness,
   and relevant figures.
 - Run `Paper/worked_examples.py` after any output-changing pipeline rerun to

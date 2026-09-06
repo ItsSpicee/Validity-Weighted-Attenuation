@@ -1,105 +1,3 @@
-=== Stage 4: Regression ===
-Building feature matrix...
-  Loading clause vectors...
-  Pivoting to per-review emotion features...
-  Saved: C:\Users\raiha\Desktop\Git\Validity-Weighted-Attenuation\data\processed\final_emotions.csv
-Running 5-fold cross-validation...
-0:      learn: 1.1789905        total: 152ms    remaining: 2m 32s
-100:    learn: 0.6489469        total: 879ms    remaining: 7.82s
-200:    learn: 0.5967434        total: 1.59s    remaining: 6.34s
-300:    learn: 0.5778310        total: 2.3s     remaining: 5.34s
-400:    learn: 0.5650791        total: 3.11s    remaining: 4.65s
-500:    learn: 0.5543732        total: 3.82s    remaining: 3.81s
-600:    learn: 0.5436505        total: 4.52s    remaining: 3s
-700:    learn: 0.5331758        total: 5.25s    remaining: 2.24s
-800:    learn: 0.5241183        total: 6.02s    remaining: 1.5s
-900:    learn: 0.5152983        total: 7.64s    remaining: 839ms
-999:    learn: 0.5067870        total: 9.43s    remaining: 0us
-  Fold 1: MAE=0.6396  Spearman=0.7461  R²=0.6212
-0:      learn: 1.1873383        total: 19.1ms   remaining: 19.1s
-100:    learn: 0.6507826        total: 1.8s     remaining: 16.1s
-200:    learn: 0.5991111        total: 3.62s    remaining: 14.4s
-300:    learn: 0.5805296        total: 5.4s     remaining: 12.5s
-400:    learn: 0.5683515        total: 7.13s    remaining: 10.7s
-500:    learn: 0.5576344        total: 8.81s    remaining: 8.78s
-600:    learn: 0.5470510        total: 10.5s    remaining: 6.97s
-700:    learn: 0.5358895        total: 12.2s    remaining: 5.2s
-800:    learn: 0.5262024        total: 13.9s    remaining: 3.45s
-900:    learn: 0.5172495        total: 15.6s    remaining: 1.71s
-999:    learn: 0.5089847        total: 17.3s    remaining: 0us
-  Fold 2: MAE=0.6254  Spearman=0.7206  R²=0.6197
-0:      learn: 1.1725767        total: 18.6ms   remaining: 18.5s
-100:    learn: 0.6487496        total: 1.73s    remaining: 15.4s
-200:    learn: 0.5970161        total: 3.45s    remaining: 13.7s
-300:    learn: 0.5782120        total: 5.15s    remaining: 12s
-400:    learn: 0.5656263        total: 6.86s    remaining: 10.2s
-500:    learn: 0.5550557        total: 8.58s    remaining: 8.54s
-600:    learn: 0.5436455        total: 10.3s    remaining: 6.82s
-700:    learn: 0.5332910        total: 11.9s    remaining: 5.1s
-800:    learn: 0.5241460        total: 13.6s    remaining: 3.39s
-900:    learn: 0.5153137        total: 15.3s    remaining: 1.68s
-999:    learn: 0.5073050        total: 17s      remaining: 0us
-  Fold 3: MAE=0.6373  Spearman=0.7433  R²=0.6385
-0:      learn: 1.1880646        total: 18.8ms   remaining: 18.8s
-100:    learn: 0.6520003        total: 1.73s    remaining: 15.4s
-200:    learn: 0.5999652        total: 3.47s    remaining: 13.8s
-300:    learn: 0.5815631        total: 5.17s    remaining: 12s
-400:    learn: 0.5687895        total: 6.87s    remaining: 10.3s
-500:    learn: 0.5587178        total: 8.55s    remaining: 8.52s
-600:    learn: 0.5476780        total: 10.2s    remaining: 6.8s
-700:    learn: 0.5369223        total: 11.9s    remaining: 5.09s
-800:    learn: 0.5277648        total: 13.6s    remaining: 3.38s
-900:    learn: 0.5186266        total: 15.3s    remaining: 1.68s
-999:    learn: 0.5112355        total: 17s      remaining: 0us
-  Fold 4: MAE=0.6306  Spearman=0.7046  R²=0.6151
-0:      learn: 1.1881163        total: 18.5ms   remaining: 18.5s
-100:    learn: 0.6538615        total: 1.73s    remaining: 15.4s
-200:    learn: 0.6020815        total: 3.44s    remaining: 13.7s
-300:    learn: 0.5835558        total: 5.15s    remaining: 12s
-400:    learn: 0.5709485        total: 6.85s    remaining: 10.2s
-500:    learn: 0.5609344        total: 8.54s    remaining: 8.5s
-600:    learn: 0.5507259        total: 10.2s    remaining: 6.78s
-700:    learn: 0.5415021        total: 11.9s    remaining: 5.08s
-800:    learn: 0.5317005        total: 13.6s    remaining: 3.38s
-900:    learn: 0.5230116        total: 15.3s    remaining: 1.68s
-999:    learn: 0.5147456        total: 17s      remaining: 0us
-  Fold 5: MAE=0.6172  Spearman=0.7273  R²=0.6329
-
-  CV Mean MAE:      0.6300 ± 0.0081
-  CV Mean Spearman: 0.7284 ± 0.0152
-  CV Mean R²:       0.6255 ± 0.0088
-Training final model...
-0:      learn: 1.1828000        total: 19.6ms   remaining: 19.5s
-100:    learn: 0.6540764        total: 1.78s    remaining: 15.9s
-200:    learn: 0.6045360        total: 3.54s    remaining: 14.1s
-300:    learn: 0.5880591        total: 5.28s    remaining: 12.3s
-400:    learn: 0.5768066        total: 7.07s    remaining: 10.6s
-500:    learn: 0.5676102        total: 8.8s     remaining: 8.76s
-600:    learn: 0.5581535        total: 10.5s    remaining: 6.99s
-700:    learn: 0.5489230        total: 12.3s    remaining: 5.22s
-800:    learn: 0.5405561        total: 14s      remaining: 3.47s
-900:    learn: 0.5322119        total: 15.7s    remaining: 1.72s
-999:    learn: 0.5243609        total: 17.4s    remaining: 0us
-
-  Final test (unseen professors):
-  MAE=0.6347  Spearman=0.7352  Pseudo R²=0.6168
-  Saved: C:\Users\raiha\Desktop\Git\Validity-Weighted-Attenuation\models\cat_boost_final.cbm
-  Saved: C:\Users\raiha\Desktop\Git\Validity-Weighted-Attenuation\models\final_feature_importance.csv
-
-=== Stage 5: Attenuation ===
-Loading model and data...
-  Using s = 1.0 (fixed a priori, not tuned)
-  Saved: C:\Users\raiha\Desktop\Git\Validity-Weighted-Attenuation\data\processed\weighted_emotions.csv
-  Held-out reviews (misc subset): 2,052 of 10,375
-
-  Total ratings attuned:        60.58%
-  Ratings increased:            31.96%
-  Ratings decreased:            28.62%
-  Max |Δ|:                      2.7103
-  Mean |Δ| (adjusted reviews):  0.1964
-  Saved: C:\Users\raiha\Desktop\Git\Validity-Weighted-Attenuation\data\processed\attuned_ratings.csv
-  Saved: C:\Users\raiha\Desktop\Git\Validity-Weighted-Attenuation\data\processed\attuned_ratings_full.csv
-
 === Stage 6: Validation ===
 Pairs: 77; no majority: 0; non-directional majority: 1; missing model deltas: 0; evaluable: 77
 
@@ -195,39 +93,71 @@ Pairs: 77; no majority: 0; non-directional majority: 1; missing model deltas: 0;
     10/1000
     ...
     1000/1000
-
 ==================================================================
   PERMUTATION CONTROL
 ==================================================================
+  Test 1: bins recomputed after each permutation
+
+  expert_accuracy subgroup size: observed=77; mean=77.00, SD=0.00, min=77, max=77, empty=0
 
   expert_accuracy
     observed        : 0.8312
     permuted mean   : 0.6330  (SD 0.0490)
     permuted range  : [0.4805, 0.7662]
+    valid permutations: 1000/1000
     permutations reaching observed: 0/1000   p = 0.0010
+
+  expert_coarse subgroup size: observed=43; mean=10.51, SD=2.85, min=3, max=20, empty=0
 
   expert_coarse
     observed        : 1.0000
     permuted mean   : 0.8491  (SD 0.1087)
     permuted range  : [0.4444, 1.0000]
+    valid permutations: 1000/1000
     permutations reaching observed: 179/1000   p = 0.1798
+
+  expert_fine subgroup size: observed=34; mean=66.49, SD=2.85, min=57, max=74, empty=0
 
   expert_fine
     observed        : 0.6176
     permuted mean   : 0.5988  (SD 0.0541)
     permuted range  : [0.4308, 0.7619]
+    valid permutations: 1000/1000
     permutations reaching observed: 377/1000   p = 0.3776
+
+  Test 2: bins fixed at observed s=1.0 (same shuffles)
+  Overall accuracy is identical to Test 1; only subgroup tests are repeated.
+
+  expert_coarse_fixed fixed subgroup size: 43
+
+  expert_coarse_fixed
+    observed        : 1.0000
+    permuted mean   : 0.6887  (SD 0.0628)
+    permuted range  : [0.4884, 0.8837]
+    valid permutations: 1000/1000
+    permutations reaching observed: 0/1000   p = 0.0010
+
+  expert_fine_fixed fixed subgroup size: 34
+
+  expert_fine_fixed
+    observed        : 0.6176
+    permuted mean   : 0.5625  (SD 0.0751)
+    permuted range  : [0.2941, 0.7941]
+    valid permutations: 1000/1000
+    permutations reaching observed: 320/1000   p = 0.3207
 
   pos_pearson
     observed        : 0.6872
     permuted mean   : 0.2327  (SD 0.0291)
     permuted range  : [0.1278, 0.3235]
+    valid permutations: 1000/1000
     permutations reaching observed: 0/1000   p = 0.0010
 
   neg_pearson
     observed        : -0.7077
     permuted mean   : -0.1579  (SD 0.0374)
     permuted range  : [-0.2744, -0.0476]
+    valid permutations: 1000/1000
     permutations reaching observed: 0/1000   p = 0.0010
 
   Bootstrap professor stability (1000 iterations)...

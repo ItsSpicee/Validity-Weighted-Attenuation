@@ -241,8 +241,6 @@ GPT_LABELS               = DATA_DIR / "raw" / "gpt.csv"
 # ROBUSTNESS (Stage 7 — opt-in, not part of a default pipeline run)
 # ==============================================================================
 
-RESULTS_DIR = ROOT_DIR / "results"
-
 # Permutation control: how many times D_misc is shuffled to build the null.
 N_PERMUTATIONS   = 1000
 PERMUTATION_SEED = 42

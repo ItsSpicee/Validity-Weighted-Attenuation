@@ -49,8 +49,7 @@
 
 ## Practical notes
 
-- `src/robustness.py` writes into `results/`; do not run a short timing test over
-  the final results without first preserving them.
+- `src/robustness.py` prints summary reports to the console; capture the console output when archiving a run.
 - The saved model is used by attenuation and robustness. If the regression model
   is retrained, rerun attenuation, validation, robustness, and affected figures.
 - `Paper/worked_examples.py` is the cross-file check for the examples and should

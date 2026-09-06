@@ -14,7 +14,7 @@ import pandas as pd
 from scipy import stats
 
 from constants import (
-    ATTUNED_RATINGS, EXPERT_LABELS_PATH, RESULTS_DIR,
+    ATTUNED_RATINGS, EXPERT_LABELS_PATH,
     COARSE_DELTA_THRESHOLD, FINE_DELTA_MIN, FINE_DELTA_MAX,
 )
 
@@ -164,7 +164,7 @@ def score_predictions(expert):
 
 
 def wilson_interval(correct, n, confidence=0.95):
-    """Two-sided interval, independent of the one-sided accuracy test."""
+    """Two-sided Wilson confidence interval for accuracy."""
     if not 0 < confidence < 1 or not 0 <= correct <= n:
         raise ValueError("Invalid confidence level or success count")
     if n == 0:
@@ -198,12 +198,15 @@ def kappa_summary(expert, exclude_3=False):
 
 
 def accuracy_summary(expert, confidence=0.95):
-    """Consensus and individual expert accuracy with explicit denominators."""
+    """Consensus and individual accuracy; label 3 counts as incorrect.
+
+    Individual scores exclude missing ratings and unavailable model deltas.
+    """
     conditions = condition_masks(expert)
     rows = []
     for target in ["consensus_label"] + RATER_COLUMNS:
         valid = (expert.evaluable if target == "consensus_label"
-                 else expert[target].isin([1, 2]) & ~expert.missing_delta)
+                 else expert[target].notna() & ~expert.missing_delta)
         for condition, mask in conditions.items():
             subset = expert.loc[valid & mask]
             n = len(subset)
@@ -212,14 +215,12 @@ def accuracy_summary(expert, confidence=0.95):
             lo, hi = wilson_interval(correct, n, confidence)
             rows.append(dict(target=target, condition=condition, n=n, correct=correct,
                              accuracy=correct / n if n else np.nan,
-                             confidence=confidence, ci_low=lo, ci_high=hi,
-                             p_value=stats.binomtest(correct, n, p=0.5, alternative="greater").pvalue
-                             if n else np.nan))
+                             confidence=confidence, ci_low=lo, ci_high=hi))
     return pd.DataFrame(rows)
 
 
 def report(expert):
-    print("\n=== Three-expert attenuation validation ===")
+    print("\n=== Stage 6: Validation ===")
     print(kappa_summary(expert).to_string(index=False))
     print("\nGeneralized Fleiss' kappa excluding individual label-3 votes:")
     print(kappa_summary(expert, exclude_3=True).to_string(index=False))
@@ -228,6 +229,7 @@ def report(expert):
     print(f"Pairs without model deltas (overall kappa only): {expert.missing_delta.sum()}")
     print("\nAccuracy and two-sided 95% Wilson intervals:")
     print("No-majority and label-3-majority pairs with model deltas count as incorrect.")
+    print("Individual label-3 votes count as incorrect; blank votes are excluded.")
     print(accuracy_summary(expert).to_string(index=False, float_format=lambda x: f"{x:.6g}"))
     print(f"\nModel ties (review 1 selected): {expert.model_tie.sum()}")
 
@@ -235,12 +237,6 @@ def report(expert):
 def run():
     expert = score_predictions(load_and_merge())
     report(expert)
-    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-    expert.to_csv(RESULTS_DIR / "expert_consensus.csv", index=False)
-    accuracy_summary(expert).to_csv(RESULTS_DIR / "expert_validation.csv", index=False)
-    kappa_summary(expert).to_csv(RESULTS_DIR / "expert_fleiss_kappa.csv", index=False)
-    kappa_summary(expert, exclude_3=True).to_csv(
-        RESULTS_DIR / "expert_fleiss_kappa_excluding_3.csv", index=False)
 
 
 if __name__ == "__main__":
