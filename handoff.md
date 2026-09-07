@@ -59,3 +59,6 @@ These figures must be rerun after multi-expert consensus is implemented.
   verify the manuscript examples against the generated attenuation data.
 - `newresults.md` contains a superseded robustness run from before the
   fixed-population permutation correction; retain it only as an audit trail.
+
+
+Note from author: I should probably cite this paper. https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2024.1329734/full

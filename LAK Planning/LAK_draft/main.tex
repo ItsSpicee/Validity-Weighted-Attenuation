@@ -279,7 +279,7 @@ Ratings are modelled as a function of emotions directed towards each topic and d
 
 Here, $\mathbf{E}_{k} \in \mathbb{R}^{27}$ is the aggregated emotion vector for topic $k$, and $D_{k}$ is the corresponding density metric. For the complete dataset of $N = 17{,}127$ reviews, the feature matrix is $\mathbf{X} \in \mathbb{R}^{N \times 112}$.
 
-To prevent data leakage and assess generalization to unseen professors, we employ an 80--20 professor-level grouped split. The CatBoost regressor is trained on 823 professors and evaluated on 206 held-out professors; all attenuation validation metrics are computed exclusively on the held-out professors. This design produces more conservative performance estimates than random splitting while reflecting the challenge of generalizing across professors in larger-scale SET scenarios.
+To prevent data leakage and assess generalization to unseen professors, we employ an 80--20 professor-level grouped split. The CatBoost regressor is trained on 823 professors and evaluated on 206 held-out professors. Model-performance and coherence analyses use the held-out professors; the expert comparison uses a curated pair sample that spans both groups. This design produces more conservative performance estimates than random splitting while reflecting the challenge of generalizing across professors in larger-scale SET scenarios.
 
 We employ CatBoost regression, an open-source gradient-boosted tree model that captures non-linear interactions between emotional signals and topics in the sparse review representation \cite{Hancock2020,Prokhorenkova2018,Dorogush2018}. The final configuration was selected through grouped 5-fold cross-validation (GroupKFold, grouped by professor ID) on the training professors: 1000 iterations, learning rate 0.02, depth 7, and L2 leaf regularization 6; all other hyperparameters were kept at their default values. MAE was used as both the loss function and evaluation metric because it measures average absolute deviation from ratings on the 1--5 scale and is resilient to occasional outliers.
 
@@ -459,11 +459,11 @@ We evaluate whether attenuation produces structured and interpretable changes, e
 
 Over all 17,127 reviews, 10,375 (60.58\%) were adjusted, with a mean $|\Delta|$ of 0.1964 and a mean signed $\Delta$ of 0.0440 (Wilcoxon signed-rank $W = 24{,}260{,}091$, $p < 0.001$); the professor-level distribution shape remained largely consistent.
 
-\new{The analyses that follow are computed on the 206 held-out professors} (3,414 reviews; 2,052 containing \textit{Miscellaneous} content for correlation and modulator analyses, since reviews with $D_{misc} = 0$ are unchanged by construction).
+\new{The analyses that follow use the 206 held-out professors: 3,414 reviews for feature-importance analyses and 2,052 reviews containing \textit{Miscellaneous} content for correlation and modulator analyses.}
 
 \subsubsection{Mechanistic Coherence}
 
-Figure~\ref{fig:mechanistic-checks} and Table~\ref{tab:correlation_deltas} summarise three coherence checks on held-out professors. SHAP-based feature importance shifts away from \textit{Miscellaneous} sentiment and toward pedagogically relevant categories (Figure~\ref{fig:mechanistic-checks}a). Pearson and Spearman correlations between baseline emotion features and ratings show the same pattern: \textit{Miscellaneous} associations weaken while pedagogical associations are maintained or slightly strengthened (Figure~\ref{fig:mechanistic-checks}b). \new{The emotion side is held fixed at baseline values; only the rating changes from $y^{\text{raw}}_i$ to $\hat{y}^{\text{adjusted}}_i = y^{\text{raw}}_i + \Delta_i$, so any correlation shift is attributable to the adjustment alone.}
+Figure~\ref{fig:mechanistic-checks} and Table~\ref{tab:correlation_deltas} summarise three coherence checks on held-out professors. SHAP-based feature importance shifts away from \textit{Miscellaneous} sentiment and toward pedagogically relevant categories (Figure~\ref{fig:mechanistic-checks}a). Pearson and Spearman correlations between baseline emotion features and ratings show the same pattern: \textit{Miscellaneous} associations weaken while pedagogical associations are maintained or slightly strengthened (Figure~\ref{fig:mechanistic-checks}b). \new{These comparisons use the same emotion features before and after attenuation; only the rating changes.}
 
 \begin{figure*}[tbp]
     \centering
@@ -546,7 +546,7 @@ Fine    & 21/34 & 61.8\% & [45.0\%, 76.1\%] & .469 \\
 
 \subsubsection{Permutation Control}
 
-\auth{We shuffled non-zero $D_{\text{misc}}$ values among reviews 1{,}000 times, preserving zeros and the 77-pair analytic population, and recomputed deltas with the fitted model held fixed. Density was shuffled both as a model feature and as the attenuation input; modulator correlations used the original densities. The original test recomputed coarse/fine membership after each shuffle. A supplementary sensitivity analysis held membership fixed at the observed $s=1$ groups, using the same shuffles and predictions. Table~\ref{tab:permutation-control} reports both specifications.}
+\auth{For each of 1{,}000 permutations, we shuffled the positive $D_{\text{misc}}$ values across the full dataset of 17{,}127 reviews and recomputed the attenuated ratings with the fitted model held fixed. The shuffled density supplied both a model feature and the attenuation input. Expert-pair agreement was then evaluated on the same 77 pairs. Modulator correlations were evaluated separately on the 2{,}052 held-out reviews with positive $D_{\text{misc}}$, using each review's original density as the reference. The primary expert test recomputed coarse/fine membership after each shuffle; a supplementary test kept the observed $s=1$ membership fixed. Table~\ref{tab:permutation-control} reports both specifications.}
 
 \begin{table}[htbp]
 \caption{\auth{Permutation control ($N=1{,}000$). Expert rows report agreement; modulator rows report Pearson $r$. Null entries give the mean and one-sided $p$ using $(k+1)/(N+1)$. Recomputed coarse groups contained a mean of 10.51 pairs (range 3--20), compared with 43 observed; fine groups averaged 66.49, compared with 34 observed. Fixed-bin subgroup analyses are supplementary; overall and modulator tests are shared.}}
@@ -568,7 +568,7 @@ $\Delta^{-}$ vs.\ $D_{\text{misc}}$ ($r$) & $-.7077$ & $-.1579$, .001 & Same tes
 \end{tabular}
 \end{table}
 
-\auth{Overall expert agreement exceeded the shuffled-density benchmark ($p=.001$). Recomputed coarse groups were smaller and changed composition, retaining high null agreement; 179 shuffles reached 100\% ($p=.180$). On the original 43 coarse pairs, no shuffle matched observed agreement ($p=.001$). Neither fine specification rejected its respective null ($p=.378$ recomputed; $p=.321$ fixed), with observed advantages over null means of 1.9 and 5.5 percentage points.}
+\auth{Overall expert agreement exceeded the shuffled-density benchmark ($p=.001$). When groups were recomputed, the coarse group averaged 10.51 pairs rather than the observed 43 and its membership changed; 179 shuffles reached 100\% agreement ($p=.180$). On the original 43 coarse pairs, no shuffle matched the observed agreement ($p=.001$). Neither fine analysis exceeded its null benchmark ($p=.378$ when groups were recomputed; $p=.321$ when they were fixed).}
 
 \auth{No shuffle produced a positive modulator correlation as large, or a negative correlation as negative, as observed ($p=.001$ each). These results support dependence on the original density assignment under the specified perturbation, conditional on the fitted model and classifications.}
 
@@ -645,11 +645,11 @@ $\Delta^{-}$ vs.\ $D_{\text{misc}}$ ($r$) & $-.7077$ & $-.1579$, .001 & Same tes
 \end{minipage}
 \end{table}
 
-\auth{Table~\ref{tab:sensitivity}(c) shows that the modulator correlations, the primary internal coherence signal, remain stable across all tested exponents. Pearson $r$ is effectively constant, while Spearman $\rho$ rises monotonically with $s$ as rank ordering concentrates on the measured $D_{\text{misc}} = 1$ tail; in both cases the directional behaviour of $\Delta^{+}$ and $\Delta^{-}$ is a property of the attenuation concept, not of the particular exponent.}
+\auth{Table~\ref{tab:sensitivity}(c) shows that the modulator correlations change little across the tested exponents. Pearson correlations are nearly unchanged; the absolute Spearman correlations increase with $s$. The positive and negative relationships remain in the same directions throughout.}
 
-\auth{Table~\ref{tab:sensitivity}(b) holds expert-pair membership and coarse/fine bins fixed at $s=1$, identical to the primary expert analysis. Overall agreement ranged from 83.1\% to 88.3\% across the tested exponents ($n=77$). Coarse agreement remained 100\%, while fine agreement varied from 61.8\% to 73.5\% (21--25 of 34 pairs). Aggregate adjustment patterns were relatively stable, with greater sensitivity in close comparisons.}
+\auth{Table~\ref{tab:sensitivity}(b) holds expert-pair membership and coarse/fine bins fixed at $s=1$, as in the primary expert analysis. Overall agreement ranged from 83.1\% to 88.3\% across the tested exponents ($n=77$). Coarse agreement remained 100\%, while fine agreement varied from 61.8\% to 73.5\% (21--25 of 34 pairs).}
 
-\auth{Table~\ref{tab:sensitivity}(d) reports 95\% confidence intervals from 1{,}000 bootstrap resamples of held-out professors. All four correlations have narrow intervals (SD $\leq 0.027$), indicating that the modulator relationships are robust.}
+\auth{Table~\ref{tab:sensitivity}(d) reports 95\% confidence intervals from 1{,}000 bootstrap resamples of held-out professors. Across resamples, the four correlations had SDs of 0.027 or less.}
 
 %========================================================================================
 \section{Discussion}
@@ -661,7 +661,7 @@ RQ1 results show that \textit{Instructional Effectiveness} is the primary driver
 
 Addressing RQ2, held-out coherence checks show that attenuation redistributes feature attribution away from \textit{Miscellaneous} sentiment ($-9.6\%$) toward pedagogical categories ($+1.6\%$ to $+2.5\%$), and correlations shift in the intended direction. Adjustment magnitude tracks measured off-topic density in both directions, with weaker but directionally consistent emotion-intensity relationships. The average absolute adjustment of $0.1964$ points and preserved professor-level distribution shape are consistent with the conservative character advocated by \citeA{MarshRoche1997}.
 
-\auth{For RQ3, bootstrap resampling and exponent sensitivity support stability of aggregate coherence relationships, while permutation controls show dependence on the original density assignment ($p=.001$). Expert comparisons provide strong alignment on large adjustment contrasts: the original coarse group exceeded its shuffled benchmark in the supplementary fixed-bin analysis, whereas recomputed coarse groups were smaller and retained high null agreement. Neither fine specification rejected its respective null. Fine disagreements concentrated in split-vote pairs, although three occurred despite unanimity. Disagreement may reflect differences between experts' holistic validity judgments and the taxonomy-based relevance operationalized by the method, or limitations of the mechanism at small adjustment contrasts; the present design cannot distinguish these explanations.}
+\auth{For RQ3, the bootstrap and exponent checks show similar aggregate coherence patterns under the tested perturbations, while the permutation control shows that the modulator correlations depend on the original density assignment ($p=.001$). In the expert comparison, the original coarse group exceeded its shuffled benchmark when membership was fixed; when membership was recomputed, the groups were smaller and changed across shuffles. Neither fine analysis exceeded its null benchmark. Fine disagreements were concentrated in split-vote pairs, although three occurred despite unanimous judgments. The study cannot determine whether these disagreements reflect limits of the mechanism in close cases or differences between the experts' broader validity judgments and the taxonomy used here.}
 
 \auth{The fine-condition agreement and permutation benchmarks provide a reproducible baseline for evaluating subsequent improvements; small adjustment differences should not be interpreted as established validity orderings. These findings do not establish that the taxonomy or density measure is correct, nor that adjusted ratings are validated measures of teaching quality.}
 
