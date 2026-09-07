@@ -99,7 +99,7 @@
 % teaching quality. Write once the final validity evidence is in.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\Abstract{Open-ended teaching evaluations are a widely used but underspecified data source for learning analytics, often carrying emotional content that is unrelated to instruction yet influences numerical ratings. Across 17,127 reviews from the anonymous, unmoderated platform RateMyProfessors.com, we find that non-pedagogical emotion ranks second only to instructional effectiveness as a driver of predicted ratings, and dominates the text of the lowest-rated reviews. We introduce Validity-Weighted Attenuation, an interpretable ABSA-based mechanism that mitigates the influence of construct-irrelevant affect on teaching-evaluation ratings under a definable pedagogical taxonomy. Each review is decomposed into clauses, classified against the taxonomy, and reduced to per-topic emotions; the modelled contribution of non-pedagogical affect is down-weighted in proportion to its measured density, with every adjustment traceable to textual evidence. Permutation controls confirm that the mechanism's behaviour depends on actual off-topic density rather than its functional form ($p < 0.001$), and expert paired comparisons \todo{[placeholder: multi-expert consensus results]} agree with the relative magnitude of adjustment; fine-grained pairs exceed the permutation null ($p = [placeholder 0.007]$). Adjustments are conservative: 60\% of reviews are adjusted with an average absolute rating change of 0.20 points and the overall distribution shape preserved. Adjusted ratings are not validated estimates of teaching quality. We test whether an interpretable attenuation mechanism behaves consistently with a stated validity argument, offering initial method evidence for validity-aware interpretation of teaching feedback as a complement to raw ratings in learning analytics.}
+\Abstract{Open-ended teaching evaluations are a widely used but underspecified data source for learning analytics, often carrying emotional content that is unrelated to instruction yet influences numerical ratings. Across 17,127 reviews from the anonymous, unmoderated platform RateMyProfessors.com, we find that non-pedagogical emotion ranks second only to instructional effectiveness as a driver of predicted ratings, and dominates the text of the lowest-rated reviews. We introduce Validity-Weighted Attenuation, an interpretable ABSA-based mechanism that mitigates the influence of construct-irrelevant affect on teaching-evaluation ratings under a definable pedagogical taxonomy. Each review is decomposed into clauses, classified against the taxonomy, and reduced to per-topic emotions; the modelled contribution of non-pedagogical affect is down-weighted in proportion to its measured density, with every adjustment traceable to textual evidence. Permutation controls support the mechanism's dependence on the original density assignment, and expert paired comparisons agreed with the relative magnitude of adjustment in 83\% of pairs, exceeding the permutation null ($p = .001$); on close comparisons, agreement did not exceed the null. Adjustments are conservative: 60\% of reviews are adjusted with an average absolute rating change of 0.20 points and the overall distribution shape preserved. Adjusted ratings are not validated estimates of teaching quality. We test whether an interpretable attenuation mechanism behaves consistently with a stated validity argument, offering initial method evidence for validity-aware interpretation of teaching feedback as a complement to raw ratings in learning analytics.}
 
 %----------------------------------------------------------------------------------------
 
@@ -518,65 +518,69 @@ $D_{misc}$ is the primary driver of attenuation magnitude (Table~\ref{tab:correl
 
 \subsection{Initial Validity and Robustness Evidence}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PLACEHOLDER -- MULTI-EXPERT CONSENSUS RESULTS
-%
-% NOTHING TRANSFERRED. The framing doc marks the source manuscript's expert
-% validation results "Do not copy yet" and directs that they be replaced
-% entirely. The superseded single-expert figures are, for reference only:
-%     overall 62/77 = 80.5%
-%     coarse  38/43 = 88.4%
-%     fine    24/34 = 70.6%
-% Do not reuse them.
-%
-% Required, per Paper/todo.md and handoff.md:
-%   - overall / coarse / fine consensus accuracy, each with 95% Wilson intervals
-%   - Fleiss' kappa across experts
-%   - the 77-of-80 accounting, stated once, transparently
-%   - treatment of unsure labels (ties -> unsure -> scored incorrect)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \subsubsection{Expert Paired Comparisons}
 
-\todo{Explain the protocol. Insert the multi-expert consensus results table (overall / coarse / fine accuracy with 95\% Wilson intervals; Fleiss' $\kappa$) and the interpreting paragraphs. State the 77-of-80 accounting once. The source manuscript's single-expert results are deliberately not transferred here --- see the comment block above.}
+\auth{Three experts labelled paired reviews for relative validity in SET, selecting review 1, review 2, or ``both valid.'' 77 pairs were sampled from the full adjusted-review sample (43 coarse, 34 fine), with ATC assignments verified before inclusion. Coarse pairs were selected to have an absolute-adjustment difference $\bigl||\Delta_1|-|\Delta_2|\bigr|\geq0.5$; fine pairs were selected with a difference below $0.5$. At the operating point $s=1$, these conditions partition the evaluable pairs.}
 
+\todo{Confirm the three experts' backgrounds and that all received the same independent, blinded raw-text task with randomized pair presentation.}
 
-\subsubsection{Permutation Control}
-
-\auth{Table~\ref{tab:permutation-control} reports observed values against their null distributions under 1{,}000 permutations of $D_{\text{misc}}$. The permutation shuffles non-zero $D_{\text{misc}}$ values among reviews, preserving the marginal distribution while breaking the correspondence between a review's measured off-topic density and the attenuation it receives. Permuted deltas are then correlated against the \emph{true} densities, testing whether the mechanism's adjustments track real off-topic content or would produce structured-looking results under arbitrary density assignments.}
+\auth{Two matching votes established a majority. A model ranking agreed when the review receiving smaller $|\Delta|$ matched a directional majority; exact model ties selected the first displayed review. All retained pairs had three votes and a majority; one ``both valid'' majority counted as incorrect. Table~\ref{tab:expert-consensus} reports majority agreement, two-sided Wilson intervals, and nominal Fleiss' $\kappa$ over all three response categories. Individual-expert fine agreement ranged from 58.8\% to 70.6\%. As a sensitivity check, excluding individual non-directional votes raised fine inter-expert agreement from nominal $\kappa=.469$ to generalized $\kappa=.634$; this describes agreement among retained directional votes and does not change the primary scoring.}
 
 \begin{table}[htbp]
-\caption{\auth{Permutation control: observed statistics against the null distribution ($N = 1{,}000$ permutations). $p$-values are one-sided with the $(k+1)/(N+1)$ correction.}}
-\label{tab:permutation-control}
 \centering
 \small
-\begin{tabular}{lccccc}
+\caption{\auth{Three-expert paired comparisons. Agreement requires a matching directional majority; absent or non-directional majorities count as incorrect when deltas are available. Nominal $\kappa$ uses all complete three-rater pairs in each condition (77 overall, 43 coarse, 34 fine), including non-directional responses.}}
+\label{tab:expert-consensus}
+\begin{tabular}{lcccc}
 \toprule
-\textbf{Metric} & \textbf{Observed} & \textbf{Perm.\ mean} & \textbf{SD} & \textbf{Range} & $p$ \\
+\textbf{Condition} & \textbf{Correct/$n$} & \textbf{Agreement} & \textbf{95\% CI} & $\boldsymbol{\kappa}$ \\
 \midrule
-Expert accuracy (coarse) & 0.8837 & 0.7891 & 0.1197 & [0.333, 1.000] & 0.233 \\
-Expert accuracy (fine)   & 0.7059 & 0.5772 & 0.0517 & [0.400, 0.739] & 0.007 \\
-$\Delta^{+}$ vs.\ $D_{\text{misc}}$ ($r$) & 0.6872 & 0.2327 & 0.0291 & [0.128, 0.324] & $< 0.001$ \\
-$\Delta^{-}$ vs.\ $D_{\text{misc}}$ ($r$) & $-$0.7077 & $-$0.1579 & 0.0374 & [$-$0.274, $-$0.048] & $< 0.001$ \\
+Overall & 64/77 & 83.1\% & [73.2\%, 89.9\%] & .658 \\
+Coarse  & 43/43 & 100\%  & [91.8\%, 100\%]  & .819 \\
+Fine    & 21/34 & 61.8\% & [45.0\%, 76.1\%] & .469 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\auth{No permutation reached or exceeded the observed $\Delta^{+}$ or $\Delta^{-}$ correlation ($p < 0.001$, both directions). When $D_{\text{misc}}$ is decoupled from the review it belongs to, attenuation deltas no longer track true off-topic density.}
+\auth{A post hoc diagnostic within the fine condition found agreement on 16/19 unanimous pairs (84.2\%) and 5/15 split-vote pairs (33.3\%): ten of thirteen model--majority disagreements coincided with expert disagreement. Three remained despite unanimity, at absolute-adjustment contrasts of 0.314, 0.005, and 0.026 points.}
 
-\auth{Expert accuracy separates by condition as the rationale predicts. In the coarse bin, the permuted null frequently reaches the observed value ($p = 0.233$). This is expected: coarse pairs differ so visibly in off-topic content that the CatBoost prediction --- which retains all emotion and topic features --- often points in the correct direction even when $\zeta$ is driven by the wrong density. Coarse accuracy thus functions as a manipulation check confirming that the mechanism responds to gross differences in construct-irrelevant content, but it does not isolate the contribution of $D_{\text{misc}}$ specifically. In the fine bin, where paired reviews are closer in off-topic content and the attenuation signal is the tiebreaker, accuracy drops meaningfully under permutation ($p = 0.007$). Discriminative power in close cases depends on the actual review-level density.}
+\subsubsection{Permutation Control}
 
-\auth{Conditional on the ATC classifications, the attenuation mechanism's behaviour depends on actual review-level density rather than its functional form.}
+\auth{We shuffled non-zero $D_{\text{misc}}$ values among reviews 1{,}000 times, preserving zeros and the 77-pair analytic population, and recomputed deltas with the fitted model held fixed. Density was shuffled both as a model feature and as the attenuation input; modulator correlations used the original densities. The original test recomputed coarse/fine membership after each shuffle. A supplementary sensitivity analysis held membership fixed at the observed $s=1$ groups, using the same shuffles and predictions. Table~\ref{tab:permutation-control} reports both specifications.}
+
+\begin{table}[htbp]
+\caption{\auth{Permutation control ($N=1{,}000$). Expert rows report agreement; modulator rows report Pearson $r$. Null entries give the mean and one-sided $p$ using $(k+1)/(N+1)$. Recomputed coarse groups contained a mean of 10.51 pairs (range 3--20), compared with 43 observed; fine groups averaged 66.49, compared with 34 observed. Fixed-bin subgroup analyses are supplementary; overall and modulator tests are shared.}}
+\label{tab:permutation-control}
+\centering
+\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Metric} & \textbf{Observed} & \shortstack{\textbf{Recomputed null}\\\textbf{(mean, $p$)}} & \shortstack{\textbf{Fixed-bin null}\\\textbf{(mean, $p$)}} \\
+\midrule
+Expert agreement (overall) & 83.1\% & 63.3\%, .001 & Same test \\
+Expert agreement (coarse) & 100\% & 84.9\%, .180 & 68.9\%, .001 \\
+Expert agreement (fine) & 61.8\% & 59.9\%, .378 & 56.3\%, .321 \\
+\midrule
+$\Delta^{+}$ vs.\ $D_{\text{misc}}$ ($r$) & .6872 & .2327, .001 & Same test \\
+$\Delta^{-}$ vs.\ $D_{\text{misc}}$ ($r$) & $-.7077$ & $-.1579$, .001 & Same test \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\auth{Overall expert agreement exceeded the shuffled-density benchmark ($p=.001$). Recomputed coarse groups were smaller and changed composition, retaining high null agreement; 179 shuffles reached 100\% ($p=.180$). On the original 43 coarse pairs, no shuffle matched observed agreement ($p=.001$). Neither fine specification rejected its respective null ($p=.378$ recomputed; $p=.321$ fixed), with observed advantages over null means of 1.9 and 5.5 percentage points.}
+
+\auth{No shuffle produced a positive modulator correlation as large, or a negative correlation as negative, as observed ($p=.001$ each). These results support dependence on the original density assignment under the specified perturbation, conditional on the fitted model and classifications.}
 
 \subsubsection{Sensitivity to Attenuation Exponent}
 
-\auth{The linear attenuation function $\zeta = 1 - D_{\text{misc}}^{s}$ uses $s = 1.0$, operationalizing \citeA{Huber1964}'s principle that contaminated observations should be downweighted in proportion to their contamination. The sensitivity analysis below confirms that the framework's reported results do not depend on this choice. We evaluate across $s \in \{0.5, 0.75, 1.0, 1.25, 1.5\}$, symmetric around the operating point.}
+\auth{The linear attenuation function $\zeta = 1 - D_{\text{misc}}^{s}$ uses $s = 1.0$, operationalizing \citeA{Huber1964}'s principle that contaminated observations should be downweighted in proportion to their contamination. The sensitivity analysis below examines how the reported results vary with this choice. We evaluate across $s \in \{0.5, 0.75, 1.0, 1.25, 1.5\}$, symmetric around the operating point.}
 
-\auth{Table~\ref{tab:sensitivity}(a) reports pairwise agreement between the attenuation deltas produced at each $s$. Adjacent values yield near-identical adjustments (e.g., $s = 0.75$ vs.\ $1.0$: $r = 0.995$, mean $|\Delta_a - \Delta_b| = 0.029$), and even the most distant pair ($s = 0.5$ vs.\ $1.5$) retains $r = 0.964$. The maximum single-review difference for that pair is $1.148$, but this is one extreme case; the mean across all $2{,}052$ reviews is $0.083$.}
+\auth{Table~\ref{tab:sensitivity}(a) reports selected delta comparisons: the two adjacent contrasts around $s=1$ and the full tested span. Adjacent values yield near-identical adjustments (e.g., $s = 0.75$ vs.\ $1.0$: $r = 0.995$, mean $|\Delta_a - \Delta_b| = 0.029$), and even the most distant pair ($s = 0.5$ vs.\ $1.5$) retains $r = 0.964$, although rank agreement is lower ($\rho=0.689$). The maximum single-review difference for that pair is $1.148$, but this is one extreme case; the mean across all $2{,}052$ reviews is $0.083$.}
 
 \begin{table}[htbp]
 \centering
-\caption{\auth{Robustness results for held-out professors: (a) pairwise agreement of attenuation deltas across values of $s$ ($n = 2{,}052$ reviews with $D_{\text{misc}} > 0$); (b) modulator correlations; (c) bootstrap 95\% confidence intervals.}}
+\caption{\auth{Robustness across attenuation exponents: (a) selected delta comparisons, with $d=|\Delta_a-\Delta_b|$; (b) expert majority agreement, with the same pairs and bins fixed at $s=1$ ($n=77$: 43 coarse, 34 fine; operating point in bold); (c) modulator correlations; (d) professor-bootstrap 95\% confidence intervals. Panels (a), (c), and (d) use 2{,}052 held-out reviews with $D_{\text{misc}}>0$; panel (b) uses the full expert sample.}}
 \label{tab:sensitivity}
 \begin{minipage}[t]{0.56\linewidth}
     \centering
@@ -585,25 +589,32 @@ $\Delta^{-}$ vs.\ $D_{\text{misc}}$ ($r$) & $-$0.7077 & $-$0.1579 & 0.0374 & [$-
     \setlength{\tabcolsep}{3pt}
     \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}cccccc@{}}
     \toprule
-    $s_a$ & $s_b$ & $r$ & $\rho$ & Mean $|\Delta|$ & Max $|\Delta|$ \\
+    $s_a$ & $s_b$ & $r$ & $\rho$ & Mean $d$ & Max $d$ \\
     \midrule
-    0.50 & 0.75 & 0.991 & 0.917 & 0.043 & 0.407 \\
-    0.50 & 1.00 & 0.980 & 0.824 & 0.063 & 0.836 \\
-    0.50 & 1.25 & 0.971 & 0.755 & 0.074 & 1.026 \\
-    0.50 & 1.50 & 0.964 & 0.689 & 0.083 & 1.148 \\
     0.75 & 1.00 & 0.995 & 0.920 & 0.029 & 0.429 \\
-    0.75 & 1.25 & 0.990 & 0.848 & 0.043 & 0.619 \\
-    0.75 & 1.50 & 0.985 & 0.781 & 0.052 & 0.742 \\
     1.00 & 1.25 & 0.997 & 0.917 & 0.022 & 0.265 \\
-    1.00 & 1.50 & 0.994 & 0.853 & 0.031 & 0.372 \\
-    1.25 & 1.50 & 0.998 & 0.919 & 0.017 & 0.173 \\
+    0.50 & 1.50 & 0.964 & 0.689 & 0.083 & 1.148 \\
+    \bottomrule
+    \end{tabular*}
+    \vspace{0.5em}
+
+    \textbf{(b) Expert majority agreement}\\[0.2em]
+    \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}cccc@{}}
+    \toprule
+    $s$ & Overall & Coarse & Fine \\
+    \midrule
+    0.50 & 88.3\% & 100\% & 73.5\% \\
+    0.75 & 88.3\% & 100\% & 73.5\% \\
+    \textbf{1.00} & \textbf{83.1\%} & \textbf{100\%} & \textbf{61.8\%} \\
+    1.25 & 87.0\% & 100\% & 70.6\% \\
+    1.50 & 87.0\% & 100\% & 70.6\% \\
     \bottomrule
     \end{tabular*}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.40\linewidth}
     \centering
     \small
-    \textbf{(b) Modulator correlations}\\[0.2em]
+    \textbf{(c) Modulator correlations}\\[0.2em]
     \setlength{\tabcolsep}{2pt}
     \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}ccccc@{}}
     \toprule
@@ -618,29 +629,27 @@ $\Delta^{-}$ vs.\ $D_{\text{misc}}$ ($r$) & $-$0.7077 & $-$0.1579 & 0.0374 & [$-
     \end{tabular*}
     \vspace{0.15em}
 
-    \textbf{(c) Bootstrap professor stability}\\[0.2em]
+    \textbf{(d) Bootstrap professor stability}\\[0.2em]
     \scriptsize
     \setlength{\tabcolsep}{2pt}
     \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc@{}}
     \toprule
     \textbf{Metric} & \textbf{Mean} & \textbf{SD} & \multicolumn{2}{c}{\textbf{95\% CI}} \\
     \midrule
-    $\Delta^+ D_{\text{misc}}$ ($r$) & 0.686 & 0.018 & 0.649 & 0.721 \\
-    $\Delta^- D_{\text{misc}}$ ($r$) & $-$0.708 & 0.018 & $-$0.743 & $-$0.674 \\
-    $\Delta^+ D_{\text{misc}}$ ($\rho$) & 0.614 & 0.027 & 0.565 & 0.662 \\
-    $\Delta^- D_{\text{misc}}$ ($\rho$) & $-$0.601 & 0.025 & $-$0.647 & $-$0.558 \\
+    $\Delta^+ D_{\text{misc}}$ ($r$) & 0.687 & 0.017 & 0.651 & 0.720 \\
+    $\Delta^- D_{\text{misc}}$ ($r$) & $-$0.707 & 0.018 & $-$0.741 & $-$0.671 \\
+    $\Delta^+ D_{\text{misc}}$ ($\rho$) & 0.613 & 0.027 & 0.557 & 0.661 \\
+    $\Delta^- D_{\text{misc}}$ ($\rho$) & $-$0.601 & 0.025 & $-$0.649 & $-$0.550 \\
     \bottomrule
     \end{tabular*}
 \end{minipage}
 \end{table}
 
-\auth{Table~\ref{tab:sensitivity}(b) shows that the modulator correlations, the primary internal coherence signal, remain stable across all tested exponents. Pearson $r$ is effectively constant, while Spearman $\rho$ rises monotonically with $s$ as rank ordering concentrates on the measured $D_{\text{misc}} = 1$ tail; in both cases the directional behaviour of $\Delta^{+}$ and $\Delta^{-}$ is a property of the attenuation concept, not of the particular exponent.}
+\auth{Table~\ref{tab:sensitivity}(c) shows that the modulator correlations, the primary internal coherence signal, remain stable across all tested exponents. Pearson $r$ is effectively constant, while Spearman $\rho$ rises monotonically with $s$ as rank ordering concentrates on the measured $D_{\text{misc}} = 1$ tail; in both cases the directional behaviour of $\Delta^{+}$ and $\Delta^{-}$ is a property of the attenuation concept, not of the particular exponent.}
 
-\auth{Expert paired-comparison accuracy likewise varies only modestly across $s$ (range: 80.5\%--85.7\%, $n = 77$
-pairs), indicating that agreement between expert judgments of relative review validity and the model's ranking of
-reviews by absolute attenuation is not highly sensitive to the exponent.}
+\auth{Table~\ref{tab:sensitivity}(b) holds expert-pair membership and coarse/fine bins fixed at $s=1$, identical to the primary expert analysis. Overall agreement ranged from 83.1\% to 88.3\% across the tested exponents ($n=77$). Coarse agreement remained 100\%, while fine agreement varied from 61.8\% to 73.5\% (21--25 of 34 pairs). Aggregate adjustment patterns were relatively stable, with greater sensitivity in close comparisons.}
 
-\auth{Table~\ref{tab:sensitivity}(c) reports 95\% confidence intervals from 1{,}000 bootstrap resamples of held-out professors. All four correlations have narrow intervals (SD $\leq 0.027$), indicating that the modulator relationships are robust.}
+\auth{Table~\ref{tab:sensitivity}(d) reports 95\% confidence intervals from 1{,}000 bootstrap resamples of held-out professors. All four correlations have narrow intervals (SD $\leq 0.027$), indicating that the modulator relationships are robust.}
 
 %========================================================================================
 \section{Discussion}
@@ -652,9 +661,9 @@ RQ1 results show that \textit{Instructional Effectiveness} is the primary driver
 
 Addressing RQ2, held-out coherence checks show that attenuation redistributes feature attribution away from \textit{Miscellaneous} sentiment ($-9.6\%$) toward pedagogical categories ($+1.6\%$ to $+2.5\%$), and correlations shift in the intended direction. Adjustment magnitude tracks measured off-topic density in both directions, with weaker but directionally consistent emotion-intensity relationships. The average absolute adjustment of $0.1964$ points and preserved professor-level distribution shape are consistent with the conservative character advocated by \citeA{MarshRoche1997}.
 
-\auth{We address RQ3 through three lines of evidence. Bootstrap resampling and exponent-sensitivity checks show that the coherence relationships reported for RQ2 are stable across perturbations, while the permutation control confirms that they depend on actual review-level density rather than the rule's functional form alone ($p < 0.001$). Expert paired comparisons provide a distinct human-judgment check: in fine-grained pairs, where density-based attenuation is the tiebreaker, agreement exceeds the permutation null ($p = 0.007$); the coarse condition functions as a manipulation check rather than discriminative evidence ($p = 0.233$).}
+\auth{For RQ3, bootstrap resampling and exponent sensitivity support stability of aggregate coherence relationships, while permutation controls show dependence on the original density assignment ($p=.001$). Expert comparisons provide strong alignment on large adjustment contrasts: the original coarse group exceeded its shuffled benchmark in the supplementary fixed-bin analysis, whereas recomputed coarse groups were smaller and retained high null agreement. Neither fine specification rejected its respective null. Fine disagreements concentrated in split-vote pairs, although three occurred despite unanimity. Disagreement may reflect differences between experts' holistic validity judgments and the taxonomy-based relevance operationalized by the method, or limitations of the mechanism at small adjustment contrasts; the present design cannot distinguish these explanations.}
 
-\auth{Conditional on the ATC classifications and stated taxonomy, the attenuation produces its intended pattern of adjustments: stable under the tested perturbations, and relative adjustments align with expert judgment in the comparison task. These patterns however do not establish that the taxonomy or density measure is correct, nor that adjusted ratings are validated measures of teaching quality.}
+\auth{The fine-condition agreement and permutation benchmarks provide a reproducible baseline for evaluating subsequent improvements; small adjustment differences should not be interpreted as established validity orderings. These findings do not establish that the taxonomy or density measure is correct, nor that adjusted ratings are validated measures of teaching quality.}
 
 The framework addresses similar CIV concerns to those documented by \citeA{Zhai2021} in controlled assessments, but in the considerably more challenging setting of informal, unmoderated SET reviews. \auth{This positions the work as initial method evidence for a validity-oriented direction in teaching-feedback analytics, rather than a ready intervention.}
 
@@ -709,9 +718,7 @@ Attenuation outcomes depend on upstream classifications and the fitted model: hi
 Because the taxonomy may both omit pedagogically relevant concerns and miss other sources of construct-irrelevant
 variance, attenuation cannot be interpreted as a comprehensive correction for construct-irrelevant variance. Demographic information in the source dataset was not used, so this analysis cannot assess whether adjusted ratings retain gender or racial inequities.
 
-Expert validation measures agreement in relative, rather than exact, adjustment magnitudes. Although the expert agreed more reliably on larger adjustments, agreement was lower for subtle differences, limiting confidence in fine-grained cases.
-
-\todo{The final limitations paragraph in the source manuscript concerns reliance on a single expert annotator. It is not transferred here because the multi-expert consensus supersedes it. Replace with a statement of the remaining limits of the expanded expert sample once those results exist.}
+\auth{The three-expert evaluation concerns relative review judgments on a small, curated pair set, rather than exact adjustment magnitudes. Agreement remains conditional on the panel and selection protocol, including verified ATC assignments; the expert sample spans training and held-out instructors. Wilson intervals condition on these experts and assume independent pairs. The unanimity breakdown is post hoc, and the $0.5$ contrast cutoff defines the evaluated groups rather than an estimated discrimination threshold. Permutation interpretations remain conditional on the specified density shuffle and the model-based pair selection.}
 
 \auth{Future work should co-design and evaluate a formal-SET version of the framework with educators, students, and institutional stewards, using independent datasets and external teaching-quality criteria in line with the evaluative standards proposed by \citeA{FergusonClow2017}.   Formal SET's structured prompts and standardized Likert scales may alter the distribution of \textit{Miscellaneous}
 content, requiring recalibration. The formal-SET version should ground finer taxonomies in course learning design, potentially align them with SEEQ \cite{Marsh1982}, and use multi-label or soft assignment to distinguish, for example, procedural from interactional fairness and better represent multi-topic clauses. Before deployment can be considered, its purpose, access, retention, and contestation arrangements must be specified, and fairness audits should assess whether it amplifies inequities across instructor demographics and disciplines.}
