@@ -32,6 +32,12 @@ consensus_label      Fine 34       21  0.617647        0.95  0.45041 0.760998
        expert_3    Coarse 43       42  0.976744        0.95  0.87941 0.995883
        expert_3      Fine 34       20  0.588235        0.95 0.422216  0.73634
 
+
+Fine-condition disagreement diagnostic:
+Expert voting pattern  Model agrees  Model disagrees
+            Unanimous            16                3
+                Split             5               10
+                
 === Stage 7: Robustness ===
 Loading model and data...
 

@@ -219,25 +219,6 @@ def accuracy_summary(expert, confidence=0.95):
     return pd.DataFrame(rows)
 
 
-def fine_disagreement_diagnostic(expert):
-    """Cross-tabulate expert unanimity with model accuracy in the fine condition."""
-    masks = condition_masks(expert)
-    fine = expert.loc[masks["Fine"] & expert.evaluable].copy()
-    votes = fine[RATER_COLUMNS].apply(
-        lambda row: row.dropna().nunique() == 1 and row.dropna().iloc[0] in (1, 2),
-        axis=1,
-    )
-    fine["unanimous"] = votes
-    rows = []
-    for label, mask in [("Unanimous", fine.unanimous), ("Split", ~fine.unanimous)]:
-        subset = fine.loc[mask]
-        agrees = int(subset.correct.sum())
-        disagrees = len(subset) - agrees
-        rows.append({"Expert voting pattern": label,
-                     "Model agrees": agrees, "Model disagrees": disagrees})
-    return pd.DataFrame(rows)
-
-
 def report(expert):
     print("\n=== Stage 6: Validation ===")
     print(kappa_summary(expert).to_string(index=False))
@@ -251,8 +232,6 @@ def report(expert):
     print("Individual label-3 votes count as incorrect; blank votes are excluded.")
     print(accuracy_summary(expert).to_string(index=False, float_format=lambda x: f"{x:.6g}"))
     print(f"\nModel ties (review 1 selected): {expert.model_tie.sum()}")
-    print("\nFine-condition disagreement diagnostic:")
-    print(fine_disagreement_diagnostic(expert).to_string(index=False))
 
 
 def run():
