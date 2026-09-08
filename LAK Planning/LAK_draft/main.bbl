@@ -68,6 +68,32 @@ Butt, S.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Cohen%
+}{%
+Cohen%
+}{%
+{\protect \APACyear {1960}}%
+}]{%
+Cohen1960}
+\APACinsertmetastar {%
+Cohen1960}%
+\begin{APACrefauthors}%
+Cohen, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1960}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A coefficient of agreement for nominal scales} {A
+  coefficient of agreement for nominal scales}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Educational and Psychological
+  Measurement}{20}{1}{37--46}.
+\newblock
+\begin{APACrefDOI} \doi{10.1177/001316446002000104} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Cronbach%
 }{%
 Cronbach%
@@ -90,6 +116,31 @@ Cronbach, L\BPBI J.%
 \APACjournalVolNumPages{Psychometrika}{16}{3}{297--334}.
 \newblock
 \begin{APACrefDOI} \doi{10.1007/BF02310555} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Cureton%
+}{%
+Cureton%
+}{%
+{\protect \APACyear {1956}}%
+}]{%
+Cureton1956}
+\APACinsertmetastar {%
+Cureton1956}%
+\begin{APACrefauthors}%
+Cureton, E\BPBI E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1956}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Rank-biserial correlation} {Rank-biserial
+  correlation}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychometrika}{21}{3}{287--290}.
+\newblock
+\begin{APACrefDOI} \doi{10.1007/BF02289138} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -278,6 +329,31 @@ Emery, C\BPBI R.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Ernst%
+}{%
+Ernst%
+}{%
+{\protect \APACyear {2004}}%
+}]{%
+Ernst2004}
+\APACinsertmetastar {%
+Ernst2004}%
+\begin{APACrefauthors}%
+Ernst, M\BPBI D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2004}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Permutation methods: A basis for exact inference}
+  {Permutation methods: A basis for exact inference}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Statistical Science}{19}{4}{676--685}.
+\newblock
+\begin{APACrefDOI} \doi{10.1214/088342304000000396} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Ferguson%
 \ \BBA {} Clow%
 }{%
@@ -309,6 +385,31 @@ Ferguson, R.%
 \APACaddressPublisher{}{ACM}.
 \newblock
 \begin{APACrefDOI} \doi{10.1145/3027385.3027396} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Fleiss%
+}{%
+Fleiss%
+}{%
+{\protect \APACyear {1971}}%
+}]{%
+Fleiss1971}
+\APACinsertmetastar {%
+Fleiss1971}%
+\begin{APACrefauthors}%
+Fleiss, J\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1971}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Measuring nominal scale agreement among many raters}
+  {Measuring nominal scale agreement among many raters}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychological Bulletin}{76}{5}{378--382}.
+\newblock
+\begin{APACrefDOI} \doi{10.1037/h0031619} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -784,6 +885,90 @@ Louis, A.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Lowe%
+}{%
+Lowe%
+}{%
+{\protect \APACyear {2024}}%
+}]{%
+sam_lowe_2024}
+\APACinsertmetastar {%
+sam_lowe_2024}%
+\begin{APACrefauthors}%
+Lowe, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+\APACrefbtitle {roberta-base-go\_emotions (Revision 58b6c5b).}
+  {roberta-base-go\_emotions (revision 58b6c5b).}
+\newblock
+\APACaddressPublisher{}{Hugging Face}.
+\newblock
+\begin{APACrefURL}
+  \url{https://huggingface.co/SamLowe/roberta-base-go_emotions}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.57967/hf/3548} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Lundberg%
+\ \BBA {} Lee%
+}{%
+Lundberg%
+\ \BBA {} Lee%
+}{%
+{\protect \APACyear {2017}}%
+}]{%
+LundbergLee2017}
+\APACinsertmetastar {%
+LundbergLee2017}%
+\begin{APACrefauthors}%
+Lundberg, S.%
+\BCBT {}\ \BBA {} Lee, S\BHBI I.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{12}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A Unified Approach to Interpreting Model Predictions} {A
+  unified approach to interpreting model predictions}.{\BBCQ}.
+\newblock
+\begin{APACrefDOI} \doi{10.48550/arXiv.1705.07874} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Mann%
+\ \BBA {} Whitney%
+}{%
+Mann%
+\ \BBA {} Whitney%
+}{%
+{\protect \APACyear {1947}}%
+}]{%
+MannWhitney1947}
+\APACinsertmetastar {%
+MannWhitney1947}%
+\begin{APACrefauthors}%
+Mann, H\BPBI B.%
+\BCBT {}\ \BBA {} Whitney, D\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1947}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {On a test of whether one of two random variables is
+  stochastically larger than the other} {On a test of whether one of two random
+  variables is stochastically larger than the other}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{The Annals of Mathematical Statistics}{18}{1}{50--60}.
+\newblock
+\begin{APACrefDOI} \doi{10.1214/aoms/1177730491} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Marsh%
 }{%
 Marsh%
@@ -924,6 +1109,37 @@ Nikolic, N.%
 \APACjournalVolNumPages{The Electronic Library}{38}{5/6}{1107--1124}.
 \newblock
 \begin{APACrefDOI} \doi{10.1108/EL-06-2019-0140} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Phipson%
+\ \BBA {} Smyth%
+}{%
+Phipson%
+\ \BBA {} Smyth%
+}{%
+{\protect \APACyear {2010}}%
+}]{%
+PhipsonSmyth2010}
+\APACinsertmetastar {%
+PhipsonSmyth2010}%
+\begin{APACrefauthors}%
+Phipson, B.%
+\BCBT {}\ \BBA {} Smyth, G\BPBI K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Permutation $p$-values should never be zero: Calculating
+  exact $p$-values when permutations are randomly drawn} {Permutation
+  $p$-values should never be zero: Calculating exact $p$-values when
+  permutations are randomly drawn}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Statistical Applications in Genetics and Molecular
+  Biology}{9}{1}{Article 39}.
+\newblock
+\begin{APACrefDOI} \doi{10.2202/1544-6115.1585} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -1201,6 +1417,33 @@ Tsai, Y\BHBI S.%
   213--222).
 \newblock
 \APACaddressPublisher{Vancouver, Canada}{SoLAR}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wilson%
+}{%
+Wilson%
+}{%
+{\protect \APACyear {1927}}%
+}]{%
+Wilson1927}
+\APACinsertmetastar {%
+Wilson1927}%
+\begin{APACrefauthors}%
+Wilson, E\BPBI B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1927}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Probable inference, the law of succession, and
+  statistical inference} {Probable inference, the law of succession, and
+  statistical inference}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of the American Statistical
+  Association}{22}{158}{209--212}.
+\newblock
+\begin{APACrefDOI} \doi{10.1080/01621459.1927.10502953} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%

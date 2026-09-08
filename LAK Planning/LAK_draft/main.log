@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.23)  7 SEP 2026 20:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.23)  8 SEP 2026 00:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -798,7 +798,7 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <./header.png>]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 164.
+Package pdftex.def Info: header.png  used on input line 163.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -811,7 +811,7 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 [2]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 199.
+Package pdftex.def Info: header.png  used on input line 197.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -822,14 +822,14 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
 [3]
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 2
-00.
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
+98.
  (C:\Users\Amer\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 259.
+Package pdftex.def Info: header.png  used on input line 254.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -842,7 +842,7 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 [4]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 316.
+Package pdftex.def Info: header.png  used on input line 312.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -853,20 +853,27 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
 [5]
-<Diagrams/pdfs/ex2.pdf, id=360, 569.055pt x 398.3382pt>
+<Diagrams/pdfs/ex2.pdf, id=363, 569.055pt x 398.3382pt>
 File: Diagrams/pdfs/ex2.pdf Graphic file (type pdf)
 <use Diagrams/pdfs/ex2.pdf>
-Package pdftex.def Info: Diagrams/pdfs/ex2.pdf  used on input line 325.
+Package pdftex.def Info: Diagrams/pdfs/ex2.pdf  used on input line 321.
 (pdftex.def)             Requested size: 500.484pt x 244.60275pt.
-<Diagrams/atc_visuals/dmiscdistribution.png, id=364, 969.8634pt x 315.8199pt>
+<Diagrams/atc_visuals/dmiscdistribution.png, id=367, 969.8634pt x 315.8199pt>
 File: Diagrams/atc_visuals/dmiscdistribution.png Graphic file (type png)
 <use Diagrams/atc_visuals/dmiscdistribution.png>
 Package pdftex.def Info: Diagrams/atc_visuals/dmiscdistribution.png  used on in
-put line 362.
+put line 358.
 (pdftex.def)             Requested size: 360.34908pt x 117.34306pt.
+<Diagrams/roberta/1_star_heatmap_emotions.png, id=369, 1102.8402pt x 204.5241pt
+>
+File: Diagrams/roberta/1_star_heatmap_emotions.png Graphic file (type png)
+<use Diagrams/roberta/1_star_heatmap_emotions.png>
+Package pdftex.def Info: Diagrams/roberta/1_star_heatmap_emotions.png  used on 
+input line 372.
+(pdftex.def)             Requested size: 500.484pt x 92.81517pt.
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 369.
+Package pdftex.def Info: header.png  used on input line 380.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -877,16 +884,15 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
 [6 <./Diagrams/pdfs/ex2.pdf>]
-<Diagrams/roberta/1_star_heatmap_emotions.png, id=423, 1102.8402pt x 204.5241pt
->
-File: Diagrams/roberta/1_star_heatmap_emotions.png Graphic file (type png)
-<use Diagrams/roberta/1_star_heatmap_emotions.png>
-Package pdftex.def Info: Diagrams/roberta/1_star_heatmap_emotions.png  used on 
-input line 376.
-(pdftex.def)             Requested size: 500.484pt x 92.81517pt.
+<Diagrams/SHAP/baseline_shap.png, id=437, 1046.4696pt x 315.8199pt>
+File: Diagrams/SHAP/baseline_shap.png Graphic file (type png)
+<use Diagrams/SHAP/baseline_shap.png>
+Package pdftex.def Info: Diagrams/SHAP/baseline_shap.png  used on input line 44
+5.
+(pdftex.def)             Requested size: 450.43253pt x 135.93965pt.
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 445.
+Package pdftex.def Info: header.png  used on input line 458.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -898,29 +904,23 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 
 [7 <./Diagrams/atc_visuals/dmiscdistribution.png> <./Diagrams/roberta/1_star_he
 atmap_emotions.png>]
-<Diagrams/SHAP/baseline_shap.png, id=440, 1046.4696pt x 315.8199pt>
-File: Diagrams/SHAP/baseline_shap.png Graphic file (type png)
-<use Diagrams/SHAP/baseline_shap.png>
-Package pdftex.def Info: Diagrams/SHAP/baseline_shap.png  used on input line 44
-9.
-(pdftex.def)             Requested size: 450.43253pt x 135.93965pt.
-<Diagrams/SHAP/pct_change_shap.png, id=445, 722.7pt x 304.9794pt>
+<Diagrams/SHAP/pct_change_shap.png, id=455, 722.7pt x 304.9794pt>
 File: Diagrams/SHAP/pct_change_shap.png Graphic file (type png)
 <use Diagrams/SHAP/pct_change_shap.png>
 Package pdftex.def Info: Diagrams/SHAP/pct_change_shap.png  used on input line 
-473.
+469.
 (pdftex.def)             Requested size: 240.23016pt x 101.37411pt.
-<Diagrams/correlation_changes/average_corr_changes.png, id=446, 722.7pt x 301.3
+<Diagrams/correlation_changes/average_corr_changes.png, id=456, 722.7pt x 301.3
 659pt>
 File: Diagrams/correlation_changes/average_corr_changes.png Graphic file (type 
 png)
 <use Diagrams/correlation_changes/average_corr_changes.png>
 Package pdftex.def Info: Diagrams/correlation_changes/average_corr_changes.png 
- used on input line 478.
+ used on input line 474.
 (pdftex.def)             Requested size: 240.23016pt x 100.173pt.
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 519.
+Package pdftex.def Info: header.png  used on input line 522.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -933,7 +933,7 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 [8 <./Diagrams/SHAP/baseline_shap.png>]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 572.
+Package pdftex.def Info: header.png  used on input line 576.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -960,7 +960,7 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 [10]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 691.
+Package pdftex.def Info: header.png  used on input line 696.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -973,7 +973,7 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 [11]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 728.
+Package pdftex.def Info: header.png  used on input line 731.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -986,7 +986,7 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 [12] (main.bbl
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 313.
+Package pdftex.def Info: header.png  used on input line 310.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -999,7 +999,7 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 [13]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 1065.
+Package pdftex.def Info: header.png  used on input line 1056.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -1012,7 +1012,7 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 [14])
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 761.
+Package pdftex.def Info: header.png  used on input line 767.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -1033,13 +1033,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 5D2DE713832A4BF619260587AFBD8921;8340.
  ) 
 Here is how much of TeX's memory you used:
- 18216 strings out of 467871
- 293081 string characters out of 5418860
- 776434 words of memory out of 5000000
- 46225 multiletter control sequences out of 15000+600000
- 714501 words of font info for 446 fonts, out of 8000000 for 9000
+ 18256 strings out of 467871
+ 293716 string characters out of 5418860
+ 776261 words of memory out of 5000000
+ 46256 multiletter control sequences out of 15000+600000
+ 714854 words of font info for 448 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,15n,93p,1815b,608s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,15n,93p,1922b,608s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
 mbx10.pfb><C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmex10.pfb><C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -1062,9 +1062,9 @@ mbol/usyr.pfb><C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/type1/urw/time
 s/utmb8a.pfb><C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times
 /utmr8a.pfb><C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/
 utmri8a.pfb>
-Output written on main.pdf (15 pages, 707803 bytes).
+Output written on main.pdf (15 pages, 716251 bytes).
 PDF statistics:
- 631 PDF objects out of 1000 (max. 8388607)
- 119 named destinations out of 1000 (max. 500000)
- 115570 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 667 PDF objects out of 1000 (max. 8388607)
+ 128 named destinations out of 1000 (max. 500000)
+ 116594 words of extra memory for PDF output out of 128383 (max. 10000000)
 
