@@ -94,31 +94,6 @@ Cohen, J.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-Cronbach%
-}{%
-Cronbach%
-}{%
-{\protect \APACyear {1951}}%
-}]{%
-Cronbach1951}
-\APACinsertmetastar {%
-Cronbach1951}%
-\begin{APACrefauthors}%
-Cronbach, L\BPBI J.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{1951}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Coefficient alpha and the internal structure of tests}
-  {Coefficient alpha and the internal structure of tests}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Psychometrika}{16}{3}{297--334}.
-\newblock
-\begin{APACrefDOI} \doi{10.1007/BF02310555} \end{APACrefDOI}
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
 Cureton%
 }{%
 Cureton%
