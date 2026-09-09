@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1788926266.70476 "main.aux" "main.bbl" "main" 1788926276.399 0
+["bibtex main"] 1788992838.10547 "main.aux" "main.bbl" "main" 1788992846.39556 0
   "./references.bib" 1788838761 20131 dcadece06318e9de2e8cf69822d31804 ""
   "C:/Users/Amer/AppData/Local/Programs/MiKTeX/bibtex/bst/apacite/apacite.bst" 1374952728 146156 9d7b79dbf9d91133318126032cff8c27 ""
-  "main.aux" 1788926273 27206 e88c4addbd2d9e8245a3a88804eec416 "pdflatex"
+  "main.aux" 1788992843 27208 58558e977ff6a7e961a0be21fa425967 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1788926267.53451 "c:/Users/Amer/Desktop/Git/Validity-Weighted-Attenuation/LAK Planning/LAK_draft/main.tex" "main.pdf" "main" 1788926276.40093 0
-  "C:/Users/Amer/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1787527879 82507 a9eef8696c92627b87e9975edea03b2a ""
+["pdflatex"] 1788992838.7471 "c:/Users/Amer/Desktop/Git/Validity-Weighted-Attenuation/LAK Planning/LAK_draft/main.tex" "main.pdf" "main" 1788992846.39767 0
+  "C:/Users/Amer/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1788985733 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/Amer/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1787522538 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/Amer/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1787522329 13333003 d4ff3d4b00c4af1af0d5afe6142af747 ""
   "C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -168,12 +168,12 @@
   "Diagrams/pdfs/ex2.pdf" 1788320587 107068 70e38f93327ebd39dac4d7a6adf4d8a1 ""
   "Diagrams/roberta/1_star_heatmap_emotions.png" 1788381723 65500 fe9d17d12b738118733569d98967f1ba ""
   "JLA_article.cls" 1787516512 9134 ce0cd70d9fdd82e805faea3790c4d92a ""
-  "c:/Users/Amer/Desktop/Git/Validity-Weighted-Attenuation/LAK Planning/LAK_draft/main.tex" 1788926245 71334 f2c68071fbe79537d9303aa283669a82 ""
+  "c:/Users/Amer/Desktop/Git/Validity-Weighted-Attenuation/LAK Planning/LAK_draft/main.tex" 1788992828 72254 9fa271996b9815c6c53d9832035f6520 ""
   "header.png" 1787516512 81196 9778dd2402a71bb212046e45ff94a082 ""
-  "main.aux" 1788926273 27206 e88c4addbd2d9e8245a3a88804eec416 "pdflatex"
-  "main.bbl" 1788926267 41227 6da8be5c05a1e5f321f9e537cb77c724 "bibtex main"
-  "main.out" 1788926273 8340 5d2de713832a4bf619260587afbd8921 "pdflatex"
-  "main.tex" 1788926245 71334 f2c68071fbe79537d9303aa283669a82 ""
+  "main.aux" 1788992843 27208 58558e977ff6a7e961a0be21fa425967 "pdflatex"
+  "main.bbl" 1788992838 41227 6da8be5c05a1e5f321f9e537cb77c724 "bibtex main"
+  "main.out" 1788992843 8340 5d2de713832a4bf619260587afbd8921 "pdflatex"
+  "main.tex" 1788992828 72254 9fa271996b9815c6c53d9832035f6520 ""
   (generated)
   "main.aux"
   "main.log"
