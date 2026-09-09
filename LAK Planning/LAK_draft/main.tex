@@ -219,7 +219,9 @@ We excluded non-English reviews, reviews containing RMP's automatic censorship s
 
 Cleaned text is separated into individual clauses using \texttt{spaCy}'s \texttt{en\_core\_web\_sm} model, which segments text based on punctuation while attempting to avoid splits on non-statement punctuation. When punctuation is sparse, two additional rules split text on commas and stop-words (but, so, yet), with aggressive stop-word separation used for reviews containing no punctuation.
 
-The next stage assigns each review clause to one of three categories included in this study’s pedagogical interpretation—\textit{Instructional Effectiveness}, \textit{Fairness \& Grading}, and \textit{Workload \& Difficulty}—or to \textit{Miscellaneous}, a residual category for clauses not assigned to those dimensions. Each pedagogical topic is defined using multiple short natural-language descriptions of common student expressions. These descriptions and each review clause are encoded using the pretrained sentence-embedding model \texttt{all-mpnet-base-v2}. For a clause $c$, cosine similarity is computed against each pedagogical topic, and the clause is assigned as follows:
+The next stage assigns each review clause to one of three categories included in this study’s pedagogical interpretation---\textit{Instructional Effectiveness}, \textit{Fairness \& Grading}, and \textit{Workload \& Difficulty}---or to \textit{Miscellaneous}, a residual category for clauses not assigned to those dimensions. Each pedagogical topic is defined using multiple short natural-language descriptions of common student expressions. These descriptions and each review clause are encoded using the pretrained sentence-embedding model \texttt{all-mpnet-base-v2}. \auth{Each category representation is the elementwise mean of its descriptor
+embeddings; clause assignment uses cosine similarity against that mean and the clause is assigned as follows:}
+
 \begin{equation}
 \text{topic}(c) =
 \begin{cases}
@@ -264,7 +266,8 @@ D_{k} =
 \quad k \in \{\text{eff},\,\text{fair},\,\text{work}\}.
 \end{equation}
 
-Here, $D_{\text{misc}}$ represents the proportion of content classified as \textit{Miscellaneous} under the stated taxonomy. It operationalizes the share of review text outside this study’s included dimensions; the complementary quantity $1 - D_{\text{misc}}$ represents the share assigned to them. This operational measure supports the attenuation rule without establishing the pedagogical relevance of any individual clause. Addition by one guards against division by zero. The pedagogical density metrics ($D_{\text{effectiveness}}$, $D_{\text{fairness}}$, and $D_{\text{workload}}$) are also used as predictors in regression modelling, but not in the attenuation process.
+Here, $D_{\text{misc}}$ represents the proportion of content classified as \textit{Miscellaneous} under the stated taxonomy. It operationalizes the share of review text outside this study’s included dimensions; the complementary quantity $1 - D_{\text{misc}}$ represents the share assigned to them. This operational measure supports the attenuation rule without establishing the pedagogical relevance of any individual clause. Addition of one guards against division by zero when a pedagogical topic is
+absent from a review containing no \textit{Miscellaneous} content. The pedagogical density metrics ($D_{\text{effectiveness}}$, $D_{\text{fairness}}$, and $D_{\text{workload}}$) are also used as predictors in regression modelling, but not in the attenuation process.
 
 Per-clause sentiment analysis is performed using \texttt{SamLowe/roberta-base-go\_emotions} \cite{sam_lowe_2024}, a fine-tuned RoBERTa model trained on the GoEmotions dataset \cite{Demszky2020}. Each clause $c$ is independently processed and represented by a 27-dimensional emotion vector $\mathbf{e}'_c$, where each component denotes the probability estimated by the model that the clause expresses an emotion label. The model initially produces the 28 GoEmotions labels; \textit{Neutral} is removed because it represents the absence of strong emotional activation rather than an independent affective signal.
 
@@ -331,6 +334,14 @@ Adjusted ratings are defined as:
   the prediction difference reflects the model's learned relationships and interactions. Adding $\Delta_i$ to the raw
   rating preserves the original prediction residual and yields a model-based alternative summary under the stated
   attenuation rule.}
+
+\auth{Because attenuation evaluates the fitted model at transformed feature
+configurations, its outputs characterize the model's response to the specified
+transformation rather than ratings that would have been empirically observed.
+Most sharply, at $D_{\text{misc}}=1$ all emotion features are zero and every such
+review receives an identical attenuated prediction, a property of the
+representation and fitted model rather than an empirically validated
+affect-neutral target.}
 
 \subsubsection{Audit Trail and Worked Example}
 
@@ -462,7 +473,10 @@ Held-out professors & 0.6347 & 0.7352 & 0.6168 \\
 
 The final model demonstrates low absolute error, strong ordinal consistency, and substantial explained variance on held-out data, suggesting that it captures meaningful relationships between emotional content and student ratings.
 
-\auth{SHAP values \cite{LundbergLee2017} on held-out professors, grouped into eight polarity $\times$ topic categories, show broadly coherent directional patterns: higher positive-emotion feature values generally contribute positively to predicted ratings, while higher negative-emotion feature values generally contribute negatively. At lower feature values, these contribution patterns can reverse (Figure~\ref{fig:baseline-shap}).}
+\auth{SHAP values \cite{LundbergLee2017} were computed using exact TreeSHAP on
+held-out reviews, relative to the model's expected value. For directional
+inspection, per-review SHAP values were averaged within each of the eight
+polarity--topic groups. Beeswarm results show broadly coherent directional patterns: higher positive-emotion feature values generally contribute positively to predicted ratings, while higher negative-emotion feature values generally contribute negatively. At lower feature values, these contribution patterns can reverse (Figure~\ref{fig:baseline-shap}).}
 
 \begin{figure*}[tbp]
     \centering
@@ -483,7 +497,7 @@ Of the 17,127 reviews, 10,375 (60.58\%) contained \textit{Miscellaneous} content
 
 \subsubsection{Mechanistic Coherence}
 
-Figure~\ref{fig:mechanistic-checks} and Table~\ref{tab:correlation_deltas} summarise three coherence checks on held-out professors. SHAP-based feature importance shifts away from \textit{Miscellaneous} sentiment and toward pedagogically relevant categories (Figure~\ref{fig:mechanistic-checks}a). Pearson and Spearman correlations between baseline emotion features and ratings show the same pattern: \textit{Miscellaneous} associations weaken while pedagogical associations are maintained or slightly strengthened (Figure~\ref{fig:mechanistic-checks}b). \new{These comparisons use the same emotion features before and after attenuation; only the rating changes.}
+Figure~\ref{fig:mechanistic-checks} and Table~\ref{tab:correlation_deltas} summarise three coherence checks on held-out professors. \auth{ Per-review absolute SHAP-based model contributions were summed within each topic group and averaged across reviews, with changes expressed relative to each group's baseline.} Feature importance shifts away from \textit{Miscellaneous} sentiment and toward pedagogically relevant categories (Figure~\ref{fig:mechanistic-checks}a). Pearson and Spearman correlations between baseline emotion features and ratings show the same pattern: \textit{Miscellaneous} associations weaken while pedagogical associations are maintained or slightly strengthened (Figure~\ref{fig:mechanistic-checks}b). \new{These comparisons use the same emotion features before and after attenuation; only the rating changes.}
 
 \begin{figure*}[tbp]
     \centering
@@ -540,7 +554,8 @@ $D_{misc}$ is the primary driver of attenuation magnitude (Table~\ref{tab:correl
 
 \subsubsection{Expert Paired Comparisons}
 
-\auth{Three senior faculty experts with combined 75 years of experience in teaching, evaluation, and supervision independently labelled the same 80 manually anonymized RMP review pairs. Each pair presented two review texts; instructor and institution names were replaced with tags, and profanity and emoji were replaced where present. Pair order was randomized once and retained across experts. Experts selected review 1 when it was ``more valid and/or on topic,'' review 2 when the second review was, and 3 only when completely unsure. The prompt left these terms to the experts' professional judgment and did not provide the study taxonomy. Experts were blind to model outputs and one another's labels. Pairs were constructed by randomly sampling an initial review, informally checking its ATC assignment, and sampling a second review until the required adjustment-contrast bin was met. Three labelled pairs could not be joined to model outputs, leaving 77 evaluable pairs: 43 coarse and 34 fine. Coarse pairs had an absolute-adjustment difference $\bigl||\Delta_1|-|\Delta_2|\bigr| \geq 0.5$; fine pairs had a difference below 0.5. At the operating point $s=1$, these conditions partition the evaluable pairs.}
+\auth{Three senior faculty experts with combined 75 years of experience in teaching, evaluation, and supervision independently labelled the same 80 manually anonymized RMP review pairs. Each pair presented two review texts; instructor and institution names were replaced with tags, and profanity and emoji were replaced where present. Pair order was randomized once and retained across experts. Experts selected review 1 when it was ``more valid and/or on topic,'' review 2 when the second review was, and 3 only when completely unsure. The prompt left these terms to the experts' professional judgment and did not provide the study taxonomy. Experts were blind to model outputs and one another's labels. The verbatim task description text is provided in the supplementary material; all
+three experts received identical prompts. Pairs were constructed by randomly sampling an initial review, informally checking its ATC assignment, and sampling a second review until the required adjustment-contrast bin was met. Candidate rejection counts during pair construction were not recorded. Three labelled pairs could not be joined to model outputs, leaving 77 evaluable pairs: 43 coarse and 34 fine. Coarse pairs had an absolute-adjustment difference $\bigl||\Delta_1|-|\Delta_2|\bigr| \geq 0.5$; fine pairs had a difference below 0.5. At the operating point $s=1$, these conditions partition the evaluable pairs.}
 
 \auth{Two matching votes established a majority. A model ranking agreed when the review receiving smaller $|\Delta|$ matched a directional majority; exact model ties selected the first displayed review. This comparison tests whether ordering reviews by the magnitude of the fitted model's response to taxonomy-based attenuation aligns with experts' judgments of validity and/or topical relevance. All retained pairs had three votes and a majority; one ``unsure'' majority counted as incorrect. Table~\ref{tab:expert-consensus} reports majority agreement, two-sided Wilson \citeyear{Wilson1927} intervals, and Fleiss' \citeyear{Fleiss1971} $\kappa$ over all three response categories. Following \cite{Landis1977}, these correspond to substantial ($\kappa=.658$, overall), almost perfect ($\kappa=.819$, coarse), and moderate ($\kappa=.469$, fine) agreement. Individual-expert fine agreement ranged from 58.8\% to 70.6\%. As a sensitivity check, excluding individual non-directional votes raised fine inter-expert agreement from $\kappa=.469$ to generalized $\kappa=.634$ (``substantial agreement''); this describes agreement among retained directional votes and does not change the primary scoring.}
 

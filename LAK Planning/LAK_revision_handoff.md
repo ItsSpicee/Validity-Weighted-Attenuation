@@ -1,43 +1,56 @@
-# LAK manuscript revision handoff
+LAK manuscript revision handoff
+Updated 9 September 2026 (evening). Records the saved manuscript state and remaining revisions. Unverified analyses are marked as such.
 
-Updated 8 September 2026. This handoff records the currently saved manuscript and the next revisions to consider. It does not claim that unverified analyses have been run.
+Current paper position
+The paper presents a proof of concept for examining a fitted rating model: it characterizes learned relationships between topic-specific emotion features and ratings, then traces how predicted ratings respond when taxonomy-excluded emotion features are attenuated. It does not establish that adjusted ratings measure teaching quality better than raw ratings, nor that attenuation outperforms density alone for the selected expert-ranking task. This framing is stable and should not be re-litigated; all remaining work executes against it.
 
-## Current paper position
+Completed across revision sessions
+Framing and claims:
 
-The paper should be presented as a proof of concept for examining a fitted rating model: it characterizes learned relationships between topic-specific emotion features and ratings, then traces how predicted ratings respond when taxonomy-excluded emotion features are attenuated. The paper does not establish that adjusted ratings measure teaching quality better than raw ratings, nor that attenuation outperforms density alone for the selected expert-ranking task.
+Full reframing from correction to sensitivity/examination register: title direction decided (surgery pending), RQs, contributions, bridge, discussion, conclusion, method verbs all converted.
+"Taxonomy-defined noise" retired; "taxonomy-excluded affect" is the canonical term with its definition sentence in the intro pivot.
+Removed unsupported explanation for the exponent-sensitivity Spearman pattern; results now describe observed sensitivity only.
+"Intensity" language replaced with "emotion-label probabilities" / "emotion features" throughout.
+Two forced Marsh & Roche attributions removed; design choice now attributed to this study.
+Expert-comparison method updated: tests alignment of the fitted model's response magnitude with expert judgments of validity and/or topical relevance; no implication that experts applied the study taxonomy.
+Discussion and conclusion aligned: model analysis is an established analytic output; stakeholder benefit from presenting those outputs remains unevaluated.
+Robustness summary corrected: permutation demonstrates dependence on the original density assignment (was previously mis-summarized as non-dependence); bootstrap correctly scoped to professor resampling conditional on the fitted pipeline.
+D = 1 collapse verified in code (constant 3.6492); explained in Discussion, disclosed in Limitations with the 9.6% out-of-range values (−0.31 to 7.62, n = 1,643).
+Adjustment-outcomes tail reported in Results (two-sided tail, −1.39 to +2.71, concentrated in high-density × high-affect reviews).
+Reporting and reproducibility (this session):
 
-## Completed in this revision session
+Transformed-input interpretation added to Method: attenuation evaluates the fitted model at transformed feature configurations; outputs characterize model response, not empirically observed ratings; D = 1 case named with the common prediction.
+Descriptor aggregation specified: elementwise mean of descriptor embeddings; cosine similarity against that mean.
+SHAP computation defined: exact TreeSHAP on held-out reviews, relative to the model's expected value; both aggregations specified (mean within polarity×topic groups for directional inspection; summed absolute within topic groups, averaged across reviews, for the importance comparison). Held-out population confirmed at the call site.
+Expert prompt: verbatim text exists and was confirmed identical across all three experts; supplementary-material clause drafted and ready to paste. Supplementary needs to physically exist (see item 6).
+Pair-construction rejection counts: not recorded — disclosed in the protocol paragraph.
+Method's D_k "+1" correctly described as division-by-zero guard for absent-topic/Misc-free reviews.
+Known remaining mechanical fossils (small, grep-able):
 
-- Removed an unsupported explanation for the exponent-sensitivity pattern; results now describe the observed sensitivity only.
-- Replaced references to emotion "intensity" with model-estimated emotion-label probabilities or emotion features.
-- Removed two forced Marsh and Roche attributions that appeared to justify the proportional attenuation rule.
-- Clarified that the full mechanism's distinct contribution beyond density is examination of learned feature--rating relationships and of the model's signed response to attenuation.
-- Updated the expert-comparison method: it now tests whether the magnitude of the fitted model's response aligns with expert judgments of validity and/or topical relevance. It no longer implies that experts applied the study taxonomy.
-- Aligned discussion and conclusion: model analysis is an established analytic output; stakeholder benefit from presenting those outputs remains unevaluated.
+Wilson \citeyear{Wilson1927} and Fleiss' \citeyear{Fleiss1971} still missing parentheses — renders as "Wilson 1927 intervals." Oldest surviving line-item; two characters, twice.
+RQ3 says "selected review pairs" — should be "sampled" per the anti-cherry-picking convention.
+Discussion RQ2's D=1 sentence: "the review's baseline prediction" — "baseline" double-duty; change to "original prediction."
+Conclusion: "shows no aggregate expert-ranking advantage" → "shows no observed advantage" (equivalence-trap guard).
+Cronbach1951 swap: verify zero remaining occurrences outside the resolved Background location.
+Remaining work, in execution order
+Day 1 (analysis + facts):
 
-## Remaining changes, in recommended order
+Six discordant pairs + three unanimous disagreements. The last analysis. Pull the six pairs where attenuation and density have exclusive successes; classify each divergence (affect–density decoupling / weak model response / upstream misclassification / no discernible basis). Standing prediction: attenuation's three exclusive successes are high-density/calm-affect pairs — the mechanism's designed case. Both outcomes publishable: report the pattern, or state that at n = 6 the pairs reveal no systematic basis. This analysis also feeds the "what does attenuation add beyond density" paragraph and possibly one abstract clause.
+Instructor recurrence groupby. Distinct instructors across the 77 pairs; max pairs per instructor. One line of pandas; scopes the Wilson intervals' independence assumption. Sentence template ready.
+τ development-set overlap. Development set recovered; compute overlap with the 386-clause evaluation set. Three pre-staged sentence branches: disjoint (strongest — threshold selection out-of-sample), partial (disclose count), heavy (Limitations prominence).
+The "beyond density" paragraph. Where the density result's positive register lives: the mechanism's distinct contributions are examination of learned feature–rating relationships and the model's signed response to attenuation — neither provided by a density ordering. Informed by item 1's findings.
+Day 1/2 (writing):
+5. Title and abstract — last content written. Title surgery decided ("Affective Noise" out; taxonomy-sensitivity signal in; VWA retained as method name with weights defined at first use as content proportions, not validity coefficients). Abstract per the settled spec: mechanism + boundary; 17,127 reviews, grouped evaluation, 83.1% on 77 pairs with the density-only match adjacent; coarse/fine if space; no "noise," no validity-improvement claims, no uniform conservatism. One density clause may await item 1's result.
 
-1. **Title and abstract.** Both remain unfinished or misaligned. Use a title that signals taxonomy-based model sensitivity rather than validated weighting or identified "noise." The abstract should name the 17,127-review RMP proof of concept, grouped evaluation, expert comparison, 83.1% agreement on 77 pairs, and the density-only match. State the model-analysis contribution positively and avoid claiming teaching-quality correction.
+Day 2 (finish):
+6. Supplementary material must physically exist. The paper now cites it (expert prompt). Create the structure: prompt, pair membership, labels, density values, deltas, scoring code. Host as anonymous repo (anonymous.4open.science or equivalent) — this is the benchmark contribution's deliverable and the availability statement's fulfillment.
+7. Back matter. Funding \todo (statement of no funding received, presumably). Ethics statement: currently one sentence covering annotator REB exemption only — the professor-data paragraph (public secondary dataset, refused scraping, non-consenting identifiable instructors, non-use commitments) still needs assembling from the paper's existing materials. Availability statement: replace "available online" with the anonymous route; add one caution clause on "fully anonymized" given searchable review text.
+8. Clustered-data scope clauses (item 5b, deferred). One clause each for Wilcoxon and Mann–Whitney: reviews cluster within instructors; effect sizes carry the interpretation, not the p-values. Templates ready; five minutes.
+9. Reduce and compile. Last saved PDF was 16 pages before this session's additions and before the abstract — treat the page count as unknown and probably over. Consolidation targets: repeated gap statements (intro + Research Gap subsection), discussion numbers repeating results, boundaries/limitations overlap, secondary robustness detail to the new supplementary. Standing figure cuts if still over: SHAP beeswarm, D_misc distribution figure, sensitivity panel detail. Compile after every cut.
+10. Mechanical final pass. The fossil list above; doubled-space and typo grep ("evaulation" class); \text/\textit check; compile-clean verification (zero undefined citations, page count).
 
-2. **Clarify transformed-input interpretation.** In Method or Results, add that attenuation creates counterfactual feature vectors for the fitted model. The $D_{\text{misc}}=1$ case zeros all miscellaneous emotion features and produces the common attenuated prediction of 3.65. This is a property of the representation and fitted model, not an empirically validated neutral-rating target. Keep the existing report that 9.6% of adjusted values fall outside the 1--5 scale.
-
-3. **Report aspect-term categorization reproducibly.** State the size and separation of the manually inspected threshold-development set, including whether it overlaps the 386-clause evaluation set. Specify exactly how multiple descriptor embeddings are combined into each category representation. Verify that the claimed validation procedure is accurately described.
-
-4. **Strengthen the density comparison with existing cases.** Inspect the six pairs where attenuation and density have exclusive successes, plus the three unanimous expert/model disagreements. Report a small qualitative diagnostic if the cases yield a clear pattern; otherwise state that they do not. This is the best existing-data route to explain what the rating model adds beyond density.
-
-5. **Tighten statistical reporting.** Define SHAP importance calculation, normalization, and reference/background data. Treat review-level Wilcoxon and Mann--Whitney results cautiously because reviews are clustered within instructors; emphasize effect sizes and descriptive patterns. Keep permutation results conditional on shuffling density both as a model feature and attenuation input.
-
-6. **Complete expert-study reporting.** Document the precise expert prompt, screening/replacement steps during pair construction, number of distinct instructors, and any instructor recurrence across pairs. Retain the scope boundary: this study tests alignment of an ordering with expert review judgments; it does not validate adjustment direction, magnitude, or teaching-quality measurement.
-
-7. **Refine the worked example.** Explicitly state that categorizing interpersonal conduct as Miscellaneous and subject knowledge as Instructional Effectiveness are contestable model assignments. Explain that the example is intended to expose those decisions for inspection, not establish their correctness.
-
-8. **Resolve access and end matter.** Replace the generic public-code statement with a double-blind-accessible route and accurate disclosure of code, expert instructions, pair membership, labels, density values, deltas, and restrictions on review text. Complete funding and verify the ethics statement.
-
-9. **Reduce and compile.** The latest saved PDF was 16 pages before the current edits and before the abstract was finished. LAK27 full papers permit 10--14 pages including references and notes for practice. Consolidate repeated gap statements, repeated numerical discussion, and overlapping limitation/non-use prose; then compile and inspect the current PDF.
-
-## Wording to preserve
-
-- "taxonomy-excluded" is an operational category under a stated taxonomy. It is not a finding that a clause is irrelevant or that its affect is invalid.
-- $\Delta$ is the fitted model's response to feature scaling, with other inputs fixed. It is not a causal estimate of contamination in a raw rating.
-- The density-only result demonstrates no aggregate expert-ranking advantage for attenuation on the sampled pairs. It does not make the predictive model redundant for studying learned feature--rating relationships or its response to attenuation.
-- The proposed review queue is a workflow hypothesis, not an evaluated decision-support intervention.
+Wording to preserve (unchanged, all still load-bearing)
+"Taxonomy-excluded" is an operational category under a stated taxonomy — not a finding of irrelevance.
+Δ is the fitted model's response to feature scaling with other inputs fixed — not a causal estimate of contamination.
+The density-only result shows no observed aggregate expert-ranking advantage on the sampled pairs; it does not make the predictive model redundant for studying learned relationships or attenuation response.
+The review queue is a workflow hypothesis, not an evaluated intervention.
