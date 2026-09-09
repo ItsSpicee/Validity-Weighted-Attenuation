@@ -471,6 +471,10 @@ INPUT .\header.png
 INPUT .\header.png
 INPUT .\header.png
 INPUT .\header.png
+INPUT .\header.png
+INPUT .\header.png
+INPUT .\header.png
+INPUT .\header.png
 INPUT C:\Users\Amer\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\zptmcm7m.vf
 INPUT C:\Users\Amer\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\psyro.tfm
 INPUT C:\Users\Amer\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
@@ -483,10 +487,6 @@ INPUT C:\Users\Amer\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr7t.vf
 INPUT C:\Users\Amer\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\zptmcm7y.vf
 INPUT C:\Users\Amer\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
 INPUT C:\Users\Amer\AppData\Local\MiKTeX\fonts\tfm\public\rsfs\rsfs10.tfm
-INPUT .\header.png
-INPUT .\header.png
-INPUT .\header.png
-INPUT .\header.png
 INPUT .\header.png
 INPUT .\header.png
 INPUT .\header.png
