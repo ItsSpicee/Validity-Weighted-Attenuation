@@ -6,12 +6,15 @@ Run from the project root:
 
 Uses existing attenuation outputs; does not fit models or rerun the pipeline.
 Lower misc_d predicts the more valid review. The comparator prefers smaller
-absolute weighting_delta. Coarse/fine bins remain defined by the saved model
-deltas, exactly as in src.validation, NOT by differences in density.
+absolute weighting_delta. A density tie is non-directional and therefore
+incorrect, including when experts have a directional majority. Coarse/fine bins
+remain defined by the saved model deltas, exactly as in src.validation, NOT by
+differences in density.
 
-Primary scoring preserves validation's first-displayed-review rule for exact
-ties. A second analysis counts ties as incorrect for BOTH methods. Missing or
-non-directional majorities count as incorrect, following existing validation.
+Primary scoring preserves validation's first-displayed-review rule for model
+ties, while density ties are always incorrect. A sensitivity analysis counts
+model ties as incorrect as well. Missing or non-directional majorities count as
+incorrect, following existing validation.
 Intervals and exact McNemar tests assume independent pairs and condition on
 this fixed panel and curated sample; they do not establish population accuracy.
 """
@@ -56,6 +59,7 @@ def prepare_pairs(ratings):
     pairs["density_correct"] = (
         pairs.density_pred.eq(pairs.consensus_label)
         & pairs.consensus_label.isin([1, 2])
+        & ~pairs.density_tie
     )
     pairs["condition"] = "Unbinned"
     for name, mask in condition_masks(pairs).items():
@@ -74,7 +78,6 @@ def summarize(pairs, ties_incorrect=False):
         density_ok = subset.density_correct.copy()
         if ties_incorrect:
             model_ok = model_ok & ~subset.model_tie
-            density_ok = density_ok & ~subset.density_tie
         for method, correct, ties in (
             ("Attenuation", model_ok, subset.model_tie),
             ("Density only", density_ok, subset.density_tie),
@@ -121,8 +124,8 @@ def main():
     print("Coarse/fine membership uses saved attenuation deltas and shared validation thresholds.")
     print("Absent or non-directional majorities count as incorrect for both methods.")
     for ties_incorrect in (False, True):
-        policy = ("Sensitivity: exact ties count as incorrect"
-                  if ties_incorrect else "Primary: exact ties select displayed review 1")
+        policy = ("Sensitivity: model ties count as incorrect"
+                  if ties_incorrect else "Primary: model ties select displayed review 1; density ties are incorrect")
         print(f"\n=== {policy} ===")
         accuracy, comparisons = summarize(pairs, ties_incorrect)
         print("Agreement and two-sided 95% Wilson intervals:")

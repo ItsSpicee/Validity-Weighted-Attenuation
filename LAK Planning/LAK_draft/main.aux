@@ -81,57 +81,59 @@
 \@writefile{toc}{\contentsline {section}{\numberline {4}Results}{6}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Corpus and Model Behaviour}{6}{subsection.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}ATC Topic Structure}{6}{subsubsection.4.1.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Clause and review-level topic frequencies.}}{6}{table.caption.3}\protected@file@percent }
-\newlabel{tab:clause_review_freq}{{3}{6}{Clause and review-level topic frequencies}{table.caption.3}{}}
 \citation{Cohen1960}
 \citation{Landis1977}
 \citation{LundbergLee2017}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Clause and review-level topic frequencies.}}{7}{table.caption.3}\protected@file@percent }
+\newlabel{tab:clause_review_freq}{{3}{7}{Clause and review-level topic frequencies}{table.caption.3}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces $D_\text  {misc}$ distribution across all reviews.}}{7}{figure.caption.4}\protected@file@percent }
 \newlabel{fig:dmisc_dist}{{1}{7}{$D_\text {misc}$ distribution across all reviews}{figure.caption.4}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Sentiment Extraction}{7}{subsubsection.4.1.2}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \textcolor {red}{Average emotion probabilities by topic for one-star clauses.}}}{7}{figure.caption.5}\protected@file@percent }
 \newlabel{fig:one-star-emotion-heatmap}{{2}{7}{\new {Average emotion probabilities by topic for one-star clauses.}}{figure.caption.5}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}ATC Validation}{7}{subsubsection.4.1.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Single-label classification performance of ATC against expert annotations.}}{7}{table.caption.6}\protected@file@percent }
-\newlabel{tab:atc-classification-report}{{4}{7}{Single-label classification performance of ATC against expert annotations}{table.caption.6}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.4}Rating Regression Performance}{7}{subsubsection.4.1.4}\protected@file@percent }
 \citation{MannWhitney1947}
 \citation{Cureton1956}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Single-label classification performance of ATC against expert annotations.}}{8}{table.caption.6}\protected@file@percent }
+\newlabel{tab:atc-classification-report}{{4}{8}{Single-label classification performance of ATC against expert annotations}{table.caption.6}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces CatBoost 5-fold CV and held-out performance.}}{8}{table.caption.7}\protected@file@percent }
 \newlabel{tab:model-performance}{{5}{8}{CatBoost 5-fold CV and held-out performance}{table.caption.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \textcolor {red}{SHAP beeswarm plot for the eight polarity $\times $ topic categories on held-out professors. Point colour indicates feature value; horizontal position shows each feature's contribution to the predicted rating.}}}{8}{figure.caption.8}\protected@file@percent }
-\newlabel{fig:baseline-shap}{{3}{8}{\new {SHAP beeswarm plot for the eight polarity $\times $ topic categories on held-out professors. Point colour indicates feature value; horizontal position shows each feature's contribution to the predicted rating.}}{figure.caption.8}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}What Attenuation Changes}{8}{subsection.4.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Adjustment Outcomes}{8}{subsubsection.4.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Mechanistic Coherence}{8}{subsubsection.4.2.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Correlation analysis: attenuation $\Delta $ versus modulators, computed on held-out professors ($n = 2{,}052$ reviews).}}{8}{table.caption.10}\protected@file@percent }
-\newlabel{tab:correlation_deltas}{{6}{8}{Correlation analysis: attenuation $\Delta $ versus modulators, computed on held-out professors ($n = 2{,}052$ reviews)}{table.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \textcolor {red}{SHAP beeswarm plot for the eight polarity $\times $ topic categories on held-out professors. Point colour indicates feature value; horizontal position shows each feature's contribution to the predicted rating.}}}{8}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:baseline-shap}{{3}{8}{\new {SHAP beeswarm plot for the eight polarity $\times $ topic categories on held-out professors. Point colour indicates feature value; horizontal position shows each feature's contribution to the predicted rating.}}{figure.caption.8}{}}
 \citation{Wilson1927}
 \citation{Fleiss1971}
 \citation{Landis1977}
-\citation{Ernst2004}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Mechanistic coherence checks after attenuation. (a) Change in SHAP-based feature importance (\%), computed on held-out professors ($n = 3{,}414$ reviews). (b) \textcolor {red}{Average change in correlation magnitude (\%, Pearson and Spearman) after adjustment, held-out professors ($n = 2{,}052$). Bars show mean $(|\text  {corr}_{\text  {adjusted}}| - |\text  {corr}_{\text  {raw}}|)/|\text  {corr}_{\text  {raw}}|$ across polarity groups.}}}{9}{figure.caption.9}\protected@file@percent }
 \newlabel{fig:mechanistic-checks}{{4}{9}{Mechanistic coherence checks after attenuation. (a) Change in SHAP-based feature importance (\%), computed on held-out professors ($n = 3{,}414$ reviews). (b) \new {Average change in correlation magnitude (\%, Pearson and Spearman) after adjustment, held-out professors ($n = 2{,}052$). Bars show mean $(|\text {corr}_{\text {adjusted}}| - |\text {corr}_{\text {raw}}|)/|\text {corr}_{\text {raw}}|$ across polarity groups.}}{figure.caption.9}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Correlation analysis: attenuation $\Delta $ versus modulators, computed on held-out professors ($n = 2{,}052$ reviews).}}{9}{table.caption.10}\protected@file@percent }
+\newlabel{tab:correlation_deltas}{{6}{9}{Correlation analysis: attenuation $\Delta $ versus modulators, computed on held-out professors ($n = 2{,}052$ reviews)}{table.caption.10}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Initial Validity and Robustness Evidence}{9}{subsection.4.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Expert Paired Comparisons}{9}{subsubsection.4.3.1}\protected@file@percent }
-\citation{PhipsonSmyth2010}
-\citation{PhipsonSmyth2010}
-\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces \textcolor {blue}{Attenuation and density-only rankings compared with three-expert judgments. Attenuation selects the review with smaller $|\Delta |$; density alone selects the review with lower $D_{\text  {misc}}$. Both methods use the same 77 evaluable pairs and the original attenuation-defined coarse/fine groups. Agreement requires a matching directional majority; absent or non-directional majorities count as incorrect. Agreement and two-sided 95\% Wilson intervals are identical for the two methods within each condition. Expert $\kappa $ measures agreement among experts over all three response categories (review 1, review 2, ``unsure''), using all complete three-rater pairs in each condition (77 overall, 43 coarse, 34 fine).}}}{10}{table.caption.11}\protected@file@percent }
-\newlabel{tab:expert-consensus}{{7}{10}{\auth {Attenuation and density-only rankings compared with three-expert judgments. Attenuation selects the review with smaller $|\Delta |$; density alone selects the review with lower $D_{\text {misc}}$. Both methods use the same 77 evaluable pairs and the original attenuation-defined coarse/fine groups. Agreement requires a matching directional majority; absent or non-directional majorities count as incorrect. Agreement and two-sided 95\% Wilson intervals are identical for the two methods within each condition. Expert $\kappa $ measures agreement among experts over all three response categories (review 1, review 2, ``unsure''), using all complete three-rater pairs in each condition (77 overall, 43 coarse, 34 fine).}}{table.caption.11}{}}
+\citation{Ernst2004}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces \textcolor {blue}{Attenuation and density-only rankings compared with three-expert judgments. Attenuation selects the review with smaller $|\Delta |$; density alone selects the review with lower $D_{\text  {misc}}$. If both reviews have equal $D_{\text  {misc}}$ values, density alone gets the pair incorrect. Both methods use the same 77 evaluable pairs and the original attenuation-defined coarse/fine groups. Agreement requires a matching directional majority; absent or non-directional majorities count as incorrect. Agreement and two-sided 95\% Wilson intervals are identical for the two methods within each condition. Expert $\kappa $ measures agreement among experts over all three response categories (review 1, review 2, ``unsure''), using all complete three-rater pairs in each condition (77 overall, 43 coarse, 34 fine).}}}{10}{table.caption.11}\protected@file@percent }
+\newlabel{tab:expert-consensus}{{7}{10}{\auth {Attenuation and density-only rankings compared with three-expert judgments. Attenuation selects the review with smaller $|\Delta |$; density alone selects the review with lower $D_{\text {misc}}$. If both reviews have equal $D_{\text {misc}}$ values, density alone gets the pair incorrect. Both methods use the same 77 evaluable pairs and the original attenuation-defined coarse/fine groups. Agreement requires a matching directional majority; absent or non-directional majorities count as incorrect. Agreement and two-sided 95\% Wilson intervals are identical for the two methods within each condition. Expert $\kappa $ measures agreement among experts over all three response categories (review 1, review 2, ``unsure''), using all complete three-rater pairs in each condition (77 overall, 43 coarse, 34 fine).}}{table.caption.11}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Two discordant expert-comparison pairs illustrating differences between density-based and adjustment-magnitude ordering. Density selects the review with lower $D_{\text  {misc}}$; attenuation selects the review with smaller $|\Delta |$. All six discordant pairs are provided in the supplementary material.}}{10}{table.caption.12}\protected@file@percent }
+\newlabel{tab:discordant}{{8}{10}{Two discordant expert-comparison pairs illustrating differences between density-based and adjustment-magnitude ordering. Density selects the review with lower $D_{\text {misc}}$; attenuation selects the review with smaller $|\Delta |$. All six discordant pairs are provided in the supplementary material}{table.caption.12}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}Permutation Control}{10}{subsubsection.4.3.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Permutation control ($N=1{,}000$). Expert rows report agreement; modulator rows report Pearson $r$. Null entries give the mean and one-sided $p$ using $(k+1)/(N+1)$ \cite {PhipsonSmyth2010}. Recomputed coarse groups contained a mean of 10.51 pairs (range 3--20), compared with 43 observed; fine groups averaged 66.49, compared with 34 observed. Fixed-bin subgroup analyses are supplementary; overall and modulator tests are shared.}}{10}{table.caption.12}\protected@file@percent }
-\newlabel{tab:permutation-control}{{8}{10}{Permutation control ($N=1{,}000$). Expert rows report agreement; modulator rows report Pearson $r$. Null entries give the mean and one-sided $p$ using $(k+1)/(N+1)$ \protect \cite {PhipsonSmyth2010}. Recomputed coarse groups contained a mean of 10.51 pairs (range 3--20), compared with 43 observed; fine groups averaged 66.49, compared with 34 observed. Fixed-bin subgroup analyses are supplementary; overall and modulator tests are shared}{table.caption.12}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}Sensitivity to Attenuation Exponent}{10}{subsubsection.4.3.3}\protected@file@percent }
+\citation{PhipsonSmyth2010}
+\citation{PhipsonSmyth2010}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Permutation control ($N=1{,}000$). Expert rows report agreement; modulator rows report Pearson $r$. Null entries give the mean and one-sided $p$ using $(k+1)/(N+1)$ \cite {PhipsonSmyth2010}. Recomputed coarse groups contained a mean of 10.51 pairs (range 3--20), compared with 43 observed; fine groups averaged 66.49, compared with 34 observed. Fixed-bin subgroup analyses are supplementary; overall and modulator tests are shared.}}{11}{table.caption.13}\protected@file@percent }
+\newlabel{tab:permutation-control}{{9}{11}{Permutation control ($N=1{,}000$). Expert rows report agreement; modulator rows report Pearson $r$. Null entries give the mean and one-sided $p$ using $(k+1)/(N+1)$ \protect \cite {PhipsonSmyth2010}. Recomputed coarse groups contained a mean of 10.51 pairs (range 3--20), compared with 43 observed; fine groups averaged 66.49, compared with 34 observed. Fixed-bin subgroup analyses are supplementary; overall and modulator tests are shared}{table.caption.13}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}Sensitivity to Attenuation Exponent}{11}{subsubsection.4.3.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces \textcolor {blue}{Robustness across attenuation exponents: (a) selected delta comparisons, with $d=|\Delta _a-\Delta _b|$; (b) expert majority agreement, with the same pairs and bins fixed at $s=1$ ($n=77$: 43 coarse, 34 fine; operating point in bold); (c) modulator correlations; (d) professor-bootstrap 95\% confidence intervals. Panels (a), (c), and (d) use 2{,}052 held-out reviews with $D_{\text  {misc}}>0$; panel (b) uses the full expert sample.}}}{11}{table.caption.14}\protected@file@percent }
+\newlabel{tab:sensitivity}{{10}{11}{\auth {Robustness across attenuation exponents: (a) selected delta comparisons, with $d=|\Delta _a-\Delta _b|$; (b) expert majority agreement, with the same pairs and bins fixed at $s=1$ ($n=77$: 43 coarse, 34 fine; operating point in bold); (c) modulator correlations; (d) professor-bootstrap 95\% confidence intervals. Panels (a), (c), and (d) use 2{,}052 held-out reviews with $D_{\text {misc}}>0$; panel (b) uses the full expert sample.}}{table.caption.14}{}}
 \citation{MarshRoche1997}
 \citation{Langbein1994}
 \citation{Schiekirka2015}
 \citation{Dowell1983}
 \citation{Wongsurawat2011}
 \citation{Li2025}
-\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces \textcolor {blue}{Robustness across attenuation exponents: (a) selected delta comparisons, with $d=|\Delta _a-\Delta _b|$; (b) expert majority agreement, with the same pairs and bins fixed at $s=1$ ($n=77$: 43 coarse, 34 fine; operating point in bold); (c) modulator correlations; (d) professor-bootstrap 95\% confidence intervals. Panels (a), (c), and (d) use 2{,}052 held-out reviews with $D_{\text  {misc}}>0$; panel (b) uses the full expert sample.}}}{11}{table.caption.13}\protected@file@percent }
-\newlabel{tab:sensitivity}{{9}{11}{\auth {Robustness across attenuation exponents: (a) selected delta comparisons, with $d=|\Delta _a-\Delta _b|$; (b) expert majority agreement, with the same pairs and bins fixed at $s=1$ ($n=77$: 43 coarse, 34 fine; operating point in bold); (c) modulator correlations; (d) professor-bootstrap 95\% confidence intervals. Panels (a), (c), and (d) use 2{,}052 held-out reviews with $D_{\text {misc}}>0$; panel (b) uses the full expert sample.}}{table.caption.13}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{11}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}A Validity-Oriented Analytic Primitive}{11}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{12}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}A Validity-Oriented Analytic Primitive}{12}{subsection.5.1}\protected@file@percent }
 \citation{Zhai2021}
 \citation{TsaiMartinezMaldonado2022}
 \citation{GasevicDawsonSiemens2015}
@@ -139,12 +141,12 @@
 \citation{DrachslerGreller2016}
 \citation{Kim2025}
 \citation{Kopciuszewska2025}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Implications for Responsible Interpretation of Teaching Feedback}{12}{subsection.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Boundaries, Risks, and Non-Use}{12}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Implications for Responsible Interpretation of Teaching Feedback}{13}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Boundaries, Risks, and Non-Use}{13}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Limitations and Future Work}{13}{section.6}\protected@file@percent }
 \citation{FergusonClow2017}
 \citation{Marsh1982}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Limitations and Future Work}{13}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{13}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{14}{section.7}\protected@file@percent }
 \bibdata{references}
 \bibcite{Bhowmik2023}{\citeauthoryear {Bhowmik, Mohd.~Nur, Miah,{}\ \BBA{} Karmekar}{Bhowmik\ \BOthers {.}}{{\APACyear {2023}}}}
 \APACbibcite{Bhowmik2023}{\citeauthoryear {Bhowmik, Mohd.~Nur, Miah,{}\ \BBA{} Karmekar}{Bhowmik\ \BOthers {.}}{{\APACyear {2023}}}}
@@ -174,11 +176,6 @@
 \APACbibcite{Fleiss1971}{\citeauthoryear {Fleiss}{Fleiss}{{\APACyear {1971}}}}
 \bibcite{GasevicDawsonSiemens2015}{\citeauthoryear {Ga\v {s}evi\'{c}, Dawson,{}\ \BBA{} Siemens}{Ga\v {s}evi\'{c}\ \BOthers {.}}{{\APACyear {2015}}}}
 \APACbibcite{GasevicDawsonSiemens2015}{\citeauthoryear {Ga\v {s}evi\'{c}, Dawson,{}\ \BBA{} Siemens}{Ga\v {s}evi\'{c}\ \BOthers {.}}{{\APACyear {2015}}}}
-\@writefile{toc}{\contentsline {section}{Declaration of Conflicting Interest}{14}{section*.14}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{Funding}{14}{section*.14}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{Ethical Considerations}{14}{section*.14}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{Data and Code Availability}{14}{section*.14}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{References}{14}{section*.15}\protected@file@percent }
 \bibcite{Hancock2020}{\citeauthoryear {Hancock\ \BBA{} Khoshgoftaar}{Hancock\ \BBA{} Khoshgoftaar}{{\APACyear {2020}}}}
 \APACbibcite{Hancock2020}{\citeauthoryear {Hancock\ \BBA{} Khoshgoftaar}{Hancock\ \BBA{} Khoshgoftaar}{{\APACyear {2020}}}}
 \bibcite{Haskell1997}{\citeauthoryear {Haskell}{Haskell}{{\APACyear {1997}}}}
@@ -187,6 +184,11 @@
 \APACbibcite{He2020}{\citeauthoryear {He}{He}{{\APACyear {2020}}}}
 \bibcite{Huber1964}{\citeauthoryear {Huber}{Huber}{{\APACyear {1964}}}}
 \APACbibcite{Huber1964}{\citeauthoryear {Huber}{Huber}{{\APACyear {1964}}}}
+\@writefile{toc}{\contentsline {section}{Declaration of Conflicting Interest}{15}{section*.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{Funding}{15}{section*.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{Ethical Considerations}{15}{section*.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{Data and Code Availability}{15}{section*.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{References}{15}{section*.16}\protected@file@percent }
 \bibcite{Iatrellis2024}{\citeauthoryear {Iatrellis, Samaras, Kokkinos,{}\ \BBA{} Xenakis}{Iatrellis\ \BOthers {.}}{{\APACyear {2024}}}}
 \APACbibcite{Iatrellis2024}{\citeauthoryear {Iatrellis, Samaras, Kokkinos,{}\ \BBA{} Xenakis}{Iatrellis\ \BOthers {.}}{{\APACyear {2024}}}}
 \bibcite{Irons2011}{\citeauthoryear {Irons, Carlson, Kirk,{}\ \BBA{} Monk}{Irons\ \BOthers {.}}{{\APACyear {2011}}}}
@@ -258,7 +260,7 @@
 \bibcite{Zumbach2014}{\citeauthoryear {Zumbach\ \BBA{} Funke}{Zumbach\ \BBA{} Funke}{{\APACyear {2014}}}}
 \APACbibcite{Zumbach2014}{\citeauthoryear {Zumbach\ \BBA{} Funke}{Zumbach\ \BBA{} Funke}{{\APACyear {2014}}}}
 \ttl@finishall
-\newlabel{LastPage}{{7}{16}{}{page.16}{}}
-\gdef\lastpage@lastpage{16}
-\gdef\lastpage@lastpageHy{16}
-\gdef \@abspage@last{16}
+\newlabel{LastPage}{{7}{17}{}{page.17}{}}
+\gdef\lastpage@lastpage{17}
+\gdef\lastpage@lastpageHy{17}
+\gdef \@abspage@last{17}
