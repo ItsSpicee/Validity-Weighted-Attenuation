@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1789010841.13869 "main.aux" "main.bbl" "main" 1789010849.81047 0
+["bibtex main"] 1789069840.45456 "main.aux" "main.bbl" "main" 1789069866.15566 0
   "./references.bib" 1788838761 20131 dcadece06318e9de2e8cf69822d31804 ""
   "C:/Users/Amer/AppData/Local/Programs/MiKTeX/bibtex/bst/apacite/apacite.bst" 1374952728 146156 9d7b79dbf9d91133318126032cff8c27 ""
-  "main.aux" 1789010847 28181 a129ed5f15db7fd4d5d1e660cdfe7697 "pdflatex"
+  "main.aux" 1789069863 28120 7ab0d7f298b8e83e8c207cc2775f639f "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1789010842.05075 "c:/Users/Amer/Desktop/Git/Validity-Weighted-Attenuation/LAK Planning/LAK_draft/main.tex" "main.pdf" "main" 1789010849.81292 0
+["pdflatex"] 1789069858.82311 "c:/Users/Amer/Desktop/Git/Validity-Weighted-Attenuation/LAK Planning/LAK_draft/main.tex" "main.pdf" "main" 1789069866.15796 0
   "C:/Users/Amer/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1788985733 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/Amer/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1787522538 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/Amer/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1787522329 13333003 d4ff3d4b00c4af1af0d5afe6142af747 ""
@@ -169,12 +169,12 @@
   "Diagrams/pdfs/ex2.pdf" 1788320587 107068 70e38f93327ebd39dac4d7a6adf4d8a1 ""
   "Diagrams/roberta/1_star_heatmap_emotions.png" 1788381723 65500 fe9d17d12b738118733569d98967f1ba ""
   "JLA_article.cls" 1787516512 9134 ce0cd70d9fdd82e805faea3790c4d92a ""
-  "c:/Users/Amer/Desktop/Git/Validity-Weighted-Attenuation/LAK Planning/LAK_draft/main.tex" 1789010829 77245 8b06ed30d168abe3df3055db0c8d81ec ""
+  "c:/Users/Amer/Desktop/Git/Validity-Weighted-Attenuation/LAK Planning/LAK_draft/main.tex" 1789069857 79598 e2d428f4abddeb4f97c9298ecb25534c ""
   "header.png" 1787516512 81196 9778dd2402a71bb212046e45ff94a082 ""
-  "main.aux" 1789010847 28181 a129ed5f15db7fd4d5d1e660cdfe7697 "pdflatex"
-  "main.bbl" 1789010841 41227 6da8be5c05a1e5f321f9e537cb77c724 "bibtex main"
-  "main.out" 1789010847 8340 42d1d9f05584b799a5f7814a9bdbefac "pdflatex"
-  "main.tex" 1789010829 77245 8b06ed30d168abe3df3055db0c8d81ec ""
+  "main.aux" 1789069863 28120 7ab0d7f298b8e83e8c207cc2775f639f "pdflatex"
+  "main.bbl" 1789069840 41227 6da8be5c05a1e5f321f9e537cb77c724 "bibtex main"
+  "main.out" 1789069863 8466 c24c0f1855a9d4e0930271ce5e7d7718 "pdflatex"
+  "main.tex" 1789069857 79598 e2d428f4abddeb4f97c9298ecb25534c ""
   (generated)
   "main.aux"
   "main.log"

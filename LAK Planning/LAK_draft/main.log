@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.23)  9 SEP 2026 23:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.23)  10 SEP 2026 15:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -583,7 +583,7 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 14.
 Package hyperref Info: Option `breaklinks' set `true' on input line 14.
 Package hyperref Info: Option `bookmarksopen' set `false' on input line 14.
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 9
-3.
+1.
 
 (C:\Users\Amer\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
@@ -595,25 +595,25 @@ File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-Package hyperref Info: Link coloring ON on input line 93.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+Package hyperref Info: Link coloring ON on input line 91.
  (main.out) (main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
@@ -687,13 +687,13 @@ LaTeX Info: Redefining \BHBI on input line 130.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \microtypecontext on input line 93.
-Package microtype Info: Applying patch `item' on input line 93.
-Package microtype Info: Applying patch `toc' on input line 93.
-Package microtype Info: Applying patch `eqnum' on input line 93.
-Package microtype Info: Applying patch `footnote' on input line 93.
-Package microtype Info: Applying patch `verbatim' on input line 93.
-LaTeX Info: Redefining \microtypesetup on input line 93.
+LaTeX Info: Redefining \microtypecontext on input line 91.
+Package microtype Info: Applying patch `item' on input line 91.
+Package microtype Info: Applying patch `toc' on input line 91.
+Package microtype Info: Applying patch `eqnum' on input line 91.
+Package microtype Info: Applying patch `footnote' on input line 91.
+Package microtype Info: Applying patch `verbatim' on input line 91.
+LaTeX Info: Redefining \microtypesetup on input line 91.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -708,7 +708,7 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 9
-7.
+5.
 
 (C:\Users\Amer\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
@@ -718,13 +718,13 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 9
-7.
+5.
 
 (C:\Users\Amer\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
- 97.
+ 95.
 
 (C:\Users\Amer\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
@@ -734,29 +734,29 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
- 97.
+ 95.
 
 (C:\Users\Amer\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line
- 97.
+ 95.
 
 (C:\Users\Amer\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line
- 97.
+ 95.
 
 (C:\Users\Amer\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 97.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 95.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 97.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 95.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 97.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 95.
 
 (C:\Users\Amer\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
@@ -764,26 +764,26 @@ File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 (C:\Users\Amer\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-Underfull \hbox (badness 10000) in paragraph at lines 97--97
+Underfull \hbox (badness 10000) in paragraph at lines 95--95
 
  []
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 97.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 95.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 97.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 95.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 97.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 95.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 100.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 98.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 100.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 98.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 100.
-<header.png, id=195, 472.164pt x 32.7624pt>
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 98.
+<header.png, id=190, 472.164pt x 32.7624pt>
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 134.
+Package pdftex.def Info: header.png  used on input line 107.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 Package fancyhdr Warning: \headheight is too small (11.0pt): 
@@ -798,7 +798,7 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <./header.png>]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 175.
+Package pdftex.def Info: header.png  used on input line 166.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -809,14 +809,9 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
 [2]
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 2
-16.
- (C:\Users\Amer\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 224.
+Package pdftex.def Info: header.png  used on input line 213.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -827,9 +822,14 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
 [3]
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 2
+14.
+ (C:\Users\Amer\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 285.
+Package pdftex.def Info: header.png  used on input line 268.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -842,7 +842,7 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 [4]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 348.
+Package pdftex.def Info: header.png  used on input line 313.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -856,17 +856,24 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 <Diagrams/pdfs/ex2.pdf, id=356, 569.055pt x 398.3382pt>
 File: Diagrams/pdfs/ex2.pdf Graphic file (type pdf)
 <use Diagrams/pdfs/ex2.pdf>
-Package pdftex.def Info: Diagrams/pdfs/ex2.pdf  used on input line 357.
+Package pdftex.def Info: Diagrams/pdfs/ex2.pdf  used on input line 355.
 (pdftex.def)             Requested size: 500.484pt x 244.60275pt.
 <Diagrams/atc_visuals/dmiscdistribution.png, id=360, 969.8634pt x 315.8199pt>
 File: Diagrams/atc_visuals/dmiscdistribution.png Graphic file (type png)
 <use Diagrams/atc_visuals/dmiscdistribution.png>
 Package pdftex.def Info: Diagrams/atc_visuals/dmiscdistribution.png  used on in
-put line 394.
+put line 392.
 (pdftex.def)             Requested size: 360.34908pt x 117.34306pt.
+<Diagrams/roberta/1_star_heatmap_emotions.png, id=362, 1102.8402pt x 204.5241pt
+>
+File: Diagrams/roberta/1_star_heatmap_emotions.png Graphic file (type png)
+<use Diagrams/roberta/1_star_heatmap_emotions.png>
+Package pdftex.def Info: Diagrams/roberta/1_star_heatmap_emotions.png  used on 
+input line 406.
+(pdftex.def)             Requested size: 500.484pt x 92.81517pt.
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 405.
+Package pdftex.def Info: header.png  used on input line 416.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -876,17 +883,10 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
-[6 <./Diagrams/pdfs/ex2.pdf>]
-<Diagrams/roberta/1_star_heatmap_emotions.png, id=419, 1102.8402pt x 204.5241pt
->
-File: Diagrams/roberta/1_star_heatmap_emotions.png Graphic file (type png)
-<use Diagrams/roberta/1_star_heatmap_emotions.png>
-Package pdftex.def Info: Diagrams/roberta/1_star_heatmap_emotions.png  used on 
-input line 408.
-(pdftex.def)             Requested size: 500.484pt x 92.81517pt.
+[6]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 483.
+Package pdftex.def Info: header.png  used on input line 416.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -897,30 +897,43 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
 [7 <./Diagrams/atc_visuals/dmiscdistribution.png> <./Diagrams/roberta/1_star_he
-atmap_emotions.png>]
-<Diagrams/SHAP/baseline_shap.png, id=441, 1046.4696pt x 315.8199pt>
+atmap_emotions.png> <./Diagrams/pdfs/ex2.pdf>]
+<Diagrams/SHAP/baseline_shap.png, id=439, 1046.4696pt x 315.8199pt>
 File: Diagrams/SHAP/baseline_shap.png Graphic file (type png)
 <use Diagrams/SHAP/baseline_shap.png>
 Package pdftex.def Info: Diagrams/SHAP/baseline_shap.png  used on input line 48
-6.
+4.
 (pdftex.def)             Requested size: 450.43253pt x 135.93965pt.
-<Diagrams/SHAP/pct_change_shap.png, id=446, 722.7pt x 304.9794pt>
+File: header.png Graphic file (type png)
+<use header.png>
+Package pdftex.def Info: header.png  used on input line 504.
+(pdftex.def)             Requested size: 500.484pt x 34.72746pt.
+
+
+Package fancyhdr Warning: \headheight is too small (11.0pt): 
+(fancyhdr)                Make it at least 38.3275pt, for example:
+(fancyhdr)                \setlength{\headheight}{38.3275pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
+
+[8]
+<Diagrams/SHAP/pct_change_shap.png, id=454, 722.7pt x 304.9794pt>
 File: Diagrams/SHAP/pct_change_shap.png Graphic file (type png)
 <use Diagrams/SHAP/pct_change_shap.png>
 Package pdftex.def Info: Diagrams/SHAP/pct_change_shap.png  used on input line 
-512.
+510.
 (pdftex.def)             Requested size: 240.23016pt x 101.37411pt.
-<Diagrams/correlation_changes/average_corr_changes.png, id=447, 722.7pt x 301.3
+<Diagrams/correlation_changes/average_corr_changes.png, id=455, 722.7pt x 301.3
 659pt>
 File: Diagrams/correlation_changes/average_corr_changes.png Graphic file (type 
 png)
 <use Diagrams/correlation_changes/average_corr_changes.png>
 Package pdftex.def Info: Diagrams/correlation_changes/average_corr_changes.png 
- used on input line 517.
+ used on input line 515.
 (pdftex.def)             Requested size: 240.23016pt x 100.173pt.
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 559.
+Package pdftex.def Info: header.png  used on input line 564.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -930,24 +943,11 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
-[8 <./Diagrams/SHAP/baseline_shap.png>]
+[9 <./Diagrams/SHAP/baseline_shap.png> <./Diagrams/SHAP/pct_change_shap.png> <.
+/Diagrams/correlation_changes/average_corr_changes.png>]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 589.
-(pdftex.def)             Requested size: 500.484pt x 34.72746pt.
-
-
-Package fancyhdr Warning: \headheight is too small (11.0pt): 
-(fancyhdr)                Make it at least 38.3275pt, for example:
-(fancyhdr)                \setlength{\headheight}{38.3275pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
-
-[9 <./Diagrams/SHAP/pct_change_shap.png> <./Diagrams/correlation_changes/averag
-e_corr_changes.png>]
-File: header.png Graphic file (type png)
-<use header.png>
-Package pdftex.def Info: header.png  used on input line 625.
+Package pdftex.def Info: header.png  used on input line 642.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -958,9 +958,11 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
 [10]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 724.
+Package pdftex.def Info: header.png  used on input line 651.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -973,7 +975,7 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 [11]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 755.
+Package pdftex.def Info: header.png  used on input line 743.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -986,7 +988,7 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 [12]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 799.
+Package pdftex.def Info: header.png  used on input line 775.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -999,7 +1001,7 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 [13]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 845.
+Package pdftex.def Info: header.png  used on input line 809.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -1012,7 +1014,7 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 [14] (main.bbl
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 523.
+Package pdftex.def Info: header.png  used on input line 36.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -1023,11 +1025,9 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
 [15]
-Underfull \vbox (badness 2452) has occurred while \output is active []
-
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 1286.
+Package pdftex.def Info: header.png  used on input line 766.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -1037,10 +1037,10 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
-[16])
+[16]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 866.
+Package pdftex.def Info: header.png  used on input line 1513.
 (pdftex.def)             Requested size: 500.484pt x 34.72746pt.
 
 
@@ -1050,7 +1050,20 @@ Package fancyhdr Warning: \headheight is too small (11.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
 
-[17] 
+[17])
+File: header.png Graphic file (type png)
+<use header.png>
+Package pdftex.def Info: header.png  used on input line 868.
+(pdftex.def)             Requested size: 500.484pt x 34.72746pt.
+
+
+Package fancyhdr Warning: \headheight is too small (11.0pt): 
+(fancyhdr)                Make it at least 38.3275pt, for example:
+(fancyhdr)                \setlength{\headheight}{38.3275pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-27.3275pt}.
+
+[18] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (main.aux)
  ***********
@@ -1058,16 +1071,16 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 42D1D9F05584B799A5F7814A9BDBEFAC;8340.
+(rerunfilecheck)             Checksum: C24C0F1855A9D4E0930271CE5E7D7718;8466.
  ) 
 Here is how much of TeX's memory you used:
- 18249 strings out of 467871
- 293655 string characters out of 5418860
- 775162 words of memory out of 5000000
- 46254 multiletter control sequences out of 15000+600000
- 715888 words of font info for 443 fonts, out of 8000000 for 9000
+ 18264 strings out of 467871
+ 293726 string characters out of 5418860
+ 776988 words of memory out of 5000000
+ 46249 multiletter control sequences out of 15000+600000
+ 716632 words of font info for 456 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,15n,93p,1833b,608s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,15n,93p,2016b,613s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
 mbx10.pfb><C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmex10.pfb><C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -1091,9 +1104,9 @@ ts/type1/urw/symbol/usyr.pfb><C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts
 ype1/urw/times/utmb8a.pfb><C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/ty
 pe1/urw/times/utmr8a.pfb><C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/typ
 e1/urw/times/utmri8a.pfb>
-Output written on main.pdf (17 pages, 729076 bytes).
+Output written on main.pdf (18 pages, 734314 bytes).
 PDF statistics:
- 664 PDF objects out of 1000 (max. 8388607)
- 130 named destinations out of 1000 (max. 500000)
- 118642 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 671 PDF objects out of 1000 (max. 8388607)
+ 131 named destinations out of 1000 (max. 500000)
+ 118650 words of extra memory for PDF output out of 128383 (max. 10000000)
 
