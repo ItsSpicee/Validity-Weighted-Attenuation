@@ -109,26 +109,7 @@ Because a numerical rating collapses distinct sources of expression into a singl
 
 \subsection{The Unresolved Methodological Gap}
 
-Existing computational SET research provides rich descriptive accounts of
-sentiment and topics, but offers few mechanisms connecting an explicit relevance
-taxonomy to a model-estimated adjustment of an accompanying rating. We introduce
-\textbf{validity-informed attenuation}, an interpretable ABSA method that scales the
-affect in clauses assigned outside a stated taxonomy while preserving the original
-review and a review-level audit trail. In this study, \emph{taxonomy-excluded
-affect} denotes affect expressed in clauses assigned outside the stated taxonomy;
-the method attenuates its modelled contribution, which is taxonomy-relative and
-carries no claim that the underlying content is unimportant or invalid. The
-resulting adjustment makes the sensitivity of a rating summary to the stated
-taxonomy explicit and auditable, supporting a proposed human-review workflow in a
-consequential application where important criteria cannot be fully specified
-\cite{DoshiVelez2017} and analytical outputs must connect to pedagogical
-interpretation and action \cite{GasevicDawsonSiemens2015}. SET provides a
-consequential context for this proof of concept, and informal platforms such as
-RMP are a demanding setting for validity-informed feedback analytics. Interpretability
-is central given concerns about black-box systems in SET
-\cite{Rybinski2021,Zhuang2025}; the framework's audit trail makes its
-classifications, emotion features, density values, and model-based adjustment
-available for stakeholder inspection.
+Existing computational SET research describes sentiment and topics but offers few mechanisms connecting an explicit relevance taxonomy to model-estimated rating adjustments. We introduce \textbf{validity-informed attenuation}, an ABSA method that attenuates the modelled contribution of \emph{taxonomy-excluded affect}: affect expressed in clauses assigned outside the stated taxonomy. Exclusion does not imply that the content is unimportant or invalid. The method makes rating sensitivity to the taxonomy auditable by preserving original reviews alongside classifications, emotion features, density values, and adjustment records. This supports a proposed human-review workflow where important criteria cannot be fully specified \cite{DoshiVelez2017} and analytics must connect to pedagogical interpretation and action \cite{GasevicDawsonSiemens2015}. Such inspectability addresses concerns about black-box systems in SET \cite{Rybinski2021,Zhuang2025}.
 
 \textbf{Research Questions:}
 
@@ -151,11 +132,6 @@ To answer our research questions, we develop and apply a five-stage NLP framewor
 \item An initial expert-comparison protocol and density-only reference results that assess agreement with expert rankings on sampled review pairs and establish a concrete baseline for future methods.
 \end{itemize}
 
-The remainder of this paper describes the mechanism and its audit trail
-(Method), characterizes its behaviour on 17{,}127 RMP reviews across the three
-research questions (Results), and interprets the evidence within the stated
-boundaries: strong coarse-grained alignment with expert judgment, unresolved close-pair performance, and aggregate expert agreement that a
-density-only ordering reproduces on the same pairs. We regard these results as evidence of mechanistic coherence and as an initial evaluation protocol and reference for future research.
 %========================================================================================
 \section{Background and Conceptual Framing}
 %========================================================================================
@@ -179,9 +155,7 @@ content \cite{Rybinski2021,Shuqin2024}; in SET, aspect-based approaches use this
 extract aspect-level sentiment \cite{Bhowmik2023,Nikolic2020,Jazuli2025}. \citeA{Ren2022} extract and aggregate aspect
 sentiment, while \citeA{Butt2025} compare BERT and LLM approaches for SET analysis.
 
-Research on computational estimation of comment relevance shows that filtering by pedagogical value can improve
-prediction accuracy \cite{Sorour2015,Louis2013,Xiong2011}, but does not use relevance to alter affect’s contribution
-to ratings. Neither line of work specifies how pedagogical relevance should modulate affect’s contribution to rating interpretation.
+Research on computational estimation of comment relevance shows that filtering by pedagogical value can improve prediction accuracy \cite{Sorour2015,Louis2013,Xiong2011}. Neither line of work specifies how pedagogical relevance should modulate affect's contribution to rating interpretation.
 
 \subsection{Design Principle: Attenuation Rather Than Deletion}
 
@@ -193,23 +167,20 @@ dimensions; because this residual category may include omitted pedagogical
 concerns, ambiguous wording, or classification error, it provides a basis for
 inspection rather than a determination of irrelevance. The three categories
 reflect dimensions that recur across SET instruments and research syntheses
-\cite{Marsh1982}, chosen as a generic, widely legible baseline rather than a
-domain-specific decomposition; different taxonomies would produce different
-density estimates and adjustments. In formal applications, stakeholders could
+\cite{Marsh1982}, chosen as a generic, widely legible baseline; different taxonomies would produce different
+density estimates and adjustments. In future theoretical formal applications, stakeholders could
 define or refine the categories in relation to course learning design and its
 documented pedagogical intent, so that the analytic lens reflects local priorities
 \cite{LockyerHeathcoteDawson2013}.
 
-\subsection{Research Gap}
-  Despite advances in SET analysis, research offers limited computational support for operationalizing construct relevance to inform transparent, validity-oriented analysis of open-ended teaching feedback and its accompanying ratings. To our knowledge, no prior work links topic-level sentiment to an explicit model-estimated adjustment of accompanying ratings. Such an approach requires prioritizing transparency outputs that are auditable, contestable \cite{DrachslerGreller2016} and connected to pedagogical interpretation and action \cite{GasevicDawsonSiemens2015}.
-
+The remaining gap is an explicit rating-adjustment mechanism whose outputs are auditable and contestable \cite{DrachslerGreller2016}, supporting pedagogical interpretation and action \cite{GasevicDawsonSiemens2015}.
 %========================================================================================
 \section{Method}
 %========================================================================================
 
 \subsection{Study Context and Data}
 
-As a source of data, we use SET reviews from RateMyProfessors.com (RMP), a popular professor and course review website offering anonymous use by any student. As an informal SET system, RMP provides a deliberately noisy setting for examining the framework across heterogeneous and idiosyncratic review content, rather than a proxy for institutional SET. RMP lists a strict ``no scraping'' policy. Despite attempts to contact site administrators to request permission to source data directly from the site, no permission was granted; we therefore use the open-source dataset provided by \citeA{He2020}, sourced from RMP. This dataset comprises more than 19,000 individual textual SET reviews and associated numerical ratings (1--5) directed towards hundreds of professors, alongside RMP meta-tags and demographic information measured by the original researchers. For our purposes, the meta-tags and demographic information are not used.
+RMP provides a noisy setting for examining heterogeneous and idiosyncratic, informal teaching feedback rather than a proxy for institutional SET. Because RMP prohibits scraping and our requests for permission to collect data directly were unsuccessful, we use the existing dataset provided by \citeA{He2020}. It contains more than 19,000 reviews with numerical ratings (1--5) for hundreds of professors. We do not use its RMP meta-tags or demographic information.
 
 We excluded non-English reviews, reviews containing RMP's automatic censorship string ``****'' (whose application was prone to error), entries with no review text or text such as ``No Comment'', and reviews for professors with fewer than eight total reviews. After these exclusions, the final dataset contains 17,127 reviews. Reviews were then cleaned (encoding repair via \texttt{ftfy}, lowercase normalization, abbreviation expansion, and punctuation standardization); stemming and lemmatization were withheld to preserve contextual information for downstream models.
 
@@ -230,7 +201,7 @@ embeddings; clause assignment uses cosine similarity against that mean and the c
 where $s_{c,k}$ represents the cosine similarity between clause $c$ and pedagogical topic $k$. We set $\tau=0.25$ selected on a development set of 386 clauses from 100 manually inspected reviews, drawn before and independently of the evaluation
 sample, which was matched in size; the two samples share a single review, whose
 ten clauses appear in both. Threshold selection was thus out-of-sample except
-for these ten clauses (2.6\% of the evaluation sample). By encoding both clause text and category descriptions as semantic vectors, the model captures meaning across the diverse phrasing and informal language common within RMP reviews.
+for these ten clauses (2.6\% of the evaluation sample).
 
 Table~\ref{tab:atc-taxonomy} summarises the four-category taxonomy with representative descriptor phrases used to construct each topic embedding.
 
@@ -267,18 +238,17 @@ D_{k} =
 \quad k \in \{\text{eff},\,\text{fair},\,\text{work}\}.
 \end{equation}
 
-Here, $D_{\text{misc}}$ represents the proportion of content classified as \textit{Miscellaneous} under the stated taxonomy. It operationalizes the share of review text outside this study’s included dimensions; the complementary quantity $1 - D_{\text{misc}}$ represents the share assigned to them. This operational measure supports the attenuation rule without establishing the pedagogical relevance of any individual clause. Addition of one guards against division by zero when a pedagogical topic is
-absent from a review containing no \textit{Miscellaneous} content. The pedagogical density metrics ($D_{\text{effectiveness}}$, $D_{\text{fairness}}$, and $D_{\text{workload}}$) are also used as predictors in regression modelling, but not in the attenuation process.
+Here, $D_{\text{misc}}$ is the proportion of review words assigned to \textit{Miscellaneous}, and $1-D_{\text{misc}}$ is the proportion assigned to included categories; neither establishes individual clauses' pedagogical relevance. The added one in $D_k$ prevents division by zero when both topic $k$ and \textit{Miscellaneous} are absent. The pedagogical densities $D_k$ serve as regression predictors but do not determine attenuation.
 
-Per-clause sentiment analysis is performed using \texttt{SamLowe/roberta-base-go\_emotions} \cite{sam_lowe_2024}, a fine-tuned RoBERTa model trained on the GoEmotions dataset \cite{Demszky2020}. Each clause $c$ is independently processed and represented by a 27-dimensional emotion vector $\mathbf{e}'_c$, where each component denotes the probability estimated by the model that the clause expresses an emotion label. The model initially produces the 28 GoEmotions labels; \textit{Neutral} is removed because it represents the absence of strong emotional activation rather than an independent affective signal.
+Per-clause sentiment analysis is performed using \texttt{SamLowe/roberta-base-go\_emotions} \cite{sam_lowe_2024}, a fine-tuned RoBERTa model trained on the GoEmotions dataset \cite{Demszky2020}. Each clause $c$ is independently processed and represented by a 27-dimensional emotion vector $\mathbf{e}'_c$, where each component denotes the probability estimated by the model that the clause expresses an emotion label. The model initially produces the 28 GoEmotions labels; \textit{Neutral} is removed because it simply represents the absence of strong emotional activation.
 
-Using the previously obtained topic labels, clause-level emotion vectors within each review are aggregated at the topic level by computing the mean emotion vector over all clauses assigned to topic $k$:
+  For each review, we average clause-level emotion vectors within each topic $k$:
 
 \begin{equation}
 \mathbf{E}_k = \frac{1}{|C_k|} \sum_{c \in C_k} \mathbf{e}'_c,
 \end{equation}
 
-where $C_k$ denotes the set of clauses in the review labelled with topic $k$. If no clauses are assigned to a topic, the corresponding $\mathbf{E}_k$ is imputed as a zero vector of length 27, preserving the fixed input dimensionality while indicating the absence of observed emotion for that topic.
+where $C_k$ is the set of review clauses assigned to topic $k$. If $C_k$ is empty, $\mathbf{E}_k$ is a 27-dimensional zero vector, preserving the input dimensionality.
 
 \subsection{Predicting Ratings from Topic Specific Emotions}
 
@@ -295,21 +265,23 @@ Ratings are modelled as a function of emotions directed towards each topic and d
 \in \mathbb{R}^{4 \times 27 + 4} = \mathbb{R}^{112}.
 \end{equation}
 
-Here, $\mathbf{E}_{k} \in \mathbb{R}^{27}$ is the aggregated emotion vector for topic $k$, and $D_{k}$ is the corresponding density metric. For the complete dataset of $N = 17{,}127$ reviews, the feature matrix is $\mathbf{X} \in \mathbb{R}^{N \times 112}$.
+For $N=17{,}127$ reviews, the feature matrix is $\mathbf{X} \in \mathbb{R}^{N \times 112}$.
 
-To prevent data leakage and assess generalization to unseen professors, we employ an 80--20 professor-level grouped split. The CatBoost regressor is trained on 823 professors and evaluated on 206 held-out professors. Model-performance and coherence analyses use the held-out professors; the expert comparison uses a curated pair sample that spans both groups. This design produces more conservative performance estimates than random splitting while reflecting the challenge of generalizing across professors in larger-scale SET scenarios.
+To prevent instructor overlap between training and evaluation and assess generalization to unseen professors, we use an 80--20 professor-level split: 823 training and 206 held-out professors. Model-performance and coherence analyses use held-out professors; the curated expert-comparison sample spans both groups.
 
 We employ CatBoost regression, an open-source gradient-boosted tree model that captures non-linear interactions between emotional signals and topics in the sparse review representation \cite{Hancock2020,Prokhorenkova2018,Dorogush2018}. The final configuration was selected through grouped 5-fold cross-validation (GroupKFold, grouped by professor ID) on the training professors: 1000 iterations, learning rate 0.02, depth 7, and L2 leaf regularization 6; all other hyperparameters were kept at their default values. MAE was used as both the loss function and evaluation metric because it measures average absolute deviation from ratings on the 1--5 scale and is resilient to occasional outliers.
 
 \subsection{Validity-Informed Attenuation \& Rating Adjustment}
 
-Density describes the proportion of review text assigned outside the stated taxonomy, but does not indicate how the fitted rating model responds to the affect expressed in that content. Validity-informed attenuation connects this content-based measure to a specified transformation of the model's inputs: $D_{\text{misc}}$ determines the degree of scaling applied to the \textit{Miscellaneous} emotion features, and the prediction difference measures the model's response. Density and attenuation therefore provide complementary information about the prevalence of taxonomy-excluded content and the prediction's sensitivity to scaling its affective representation. The down-weighting factor $\zeta$ is calculated as:
+Density measures the proportion of taxonomy-excluded text; the attenuation-based rating adjustment measures the fitted
+model's response to a density-dependent perturbation of \textit{Miscellaneous} emotion features. We calculate the
+down-weighting factor $\zeta$ as:
 
 \begin{equation}
     \zeta = 1-D_{\text{misc}}.
 \end{equation}
 
-A review with no detected \textit{Miscellaneous} content is unchanged ($\zeta=1$), whereas a review composed entirely of such content receives zero weight for its \textit{Miscellaneous} emotion features ($\zeta=0$). Intermediate densities produce proportionate attenuation. The factor $\zeta$ scales the attenuation of miscellaneous emotion features linearly with their category's share of review text, providing a transparent link between the measured density and the feature transformation.
+When $D_{\text{misc}}=0$, the review is unchanged ($\zeta=1$); when $D_{\text{misc}}=1$, its \textit{Miscellaneous} emotion features are zeroed ($\zeta=0$). Intermediate densities produce proportional attenuation:
 
 \begin{equation}
     \hat{E}_{\text{misc}}^{\text{weighted}} = E_{\text{misc}} \cdot \zeta.
@@ -368,7 +340,7 @@ Table~\ref{tab:clause_review_freq} summarises topic frequencies after ATC. \text
 The rating distribution is negatively skewed, yet low-rating reviews show distinctive patterns: for ratings 1.0--2.0, \textit{Miscellaneous} clauses are the most frequent topic, exceeding the next pedagogical category by approximately 27\% in 1-star reviews.
 
 
-Figure~\ref{fig:dmisc_dist} shows the distribution of $D_{\text{misc}}$ across all reviews. The distribution is heavily right-skewed (median 0.11, mean 0.22), with a spike at $D_{\text{misc}} = 1.0$ reflecting reviews composed entirely of content classified as \textit{Miscellaneous} under the stated taxonomy, a subset receiving maximal attenuation.
+Across all reviews, $D_{\text{misc}}$ is heavily right-skewed (median 0.11, mean 0.22), with a spike at $D_{\text{misc}}=1$ representing wholly \textit{Miscellaneous} reviews receiving maximal attenuation (Figure~\ref{fig:dmisc_dist}).
 
 \begin{table}[htbp]
 \centering
@@ -394,12 +366,9 @@ Figure~\ref{fig:dmisc_dist} shows the distribution of $D_{\text{misc}}$ across a
     \label{fig:dmisc_dist}
 \end{figure}
 
-
-Together, these patterns show that pedagogical discourse centres on \textit{Instructional Effectiveness}, that \textit{Miscellaneous} content dominates the lowest-rated reviews, and that the right-skewed $D_{\text{misc}}$ distribution motivates proportional rather than uniform attenuation.
-
 \subsubsection{Sentiment Extraction}
 
-RoBERTa-GoEmotions outputs show higher positive-emotion label probabilities in high-rated reviews and higher negative-emotion label probabilities in low-rated reviews, with cross-valence signals at both extremes. One-star reviews also receive positive-emotion label probabilities (Figure~\ref{fig:one-star-emotion-heatmap}). These outputs may reflect mixed emotional expression, sarcasm, or classification error.
+RoBERTa-GoEmotions outputs show higher positive-emotion label probabilities in high-rated reviews and higher negative-emotion label probabilities in low-rated reviews, with cross-valence signals at both extremes (Figure~\ref{fig:one-star-emotion-heatmap} illustrates one-star reviews). These outputs may reflect mixed emotional expression, sarcasm, or classification error.
 
 \begin{figure}[htbp]
     \centering
@@ -412,7 +381,7 @@ RoBERTa-GoEmotions outputs show higher positive-emotion label probabilities in h
 
 To characterize inter-model consistency in applying the taxonomy, two independent LLMs (GPT-5 mini and Grok 4.1)
 categorized 386 clauses, yielding Cohen's \citeyear{Cohen1960} $\kappa = 0.7273$ (“substantial agreement”;
-\citeNP{Landis1977}). This result indicates substantial agreement between the models’ category assignments.
+\citeNP{Landis1977}).
 
 A senior faculty expert with more than 15 years of teaching and evaluation experience independently labelled the same 386 clauses, with multiple valid categories permitted per clause. Under a containment criterion (correct if the model's category appeared in the expert's label set), accuracy is 0.77. Restricting to clauses with exactly one expert label ($n = 287$) yields strict accuracy of 0.72; Table~\ref{tab:atc-classification-report} reports per-category precision, recall, and F1.
 
@@ -453,7 +422,7 @@ These results indicate acceptable alignment for a proof-of-concept study, though
 
 \subsubsection{Rating Regression Performance}
 
-The dataset is split 80--20 by professor to prevent leakage and better reflect the difficulty of generalizing to unseen instructors. Table~\ref{tab:model-performance} reports 5-fold GroupKFold CV and held-out performance; the held-out MAE of 0.6347 falls inside the fold range, suggesting consistent generalization.
+Table~\ref{tab:model-performance} reports 5-fold GroupKFold CV and held-out performance; the held-out MAE of 0.6347 falls inside the fold range, suggesting consistent generalization.
 
 \begin{table}[htbp]
 \caption{CatBoost 5-fold CV and held-out performance.}
@@ -559,15 +528,14 @@ the interpretation. Together, these checks indicate that attenuation introduces 
 
 \subsubsection{Expert Paired Comparisons}
 
-Three senior faculty experts with combined 75 years of experience in teaching, evaluation, and supervision independently labelled the same 80 manually anonymized RMP review pairs. Each pair presented two review texts; instructor and institution names were replaced with tags, and profanity and emoji were replaced where present. Pair order was randomized once and retained across experts. 3 pairs with no model outputs were also included to further blind the experts. Experts selected review 1 when it was ``more valid and/or on topic,'' review 2 when the second review was, and 3 only when completely unsure. Experts provided a single comparative judgment; validity and topical relevance were not assessed separately. The prompt left these terms to the experts' professional judgment and did not provide the study taxonomy. Experts were blind to model outputs and one another's labels. The verbatim task description text is provided in the supplementary material; all three experts received identical prompts. Pairs were constructed by randomly sampling an initial review, informally checking its ATC assignment, and sampling a second review until the required adjustment-contrast bin was met. Candidate rejection counts during pair construction were not recorded. Excluding the three pairs without model outputs, there were 77 evaluable pairs: 43 coarse and 34 fine. Coarse pairs had an absolute-adjustment difference $\bigl||\Delta_1|-|\Delta_2|\bigr| \geq 0.5$; fine pairs had a difference below 0.5. At the operating point $s=1$, these conditions partition the evaluable pairs. The 77 pairs reference 144 distinct instructors; eight instructors appear in more than one pair (at most three), and no pair contains two reviews of the
-same instructor.
+Three senior faculty experts with 75 combined years of teaching, evaluation, and supervision experience independently labelled the same 80 RMP review pairs. Experts were blind to model outputs and one another's labels; three pairs without model outputs were included to further blind them. Instructor and institution names were replaced with tags; profanity and emoji were replaced where present. Pair order was randomized once and shared across experts. Identical prompts asked experts to select the review that was ``more valid and/or on topic,'' or respond ``completely unsure.'' This single comparative judgment left validity and topical relevance to professional judgment, without separating them or supplying the study taxonomy. The verbatim prompt is provided in the supplementary material. Pairs were constructed by randomly sampling an initial review, informally checking its ATC assignment, and sampling a second review until the required adjustment-contrast bin was met. Candidate rejection counts during pair construction were not recorded. Excluding the three pairs without model outputs, there were 77 evaluable pairs: 43 coarse and 34 fine. Coarse pairs had an absolute-adjustment difference $\bigl||\Delta_1|-|\Delta_2|\bigr| \geq 0.5$; fine pairs had a difference below 0.5. At the operating point $s=1$, these conditions partition the evaluable pairs. The 77 pairs reference 144 distinct instructors; eight instructors appear in more than one pair (at most three), and no pair contains two reviews of the same instructor.
 
-Two matching votes established a majority. A model ranking agreed when the review receiving smaller $|\Delta|$ matched a directional majority; exact model ties selected the first displayed review. This comparison tests whether ordering reviews by the magnitude of the fitted model's response to taxonomy-based attenuation aligns with experts' judgments of validity and/or topical relevance. All retained pairs had three votes and a majority; one ``unsure'' majority counted as incorrect. Table~\ref{tab:expert-consensus} reports majority agreement, two-sided Wilson \citeyear{Wilson1927} intervals, and Fleiss' \citeyear{Fleiss1971} $\kappa$ over all three response categories. Following \cite{Landis1977}, these correspond to substantial ($\kappa=.658$, overall), almost perfect ($\kappa=.819$, coarse), and moderate ($\kappa=.469$, fine) agreement. Individual-expert fine agreement ranged from 58.8\% to 70.6\%. As a sensitivity check, excluding individual non-directional votes raised fine inter-expert agreement from $\kappa=.469$ to generalized $\kappa=.634$ (``substantial agreement''); this describes agreement among retained directional votes and does not change the primary scoring.
+Two matching votes established a majority. A model ranking agreed when the review receiving smaller $|\Delta|$ matched a directional majority; exact model ties selected the first displayed review. Density alone selects the review with lower $D_{\text{misc}}$, with density ties counted as incorrect. This comparison tests whether ordering reviews by the magnitude of the fitted model's response to taxonomy-based attenuation aligns with experts' judgments of validity and/or topical relevance. All retained pairs had three votes and a majority; one ``unsure'' majority counted as incorrect. Table~\ref{tab:expert-consensus} reports majority agreement, two-sided 95\% Wilson \citeyear{Wilson1927} intervals, and Fleiss' \citeyear{Fleiss1971} $\kappa$ over all three response categories. Following \cite{Landis1977}, these correspond to substantial ($\kappa=.658$, overall), almost perfect ($\kappa=.819$, coarse), and moderate ($\kappa=.469$, fine) agreement. Individual-expert fine agreement ranged from 58.8\% to 70.6\%. Excluding individual non-directional votes raised fine inter-expert agreement to $\kappa=.634$ (``substantial agreement''); this does not change the primary scoring.
 
 \begin{table}[htbp]
 \centering
 \small
-\caption{Attenuation and density-only rankings compared with three-expert judgments. Attenuation selects the review with smaller $|\Delta|$; density alone selects the review with lower $D_{\text{misc}}$. If both reviews have equal $D_{\text{misc}}$ values, density alone gets the pair incorrect. Both methods use the same 77 evaluable pairs and the original attenuation-defined coarse/fine groups. Agreement requires a matching directional majority; absent or non-directional majorities count as incorrect. Agreement and two-sided 95\% Wilson intervals are identical for the two methods within each condition. Expert $\kappa$ measures agreement among experts over all three response categories (review 1, review 2, ``unsure''), using all complete three-rater pairs in each condition (77 overall, 43 coarse, 34 fine).}
+\caption{Attenuation and density-only rankings compared with three-expert judgments on the same 77 pairs and original attenuation-defined coarse/fine groups.}
 \label{tab:expert-consensus}
 \begin{tabular}{lccccc}
 \toprule
@@ -580,42 +548,36 @@ Fine    & 21/34 & 21/34 & 61.8\% & [45.0\%, 76.1\%] & .469 \\
 \end{tabular}
 \end{table}
 
-
 A post hoc diagnostic partitioned the 34 fine pairs by expert voting pattern: of 19 unanimous pairs, 16 agreed with the model ranking (84.2\%); of 15 split-vote pairs, 5 agreed (33.3\%). Ten of thirteen model--majority disagreements occurred on pairs where the experts themselves disagreed. Three disagreements persisted despite expert unanimity, at absolute-adjustment contrasts of 0.314, 0.005, and 0.026 points.
 
-Density alone matched attenuation's agreement overall and within both contrast groups. Both methods correctly ranked 61 pairs; each correctly ranked three additional pairs that the other did not. Thus, this sample shows no aggregate agreement advantage for attenuation over density alone. Table~\ref{tab:discordant} presents one exclusive success for each method to illustrate how ordering by content proportion can differ from ordering by fitted-model response.
-
+Density alone matched attenuation's agreement overall and within both contrast groups. Both methods correctly ranked 61 pairs; each correctly ranked three additional pairs that the other did not. Thus, this sample shows no aggregate agreement advantage for attenuation over density alone. Table~\ref{tab:discordant} presents one exclusive success for each method.
 \begin{table}[htbp]
 \caption{Two discordant expert-comparison pairs illustrating differences between density-based and adjustment-magnitude ordering. Density selects the review with lower $D_{\text{misc}}$; attenuation selects the review with smaller $|\Delta|$. All six discordant pairs are provided in the supplementary material.}
 \label{tab:discordant}
 \small
 \centering
 \setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.14}
-\begin{tabular}{>{\raggedright\arraybackslash}p{0.17\linewidth}>{\raggedright\arraybackslash}p{0.375\linewidth}>{\raggedright\arraybackslash}p{0.375\linewidth}}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.46\linewidth}>{\raggedright\arraybackslash}p{0.38\linewidth}}
 \toprule
- & \shortstack[l]{\textbf{Pair 1}\\\textit{Attenuation-only success}} & \shortstack[l]{\textbf{Pair 6}\\\textit{Density-only success}} \\
+ & \shortstack[l]{\textbf{Pair 1}\\\textit{attenuation correct}} & \shortstack[l]{\textbf{Pair 6}\\\textit{density correct}} \\
 \midrule
-\multicolumn{3}{l}{\textit{Decision signals}} \\
-$D_{\text{misc}}$ (Rev.\ 1 / 2) & 0.21 / 0.27 & 0.48 / 0.34 \\
-$|\Delta|$ (Rev.\ 1 / 2) & 0.222 / 0.005 & 0.063 / 0.162 \\
+ $D_{\text{misc}}$ (Rev.\ 1 / 2) & 0.21 / 0.27 & 0.48 / 0.34 \\
+ $|\Delta|$ (Rev.\ 1 / 2) & 0.222 / 0.005 & 0.063 / 0.162 \\
 Expert majority & \textbf{Rev.\ 2} (3--0) & \textbf{Rev.\ 2} (3--0) \\
-Attenuation selects & \textbf{Rev.\ 2} \checkmark & Rev.\ 1 $\times$ \\
-Density selects & Rev.\ 1 $\times$ & \textbf{Rev.\ 2} \checkmark \\
 \midrule
-\multicolumn{3}{l}{\textit{Full anonymized review text}} \\
 \textbf{Review 1} &
-{\footnotesize ``[Instructor] is a nice guy and he knows math rather well. However, due to his accent it is hard to understand him very well and it is hard to learn from it. He does not respond to emails very quickly, and he loses some assignments if you turn them in outside of class. He tries to have a sense of humor but it's more dad jokes, really.''} &
-{\footnotesize ``Dr.\ [Instructor] is honestly one of the kindest people I've ever met. His lectures are very interesting and easy to understand. Tests are really fair.''} \\
+{\scriptsize ``[Instructor] is a nice guy and he knows math rather well. However, due to his accent it is hard to understand him very well and it is hard to learn from it. He does not respond to emails very quickly, and he loses some assignments if you turn them in outside of class. He tries to have a sense of humor but it's more dad jokes, really.''} &
+{\scriptsize ``Dr.\ [Instructor] is honestly one of the kindest people I've ever met. His lectures are very interesting and easy to understand. Tests are really fair.''} \\
 \addlinespace[2pt]
 \textbf{Review 2} &
-{\footnotesize ``The reading assignments were ridiculously long and a lot of them were very dry. But after the first few classes, you realized that he gives a synopsis of the assignment every day, so you don't really have to read them all. He's very popular during office hours, so get there early and be prepared to wait.''} &
-{\footnotesize ``This man is a lunatic. He managed to turn a history class into a literature course. I left his class with less knowledge about the world post-1500s than when I went into it. He does care about his students. However, he has one teaching style and that is it. So if you are not on the same wavelength as him, prepare to be left in the dark.''} \\
+{\scriptsize ``The reading assignments were ridiculously long and a lot of them were very dry. But after the first few classes, you realized that he gives a synopsis of the assignment every day, so you don't really have to read them all. He's very popular during office hours, so get there early and be prepared to wait.''} &
+{\scriptsize ``This man is a lunatic. He managed to turn a history class into a literature course. I left his class with less knowledge about the world post-1500s than when I went into it. He does care about his students. However, he has one teaching style and that is it. So if you are not on the same wavelength as him, prepare to be left in the dark.''} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-In Pair 1, densities of 0.21 and 0.27 accompany adjustment magnitudes of 0.222 and 0.005 rating points, respectively. Density selects Review 1, whereas attenuation selects Review 2, matching the unanimous expert judgment. This example shows that similar proportions of taxonomy-excluded text can accompany substantially different responses to the specified feature transformation. Pair 6 illustrates the converse disagreement: Review 1 has higher density but a smaller adjustment than Review 2, so attenuation selects Review 1 while density and all three experts select Review 2. A small adjustment therefore need not identify the review experts consider more valid or on topic. Together, these examples distinguish content prevalence from fitted-model sensitivity.
+Table~\ref{tab:discordant} shows how attenuation adds information about fitted-model sensitivity to content density. In Pair 1, similar densities accompany substantially different adjustment magnitudes, and attenuation alone matches the unanimous expert judgment. In Pair 6, the higher-density review receives the smaller adjustment, and density alone matches the unanimous judgment.
 
 \subsubsection{Permutation Control}
 
@@ -649,7 +611,7 @@ No shuffle produced a positive modulator correlation as large, or a negative cor
 
 We examine the attenuation family $\zeta = 1 - D_{\text{misc}}^{s}$ around the operating point $s=1$, which makes feature attenuation directly proportional to miscellaneous content density. Values below and above one provide alternative weighting curves for assessing sensitivity to this design choice. We evaluate $s \in \{0.5, 0.75, 1.0, 1.25, 1.5\}$.
 
-Table~\ref{tab:sensitivity}(a) reports selected delta comparisons: the two adjacent contrasts around $s=1$ and the full tested span. Adjacent values yield near-identical adjustments (e.g., $s = 0.75$ vs.\ $1.0$: $r = 0.995$, mean $|\Delta_a - \Delta_b| = 0.029$), and even the most distant pair ($s = 0.5$ vs.\ $1.5$) retains $r = 0.964$, although rank agreement is lower ($\rho=0.689$). The maximum single-review difference for that pair is $1.148$, but this is one extreme case; the mean across all $2{,}052$ reviews is $0.083$.
+Adjustments are near-identical for adjacent exponents around $s=1$, but rank agreement decreases across the full tested span (Table~\ref{tab:sensitivity}a). Comparing $s=0.5$ with $1.5$, the mean absolute adjustment difference is $0.083$ points, while the maximum is $1.148$, indicating that small average differences can coexist with substantial sensitivity for individual reviews.
 
 \begin{table}[htbp]
 \centering
@@ -718,11 +680,11 @@ Table~\ref{tab:sensitivity}(a) reports selected delta comparisons: the two adjac
 \end{minipage}
 \end{table}
 
-Table~\ref{tab:sensitivity}(c) shows that absolute Spearman correlations increase monotonically with $s$ across the tested range, while Pearson correlations remain nearly constant. The positive and negative relationships retain their respective directions throughout. These results describe sensitivity of the fitted mechanism to the attenuation exponent.
+Table~\ref{tab:sensitivity}(c) shows that absolute Spearman correlations increase monotonically with $s$ across the tested range, while Pearson correlations remain nearly constant. The positive and negative relationships retain their respective directions.
 
 Table~\ref{tab:sensitivity}(b) holds expert-pair membership and coarse/fine bins fixed at $s=1$, as in the primary expert analysis. Overall agreement ranged from 83.1\% to 88.3\% across the tested exponents ($n=77$). Coarse agreement remained 100\%, while fine agreement varied from 61.8\% to 73.5\% (21--25 of 34 pairs).
 
-Table~\ref{tab:sensitivity}(d) reports 95\% confidence intervals from 1{,}000 bootstrap resamples of held-out professors. Across resamples, the four correlations had SDs of 0.027 or less, indicating stability across professor samples conditional on the fitted pipeline.
+Table~\ref{tab:sensitivity}(d) reports 95\% confidence intervals from 1{,}000 bootstrap resamples of held-out professors. Across resamples, the four correlations had SDs of 0.027 or less.
 
 %========================================================================================
 \section{Discussion}
@@ -732,20 +694,11 @@ Table~\ref{tab:sensitivity}(d) reports 95\% confidence intervals from 1{,}000 bo
 
 RQ1 results show that \textit{Instructional Effectiveness} is the primary driver of rating variation in the fitted model, dominating in both frequency and attribution. Affect in the \textit{Miscellaneous} category ranks second only to \textit{Instructional Effectiveness}, exceeding both \textit{Fairness} and \textit{Workload}, motivating an auditable method for examining its modelled contribution.   Under the stated taxonomy, such content may introduce construct-irrelevant variance into rating interpretation, consistent with broader concerns about non-instructional influences on teaching evaluations \cite{MarshRoche1997,Langbein1994,Schiekirka2015,Dowell1983,Wongsurawat2011,Li2025}. Rating extremes display different profiles: concentrated positive emotions in 5-star reviews versus diffuse negative emotions across all topics in 1-star reviews, with \textit{Fairness} disproportionately represented in low ratings.
 
-Addressing RQ2, held-out coherence checks show that attenuation reduces model-estimated feature attribution associated with taxonomy-excluded affect ($-9.6\%$) while shifting attribution toward pedagogical categories ($+1.6\%$ to $+2.5\%$); correlations with pedagogical categories are maintained or slightly strengthened. Adjustment magnitude tracks \textit{Miscellaneous} density in both directions, with weaker but directionally consistent relationships with miscellaneous emotion features. Within reviews containing \textit{Miscellaneous} content, the mean absolute adjustment is 0.1964 points. The two-sided tail arises at the mechanism's $D_{\text{misc}}=1$ collapse point: all \textit{Miscellaneous} emotion features are zeroed, the attenuated prediction becomes the fixed baseline $\hat{y}=3.65$, and $\Delta$ equals the difference between the review's baseline prediction and that fixed prediction. The observed extremes are $+2.71$ and $-1.39$ rating points.
-%%collapse point verified in code
+Addressing RQ2, held-out coherence checks show reduced model-estimated feature attribution to taxonomy-excluded affect ($-9.6\%$) and increased attribution to pedagogical categories ($+1.6\%$ to $+2.5\%$). Correlations with taxonomy-excluded emotion features weaken, while those with pedagogical emotion features are maintained or slightly strengthened. Adjustment magnitude tracks \textit{Miscellaneous} density in both directions. However, wholly \textit{Miscellaneous} reviews receive the same attenuated prediction ($\hat{y}=3.65$), underscoring that these adjustments reflect the specified feature transformation rather than an empirically validated affect-neutral rating.
 
-These patterns are stable under the tested perturbations. The permutation
-control confirms that the modulator correlations depend on the original density
-assignment: no shuffle produced correlations as extreme as observed ($p=.001$ each), with the observed values ($r = .687$, $-.708$) more extreme than the corresponding permuted means ($r = .233$, $-.158$), conditional on the fitted model and the specified
-perturbation, in which density was shuffled both as a model feature and as the
-attenuation input. Professor-level bootstrap CIs ([.651, .720] and [$-.741$, $-.671$]) confirm stability across held-out professor samples. Across attenuation exponents $s \in \{0.5, \ldots, 1.5\}$, Pearson modulator correlations vary little. Around the operating point, adjacent exponents yield near-identical adjustments: $s=0.75$ versus $1.0$ gives $r=.995$ with mean $|\Delta_a-\Delta_b|=.029$, and $s=1.0$ versus $1.25$ gives $r=.997$ with mean $|\Delta_a-\Delta_b|=.022$; larger separations produce lower rank agreement. $s=1$ was selected a priori on proportionality grounds. The Mann--Whitney rank-biserial ($|r| = .789$), computed on deliberately separated density groups ($D_{\text{misc}} > 0.5$ vs.\ $D_{\text{misc}} < 0.2$), indicates that a high-density review receives a larger-magnitude adjustment than a low-density review in approximately 89\% of cross-group pairings. Together, these checks support coherence across held-out professor resamples and the tested attenuation exponents, while the permutation result shows that the observed pattern depends on the original density assignment.
+The observed density--adjustment correlations ($r=.687$ and $-.708$) were stronger in magnitude than the corresponding permutation means ($r=.233$ and $-.158$); no shuffle produced correlations as extreme ($p=.001$ each; Table~\ref{tab:permutation-control}). Shuffling density weakened its association with adjustment magnitude in both adjustment directions. Because the permutation changes density both as a predictor and as the attenuation input, it does not isolate the attenuation rule's contribution. Exponent sensitivity checks show near-identical adjustments around $s=1$, selected a priori on proportionality grounds, although larger exponent differences reduce rank agreement. Professor-level bootstrap results support stability of the modulator correlations across held-out professor samples conditional on the fitted pipeline (Table~\ref{tab:sensitivity}).
 
-Addressing RQ3, adjustment-magnitude and density-only orderings each agreed with expert majorities on 83.1\% of 77 sampled pairs, with 100\% agreement on coarse pairs and 61.8\% on fine pairs. Of the 64 correctly ordered pairs, 43 were coarse. Attenuation's overall agreement exceeded the permutation benchmark, with $p=.001$; no shuffle reached the observed agreement in 1{,}000 permutations. In the supplementary fixed-bin analysis, no shuffle matched the
-observed agreement on the original 43 coarse pairs ($p = .001$), indicating that
-the original density assignment contributes to the model's ranking of
-high-contrast pairs. Fine-condition agreement did not exceed the permutation null
-under either bin specification ($p = .378$ recomputed, $p = .321$ fixed); close-pair alignment is not established at this sample size. Across the tested exponents, fine-pair agreement ranged from 61.8\% to 73.5\%.
+Addressing RQ3, attenuation and density-only orderings each agreed with expert majorities on 83.1\% of 77 pairs (100\% coarse; 61.8\% fine), showing no aggregate advantage for attenuation. Attenuation's overall and fixed-coarse-pair agreement exceeded their permutation benchmarks ($p=.001$ each). Coarse agreement did not exceed the recomputed-bin benchmark ($p=.180$), where shuffled coarse groups averaged 10.5 pairs versus 43 observed and varied in membership. Neither fine-pair test exceeded its benchmark, leaving close-pair alignment unestablished at this sample size. Fine-pair agreement ranged from 61.8\% to 73.5\% across attenuation exponents.
 
 Attenuation connects an explicit relevance taxonomy to a specified transformation of the fitted rating model's inputs. Whereas density measures the prevalence of taxonomy-excluded text, the signed prediction difference measures the direction and magnitude of the model's response to scaling the corresponding emotion features while holding other inputs fixed. Expressed in rating units, this response makes the consequences of the attenuation rule inspectable for individual reviews. Its interpretation remains conditional on the taxonomy, extracted features, fitted model, and specified transformation.
 
@@ -757,7 +710,6 @@ although three persisted despite expert unanimity. The study cannot determine
 whether these reflect limits of the mechanism in close cases or differences
 between the experts' broader judgments of validity and/or topical relevance and this study's taxonomy. The fine-condition results and the density-only match provide an initial reference for evaluating future methods' agreement with expert judgments.
 
-The framework addresses similar CIV concerns to those documented by \citeA{Zhai2021} in controlled assessments, but in the considerably more challenging setting of informal, unmoderated SET reviews. This positions the work as initial method evidence for a validity-oriented direction in teaching-feedback analytics, rather than a ready intervention.
 
 \subsection{Implications for Responsible Interpretation of Teaching Feedback}
 
@@ -773,34 +725,24 @@ rankings or performance measures.
 
 Additional information is not inherently safer to act on. The framework produces model-based adjustments under a stated pedagogical taxonomy. An attenuated rating is not a validated estimate of teaching quality; the framework decomposes a review into topic and emotion components, it does not summarize or replace the review itself. Any interpretation that bypasses the original text discards exactly the context the audit trail is designed to preserve.
 
-Auditability alone does not make a deployment trustworthy. Drachsler and Greller's DELICATE framework treats transparency as one element of trusted learning analytics, alongside an explicit purpose, stakeholder involvement, data governance, and routes to contest harmful consequences \cite{DrachslerGreller2016}. The mechanism can reproducibly compute review-level decompositions and adjustments; it must not autonomously rank, reward, penalize, or otherwise make consequential decisions about instructors or students. The present proof of concept does not authorize deployment in a consequential institutional or platform decision process.
+Auditability alone does not establish deployment readiness. Drachsler and Greller's DELICATE framework situates transparency alongside an explicit purpose, stakeholder involvement, data governance, and routes to contest harmful consequences \cite{DrachslerGreller2016}. This proof of concept does not justify consequential deployment or autonomous decisions about instructors or students.
 
+The framework addresses one potential source of construct-irrelevant variance: taxonomy-excluded affect. Other documented sources of bias in teaching evaluations, including gender, race, and popularity effects \cite{Kim2025,Kopciuszewska2025}, may remain present in the data and in the adjusted ratings. A user who assumes that attenuation has produced a "cleaned" rating risks greater confidence in a result that still carries unaddressed contamination.
 
-    The framework addresses one potential source of construct-irrelevant variance: taxonomy-excluded affect. Other documented sources of bias in teaching evaluations, including gender, race, and popularity effects \cite{Kim2025,Kopciuszewska2025}, may remain present in the data and in the adjusted ratings. A user who assumes that attenuation has produced a "cleaned" rating risks greater confidence in a result that still carries unaddressed contamination.
-
-
-
-    Responsible use requires understanding where the framework's auditability ends. The attenuation rule itself is fully transparent: 
-    $\zeta = 1 - D_{\text{misc}}$ is a fixed, monotonic function with no learned parameters. However, the components that produce its inputs are not equally interpretable. Topic assignment relies on sentence embeddings and cosine similarity thresholds, emotion classification uses a fine-tuned RoBERTa model, and the downstream rating model is a CatBoost ensemble. The audit trail shows \emph{what} the framework did — which clauses were classified where, what emotions were detected, how the rating changed — but a user contesting an adjustment must recognize that the upstream classifications themselves are model outputs, not ground-truth labels. Engaging critically with the trail, rather than accepting it as a complete explanation, is part of using the framework responsibly.
+The attenuation rule $\zeta = 1-D_{\text{misc}}$ is fixed, monotonic, and has no learned parameters; the topic, emotion, and rating models are not equally interpretable. The audit trail exposes clause assignments, detected emotions, and rating changes, but does not establish the correctness of those classifications or fully explain the models that produced them.
 
 
 %========================================================================================
 \section{Limitations and Future Work}
 %========================================================================================
 
-This study has no independent external criterion against which to compare whether adjusted ratings support more
-  defensible inferences about teaching than raw ratings. Mechanistic coherence, robustness checks, and expert paired-
-  comparison agreement are indirect evidence; they do not demonstrate that adjusted ratings more accurately represent
-  teaching quality. A stronger validity argument would require pre-specified, triangulated external evidence, for
-  example, appropriately contextualized peer review, course-design evidence, and student-learning measures, evaluated
-  on independent datasets. Such evidence is unavailable in the RMP corpus.
+Without an independent external criterion, mechanistic coherence, robustness checks, and expert paired-comparison agreement do not establish that adjusted ratings support more defensible teaching-quality inferences than raw ratings. A stronger validity argument requires pre-specified, triangulated evidence---such as appropriately contextualized peer review, course-design evidence, and student-learning measures---evaluated on independent datasets.
 
 The exclusive use of anonymous, self-selected RMP reviews limits generalizability to formal SET, and the corpus’s 5-star skew leaves fewer low-rating reviews for modelling. ATC relies on broad, single-label topics (strict accuracy 0.72), so multi-topic clauses may be misclassified, and the RoBERTa-GoEmotions model, trained on Reddit comments, may misinterpret sarcasm or informal language. Imperfect cleaning and clause segmentation can propagate errors downstream.
 
-Attenuation outcomes depend on upstream classifications and the fitted model: high $D_{\text{misc}}$ does not guarantee a large adjustment, and wholly \textit{Miscellaneous} reviews ($D_{\text{misc}}=1$) receive identical attenuated predictions ($\hat{y} = 3.65$) regardless of emotional content. In this implementation, $D_{\text{misc}}$ operationalizes taxonomy exclusion as the proportion of review words assigned to \textit{Miscellaneous}. Alternative operationalizations could use graded semantic alignment or uncertainty in topic assignment to determine attenuation weights. Because the adjusted rating adds $\Delta$ to the raw rating without clipping, 1,643 reviews (9.6\%) fall outside the original 1--5 scale, ranging from $-0.31$ to $7.62$. These values function as unbounded model-based summaries for inspection rather than replacement scale scores.
+Attenuation depends on the classifications and fitted model: high density need not yield large adjustments, and wholly \textit{Miscellaneous} reviews share an attenuated prediction of 3.65. Alternatives to word-count-based density could incorporate graded semantic alignment or topic-assignment uncertainty. Adding $\Delta$ to raw ratings without clipping places 1,643 reviews (9.6\%) outside the 1--5 scale, ranging from $-0.31$ to $7.62$; these are unbounded model-based summaries for inspection, not replacement scale scores.
 
-Because the taxonomy may both omit pedagogically relevant concerns and miss other sources of construct-irrelevant
-variance, taxonomy-excluded affect is neither a claim that \textit{Miscellaneous} content is intrinsically irrelevant nor a comprehensive measure of construct-irrelevant variance. Accordingly, attenuation cannot be interpreted as a comprehensive correction for construct-irrelevant variance. Demographic information in the source dataset was not used, so this analysis cannot assess whether adjusted ratings retain gender or racial inequities.
+The taxonomy may omit pedagogically relevant concerns and miss other sources of construct-irrelevant variance; exclusion therefore establishes neither intrinsic irrelevance nor a comprehensive basis for correcting ratings. Demographic information in the source dataset was not used, so this analysis cannot assess whether adjusted ratings retain gender or racial inequities.
 
 The three-expert evaluation concerns relative review judgments on a small, curated pair set, rather than exact adjustment magnitudes. Agreement remains conditional on the panel and selection protocol, including informal author review of ATC assignments during pair construction; the expert sample spans training and held-out instructors. Wilson intervals condition on these experts and assume independent pairs; the 144 distinct instructors and absence of within-pair instructor
 overlap support this approximation, though eight instructors recur across pairs. The unanimity breakdown is post hoc, and the $0.5$ contrast cutoff defines the evaluated groups rather than an estimated discrimination threshold. Permutation interpretations remain conditional on the specified density shuffle and the model-based pair selection.
@@ -828,10 +770,7 @@ pairs. This comparison shows no aggregate expert-ranking advantage for attenuati
 The framework preserves every original review and its full emotional
 profile; attenuation reweights the modelled contribution of affect to a summary
 rating. This design reflects a commitment to contestability: stakeholders can
-inspect and question the basis of any adjustment. As a proof of concept, the work
-makes validity concerns computationally explicit and auditable under a stated
-taxonomy, providing a mechanism, an evaluation protocol, and a density-only
-baseline for future work on validity-aware teaching-feedback analytics.
+inspect and question the basis of any adjustment. As a proof of concept, validity-informed attenuation makes rating sensitivity to a stated relevance taxonomy explicit and auditable, providing a mechanism, an evaluation protocol, and a density-only baseline for future teaching-feedback analytics.
 %----------------------------------------------------------------------------------------
 \phantomsection
 \section*{Acknowledgements}

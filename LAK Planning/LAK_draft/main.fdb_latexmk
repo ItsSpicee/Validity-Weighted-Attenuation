@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1789069840.45456 "main.aux" "main.bbl" "main" 1789069866.15566 0
-  "./references.bib" 1788838761 20131 dcadece06318e9de2e8cf69822d31804 ""
+["bibtex main"] 1789161927.14135 "main.aux" "main.bbl" "main" 1789161936.46928 0
+  "./references.bib" 1789154833 20131 dcadece06318e9de2e8cf69822d31804 ""
   "C:/Users/Amer/AppData/Local/Programs/MiKTeX/bibtex/bst/apacite/apacite.bst" 1374952728 146156 9d7b79dbf9d91133318126032cff8c27 ""
-  "main.aux" 1789069863 28120 7ab0d7f298b8e83e8c207cc2775f639f "pdflatex"
+  "main.aux" 1789161934 26650 38d1a82074f3af6919393e3f52356b52 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1789069858.82311 "c:/Users/Amer/Desktop/Git/Validity-Weighted-Attenuation/LAK Planning/LAK_draft/main.tex" "main.pdf" "main" 1789069866.15796 0
+["pdflatex"] 1789161928.04291 "c:/Users/Amer/Desktop/Git/Validity-Weighted-Attenuation/LAK Planning/LAK_draft/main.tex" "main.pdf" "main" 1789161936.47056 0
   "C:/Users/Amer/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1788985733 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/Amer/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1787522538 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/Amer/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1787522329 13333003 d4ff3d4b00c4af1af0d5afe6142af747 ""
@@ -49,7 +49,6 @@
   "C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1247596667 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb" 1247596667 36607 d654cb3f2bc54f57509240071db3bffa ""
   "C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb" 1247596667 36310 f5ddc6715cc60deb16d9db5ded6a9391 ""
-  "C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1247596673 31764 459c573c03a4949a528c2cc7f557e217 ""
   "C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1247596673 34694 870c211f62cb72718a00e353f14f254d ""
   "C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb" 1136846148 45758 19968a0990191524e34e1994d4a31cb6 ""
   "C:/Users/Amer/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb" 1136871348 35941 adef23a721dd8354a4a2bf4434f1c484 ""
@@ -169,12 +168,12 @@
   "Diagrams/pdfs/ex2.pdf" 1788320587 107068 70e38f93327ebd39dac4d7a6adf4d8a1 ""
   "Diagrams/roberta/1_star_heatmap_emotions.png" 1788381723 65500 fe9d17d12b738118733569d98967f1ba ""
   "JLA_article.cls" 1787516512 9134 ce0cd70d9fdd82e805faea3790c4d92a ""
-  "c:/Users/Amer/Desktop/Git/Validity-Weighted-Attenuation/LAK Planning/LAK_draft/main.tex" 1789069857 79598 e2d428f4abddeb4f97c9298ecb25534c ""
+  "c:/Users/Amer/Desktop/Git/Validity-Weighted-Attenuation/LAK Planning/LAK_draft/main.tex" 1789161917 69733 915b94c0d031dc512eb3386542728528 ""
   "header.png" 1787516512 81196 9778dd2402a71bb212046e45ff94a082 ""
-  "main.aux" 1789069863 28120 7ab0d7f298b8e83e8c207cc2775f639f "pdflatex"
-  "main.bbl" 1789069840 41227 6da8be5c05a1e5f321f9e537cb77c724 "bibtex main"
-  "main.out" 1789069863 8466 c24c0f1855a9d4e0930271ce5e7d7718 "pdflatex"
-  "main.tex" 1789069857 79598 e2d428f4abddeb4f97c9298ecb25534c ""
+  "main.aux" 1789161934 26650 38d1a82074f3af6919393e3f52356b52 "pdflatex"
+  "main.bbl" 1789161927 41227 6da8be5c05a1e5f321f9e537cb77c724 "bibtex main"
+  "main.out" 1789161934 8345 9aa9ab635f9e3f19514fcd9299156d7b "pdflatex"
+  "main.tex" 1789161917 69733 915b94c0d031dc512eb3386542728528 ""
   (generated)
   "main.aux"
   "main.log"
