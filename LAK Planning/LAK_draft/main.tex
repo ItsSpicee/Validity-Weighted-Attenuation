@@ -101,25 +101,20 @@
 
 \subsection{Open-Ended Teaching Feedback as a Learning-Analytics Trace}
 
-Open-ended teaching feedback is a widely available but analytically underspecified data source: nothing constrains how the content of accompanying text should shape interpretation of the rating, so any method that attempts to inform stakeholders of its validity must operate under cautious and auditable interpretation.
-Current methods, however, have been limited to primarily descriptive approaches.
-Sentiment analysis on Student Evaluations of Teaching (SET) is a growing area for computational insight into student experiences and institutional feedback. SET has historically guided consequential administrative decisions \cite{Haskell1997,Simpson2000,Irons2011}. Despite this widespread usage, SET validity remains contested: ratings may reflect extraneous influences rather than teaching effectiveness \cite{Langbein1994,MarshRoche1997}. Situational factors, irrelevant content, and affective content unrelated to instruction threaten validity \cite{Wongsurawat2011,Schiekirka2015}, especially in informal instruments such as RateMyProfessors.com (RMP), which are fully open-ended, anonymized, and largely unmoderated. Interpreting SET results without accounting for contamination risks misinforming stakeholders and distorting faculty assessment \cite{Haskell1997,Wongsurawat2011,Zumbach2014,Emery2003,Dowell1983}.
-
-Because a numerical rating collapses distinct sources of expression into a single value, the accompanying review text provides a trace through which those sources can be examined. This study treats open-ended teaching feedback as such a learning-analytics trace.
+Open-ended teaching feedback often pairs a single numerical rating with a comment spanning multiple topics of differing relevance to the intended evaluation. As a learning-analytics data source, this feedback offers context for examining numerical evaluations, but the rating alone does not reveal how these topics relate to the overall judgment. We argue that analytic approaches using these distinctions to reshape a rating summary require cautious interpretation, with relevance criteria and their effects made explicit and open to scrutiny.
+The stakes of interpreting teaching feedback are particularly clear in Student Evaluations of Teaching (SET), where ratings are used as evidence in judgments about the quality of instruction. SET has historically guided consequential administrative decisions, raising concerns about how evaluations are interpreted and used in faculty assessment \cite{Haskell1997,Simpson2000,Irons2011,Wongsurawat2011,Zumbach2014,Emery2003,Dowell1983}. Despite this widespread usage, the validity of interpretations drawn from SET ratings remains contested: ratings may reflect influences beyond the instructional dimensions intended for evaluation \cite{Langbein1994,MarshRoche1997}. Situational factors, irrelevant content, and affective content unrelated to instruction threaten validity \cite{Wongsurawat2011,Schiekirka2015}, especially in informal instruments such as RateMyProfessors.com (RMP), which are fully open-ended, anonymized, and largely unmoderated. These concerns motivate making explicit which dimensions of student experience an analysis treats as relevant and how that choice shapes the resulting rating summary.
 
 \subsection{The Unresolved Methodological Gap}
 
-Existing computational SET research describes sentiment and topics but offers few mechanisms connecting an explicit relevance taxonomy to model-estimated rating adjustments. We introduce \textbf{validity-informed attenuation}, an ABSA method that attenuates the modelled contribution of \emph{taxonomy-excluded affect}: affect expressed in clauses assigned outside the stated taxonomy. Exclusion does not imply that the content is unimportant or invalid. The method makes rating sensitivity to the taxonomy auditable by preserving original reviews alongside classifications, emotion features, density values, and adjustment records. This supports a proposed human-review workflow where important criteria cannot be fully specified \cite{DoshiVelez2017} and analytics must connect to pedagogical interpretation and action \cite{GasevicDawsonSiemens2015}. Such inspectability addresses concerns about black-box systems in SET \cite{Rybinski2021,Zhuang2025}.
+Existing computational SET research characterizes sentiment and topics, and predicts ratings, but offers few mechanisms connecting an explicit relevance taxonomy to model-estimated rating adjustments. We introduce \textbf{validity-informed attenuation}, an aspect-based sentiment analysis (ABSA) framework that scales emotion features from clauses assigned outside a stated relevance taxonomy---termed \emph{taxonomy-excluded affect}---and traces the resulting changes in a fitted rating model's predictions. Exclusion does not imply that the content is unimportant or invalid. The method makes rating sensitivity to the taxonomy auditable by preserving original reviews alongside classifications, emotion features, density values, and adjustment records. This supports a proposed human-review workflow where important criteria cannot be fully specified \cite{DoshiVelez2017} and analytics must connect to pedagogical interpretation and action \cite{GasevicDawsonSiemens2015}. Such inspectability makes the classification and adjustment process available for scrutiny, although the underlying predictive models retain black-box components \cite{Rybinski2021,Zhuang2025}.
 
 \textbf{Research Questions:}
-
 
 \begin{description}[noitemsep]
 \item[RQ1.] What is the topic and affective composition of open-ended teaching feedback, and how do topic-specific emotional signals relate to numerical ratings in the fitted model?
 \item[RQ2.] How does validity-informed attenuation change fitted-model outputs and feature associations on held-out instructors, and how stable are these changes under the tested perturbations?
-\item[RQ3.] How do adjustment-magnitude and density-only orderings compare in their agreement with experts' relative judgments of review validity and topical relevance on sampled review pairs?
+\item[RQ3.] How do adjustment-magnitude and density-only orderings compare in their agreement with experts' relative judgments of review validity and/or topical relevance on sampled review pairs?
 \end{description}
-
 
 To answer our research questions, we develop and apply a five-stage NLP framework to 17,127 RMP student evaluations.
 
@@ -127,7 +122,7 @@ To answer our research questions, we develop and apply a five-stage NLP framewor
 
 \noindent The primary contributions of this research are:
 \begin{itemize}
-\item To our knowledge, the first auditable attenuation mechanism linking an explicit relevance taxonomy to traceable review-level adjustment records in a fitted rating model, motivated by validity and robust-estimation theory \cite{Messick1995,Huber1964}.
+\item To our knowledge, the first auditable attenuation mechanism linking an explicit relevance taxonomy to traceable review-level adjustment records in a fitted rating model, motivated by validity and the down-weighting principle of robust estimation \cite{Messick1995,Huber1964}.
 \item A proof-of-concept characterization of the mechanism on 17,127 RMP reviews, including held-out-instructor analyses and sensitivity checks.
 \item An initial expert-comparison protocol and density-only reference results that assess agreement with expert rankings on sampled review pairs and establish a concrete baseline for future methods.
 \end{itemize}
@@ -140,11 +135,13 @@ To answer our research questions, we develop and apply a five-stage NLP framewor
 
 \citeA{Messick1995} identifies two primary threats to validity: construct underrepresentation and construct-irrelevant variance (CIV). His unified theory extends to any assessment in which responses are summarized into scores, a formulation that directly encompasses SET, with these threats particularly pronounced in informal, anonymous instruments such as RMP.
 
+Both threats matter when defining a relevance taxonomy for teaching feedback: including extraneous content may introduce construct-irrelevant variance, while excluding relevant dimensions may underrepresent the intended construct. The taxonomy therefore operationalizes a relevance judgment whose coverage must itself remain open to scrutiny.
+
 \citeA{MarshRoche1997} conclude that SET can be multidimensional, reliable, and relatively valid, but condition this on the content and coverage of items: ``scores averaged across an ill-defined assortment of items offer no basis for knowing what is being measured'' (p.\ 1187). Validity concerns the evidence supporting score interpretations and uses; the relevance and coverage of elicited content are part of that evidence \cite{Messick1995}. Unconstrained, open-ended instruments offer no design guarantee that responses adequately represent the intended construct.
 
-\citeA{Wongsurawat2011} identifies pedagogically irrelevant comment content as a potential source of measurement error in open-ended SET and argues for evaluating comment reliability. Comments with little to no correlation with average evaluations should be discounted, and administrators would benefit from metrics quantifying comment quality and reliability.
+\citeA{Wongsurawat2011} identifies pedagogically irrelevant comment content as a potential source of measurement error in open-ended SET and argues for evaluating comment reliability. Wongsurawat further argues that comments with little to no correlation with average evaluations should be discounted and that administrators would benefit from metrics quantifying comment quality and reliability.
 
-Across these studies, validity threats from construct-irrelevant content, including situational confounders \cite{Schiekirka2015} and students' emotional and relational states \cite{Li2025}, are documented in both formal and informal evaluation contexts. Recent psychometric work has demonstrated that CIV can be identified and mitigated in constructed-response assessments under controlled conditions \cite{Zhai2021}, but existing approaches either operate under such conditions, which do not extend to large-scale SET, or identify contamination without providing a computational mechanism to attenuate its influence on numerical ratings.
+Across these studies, validity threats from construct-irrelevant content, including situational confounders \cite{Schiekirka2015} and students' emotional and relational states \cite{Li2025}, are documented in both formal and informal evaluation contexts. Recent psychometric work has demonstrated that CIV can be identified and mitigated in constructed-response assessments under controlled conditions \cite{Zhai2021}, but applying this aim to open-ended teaching feedback requires an explicit basis for judging content relevance and examining how ratings respond when that relevance judgment is operationalized.
 
 \subsection{From Descriptive NLP to Validity-Oriented Interpretation}
 
@@ -155,11 +152,11 @@ content \cite{Rybinski2021,Shuqin2024}; in SET, aspect-based approaches use this
 extract aspect-level sentiment \cite{Bhowmik2023,Nikolic2020,Jazuli2025}. \citeA{Ren2022} extract and aggregate aspect
 sentiment, while \citeA{Butt2025} compare BERT and LLM approaches for SET analysis.
 
-Research on computational estimation of comment relevance shows that filtering by pedagogical value can improve prediction accuracy \cite{Sorour2015,Louis2013,Xiong2011}. Neither line of work specifies how pedagogical relevance should modulate affect's contribution to rating interpretation.
+Research on computational estimation of comment relevance shows that filtering by pedagogical value can improve prediction accuracy \cite{Sorour2015,Louis2013,Xiong2011}. These approaches leave open how an explicit relevance criterion can be connected to an auditable analysis of rating sensitivity.
 
 \subsection{Design Principle: Attenuation Rather Than Deletion}
 
-Addressing validity concerns within SET does not require excluding low-utility reviews. Robust estimation motivates down-weighting observations to limit their influence on an estimate \cite{Huber1964}. We adapt this general principle to topic-specific emotion features, using content density to determine the degree of attenuation.
+A review may contain both content relevant to the intended evaluation and content outside its scope, motivating a selective approach that retains the original feedback without excluding reviews. Robust estimation motivates down-weighting observations to limit their influence on an estimate \cite{Huber1964}. We adapt this general principle to topic-specific emotion features, using content density to determine the degree of attenuation.
 
 Pedagogical relevance is operationalized through a generic three-category
 taxonomy. Clauses assigned to \textit{Miscellaneous} fall outside the included
@@ -168,12 +165,12 @@ concerns, ambiguous wording, or classification error, it provides a basis for
 inspection rather than a determination of irrelevance. The three categories
 reflect dimensions that recur across SET instruments and research syntheses
 \cite{Marsh1982}, chosen as a generic, widely legible baseline; different taxonomies would produce different
-density estimates and adjustments. In future theoretical formal applications, stakeholders could
+density estimates and adjustments. If further refinement and validation support application to formal SET, stakeholders could
 define or refine the categories in relation to course learning design and its
 documented pedagogical intent, so that the analytic lens reflects local priorities
 \cite{LockyerHeathcoteDawson2013}.
 
-The remaining gap is an explicit rating-adjustment mechanism whose outputs are auditable and contestable \cite{DrachslerGreller2016}, supporting pedagogical interpretation and action \cite{GasevicDawsonSiemens2015}.
+These considerations motivate a proof of concept connecting an explicit relevance taxonomy to an auditable analysis of rating sensitivity, with outputs open to scrutiny and contestation \cite{DrachslerGreller2016} and intended to support pedagogical interpretation and action \cite{GasevicDawsonSiemens2015}.
 %========================================================================================
 \section{Method}
 %========================================================================================
@@ -752,11 +749,13 @@ Future work should co-design and evaluate a formal-SET version of the framework 
 %========================================================================================
 \section{Conclusion}
 %========================================================================================
-Open-ended teaching feedback is an increasingly common learning-analytics
-trace, yet computational approaches to it remain largely descriptive. This
-research presented validity-informed attenuation, an auditable mechanism,
-motivated by validity theory and robust-estimation principles, that attenuates
-the modelled contribution of taxonomy-excluded affect to a rating summary,
+Open-ended teaching feedback is a common learning-analytics trace, yet
+computational approaches largely describe its content or predict ratings,
+leaving less explored how explicit relevance criteria can guide interventions
+on model inputs and make the resulting rating sensitivity auditable. This research presented validity-informed
+attenuation, an auditable framework, motivated by validity theory and
+robust-estimation principles, that scales the taxonomy-excluded emotion
+features of each review and records the fitted rating model's response,
 offered as a complement to existing approaches for interpreting open-ended
 teaching feedback.
 
@@ -765,12 +764,12 @@ audit trails; a proof-of-concept characterization on 17{,}127 RMP reviews,
 including held-out-instructor analyses and robustness checks; and an initial
 expert-comparison protocol with a density-only reference result: density alone
 matched the full mechanism's aggregate expert-ranking agreement on the sampled
-pairs. This comparison shows no aggregate expert-ranking advantage for attenuation on the sampled pairs. Beyond relevance ordering, the framework supports examination of the rating model's learned relationships between topic-specific emotion features and ratings, and traces the direction and magnitude of its response to attenuating taxonomy-excluded emotion features.
+pairs. Beyond validity-informed ordering, the framework supports examination of the
+rating model's learned relationships between topic-specific emotion features
+and ratings, and traces the direction and magnitude of its response to
+attenuating taxonomy-excluded emotion features.
 
-The framework preserves every original review and its full emotional
-profile; attenuation reweights the modelled contribution of affect to a summary
-rating. This design reflects a commitment to contestability: stakeholders can
-inspect and question the basis of any adjustment. As a proof of concept, validity-informed attenuation makes rating sensitivity to a stated relevance taxonomy explicit and auditable, providing a mechanism, an evaluation protocol, and a density-only baseline for future teaching-feedback analytics.
+The framework retains the original reviews and intermediate outputs as an audit trail, while selectively scaling taxonomy-excluded emotion features to examine the fitted model's response. This design makes both the operationalized relevance judgment and the resulting prediction change open to scrutiny and contestation. As a proof of concept, validity-informed attenuation provides an auditable mechanism, an initial expert-comparison protocol, and a density-only baseline on which future research can build to evaluate rating sensitivity and its usefulness for interpreting teaching feedback.
 %----------------------------------------------------------------------------------------
 \phantomsection
 \section*{Acknowledgements}
